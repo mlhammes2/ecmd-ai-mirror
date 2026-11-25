@@ -1,6 +1,6 @@
 {
   "projectRef": "lvynkeuceiqxafgpgdvs",
-  "exportedAt": "2026-11-25T21:11:31.763Z",
+  "exportedAt": "2026-11-25T21:14:12.791Z",
   "tableCount": 31,
   "tables": [
     {
@@ -2300,7 +2300,7 @@
     },
     {
       "table_name": "ecmd_external_ai_cms",
-      "row_count": 34,
+      "row_count": 35,
       "rls_enabled": false,
       "mirrored": true,
       "columns": [

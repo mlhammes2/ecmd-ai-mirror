@@ -3,7 +3,7 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-25T21:11:41.065Z",
+  "generatedAt": "2026-11-25T21:14:22.415Z",
   "latestTurn": "TURN-037",
   "counts": {
     "totalFiles": 301,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-25T21:11:31.763Z",
+    "exportedAt": "2026-11-25T21:14:12.791Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -135,7 +135,7 @@
       },
       {
         "table_name": "ecmd_external_ai_cms",
-        "row_count": 34,
+        "row_count": 35,
         "rls_enabled": false,
         "mirrored": true
       },
@@ -545,7 +545,7 @@
       "section": "hub",
       "path": "hub/AGENTS.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/AGENTS.md",
-      "sizeBytes": 19752,
+      "sizeBytes": 20803,
       "purpose": "Markdown documentation"
     },
     {
@@ -580,7 +580,7 @@
       "section": "hub",
       "path": "hub/GEMINI.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/GEMINI.md",
-      "sizeBytes": 6101,
+      "sizeBytes": 6216,
       "purpose": "Markdown documentation"
     },
     {
@@ -601,7 +601,7 @@
       "section": "hub",
       "path": "hub/public/ai-telemetry.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json",
-      "sizeBytes": 3471,
+      "sizeBytes": 4740,
       "purpose": "ECMD PEN live turn telemetry"
     },
     {
@@ -1301,7 +1301,7 @@
       "section": "hub",
       "path": "hub/src/lib/ecmdBootPrompt.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdBootPrompt.ts",
-      "sizeBytes": 19411,
+      "sizeBytes": 20398,
       "purpose": "exports: ECMD_SIDEBAR_BOOT_PROMPT"
     },
     {
@@ -1875,7 +1875,7 @@
       "section": "runner",
       "path": "runner/GEMINI.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/GEMINI.md",
-      "sizeBytes": 5858,
+      "sizeBytes": 5846,
       "purpose": "Doc: ECMD Autonomous Engineering Protocol (C:\\ECMD — ECMD PEN v4.2 / Antigravity"
     },
     {
@@ -2582,7 +2582,7 @@
       "section": "supabase-mirror",
       "path": "supabase-mirror/tables/ecmd_external_ai_cms.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_external_ai_cms.json",
-      "sizeBytes": 67277,
+      "sizeBytes": 76023,
       "purpose": "Supabase public.ecmd_external_ai_cms table snapshot (scrubbed)"
     },
     {
