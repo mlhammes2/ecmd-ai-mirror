@@ -112,12 +112,47 @@ export function buildSteelGlowVars(
   return vars as React.CSSProperties;
 }
 
+export type EcmdSteelButtonRole =
+  | "auto"
+  | "scope-interior"
+  | "scope-full"
+  | "scope-exterior"
+  | "whats-included"
+  | "add-to-cart";
+
+export function resolveSteelButtonRoleAttrs(
+  buttonRole?: EcmdSteelButtonRole | null
+): Record<string, string> {
+  switch (buttonRole) {
+    case "scope-interior":
+      return { "data-ecmd-scope-btn": "interior" };
+    case "scope-full":
+      return { "data-ecmd-scope-btn": "full" };
+    case "scope-exterior":
+      return { "data-ecmd-scope-btn": "exterior" };
+    case "whats-included":
+      return {
+        "data-ecmd-action": "open-whats-included",
+        "data-ecmd-pkg": "whats-included-btn",
+      };
+    case "add-to-cart":
+      return {
+        "data-ecmd-action": "add-to-cart",
+        "data-ecmd-pkg": "add-to-cart-btn",
+      };
+    case "auto":
+    default:
+      return {};
+  }
+}
+
 export interface EcmdBrushedSteelButtonProps
   extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "onClick"> {
   className?: string;
   style?: React.CSSProperties;
   label?: string;
   selected?: boolean;
+  buttonRole?: EcmdSteelButtonRole;
   glowColor?: string;
   fontSize?: number | string;
   width?: number | string;
@@ -131,6 +166,7 @@ export function EcmdBrushedSteelButton({
   style,
   label = "Exterior",
   selected = false,
+  buttonRole = "auto",
   glowColor = DEFAULT_STEEL_GLOW_COLOR,
   fontSize,
   width,
@@ -147,6 +183,8 @@ export function EcmdBrushedSteelButton({
   }, [selected]);
 
   const effectiveSelected = onClick ? Boolean(selected) : localSelected;
+
+  const roleAttrs = useMemo(() => resolveSteelButtonRoleAttrs(buttonRole), [buttonRole]);
 
   const cleanWidth = useMemo(() => normalizeCssDimension(width), [width]);
   const cleanHeight = useMemo(() => normalizeCssDimension(height), [height]);
@@ -182,7 +220,16 @@ export function EcmdBrushedSteelButton({
     if (onClick) {
       onClick(event);
     } else {
-      setLocalSelected((prev) => !prev);
+      const isCardScopeBtn = Boolean(
+        event.currentTarget.closest(".ecmd-package-card") &&
+          (buttonRole === "scope-interior" ||
+            buttonRole === "scope-full" ||
+            buttonRole === "scope-exterior" ||
+            event.currentTarget.hasAttribute("data-ecmd-scope-btn"))
+      );
+      if (!isCardScopeBtn) {
+        setLocalSelected((prev) => !prev);
+      }
     }
   };
 
@@ -191,8 +238,11 @@ export function EcmdBrushedSteelButton({
       className={`ecmd-steel-button-root button-mount ${className}`.trim()}
       style={rootStyle}
       data-ecmd-selected={effectiveSelected ? "true" : "false"}
+      {...(buttonRole && buttonRole !== "auto" ? { "data-ecmd-button-role": buttonRole } : {})}
+      {...roleAttrs}
     >
       <button
+        {...roleAttrs}
         {...restButtonProps}
         type={type}
         className="ecmd-steel-button steel-button"

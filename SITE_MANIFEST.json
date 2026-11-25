@@ -3,21 +3,21 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-25T21:49:08.055Z",
-  "latestTurn": "TURN-038",
+  "generatedAt": "2026-11-25T23:06:59.242Z",
+  "latestTurn": "TURN-039",
   "counts": {
-    "totalFiles": 293,
-    "hubFiles": 165,
+    "totalFiles": 297,
+    "hubFiles": 167,
     "runnerFiles": 113,
-    "supabaseMirrorFiles": 15,
+    "supabaseMirrorFiles": 17,
     "registeredPlasmicComponents": 13,
-    "supabasePublicTables": 31,
-    "supabaseMirroredTables": 11,
+    "supabasePublicTables": 33,
+    "supabaseMirroredTables": 13,
     "secretsRedacted": 50
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-25T21:48:59.451Z",
+    "exportedAt": "2026-11-25T23:06:48.837Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -135,7 +135,7 @@
       },
       {
         "table_name": "ecmd_external_ai_cms",
-        "row_count": 35,
+        "row_count": 36,
         "rls_enabled": false,
         "mirrored": true
       },
@@ -165,7 +165,7 @@
       },
       {
         "table_name": "ecmd_pen_turns",
-        "row_count": 36,
+        "row_count": 37,
         "rls_enabled": false,
         "mirrored": true
       },
@@ -173,6 +173,12 @@
         "table_name": "ecmd_plasmic_hydration",
         "row_count": 1,
         "rls_enabled": false,
+        "mirrored": true
+      },
+      {
+        "table_name": "ecmd_service_packages",
+        "row_count": 36,
+        "rls_enabled": true,
         "mirrored": true
       },
       {
@@ -200,6 +206,12 @@
         "mirrored": false
       },
       {
+        "table_name": "ecmd_whats_included",
+        "row_count": 18,
+        "rls_enabled": true,
+        "mirrored": true
+      },
+      {
         "table_name": "ecmd_wix_legacy_vault",
         "row_count": 106,
         "rls_enabled": false,
@@ -215,8 +227,10 @@
       "ecmd_packages",
       "ecmd_pen_turns",
       "ecmd_plasmic_hydration",
+      "ecmd_service_packages",
       "ecmd_site_blueprints",
       "ecmd_site_menu_buttons",
+      "ecmd_whats_included",
       "ecmd_wix_legacy_vault"
     ],
     "excludedTables": [
@@ -395,14 +409,14 @@
     {
       "path": "hub/src/components/EcmdBrushedSteelButton.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdBrushedSteelButton.tsx",
-      "sizeBytes": 6648,
+      "sizeBytes": 8141,
       "purpose": "exports: DEFAULT_STEEL_GLOW_COLOR, ParsedRgbColor, SteelButtonSizingVars, normalizeCssDimension, resolveSteelLabelSize, parseGlowColorToRgb"
     },
     {
       "path": "hub/src/components/EcmdPackagesRepeater.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdPackagesRepeater.tsx",
-      "sizeBytes": 21594,
-      "purpose": "exports: autoHealPackageScopeButtons, PackagesOrientation, ResponsivePackagesOrientation, MobilePackagesOrientation, TabletPackagesOrientation, PackageDetailsAction"
+      "sizeBytes": 35482,
+      "purpose": "exports: SCOPE_BUTTON_TEXT_PATTERNS, autoHealPackageScopeButtons, PackagesOrientation, ResponsivePackagesOrientation, MobilePackagesOrientation, TabletPackagesOrientation"
     },
     {
       "path": "hub/src/components/EcmdThemeGroupController.tsx",
@@ -415,6 +429,12 @@
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdVehicleSelector.tsx",
       "sizeBytes": 7007,
       "purpose": "exports: VehicleSelectorResponsiveLayout, VehicleSelectorMobileLayout, EcmdVehicleSelectorProps, EcmdVehicleSelector"
+    },
+    {
+      "path": "hub/src/lib/ecmdPackageMatcher.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdPackageMatcher.ts",
+      "sizeBytes": 17599,
+      "purpose": "exports: PackageLevelName, PackageDetailType, PackageScopeKey, PackageSubCategory, EcmdServicePackageRow, EcmdSavedAddOnItem"
     },
     {
       "path": "hub/src/test/wix-vault.test.ts",
@@ -539,7 +559,7 @@
       "section": "hub",
       "path": "hub/AGENTS.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/AGENTS.md",
-      "sizeBytes": 21133,
+      "sizeBytes": 22435,
       "purpose": "Markdown documentation"
     },
     {
@@ -574,7 +594,7 @@
       "section": "hub",
       "path": "hub/GEMINI.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/GEMINI.md",
-      "sizeBytes": 6122,
+      "sizeBytes": 6180,
       "purpose": "Markdown documentation"
     },
     {
@@ -588,7 +608,7 @@
       "section": "hub",
       "path": "hub/public/ai-telemetry.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json",
-      "sizeBytes": 6483,
+      "sizeBytes": 5606,
       "purpose": "ECMD PEN live turn telemetry"
     },
     {
@@ -651,7 +671,7 @@
       "section": "hub",
       "path": "hub/public/plasmic-live-dom.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/plasmic-live-dom.json",
-      "sizeBytes": 2567775,
+      "sizeBytes": 2565048,
       "purpose": "JSON data / config"
     },
     {
@@ -665,7 +685,7 @@
       "section": "hub",
       "path": "hub/public/runtime-errors.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/runtime-errors.json",
-      "sizeBytes": 80,
+      "sizeBytes": 81,
       "purpose": "DEV browser runtime errors store"
     },
     {
@@ -791,7 +811,7 @@
       "section": "hub",
       "path": "hub/src/components/EcmdBrushedSteelButton.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdBrushedSteelButton.tsx",
-      "sizeBytes": 6648,
+      "sizeBytes": 8141,
       "purpose": "exports: DEFAULT_STEEL_GLOW_COLOR, ParsedRgbColor, SteelButtonSizingVars, normalizeCssDimension, resolveSteelLabelSize, parseGlowColorToRgb"
     },
     {
@@ -819,8 +839,8 @@
       "section": "hub",
       "path": "hub/src/components/EcmdPackagesRepeater.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdPackagesRepeater.tsx",
-      "sizeBytes": 21594,
-      "purpose": "exports: autoHealPackageScopeButtons, PackagesOrientation, ResponsivePackagesOrientation, MobilePackagesOrientation, TabletPackagesOrientation, PackageDetailsAction"
+      "sizeBytes": 35482,
+      "purpose": "exports: SCOPE_BUTTON_TEXT_PATTERNS, autoHealPackageScopeButtons, PackagesOrientation, ResponsivePackagesOrientation, MobilePackagesOrientation, TabletPackagesOrientation"
     },
     {
       "section": "hub",
@@ -1281,7 +1301,7 @@
       "section": "hub",
       "path": "hub/src/lib/ecmdBootPrompt.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdBootPrompt.ts",
-      "sizeBytes": 20273,
+      "sizeBytes": 21013,
       "purpose": "exports: ECMD_SIDEBAR_BOOT_PROMPT"
     },
     {
@@ -1290,6 +1310,13 @@
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdLiveComponentTelemetry.ts",
       "sizeBytes": 35842,
       "purpose": "exports: ALLOWED_PLASMIC_TOKEN_TYPES, AllowedPlasmicTokenType, RuntimeErrorEntry, RuntimeErrorsStore, EcmdRegisteredComponentMeta, ECMD_REGISTERED_COMPONENTS"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/lib/ecmdPackageMatcher.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdPackageMatcher.ts",
+      "sizeBytes": 17599,
+      "purpose": "exports: PackageLevelName, PackageDetailType, PackageScopeKey, PackageSubCategory, EcmdServicePackageRow, EcmdSavedAddOnItem"
     },
     {
       "section": "hub",
@@ -1400,7 +1427,7 @@
       "section": "hub",
       "path": "hub/src/plasmic-init.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/plasmic-init.ts",
-      "sizeBytes": 74786,
+      "sizeBytes": 75595,
       "purpose": "exports: PLASMIC"
     },
     {
@@ -1528,6 +1555,13 @@
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/media-cms.test.ts",
       "sizeBytes": 1875,
       "purpose": "Vitest automated test suite"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/test/packages-matrix-engine.test.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/packages-matrix-engine.test.tsx",
+      "sizeBytes": 16993,
+      "purpose": "exports: StudioCardTemplate"
     },
     {
       "section": "hub",
@@ -1813,7 +1847,7 @@
       "section": "runner",
       "path": "runner/GEMINI.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/GEMINI.md",
-      "sizeBytes": 5803,
+      "sizeBytes": 5963,
       "purpose": "Doc: ECMD Autonomous Engineering Protocol (C:\\ECMD — ECMD PEN v4.2 / Antigravity"
     },
     {
@@ -1876,7 +1910,7 @@
       "section": "runner",
       "path": "runner/scripts/sync-ai-mirror.mjs",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/sync-ai-mirror.mjs",
-      "sizeBytes": 43948,
+      "sizeBytes": 44000,
       "purpose": "exports: scrubSecrets, extractLocalBridgeSecret, isEnvFile, isBinaryBuffer, ensureDir"
     },
     {
@@ -2478,14 +2512,14 @@
       "section": "supabase-mirror",
       "path": "supabase-mirror/schema/schema_overview.sql",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/schema/schema_overview.sql",
-      "sizeBytes": 25918,
+      "sizeBytes": 28231,
       "purpose": "Supabase public schema DDL, RLS policies, triggers & custom functions"
     },
     {
       "section": "supabase-mirror",
       "path": "supabase-mirror/schema/tables_and_columns.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/schema/tables_and_columns.json",
-      "sizeBytes": 111518,
+      "sizeBytes": 123063,
       "purpose": "Supabase public tables, columns, constraints, policies & functions JSON"
     },
     {
@@ -2520,7 +2554,7 @@
       "section": "supabase-mirror",
       "path": "supabase-mirror/tables/ecmd_external_ai_cms.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_external_ai_cms.json",
-      "sizeBytes": 75746,
+      "sizeBytes": 77282,
       "purpose": "Supabase public.ecmd_external_ai_cms table snapshot (scrubbed)"
     },
     {
@@ -2534,7 +2568,7 @@
       "section": "supabase-mirror",
       "path": "supabase-mirror/tables/ecmd_pen_turns.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_pen_turns.json",
-      "sizeBytes": 334867,
+      "sizeBytes": 344652,
       "purpose": "Supabase public.ecmd_pen_turns table snapshot (scrubbed)"
     },
     {
@@ -2543,6 +2577,13 @@
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_plasmic_hydration.json",
       "sizeBytes": 10698,
       "purpose": "Supabase public.ecmd_plasmic_hydration table snapshot (scrubbed)"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/tables/ecmd_service_packages.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_service_packages.json",
+      "sizeBytes": 76602,
+      "purpose": "Supabase public.ecmd_service_packages table snapshot (scrubbed)"
     },
     {
       "section": "supabase-mirror",
@@ -2557,6 +2598,13 @@
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_site_menu_buttons.json",
       "sizeBytes": 9377,
       "purpose": "Supabase public.ecmd_site_menu_buttons table snapshot (scrubbed)"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/tables/ecmd_whats_included.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_whats_included.json",
+      "sizeBytes": 8946,
+      "purpose": "Supabase public.ecmd_whats_included table snapshot (scrubbed)"
     },
     {
       "section": "supabase-mirror",

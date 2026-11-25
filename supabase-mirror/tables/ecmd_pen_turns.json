@@ -1,9 +1,50 @@
 {
   "table": "ecmd_pen_turns",
-  "exportedAt": "2026-11-25T21:48:59.451Z",
-  "totalRowsInDb": 36,
-  "exportedRowCount": 36,
+  "exportedAt": "2026-11-25T23:06:48.837Z",
+  "totalRowsInDb": 37,
+  "exportedRowCount": 37,
   "rows": [
+    {
+      "status": "COMPLETE_CLEAN",
+      "ref_code": "TURN-038",
+      "tsc_clean": true,
+      "created_at": "2026-11-25T21:49:14.478464+00:00",
+      "date_label": "Wednesday, November 25, 2026",
+      "time_label": "2:49:14 PM",
+      "tsc_output": "",
+      "short_title": "Completed TURN-038 via Antigravity (agy) in 10:41",
+      "task_prompt": "CRITICAL SHELL RULE: NEVER run PowerShell `Invoke-WebRequest` or `iwr` without `-UseBasicParsing` (prefer Node `fetch()` with `AbortSignal.timeout(8000)` or `curl.exe -s` for all HTTP checks).\r\n\r\nClean up redundant `localhost:8080` dashboard routes/elements now superseded by the automated GitHub + Supabase mirror (`mlhammes2/ecmd-ai-mirror`), keep only essential dev/canvas routes, and sync all 4 mandatory boot-up sources:\r\n\r\n1. REMOVE REDUNDANT LOCALHOST ROUTES, NAV LINKS & BLOATED STATIC DUMPS:\r\n   - Remove the obsolete `localhost:8080` UI pages & route files for:\r\n     * `/console` (\"Command Console\", including `#ecmd-plasmic-layout-map`, `#ecmd-live-pen-telemetry`, and `#ecmd-live-component-dom` page views)\r\n     * `/history` (\"Action & Turn Log\")\r\n     * `/pages` (\"Pages & CMS\")\r\n     (Delete their route files in `src/routes/` and page components in `src/pages/`, plus any unused helper components only referenced by those removed pages, and let TanStack Router / `routeTree.gen.ts` regenerate cleanly or update route imports so zero dead references remain.)\r\n   - Update `src/components/layout/nav-links.ts` and `src/components/layout/AppHeader.tsx` so the dev header ONLY shows:\r\n     * `Workflow & Boot-Up` (`/workflow`)\r\n     * `Errors & Issues` (`/errors`, preserving the live count badge & top-right `✓ 0 Errors` / `🚨 N Critical` status pill + `Live Site (/) ↗` link)\r\n     Ensure customer-facing Plasmic routes (`/`, catch-all Plasmic pages) and `/plasmic-host` render cleanly with ZERO dev header clutter on customer pages and `/plasmic-host` rendering ONLY `<PlasmicCanvasHost />`.\r\n   - Delete redundant static dump files in `public/` that are now superseded by `mlhammes2/ecmd-ai-mirror`:\r\n     * `public/ai-history.json` (607 KB)\r\n     * `public/wix-vault-index.json`\r\n     * `public/ai-site-manifest.json` (if present)\r\n     Update `C:\\ECMD\\scripts\\run-pen-task.mjs` (preserving `agy.exe` invocation and the CRITICAL `-p` LAST-FLAG RULE!) so it no longer writes bloated `public/ai-history.json`, while STILL keeping lightweight `public/ai-telemetry.json`, `public/plasmic-diagnostics.json`, `public/plasmic-live-dom.json`, and `public/runtime-errors.json` so `/workflow` status cards and `/errors` (`#ecmd-unified-errors-json`) continue working at 0ms! Also update any Vitest tests (`src/test/wix-vault.test.ts` etc.) if they referenced removed `public/wix-vault-index.json` or removed routes so tests validate cleanly against the live codebase/mirror.\r\n\r\n2. UPDATE `/workflow` (`Workflow & Boot-Up Guide`) UI:\r\n   - Replace the removed `[Command Console ↗]` hero button with `[GitHub AI Mirror ↗]` (`https://github.com/mlhammes2/ecmd-ai-mirror`) alongside `[Errors & Issues ↗]` (`/errors`), `[Plasmic Studio ↗]`, and `[Live Site (/)]`.\r\n   - Update Phase 4 card copy on `/workflow` so it references `Errors & Issues (/errors)` + `GitHub AI Mirror (mlhammes2/ecmd-ai-mirror)` instead of the removed Command Console & Turn Log.\r\n\r\n3. MANDATORY 4-WAY BOOT-SYNC LAW (ZERO DRIFT):\r\n   - Rewrite & synchronize ALL FOUR boot sources in this exact same turn to establish `https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md` (and `SITE_MANIFEST.json`) as the primary behind-the-scenes codebase + Wix vault + Supabase grounding source alongside 0ms `/errors` (`#ecmd-unified-errors-json`), removing all stale references to `/console`, `/history`, and `/pages`:\r\n     1) `ECMD_SIDEBAR_BOOT_PROMPT` in `src/lib/ecmdBootPrompt.ts` (powering `/workflow` Copy Sidebar Boot Prompt),\r\n     2) `AGENTS.md`,\r\n     3) `GEMINI.md` (strictly < 6 KB), and\r\n     4) `public.ecmd_external_ai_cms` in Supabase via `node scripts/ecmd-sql.mjs`.\r\n\r\n4. VERIFY & PUSH MIRROR:\r\n   - Run `npx tsc --noEmit` and `npx vitest run` until 0 errors and 0 test failures remain.\r\n   - Run `node C:\\ECMD\\scripts\\sync-ai-mirror.mjs --push` so `mlhammes2/ecmd-ai-mirror` immediately reflects the leaned-down `hub/` & updated `SITE_MANIFEST.md`, then output `===ECMD_SUMMARY_START===`.",
+      "files_changed": [
+        "AGENTS.md",
+        "GEMINI.md",
+        "public/wix-vault-index.json",
+        "src/components/layout/nav-links.ts",
+        "src/lib/ecmdBootPrompt.ts",
+        "src/pages/Cms.tsx",
+        "src/pages/Console.tsx",
+        "src/pages/Errors.tsx",
+        "src/pages/History.tsx",
+        "src/pages/Homepage.tsx",
+        "src/pages/Workflow.tsx",
+        "src/routeTree.gen.ts",
+        "src/routes/__root.tsx",
+        "src/routes/cms.tsx",
+        "src/routes/console.tsx",
+        "src/routes/history.tsx",
+        "src/test/app-routing.test.tsx",
+        "src/test/wix-vault.test.ts"
+      ],
+      "human_bullets": [
+        "[9:25] #154 TOOL run_command",
+        "[9:47] #155 TOOL run_command",
+        "[10:06] #156 FINAL CHECK: npx tsc --noEmit",
+        "[10:14] #157 FINAL CHECK: npx vitest run",
+        "[10:25] #158 AUTO-SYNC: node C:\\ECMD\\scripts\\sync-ai-mirror.mjs --push",
+        "[10:41] #159 AUTO-SYNC COMPLETE: mlhammes2/ecmd-ai-mirror updated"
+      ],
+      "errors_summary": "0 final compiler errors | agy 159 steps, 0 self-heals in 10:41",
+      "raw_cli_output": "=== ANTIGRAVITY (AGY) STEP & SELF-HEAL LOG ===\n[0:00] Booting Antigravity CLI (agy.exe --output-format stream-json)...\n[0:09] #1 TOOL read_file\n[0:09] #2 TOOL read_file\n[0:09] #3 TOOL run_command\n[0:10] #4 TOOL run_command\n[0:26] #5 TOOL read_file\n[0:26] #6 TOOL read_file\n[0:30] #7 TOOL read_file\n[0:30] #8 TOOL read_file\n[0:40] #9 TOOL run_command\n[0:42] #10 TOOL run_command\n[0:42] #11 TOOL read_file\n[0:42] #12 TOOL read_file\n[0:42] #13 TOOL read_file\n[0:42] #14 TOOL read_file\n[0:42] #15 TOOL read_file\n[0:42] #16 TOOL read_file\n[0:42] #17 TOOL read_file\n[0:42] #18 TOOL read_file\n[0:42] #19 TOOL read_file\n[0:42] #20 TOOL read_file\n[0:51] #21 TOOL run_command\n[0:53] #22 TOOL run_command\n[0:53] #23 TOOL read_file\n[0:53] #24 TOOL read_file\n[0:53] #25 TOOL read_file\n[0:53] #26 TOOL read_file\n[0:53] #27 TOOL read_file\n[0:53] #28 TOOL read_file\n[0:53] #29 TOOL read_file\n[0:53] #30 TOOL read_file\n[0:53] #31 TOOL read_file\n[0:53] #32 TOOL read_file\n[1:00] #33 TOOL read_file\n[1:00] #34 TOOL read_file\n[1:00] #35 TOOL read_file\n[1:00] #36 TOOL read_file\n[1:00] #37 TOOL read_file\n[1:00] #38 TOOL read_file\n[1:00] #39 TOOL read_file\n[1:00] #40 TOOL read_file\n[1:00] #41 TOOL read_file\n[1:00] #42 TOOL read_file\n[1:00] #43 TOOL read_file\n[1:00] #44 TOOL read_file\n[1:00] #45 TOOL read_file\n[1:00] #46 TOOL read_file\n[1:12] #47 TOOL run_command\n[1:13] #48 TOOL run_command\n[1:13] #49 TOOL read_file\n[1:13] #50 TOOL read_file\n[1:13] #51 TOOL read_file\n[1:13] #52 TOOL read_file\n[1:13] #53 TOOL run_command\n[1:16] #54 TOOL run_command\n[1:22] #55 TOOL run_command\n[1:25] #56 TOOL run_command\n[1:25] #57 TOOL read_file\n[1:25] #58 TOOL read_file\n[1:25] #59 TOOL read_file\n[1:25] #60 TOOL read_file\n[1:25] #61 TOOL read_file\n[1:25] #62 TOOL read_file\n[1:25] #63 TOOL read_file\n[1:25] #64 TOOL read_file\n[1:25] #65 TOOL read_file\n[1:25] #66 TOOL read_file\n[1:31] #67 TOOL read_file\n[1:31] #68 TOOL read_file\n[1:31] #69 TOOL read_file\n[1:31] #70 TOOL read_file\n[1:31] #71 TOOL read_file\n[1:31] #72 TOOL read_file\n[1:31] #73 TOOL run_command\n[1:33] #74 TOOL run_command\n[1:59] #75 TOOL read_file\n[1:59] #76 TOOL read_file\n[1:59] #77 TOOL run_command\n[2:01] #78 TOOL run_command\n[2:47] #79 TOOL run_command\n[2:52] #80 TOOL run_command\n[2:52] #81 TOOL write_file\n[2:53] #82 TOOL write_file\n[2:53] #83 TOOL edit_file\n[2:54] #84 TOOL edit_file\n[2:54] #85 TOOL edit_file\n[2:54] #86 TOOL edit_file\n[2:54] #87 TOOL edit_file\n[2:55] #88 TOOL edit_file\n[2:55] #89 TOOL edit_file\n[2:56] #90 TOOL edit_file\n[2:56] #91 TOOL edit_file\n[2:57] #92 TOOL edit_file\n[2:57] #93 TOOL write_file\n[2:58] #94 TOOL write_file\n[3:24] #95 TOOL run_command\n[3:30] #96 TOOL run_command\n[3:30] #97 TOOL edit_file\n[3:31] #98 TOOL edit_file\n[3:31] #99 TOOL edit_file\n[3:31] #100 TOOL edit_file\n[3:31] #101 TOOL edit_file\n[3:37] #102 TOOL edit_file\n[3:37] #103 TOOL edit_file\n[3:43] #104 TOOL edit_file\n[3:43] #105 TOOL edit_file\n[3:45] #106 TOOL edit_file\n[3:45] #107 TOOL write_file\n[3:50] #108 TOOL write_file\n[3:50] #109 TOOL write_file\n[3:52] #110 TOOL write_file\n[5:21] #111 TOOL write_file\n[5:29] #112 TOOL write_file\n[5:29] #113 TOOL edit_file\n[5:30] #114 TOOL edit_file\n[5:30] #115 TOOL edit_file\n[5:36] #116 TOOL edit_file\n[5:36] #117 TOOL edit_file\n[5:37] #118 TOOL edit_file\n[5:37] #119 TOOL write_file\n[5:37] #120 TOOL write_file\n[5:37] #121 TOOL write_file\n[5:38] #122 TOOL write_file\n[6:01] #123 TOOL run_command\n[6:09] #124 TOOL run_command\n[6:19] #125 TOOL run_command\n[6:26] #126 TOOL run_command\n[6:37] #127 TOOL write_file\n[6:46] #128 TOOL write_file\n[6:46] #129 TOOL run_command\n[6:47] #130 TOOL run_command\n[6:53] #131 TOOL edit_file\n[6:55] #132 TOOL edit_file\n[6:55] #133 TOOL run_command\n[7:02] #134 TOOL run_command\n[7:33] #135 TOOL write_file\n[7:34] #136 TOOL write_file\n[7:34] #137 TOOL write_file\n[7:41] #138 TOOL write_file\n[7:41] #139 TOOL run_command\n[7:42] #140 TOOL run_command\n[8:01] #141 TOOL write_file\n[8:08] #142 TOOL write_file\n[8:08] #143 TOOL run_command\n[8:10] #144 TOOL run_command\n[8:28] #145 TOO\n... [TRUNCATED FOR MIRROR: 12609 chars total]"
+    },
     {
       "status": "COMPLETE_CLEAN",
       "ref_code": "TURN-037",

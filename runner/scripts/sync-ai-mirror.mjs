@@ -169,6 +169,8 @@ const BLOCKED_TABLE_PATTERNS = [
 // Explicit allowlist of safe public config/CMS/package/Wix tables (+ dynamic pattern match for future safe tables)
 const EXPLICIT_SAFE_TABLES = new Set([
   "ecmd_packages",
+  "ecmd_service_packages",
+  "ecmd_whats_included",
   "ecmd_external_ai_cms",
   "ecmd_wix_legacy_vault",
   "ecmd_site_blueprints",

@@ -1,8 +1,8 @@
 {
   "table": "ecmd_external_ai_cms",
-  "exportedAt": "2026-11-25T21:48:59.451Z",
-  "totalRowsInDb": 35,
-  "exportedRowCount": 35,
+  "exportedAt": "2026-11-25T23:06:48.837Z",
+  "totalRowsInDb": 36,
+  "exportedRowCount": 36,
   "rows": [
     {
       "id": "loc_chrome_sidebar",
@@ -604,37 +604,25 @@
       "system_prompt_directive": "PUBLIC AI MIRROR PRIMARY GROUNDING (mlhammes2/ecmd-ai-mirror) & LEAN LOCALHOST ROUTES: Chrome Gemini Sidebar & external architects use https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md (and SITE_MANIFEST.json) as the primary behind-the-scenes codebase, Wix Velo legacy vault, and Supabase grounding source (hub/, runner/, supabase-mirror/; secret-scrubbed, zero .env*/auth/PII) alongside 0ms http://localhost:8080/errors (#ecmd-unified-errors-json). Obsolete localhost dashboard routes (/console, /history, /cms) and bloated static dumps (public/ai-history.json, public/wix-vault-index.json) are removed. AppHeader renders ONLY on /workflow and /errors; customer routes (/) render with zero dev header clutter and /plasmic-host renders ONLY <PlasmicCanvasHost />. run-pen-task.mjs preserves agy.exe + -p last-flag rule, skips ai-history.json, keeps lightweight ai-telemetry.json, and auto-pushes mlhammes2/ecmd-ai-mirror. Shell Guard: never run PowerShell Invoke-WebRequest/iwr without -UseBasicParsing."
     },
     {
-      "id": "cap_auto_gh_edge_deploy",
-      "title": "GitHub Actions Zero-Touch Edge Function Auto-Deploy (.github/workflows/supabase-deploy.yml)",
-      "metadata": {},
-      "entry_type": "learned_capability",
-      "is_enabled": true,
-      "sort_order": 100,
-      "updated_at": "2026-11-16T00:16:14.930442+00:00",
-      "chat_location": "ALL",
-      "capabilities_list": [
-        "GitHub Actions Edge Auto-Deploy",
-        "public.ecmd_cli_queue Local Gemini CLI Bridge"
-      ],
-      "system_prompt_directive": "CAPABILITY ACTIVE: Pushing changes to supabase/functions/** on main automatically triggers .github/workflows/supabase-deploy.yml, which deploys the Edge Function via ECMD_SB_ACCESS_TOKEN. Also public.ecmd_cli_queue bridges remote prompts to local Gemini CLI."
-    },
-    {
-      "id": "cap_auto_1794796938842",
-      "title": "🎯 Carbon 4 patch: src/backend/http-functions.js",
+      "id": "cap_packages_matrix_engine_piece1",
+      "title": "Packages Page Piece 1: Wix servicePackages Matrix (36 Rows), ecmd_whats_included, DataProvider($ctx.ecmdPkg) & BrushedSteelButton buttonRole",
       "metadata": {
-        "sha": "4923460b67e8a95c5bca70621465184de4d88d66",
-        "path": "src/backend/http-functions.js",
-        "loggedAt": "2026-11-16T02:42:18.842Z"
+        "piece": "Packages Page Piece 1"
       },
       "entry_type": "learned_capability",
       "is_enabled": true,
-      "sort_order": 100,
-      "updated_at": "2026-11-16T02:42:18.899293+00:00",
+      "sort_order": 94,
+      "updated_at": "2026-11-25T23:04:43.145624+00:00",
       "chat_location": "ALL",
       "capabilities_list": [
-        "🎯 Carbon 4 patch: src/backend/http-functions.js"
+        "ecmd_service_packages (36 Wix rows)",
+        "ecmd_whats_included (18 starter rows)",
+        "src/lib/ecmdPackageMatcher.ts",
+        "DataProvider name=ecmdPkg ($ctx.ecmdPkg)",
+        "EcmdBrushedSteelButton buttonRole",
+        "autoHealPackageScopeButtons CTA guard"
       ],
-      "system_prompt_directive": "Patched src/backend/http-functions.js (1 patch(es)) — 🎯 Carbon 4 patch: src/backend/http-functions.js"
+      "system_prompt_directive": "public.ecmd_service_packages (36 real Wix Classic/Premium/Luxury x Full/Interior/Exterior x Sedan/Truck/Sm. SUV/Lg. SUV rows) and public.ecmd_whats_included (18 starter inclusions & add-ons) live in Supabase with anon SELECT policies and are mirrored in mlhammes2/ecmd-ai-mirror. EcmdPackagesRepeater uses src/lib/ecmdPackageMatcher.ts, levelOrder, <DataProvider name=\"ecmdPkg\"> ($ctx.ecmdPkg.*), live DOM painting + steel button selection sync, and refined autoHealPackageScopeButtons (Interior/Full/Exterior/What's Included/Add to Cart while skipping false scope hooks in bottom CTA rows). EcmdBrushedSteelButton exposes buttonRole (auto|scope-interior|scope-full|scope-exterior|whats-included|add-to-cart)."
     },
     {
       "id": "cap_auto_1794791441418",
@@ -655,6 +643,24 @@
       "system_prompt_directive": "Patched src/backend/http-functions.js (2 patch(es)) — Exposed get_ecmdConsole HTTP endpoint in src/backend/http-functions.js enabling mobile phone browser access to ECMD Carbon 4 Console via https://www.ecmdutah.com/_functions/ecmdConsole?key=[REDACTED_SECRET]"
     },
     {
+      "id": "cap_auto_1794796938842",
+      "title": "🎯 Carbon 4 patch: src/backend/http-functions.js",
+      "metadata": {
+        "sha": "4923460b67e8a95c5bca70621465184de4d88d66",
+        "path": "src/backend/http-functions.js",
+        "loggedAt": "2026-11-16T02:42:18.842Z"
+      },
+      "entry_type": "learned_capability",
+      "is_enabled": true,
+      "sort_order": 100,
+      "updated_at": "2026-11-16T02:42:18.899293+00:00",
+      "chat_location": "ALL",
+      "capabilities_list": [
+        "🎯 Carbon 4 patch: src/backend/http-functions.js"
+      ],
+      "system_prompt_directive": "Patched src/backend/http-functions.js (1 patch(es)) — 🎯 Carbon 4 patch: src/backend/http-functions.js"
+    },
+    {
       "id": "cap_learned_realtime_crm_hooks",
       "title": "Universal Backend & Frontend Real-Time Supabase CRM Write-Through",
       "metadata": {
@@ -670,6 +676,21 @@
         "Dual-Source Merge (stateManager.js)"
       ],
       "system_prompt_directive": "CAPABILITY ACTIVE: src/backend/data.js, stateManager.js, fileVehicleAdd.js, fileContactLocation.js, fileSummary.js, and garageEngine.js automatically dual-read and dual-write all CRM & scheduledJobs data to Supabase ecmd_crm_* tables."
+    },
+    {
+      "id": "cap_auto_gh_edge_deploy",
+      "title": "GitHub Actions Zero-Touch Edge Function Auto-Deploy (.github/workflows/supabase-deploy.yml)",
+      "metadata": {},
+      "entry_type": "learned_capability",
+      "is_enabled": true,
+      "sort_order": 100,
+      "updated_at": "2026-11-16T00:16:14.930442+00:00",
+      "chat_location": "ALL",
+      "capabilities_list": [
+        "GitHub Actions Edge Auto-Deploy",
+        "public.ecmd_cli_queue Local Gemini CLI Bridge"
+      ],
+      "system_prompt_directive": "CAPABILITY ACTIVE: Pushing changes to supabase/functions/** on main automatically triggers .github/workflows/supabase-deploy.yml, which deploys the Edge Function via ECMD_SB_ACCESS_TOKEN. Also public.ecmd_cli_queue bridges remote prompts to local Gemini CLI."
     },
     {
       "id": "cap_learned_contractor_email_sanitization",

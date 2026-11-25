@@ -1,6 +1,6 @@
 -- ============================================================================
 -- ECMD Supabase Schema Overview (lvynkeuceiqxafgpgdvs)
--- Generated: 2026-11-25T21:49:02.922Z
+-- Generated: 2026-11-25T23:06:52.227Z
 -- Public schema tables, columns, constraints, triggers, RLS policies & custom SQL functions
 -- ============================================================================
 
@@ -319,7 +319,7 @@ CREATE TABLE IF NOT EXISTS public.ecmd_diagnostic_runs (
 );
 --   CONSTRAINT ecmd_diagnostic_runs_pkey (PRIMARY KEY): PRIMARY KEY (id)
 
--- Table: public.ecmd_external_ai_cms (rows: 35, rls: OFF)
+-- Table: public.ecmd_external_ai_cms (rows: 36, rls: OFF)
 CREATE TABLE IF NOT EXISTS public.ecmd_external_ai_cms (
   id text NOT NULL,
   entry_type text NOT NULL,
@@ -390,7 +390,7 @@ CREATE TABLE IF NOT EXISTS public.ecmd_packages (
 --   CONSTRAINT ecmd_packages_pkey (PRIMARY KEY): PRIMARY KEY (id)
 --   CONSTRAINT ecmd_packages_slug_key (UNIQUE): UNIQUE (slug)
 
--- Table: public.ecmd_pen_turns (rows: 36, rls: OFF)
+-- Table: public.ecmd_pen_turns (rows: 37, rls: OFF)
 CREATE TABLE IF NOT EXISTS public.ecmd_pen_turns (
   ref_code text NOT NULL,
   created_at timestamp with time zone DEFAULT now(),
@@ -420,6 +420,36 @@ CREATE TABLE IF NOT EXISTS public.ecmd_plasmic_hydration (
   updated_at timestamp with time zone DEFAULT now()
 );
 --   CONSTRAINT ecmd_plasmic_hydration_pkey (PRIMARY KEY): PRIMARY KEY (id)
+
+-- Table: public.ecmd_service_packages (rows: 36, rls: ON)
+CREATE TABLE IF NOT EXISTS public.ecmd_service_packages (
+  id integer NOT NULL DEFAULT nextval('ecmd_service_packages_id_seq'::regclass),
+  wix_id text,
+  title text NOT NULL,
+  package_level text NOT NULL,
+  detail_type text NOT NULL,
+  sub_category text NOT NULL,
+  service_category text NOT NULL DEFAULT 'Auto'::text,
+  price numeric NOT NULL DEFAULT 0,
+  sale_price numeric NOT NULL DEFAULT 0,
+  discount_percent numeric NOT NULL DEFAULT 0,
+  sale_title text NOT NULL DEFAULT ''::text,
+  mobile_fee numeric NOT NULL DEFAULT 0,
+  duration numeric NOT NULL DEFAULT 2,
+  description text NOT NULL DEFAULT ''::text,
+  interior_description text NOT NULL DEFAULT ''::text,
+  exterior_description text NOT NULL DEFAULT ''::text,
+  main_display_image text NOT NULL DEFAULT ''::text,
+  bi_weekly_percent numeric NOT NULL DEFAULT 20,
+  monthly_percent numeric NOT NULL DEFAULT 15,
+  quarterly_percent numeric NOT NULL DEFAULT 10,
+  sort_order integer NOT NULL DEFAULT 10,
+  enabled boolean NOT NULL DEFAULT true,
+  updated_at timestamp with time zone NOT NULL DEFAULT now()
+);
+--   CONSTRAINT ecmd_service_packages_pkey (PRIMARY KEY): PRIMARY KEY (id)
+--   CONSTRAINT ecmd_service_packages_wix_id_key (UNIQUE): UNIQUE (wix_id)
+--   POLICY "Public read ecmd_service_packages" ON public.ecmd_service_packages FOR SELECT TO {anon,authenticated} USING (true);
 
 -- Table: public.ecmd_site_blueprints (rows: 106, rls: ON)
 CREATE TABLE IF NOT EXISTS public.ecmd_site_blueprints (
@@ -478,6 +508,25 @@ CREATE TABLE IF NOT EXISTS public.ecmd_telemetry (
   created_at timestamp with time zone DEFAULT now()
 );
 --   CONSTRAINT ecmd_telemetry_pkey (PRIMARY KEY): PRIMARY KEY (id)
+
+-- Table: public.ecmd_whats_included (rows: 18, rls: ON)
+CREATE TABLE IF NOT EXISTS public.ecmd_whats_included (
+  id integer NOT NULL DEFAULT nextval('ecmd_whats_included_id_seq'::regclass),
+  wix_id text,
+  title text NOT NULL,
+  button_title text NOT NULL DEFAULT ''::text,
+  description text NOT NULL DEFAULT ''::text,
+  detail_type text NOT NULL DEFAULT 'Interior'::text,
+  package_level text NOT NULL DEFAULT ''::text,
+  whats_included text NOT NULL DEFAULT ''::text,
+  price numeric NOT NULL DEFAULT 0,
+  notice text NOT NULL DEFAULT ''::text,
+  sort integer NOT NULL DEFAULT 10,
+  enabled boolean NOT NULL DEFAULT true
+);
+--   CONSTRAINT ecmd_whats_included_pkey (PRIMARY KEY): PRIMARY KEY (id)
+--   CONSTRAINT ecmd_whats_included_wix_id_key (UNIQUE): UNIQUE (wix_id)
+--   POLICY "Public read ecmd_whats_included" ON public.ecmd_whats_included FOR SELECT TO {anon,authenticated} USING (true);
 
 -- Table: public.ecmd_wix_legacy_vault (rows: 106, rls: OFF)
 CREATE TABLE IF NOT EXISTS public.ecmd_wix_legacy_vault (

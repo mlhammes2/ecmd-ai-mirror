@@ -1,7 +1,7 @@
 {
   "projectRef": "lvynkeuceiqxafgpgdvs",
-  "exportedAt": "2026-11-25T21:48:59.451Z",
-  "tableCount": 31,
+  "exportedAt": "2026-11-25T23:06:48.837Z",
+  "tableCount": 33,
   "tables": [
     {
       "table_name": "ecmd_advanced_suggestions",
@@ -2300,7 +2300,7 @@
     },
     {
       "table_name": "ecmd_external_ai_cms",
-      "row_count": 35,
+      "row_count": 36,
       "rls_enabled": false,
       "mirrored": true,
       "columns": [
@@ -2795,7 +2795,7 @@
     },
     {
       "table_name": "ecmd_pen_turns",
-      "row_count": 36,
+      "row_count": 37,
       "rls_enabled": false,
       "mirrored": true,
       "columns": [
@@ -3016,6 +3016,247 @@
         }
       ],
       "policies": [],
+      "triggers": []
+    },
+    {
+      "table_name": "ecmd_service_packages",
+      "row_count": 36,
+      "rls_enabled": true,
+      "mirrored": true,
+      "columns": [
+        {
+          "udt_name": "int4",
+          "data_type": "integer",
+          "table_name": "ecmd_service_packages",
+          "column_name": "id",
+          "is_nullable": "NO",
+          "column_default": "nextval('ecmd_service_packages_id_seq'::regclass)",
+          "ordinal_position": 1
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_service_packages",
+          "column_name": "wix_id",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 2
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_service_packages",
+          "column_name": "title",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 3
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_service_packages",
+          "column_name": "package_level",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 4
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_service_packages",
+          "column_name": "detail_type",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 5
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_service_packages",
+          "column_name": "sub_category",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 6
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_service_packages",
+          "column_name": "service_category",
+          "is_nullable": "NO",
+          "column_default": "'Auto'::text",
+          "ordinal_position": 7
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_service_packages",
+          "column_name": "price",
+          "is_nullable": "NO",
+          "column_default": "0",
+          "ordinal_position": 8
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_service_packages",
+          "column_name": "sale_price",
+          "is_nullable": "NO",
+          "column_default": "0",
+          "ordinal_position": 9
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_service_packages",
+          "column_name": "discount_percent",
+          "is_nullable": "NO",
+          "column_default": "0",
+          "ordinal_position": 10
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_service_packages",
+          "column_name": "sale_title",
+          "is_nullable": "NO",
+          "column_default": "''::text",
+          "ordinal_position": 11
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_service_packages",
+          "column_name": "mobile_fee",
+          "is_nullable": "NO",
+          "column_default": "0",
+          "ordinal_position": 12
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_service_packages",
+          "column_name": "duration",
+          "is_nullable": "NO",
+          "column_default": "2",
+          "ordinal_position": 13
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_service_packages",
+          "column_name": "description",
+          "is_nullable": "NO",
+          "column_default": "''::text",
+          "ordinal_position": 14
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_service_packages",
+          "column_name": "interior_description",
+          "is_nullable": "NO",
+          "column_default": "''::text",
+          "ordinal_position": 15
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_service_packages",
+          "column_name": "exterior_description",
+          "is_nullable": "NO",
+          "column_default": "''::text",
+          "ordinal_position": 16
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_service_packages",
+          "column_name": "main_display_image",
+          "is_nullable": "NO",
+          "column_default": "''::text",
+          "ordinal_position": 17
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_service_packages",
+          "column_name": "bi_weekly_percent",
+          "is_nullable": "NO",
+          "column_default": "20",
+          "ordinal_position": 18
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_service_packages",
+          "column_name": "monthly_percent",
+          "is_nullable": "NO",
+          "column_default": "15",
+          "ordinal_position": 19
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_service_packages",
+          "column_name": "quarterly_percent",
+          "is_nullable": "NO",
+          "column_default": "10",
+          "ordinal_position": 20
+        },
+        {
+          "udt_name": "int4",
+          "data_type": "integer",
+          "table_name": "ecmd_service_packages",
+          "column_name": "sort_order",
+          "is_nullable": "NO",
+          "column_default": "10",
+          "ordinal_position": 21
+        },
+        {
+          "udt_name": "bool",
+          "data_type": "boolean",
+          "table_name": "ecmd_service_packages",
+          "column_name": "enabled",
+          "is_nullable": "NO",
+          "column_default": "true",
+          "ordinal_position": 22
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "table_name": "ecmd_service_packages",
+          "column_name": "updated_at",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "ordinal_position": 23
+        }
+      ],
+      "constraints": [
+        {
+          "definition": "PRIMARY KEY (id)",
+          "table_name": "ecmd_service_packages",
+          "constraint_name": "ecmd_service_packages_pkey",
+          "constraint_type": "PRIMARY KEY"
+        },
+        {
+          "definition": "UNIQUE (wix_id)",
+          "table_name": "ecmd_service_packages",
+          "constraint_name": "ecmd_service_packages_wix_id_key",
+          "constraint_type": "UNIQUE"
+        }
+      ],
+      "policies": [
+        {
+          "cmd": "SELECT",
+          "qual": "true",
+          "roles": "{anon,authenticated}",
+          "tablename": "ecmd_service_packages",
+          "permissive": "PERMISSIVE",
+          "policyname": "Public read ecmd_service_packages",
+          "with_check": null
+        }
+      ],
       "triggers": []
     },
     {
@@ -3424,6 +3665,148 @@
         }
       ],
       "policies": [],
+      "triggers": []
+    },
+    {
+      "table_name": "ecmd_whats_included",
+      "row_count": 18,
+      "rls_enabled": true,
+      "mirrored": true,
+      "columns": [
+        {
+          "udt_name": "int4",
+          "data_type": "integer",
+          "table_name": "ecmd_whats_included",
+          "column_name": "id",
+          "is_nullable": "NO",
+          "column_default": "nextval('ecmd_whats_included_id_seq'::regclass)",
+          "ordinal_position": 1
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "wix_id",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 2
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "title",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 3
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "button_title",
+          "is_nullable": "NO",
+          "column_default": "''::text",
+          "ordinal_position": 4
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "description",
+          "is_nullable": "NO",
+          "column_default": "''::text",
+          "ordinal_position": 5
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "detail_type",
+          "is_nullable": "NO",
+          "column_default": "'Interior'::text",
+          "ordinal_position": 6
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "package_level",
+          "is_nullable": "NO",
+          "column_default": "''::text",
+          "ordinal_position": 7
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "whats_included",
+          "is_nullable": "NO",
+          "column_default": "''::text",
+          "ordinal_position": 8
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_whats_included",
+          "column_name": "price",
+          "is_nullable": "NO",
+          "column_default": "0",
+          "ordinal_position": 9
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "notice",
+          "is_nullable": "NO",
+          "column_default": "''::text",
+          "ordinal_position": 10
+        },
+        {
+          "udt_name": "int4",
+          "data_type": "integer",
+          "table_name": "ecmd_whats_included",
+          "column_name": "sort",
+          "is_nullable": "NO",
+          "column_default": "10",
+          "ordinal_position": 11
+        },
+        {
+          "udt_name": "bool",
+          "data_type": "boolean",
+          "table_name": "ecmd_whats_included",
+          "column_name": "enabled",
+          "is_nullable": "NO",
+          "column_default": "true",
+          "ordinal_position": 12
+        }
+      ],
+      "constraints": [
+        {
+          "definition": "PRIMARY KEY (id)",
+          "table_name": "ecmd_whats_included",
+          "constraint_name": "ecmd_whats_included_pkey",
+          "constraint_type": "PRIMARY KEY"
+        },
+        {
+          "definition": "UNIQUE (wix_id)",
+          "table_name": "ecmd_whats_included",
+          "constraint_name": "ecmd_whats_included_wix_id_key",
+          "constraint_type": "UNIQUE"
+        }
+      ],
+      "policies": [
+        {
+          "cmd": "SELECT",
+          "qual": "true",
+          "roles": "{anon,authenticated}",
+          "tablename": "ecmd_whats_included",
+          "permissive": "PERMISSIVE",
+          "policyname": "Public read ecmd_whats_included",
+          "with_check": null
+        }
+      ],
       "triggers": []
     },
     {

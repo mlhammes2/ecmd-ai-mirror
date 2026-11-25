@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useLayoutEffect, useRef } from "react";
+import React, { useState, useEffect, useLayoutEffect, useRef, useMemo } from "react";
+import { DataProvider } from "@plasmicapp/loader-react";
 import { carbonQuery } from "../integrations/supabase/client";
 import {
   useEcmdBreakpoint,
@@ -6,33 +7,268 @@ import {
   executeBreakpointAction,
 } from "../lib/useEcmdBreakpoint";
 import { ensureEcmdRootSizingStyles } from "../lib/ecmdRootSizing";
+import {
+  buildPackageCardContext,
+  detailTypeToScope,
+  extractOrderedPackageLevels,
+  findMatchingServicePackage,
+  loadSavedAddOnsMap,
+  mapVehicleKeyToSubCategory,
+  scopeToDetailType,
+  type EcmdAddOnsMemoryMap,
+  type EcmdPackageCardContext,
+  type EcmdServicePackageRow,
+  type PackageScopeKey,
+} from "../lib/ecmdPackageMatcher";
 
 const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
-const SCOPE_BUTTON_TEXT_PATTERNS: Array<{ pattern: RegExp; scope: "interior" | "full" | "exterior" }> = [
-  { pattern: /^interior\s*only$/i, scope: "interior" },
-  { pattern: /^full\s*detail$/i, scope: "full" },
-  { pattern: /^exterior\s*only$/i, scope: "exterior" },
+function SafePlasmicDataProvider({
+  name,
+  data,
+  children,
+}: {
+  name: string;
+  data: any;
+  children?: React.ReactNode;
+}) {
+  if (typeof DataProvider === "function") {
+    return (
+      <DataProvider name={name} data={data}>
+        {children}
+      </DataProvider>
+    );
+  }
+  return <>{children}</>;
+}
+
+export const SCOPE_BUTTON_TEXT_PATTERNS: Array<{
+  pattern: RegExp;
+  scope: PackageScopeKey;
+}> = [
+  { pattern: /^interior(?:\s+only)?$/i, scope: "interior" },
+  { pattern: /^full(?:\s+detail)?$/i, scope: "full" },
+  { pattern: /^exterior(?:\s+only)?$/i, scope: "exterior" },
 ];
+
+const WHATS_INCLUDED_TEXT_PATTERN = /^what['’]?s\s+included\??$/i;
+const ADD_TO_CART_TEXT_PATTERN = /^add\s+to\s+cart$/i;
+
+function isInsideBottomCtaRow(btn: HTMLButtonElement): boolean {
+  const scopes: Array<HTMLElement | null> = [
+    btn.parentElement,
+    btn.parentElement?.parentElement ?? null,
+  ];
+  for (const container of scopes) {
+    if (!container || container.classList.contains("ecmd-package-card")) continue;
+    const siblingButtons = Array.from(container.querySelectorAll("button"));
+    if (siblingButtons.length === 0 || siblingButtons.length > 4) continue;
+    const hasCtaSibling = siblingButtons.some((sib) => {
+      if (sib === btn) return false;
+      const pkgAttr = (sib.getAttribute("data-ecmd-pkg") || "").trim();
+      const actionAttr = (sib.getAttribute("data-ecmd-action") || "").trim();
+      if (
+        pkgAttr === "add-to-cart-btn" ||
+        pkgAttr === "whats-included-btn" ||
+        actionAttr === "add-to-cart" ||
+        actionAttr === "open-whats-included"
+      ) {
+        return true;
+      }
+      const txt = (sib.textContent || "").replace(/\s+/g, " ").trim();
+      return ADD_TO_CART_TEXT_PATTERN.test(txt) || WHATS_INCLUDED_TEXT_PATTERN.test(txt);
+    });
+    if (hasCtaSibling) return true;
+  }
+  return false;
+}
 
 export function autoHealPackageScopeButtons(root: HTMLElement | null): number {
   if (!root) return 0;
   let healed = 0;
   const buttons = root.querySelectorAll("button");
+
   buttons.forEach((btn) => {
-    const existing = (btn.getAttribute("data-ecmd-scope-btn") || "").trim();
-    if (existing) return;
+    const existingScope = (btn.getAttribute("data-ecmd-scope-btn") || "").trim();
+    const existingAction = (btn.getAttribute("data-ecmd-action") || "").trim();
+    const existingPkg = (btn.getAttribute("data-ecmd-pkg") || "").trim();
     const normalizedText = (btn.textContent || "").replace(/\s+/g, " ").trim();
+
+    // Ensure explicit CTA pkg hooks also carry data-ecmd-action so sibling-hook linting stays clean
+    if (existingPkg === "add-to-cart-btn" && !existingAction) {
+      btn.setAttribute("data-ecmd-action", "add-to-cart");
+      healed++;
+    } else if (existingPkg === "whats-included-btn" && !existingAction) {
+      btn.setAttribute("data-ecmd-action", "open-whats-included");
+      healed++;
+    }
+
+    if (existingScope || existingAction) {
+      const steelRoot = btn.closest(".ecmd-steel-button-root");
+      if (steelRoot && existingScope && !steelRoot.getAttribute("data-ecmd-scope-btn")) {
+        steelRoot.setAttribute("data-ecmd-scope-btn", existingScope);
+      }
+      return;
+    }
+
     if (!normalizedText) return;
+
+    // 1. Match What's Included CTA
+    if (WHATS_INCLUDED_TEXT_PATTERN.test(normalizedText)) {
+      btn.setAttribute("data-ecmd-action", "open-whats-included");
+      btn.setAttribute("data-ecmd-pkg", "whats-included-btn");
+      healed++;
+      return;
+    }
+
+    // 2. Match Add to Cart CTA
+    if (ADD_TO_CART_TEXT_PATTERN.test(normalizedText)) {
+      btn.setAttribute("data-ecmd-action", "add-to-cart");
+      btn.setAttribute("data-ecmd-pkg", "add-to-cart-btn");
+      healed++;
+      return;
+    }
+
+    // 3. Skip buttons inside the bottom CTA row from receiving false scope hooks
+    //    (e.g. a newly dropped BrushedSteelButton with default label "Exterior" next to "Add to Cart")
+    if (isInsideBottomCtaRow(btn)) {
+      return;
+    }
+
+    // 4. Match Scope Toggle buttons: Interior / Interior Only, Full / Full Detail, Exterior / Exterior Only
     for (const rule of SCOPE_BUTTON_TEXT_PATTERNS) {
       if (rule.pattern.test(normalizedText)) {
         btn.setAttribute("data-ecmd-scope-btn", rule.scope);
+        const steelRoot = btn.closest(".ecmd-steel-button-root");
+        if (steelRoot && !steelRoot.getAttribute("data-ecmd-scope-btn")) {
+          steelRoot.setAttribute("data-ecmd-scope-btn", rule.scope);
+        }
         healed++;
         break;
       }
     }
   });
+
   return healed;
+}
+
+function isStaticFieldLabel(text: string): boolean {
+  const trimmed = text.trim();
+  return /^(?:type|vehicle|duration|sale|price|regular\s*price|addons|add-ons)\s*:$/i.test(trimmed);
+}
+
+function setLeafTextPreservingPrefix(el: HTMLElement, newValue: string): void {
+  if (el.children.length > 0) return;
+  const current = (el.textContent || "").trim();
+  if (isStaticFieldLabel(current)) return;
+
+  const colonIdx = current.indexOf(":");
+  if (colonIdx > 0 && colonIdx < 20) {
+    const prefix = current.slice(0, colonIdx + 1).trim();
+    const rest = current.slice(colonIdx + 1).trim();
+    if (rest.length > 0) {
+      el.textContent = `${prefix} ${newValue}`;
+      return;
+    }
+  }
+  el.textContent = newValue;
+}
+
+function paintCardDomInPlace(cardEl: HTMLElement, ctx: EcmdPackageCardContext): void {
+  // 1. Title
+  cardEl
+    .querySelectorAll('[data-ecmd-pkg="title"], #packageTitle, #packageRepTitle')
+    .forEach((node) => {
+      if (node instanceof HTMLElement && node.children.length === 0) {
+        node.textContent = ctx.title;
+      }
+    });
+
+  // 2. Description
+  cardEl
+    .querySelectorAll('[data-ecmd-pkg="description"], #packageDescription, #packageRepDescrition')
+    .forEach((node) => {
+      if (node instanceof HTMLElement && node.children.length === 0) {
+        node.textContent = ctx.description;
+      }
+    });
+
+  // 3. Vehicle Label / SubCategory
+  cardEl
+    .querySelectorAll('[data-ecmd-pkg="vehicle-label"], #packageVehicle, #packageRepVehicle')
+    .forEach((node) => {
+      if (node instanceof HTMLElement) {
+        setLeafTextPreservingPrefix(node, ctx.subCategory);
+      }
+    });
+
+  // 4. Duration
+  cardEl
+    .querySelectorAll('[data-ecmd-pkg="duration"], #packageDuration, #packageRepDuration')
+    .forEach((node) => {
+      if (node instanceof HTMLElement) {
+        setLeafTextPreservingPrefix(node, ctx.durationText);
+      }
+    });
+
+  // 5. Regular / Base Price (or primary price)
+  cardEl
+    .querySelectorAll(
+      '[data-ecmd-pkg="price"], [data-ecmd-pkg="regular-price"], #packagePrice, #packageRepPrice'
+    )
+    .forEach((node) => {
+      if (node instanceof HTMLElement) {
+        setLeafTextPreservingPrefix(node, ctx.basePriceFormatted);
+      }
+    });
+
+  // 6. Sale Price
+  cardEl
+    .querySelectorAll('[data-ecmd-pkg="sale-price"], #packageSalePrice, #packageRepSalePrice')
+    .forEach((node) => {
+      if (!(node instanceof HTMLElement)) return;
+      if (ctx.hasSale) {
+        if (node.style.display === "none") node.style.display = "";
+        setLeafTextPreservingPrefix(node, ctx.salePriceFormatted);
+      } else {
+        node.style.display = "none";
+      }
+    });
+
+  // 7. Add-Ons badge
+  cardEl
+    .querySelectorAll('[data-ecmd-pkg="addons"], #packageRepAddons')
+    .forEach((node) => {
+      if (node instanceof HTMLElement && node.children.length === 0) {
+        node.textContent = `Add-Ons (${ctx.addOnsCount})`;
+      }
+    });
+
+  // 8. Sync active scope selection glow onto every [data-ecmd-scope-btn] & .ecmd-steel-button-root
+  const scopeEls = cardEl.querySelectorAll("[data-ecmd-scope-btn]");
+  scopeEls.forEach((node) => {
+    if (!(node instanceof HTMLElement)) return;
+    const scope = (node.getAttribute("data-ecmd-scope-btn") || "").trim().toLowerCase();
+    const isActive = scope === ctx.activeScope;
+    const selectedStr = isActive ? "true" : "false";
+
+    node.setAttribute("data-ecmd-selected", selectedStr);
+    if (node.tagName.toLowerCase() === "button") {
+      node.setAttribute("aria-pressed", selectedStr);
+    }
+
+    const steelRoot = node.classList.contains("ecmd-steel-button-root")
+      ? node
+      : (node.closest(".ecmd-steel-button-root") as HTMLElement | null);
+    if (steelRoot) {
+      steelRoot.setAttribute("data-ecmd-selected", selectedStr);
+      const innerBtn = steelRoot.querySelector("button.ecmd-steel-button, button.steel-button");
+      if (innerBtn instanceof HTMLElement) {
+        innerBtn.setAttribute("data-ecmd-selected", selectedStr);
+        innerBtn.setAttribute("aria-pressed", selectedStr);
+      }
+    }
+  });
 }
 
 export type PackagesOrientation = "vertical" | "horizontal-wrap" | "horizontal-scroll" | "grid";
@@ -86,6 +322,7 @@ export interface EcmdPackagesRepeaterProps {
   id?: string;
   className?: string;
   style?: React.CSSProperties;
+  levelOrder?: string;
   themeGroup?: string;
   orientation?: PackagesOrientation;
   columns?: number;
@@ -124,10 +361,15 @@ function mapDetailsActionToCommand(action: PackageDetailsAction): string {
   return "expand-inline";
 }
 
+function isServicePackagesMatrixRow(row: any): boolean {
+  return Boolean(row && (row.package_level || row.packageLevel));
+}
+
 export function EcmdPackagesRepeater({
   id = "packagesRep",
   className = "",
   style,
+  levelOrder = "Classic,Premium,Luxury",
   themeGroup = "ecmd-group-3",
   orientation = "vertical",
   columns = 2,
@@ -152,13 +394,16 @@ export function EcmdPackagesRepeater({
   cardTemplate,
   setControlContextData,
 }: EcmdPackagesRepeaterProps) {
-  const [packages, setPackages] = useState<any[]>([]);
+  const [servicePackages, setServicePackages] = useState<EcmdServicePackageRow[]>([]);
+  const [legacyPackages, setLegacyPackages] = useState<any[]>([]);
+  const [scopeByCardKey, setScopeByCardKey] = useState<Record<string, PackageScopeKey>>({});
+  const [addOnsMap, setAddOnsMap] = useState<EcmdAddOnsMemoryMap>({});
   const [activeVehicle, setActiveVehicle] = useState("sm-suv");
   const [activeVehicleLabel, setActiveVehicleLabel] = useState("Sm. SUV");
   const [inlineExpandedPkgId, setInlineExpandedPkgId] = useState<number | string | null>(null);
   const [overlayDetails, setOverlayDetails] = useState<{
     mode: "modal" | "drawer";
-    pkg: any;
+    ctx: EcmdPackageCardContext;
   } | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -168,14 +413,42 @@ export function EcmdPackagesRepeater({
   );
 
   useEffect(() => {
+    let cancelled = false;
+
     const fetchPackages = async () => {
       try {
-        const data = await carbonQuery(
+        const matrixRows = await carbonQuery<EcmdServicePackageRow>(
+          "SELECT * FROM public.ecmd_service_packages WHERE enabled = true ORDER BY sort_order ASC, id ASC"
+        );
+        if (cancelled) return;
+
+        if (Array.isArray(matrixRows) && matrixRows.length > 0) {
+          if (matrixRows.some(isServicePackagesMatrixRow)) {
+            setServicePackages(matrixRows);
+            setLegacyPackages([]);
+            return;
+          }
+          // Mock or legacy shape returned from first query
+          setLegacyPackages(
+            matrixRows.map((p: any) => ({ ...p, activeScope: p.default_scope || "full" }))
+          );
+          setServicePackages([]);
+          return;
+        }
+      } catch (err) {
+        console.warn("ecmd_service_packages query failed, falling back to ecmd_packages:", err);
+      }
+
+      try {
+        const fallbackRows = await carbonQuery(
           "SELECT * FROM public.ecmd_packages WHERE enabled = true ORDER BY sort_order ASC"
         );
-        if (data && data.length > 0) {
-          const pkgs = data.map((p: any) => ({ ...p, activeScope: p.default_scope || "full" }));
-          setPackages(pkgs);
+        if (cancelled) return;
+        if (Array.isArray(fallbackRows) && fallbackRows.length > 0) {
+          setLegacyPackages(
+            fallbackRows.map((p: any) => ({ ...p, activeScope: p.default_scope || "full" }))
+          );
+          setServicePackages([]);
         }
       } catch (err) {
         console.error("Failed to fetch packages", err);
@@ -183,6 +456,7 @@ export function EcmdPackagesRepeater({
     };
 
     fetchPackages();
+    setAddOnsMap(loadSavedAddOnsMap());
 
     let savedVehicle: string | null = null;
     try {
@@ -192,49 +466,138 @@ export function EcmdPackagesRepeater({
     }
     if (savedVehicle) {
       setActiveVehicle(savedVehicle);
-      let lbl = "Car";
-      if (savedVehicle === "truck") lbl = "Truck";
-      if (savedVehicle === "sm-suv") lbl = "Sm. SUV";
-      if (savedVehicle === "lg-suv") lbl = "Lg. SUV/Van";
-      setActiveVehicleLabel(lbl);
+      setActiveVehicleLabel(mapVehicleKeyToSubCategory(savedVehicle));
     }
 
     const handleVehicleChange = (e: any) => {
-      setActiveVehicle(e.detail.vehicleKey);
-      setActiveVehicleLabel(e.detail.label);
+      const nextKey = e?.detail?.vehicleKey || "sm-suv";
+      const nextLabel = e?.detail?.label || mapVehicleKeyToSubCategory(nextKey);
+      setActiveVehicle(nextKey);
+      setActiveVehicleLabel(nextLabel);
+    };
+
+    const handleAddOnsUpdated = () => {
+      setAddOnsMap(loadSavedAddOnsMap());
     };
 
     if (typeof window !== "undefined") {
       window.addEventListener("ecmd-vehicle-change", handleVehicleChange);
+      window.addEventListener("ecmd-addons-updated", handleAddOnsUpdated);
+      window.addEventListener("storage", handleAddOnsUpdated);
     }
     return () => {
+      cancelled = true;
       if (typeof window !== "undefined") {
         window.removeEventListener("ecmd-vehicle-change", handleVehicleChange);
+        window.removeEventListener("ecmd-addons-updated", handleAddOnsUpdated);
+        window.removeEventListener("storage", handleAddOnsUpdated);
       }
     };
   }, []);
 
-  // Inject zero-specificity :where(...) root sizing defaults + auto-heal missing data-ecmd-scope-btn
+  const orderedLevels = useMemo(
+    () => extractOrderedPackageLevels(servicePackages, levelOrder),
+    [servicePackages, levelOrder]
+  );
+
+  // Build resolved card models (either 3-level matrix cards or legacy fallback cards)
+  const resolvedCards = useMemo(() => {
+    if (orderedLevels.length > 0) {
+      return orderedLevels.map((level) => {
+        const cardKey = `level:${level}`;
+        const activeScope: PackageScopeKey = scopeByCardKey[cardKey] || "full";
+        const detailType = scopeToDetailType(activeScope);
+        const matchedRow = findMatchingServicePackage(
+          servicePackages,
+          { package_level: level, detail_type: detailType },
+          activeVehicle
+        );
+        const ctx = buildPackageCardContext({
+          level,
+          activeScope,
+          vehicleKey: activeVehicle,
+          vehicleLabel: activeVehicleLabel,
+          matchedRow,
+          addOnsMap,
+        });
+        return {
+          cardKey,
+          ctx,
+          legacyPkg: null as any,
+        };
+      });
+    }
+
+    return legacyPackages.map((pkg, index) => {
+      const cardKey = `legacy:${pkg.id ?? index}`;
+      const activeScope: PackageScopeKey =
+        scopeByCardKey[cardKey] || detailTypeToScope(pkg.activeScope || pkg.default_scope);
+      const level = pkg.package_level || pkg.title || `Package ${index + 1}`;
+      const ctx = buildPackageCardContext({
+        level,
+        activeScope,
+        vehicleKey: activeVehicle,
+        vehicleLabel: activeVehicleLabel,
+        matchedRow: pkg,
+        addOnsMap,
+      });
+      return {
+        cardKey,
+        ctx,
+        legacyPkg: { ...pkg, activeScope },
+      };
+    });
+  }, [orderedLevels, servicePackages, legacyPackages, scopeByCardKey, activeVehicle, activeVehicleLabel, addOnsMap]);
+
+  // Inject zero-specificity :where(...) root sizing defaults + auto-heal missing scope/CTA hooks
+  // + live-paint each card's Wix-parity DOM nodes & brushed steel button selection states
   // across all breakpoints (desktop/tablet/mobile) BEFORE telemetry snapshots run.
   useIsomorphicLayoutEffect(() => {
     const root = containerRef.current;
     ensureEcmdRootSizingStyles(root?.ownerDocument);
     if (!root) return;
 
-    autoHealPackageScopeButtons(root);
+    const syncAllCards = () => {
+      autoHealPackageScopeButtons(root);
+      const cardEls = root.querySelectorAll<HTMLElement>(".ecmd-package-card[data-ecmd-card-key]");
+      cardEls.forEach((cardEl) => {
+        const key = cardEl.getAttribute("data-ecmd-card-key");
+        const found = resolvedCards.find((c) => c.cardKey === key);
+        if (found) {
+          paintCardDomInPlace(cardEl, found.ctx);
+        }
+      });
+    };
+
+    syncAllCards();
 
     if (typeof MutationObserver === "undefined") return;
+    let isInternalSync = false;
     const observer = new MutationObserver(() => {
-      autoHealPackageScopeButtons(root);
+      if (isInternalSync) return;
+      isInternalSync = true;
+      try {
+        syncAllCards();
+      } finally {
+        isInternalSync = false;
+      }
     });
     observer.observe(root, {
       childList: true,
       subtree: true,
       attributes: true,
-      attributeFilter: ["data-ecmd-scope-btn"],
+      attributeFilter: ["data-ecmd-scope-btn", "data-ecmd-action"],
     });
     return () => observer.disconnect();
-  }, [packages, itemTemplate, mobileItemTemplate, isMobile, isTablet, viewportMode, useSeparateMobileTemplate]);
+  }, [
+    resolvedCards,
+    itemTemplate,
+    mobileItemTemplate,
+    isMobile,
+    isTablet,
+    viewportMode,
+    useSeparateMobileTemplate,
+  ]);
 
   // Ensure any missing/broken [data-ecmd-pkg="hero-image"] or [data-ecmd-pkg="guarantee-badge"] renders clean inline SVG banner instead of a broken placeholder
   useEffect(() => {
@@ -275,15 +638,18 @@ export function EcmdPackagesRepeater({
     });
 
     return () => cleanups.forEach((fn) => fn());
-  }, [packages, itemTemplate, mobileItemTemplate, isMobile, useSeparateMobileTemplate]);
+  }, [resolvedCards, itemTemplate, mobileItemTemplate, isMobile, useSeparateMobileTemplate]);
 
-  const handleScopeChange = (pkgId: number, scope: string) => {
-    setPackages((prev) =>
-      prev.map((p) => (p.id === pkgId ? { ...p, activeScope: scope } : p))
-    );
+  const handleScopeChange = (cardKey: string, rawScope: string) => {
+    const normalized = detailTypeToScope(rawScope);
+    setScopeByCardKey((prev) => ({
+      ...prev,
+      [cardKey]: normalized,
+    }));
   };
 
-  const useTabletLayoutOverride = isTablet && Boolean(tabletOrientation && tabletOrientation !== "inherit");
+  const useTabletLayoutOverride =
+    isTablet && Boolean(tabletOrientation && tabletOrientation !== "inherit");
   const effectiveOrientation: PackagesOrientation =
     isMobile && mobileOrientation && mobileOrientation !== "inherit"
       ? mobileOrientation
@@ -320,7 +686,9 @@ export function EcmdPackagesRepeater({
 
   const primaryTemplate = itemTemplate ?? cardTemplate;
   const activeTemplate =
-    isMobile && useSeparateMobileTemplate && mobileItemTemplate ? mobileItemTemplate : primaryTemplate;
+    isMobile && useSeparateMobileTemplate && mobileItemTemplate
+      ? mobileItemTemplate
+      : primaryTemplate;
   const hasCustomTemplate = Boolean(activeTemplate);
 
   const effectiveDetailsAction: PackageDetailsAction = isMobile
@@ -382,22 +750,13 @@ export function EcmdPackagesRepeater({
         boxSizing: "border-box",
       };
 
-  const renderPackage = (pkg: any, index: number) => {
-    const matrix = pkg.pricing_matrix || {};
-    const multipliers = matrix.multipliers || {
-      coupe: 1,
-      truck: 1.2,
-      "sm-suv": 1.25,
-      "lg-suv": 1.4,
-    };
-    const multiplier = multipliers[activeVehicle] || 1;
-
-    const basePrice = (matrix.basePrice || 0) * multiplier;
-    const salePrice = (matrix.salePrice || 0) * multiplier;
-    const duration = matrix.duration || 0;
-    const hasSale = salePrice > 0 && salePrice < basePrice;
-    const pkgKey = pkg.id ?? index;
-    const isInlineOpen = inlineExpandedPkgId === pkgKey;
+  const renderPackageCard = (
+    card: { cardKey: string; ctx: EcmdPackageCardContext; legacyPkg: any },
+    index: number
+  ) => {
+    const { cardKey, ctx, legacyPkg } = card;
+    const pkgKey = ctx.id ?? index;
+    const isInlineOpen = inlineExpandedPkgId === cardKey;
 
     // Transparent Per-Card Slot Wrapper: when a Package Card Template slot is provided,
     // keep the outer per-card wrapper free of themeGroup surface classes (e.g. ecmd-group-3 white box)
@@ -406,10 +765,36 @@ export function EcmdPackagesRepeater({
     const wrapperThemeClass =
       !hasCustomTemplate && themeGroup && themeGroup !== "none" ? themeGroup : "";
 
+    const serializedContext = {
+      pkg: legacyPkg
+        ? legacyPkg
+        : {
+            ...(ctx.rawPackage || {}),
+            id: ctx.id,
+            title: ctx.title,
+            package_level: ctx.level,
+            detail_type: ctx.detailType,
+            sub_category: ctx.subCategory,
+            activeScope: ctx.activeScope,
+          },
+      ecmdPkg: ctx,
+      activeVehicle,
+      activeVehicleLabel,
+      subCategory: ctx.subCategory,
+      basePrice: ctx.basePrice,
+      salePrice: ctx.salePrice,
+      duration: ctx.duration,
+      hasSale: ctx.hasSale,
+      viewportMode,
+    };
+
     return (
       <div
-        key={pkgKey}
+        key={cardKey}
         className={`${wrapperThemeClass} ecmd-package-card`.trim()}
+        data-ecmd-card-key={cardKey}
+        data-ecmd-package-level={ctx.level}
+        data-ecmd-active-scope={ctx.activeScope}
         data-ecmd-slot-wrapper={hasCustomTemplate ? "transparent" : "default"}
         style={cardStyle}
         onClick={(e) => {
@@ -417,14 +802,52 @@ export function EcmdPackagesRepeater({
           const scopeBtn = target.closest("[data-ecmd-scope-btn]");
           if (scopeBtn) {
             const scope = scopeBtn.getAttribute("data-ecmd-scope-btn");
-            if (scope) handleScopeChange(pkg.id, scope);
+            if (scope) handleScopeChange(cardKey, scope);
+            return;
+          }
+
+          const addToCartTrigger = target.closest(
+            '[data-ecmd-action="add-to-cart"], [data-ecmd-pkg="add-to-cart-btn"]'
+          );
+          if (addToCartTrigger && typeof window !== "undefined") {
+            window.dispatchEvent(
+              new CustomEvent("ecmd-add-to-cart", {
+                detail: {
+                  ecmdPkg: ctx,
+                  pkgId: pkgKey,
+                  activeVehicle,
+                  activeVehicleLabel,
+                },
+              })
+            );
           }
 
           const explicitAction = resolveBreakpointAction(target, viewportMode);
-          const detailsTrigger = target.closest('[data-ecmd-pkg="whats-included-btn"]');
+          const detailsTrigger = target.closest(
+            '[data-ecmd-pkg="whats-included-btn"], [data-ecmd-action="open-whats-included"]'
+          );
+          const isWhatsIncludedAction =
+            explicitAction === "open-whats-included" || Boolean(detailsTrigger);
+
+          if (isWhatsIncludedAction && typeof window !== "undefined") {
+            window.dispatchEvent(
+              new CustomEvent("ecmd-open-whats-included", {
+                detail: {
+                  ecmdPkg: ctx,
+                  pkgId: pkgKey,
+                  activeVehicle,
+                  activeVehicleLabel,
+                },
+              })
+            );
+          }
+
           const resolvedAction =
-            explicitAction ||
-            (detailsTrigger ? mapDetailsActionToCommand(effectiveDetailsAction) : null);
+            explicitAction && explicitAction !== "open-whats-included"
+              ? explicitAction
+              : isWhatsIncludedAction
+              ? mapDetailsActionToCommand(effectiveDetailsAction)
+              : null;
 
           if (resolvedAction) {
             executeBreakpointAction(resolvedAction, {
@@ -432,39 +855,33 @@ export function EcmdPackagesRepeater({
               viewportMode,
               isMobile,
               payload: {
-                pkg,
+                pkg: serializedContext.pkg,
+                ecmdPkg: ctx,
                 pkgId: pkgKey,
                 activeVehicle,
                 activeVehicleLabel,
-                basePrice,
-                salePrice,
-                duration,
+                basePrice: ctx.basePrice,
+                salePrice: ctx.salePrice,
+                duration: ctx.duration,
               },
               onExpandInline: () =>
-                setInlineExpandedPkgId((prev) => (prev === pkgKey ? null : pkgKey)),
-              onOpenModal: () => setOverlayDetails({ mode: "modal", pkg }),
-              onOpenDrawer: () => setOverlayDetails({ mode: "drawer", pkg }),
+                setInlineExpandedPkgId((prev) => (prev === cardKey ? null : cardKey)),
+              onOpenModal: () => setOverlayDetails({ mode: "modal", ctx }),
+              onOpenDrawer: () => setOverlayDetails({ mode: "drawer", ctx }),
             });
           }
         }}
       >
         <div style={{ display: "none" }} data-ecmd-pkg="active-context">
-          {JSON.stringify({
-            pkg,
-            activeVehicle,
-            activeVehicleLabel,
-            basePrice,
-            salePrice,
-            duration,
-            hasSale,
-            viewportMode,
-          })}
+          {JSON.stringify(serializedContext)}
         </div>
-        {setControlContextData ? (
-          <React.Fragment>{activeTemplate}</React.Fragment>
-        ) : (
-          activeTemplate
-        )}
+        <SafePlasmicDataProvider name="ecmdPkg" data={ctx}>
+          {setControlContextData ? (
+            <React.Fragment>{activeTemplate}</React.Fragment>
+          ) : (
+            activeTemplate
+          )}
+        </SafePlasmicDataProvider>
         {isInlineOpen && (
           <div
             data-ecmd-pkg="inline-details-panel"
@@ -479,7 +896,9 @@ export function EcmdPackagesRepeater({
             }}
           >
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <strong>{pkg.title || "Package Details"} — What&apos;s Included</strong>
+              <strong>
+                {ctx.title} ({ctx.subCategory}) — What&apos;s Included
+              </strong>
               <button
                 type="button"
                 onClick={(ev) => {
@@ -497,10 +916,7 @@ export function EcmdPackagesRepeater({
                 ✕
               </button>
             </div>
-            <p style={{ marginTop: "6px", marginBottom: 0, opacity: 0.9 }}>
-              {pkg.description ||
-                `Complete ${pkg.activeScope || "full"} detail tailored for ${activeVehicleLabel} (${duration || 4} hrs).`}
-            </p>
+            <p style={{ marginTop: "6px", marginBottom: 0, opacity: 0.9 }}>{ctx.description}</p>
           </div>
         )}
       </div>
@@ -516,8 +932,8 @@ export function EcmdPackagesRepeater({
       className={`ecmd-packages-repeater-root ecmd-packages-repeater-container ${className}`.trim()}
       style={style ? { ...containerStyle, ...style } : containerStyle}
     >
-      {packages.length > 0 ? (
-        packages.map((pkg, index) => renderPackage(pkg, index))
+      {resolvedCards.length > 0 ? (
+        resolvedCards.map((card, index) => renderPackageCard(card, index))
       ) : (
         <div>Loading Packages...</div>
       )}
@@ -555,7 +971,7 @@ export function EcmdPackagesRepeater({
           >
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
               <h3 style={{ margin: 0, fontSize: "17px", fontWeight: 700 }}>
-                {overlayDetails.pkg?.title || "Package Details"}
+                {overlayDetails.ctx.title} ({overlayDetails.ctx.subCategory})
               </h3>
               <button
                 type="button"
@@ -574,8 +990,7 @@ export function EcmdPackagesRepeater({
               </button>
             </div>
             <p style={{ marginTop: "10px", fontSize: "14px", lineHeight: 1.5, color: "#CBD5E1" }}>
-              {overlayDetails.pkg?.description ||
-                `Complete ${overlayDetails.pkg?.activeScope || "full"} detail for ${activeVehicleLabel}.`}
+              {overlayDetails.ctx.description}
             </p>
           </div>
         </div>

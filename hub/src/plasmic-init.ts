@@ -913,6 +913,12 @@ registerEcmdComponent(EcmdPackagesRepeater, {
   providesData: true,
   defaultStyles: { width: "100%" },
   props: {
+    levelOrder: {
+      type: "string",
+      defaultValue: "Classic,Premium,Luxury",
+      displayName: "📦 Package Level Order (Comma-Separated)",
+      description: "Orders the 3 Wix package level cards (e.g. Classic,Premium,Luxury)",
+    },
     themeGroup: { type: "custom", defaultValue: "ecmd-group-3", control: EcmdGroupSelectControl as any, displayName: "🎨 Card Theme Group" },
     orientation: {
       type: "choice",
@@ -1161,6 +1167,19 @@ registerEcmdComponent(EcmdBrushedSteelButton, {
       type: "boolean",
       defaultValue: false,
       displayName: "Selected (Backlight Glow)",
+    },
+    buttonRole: {
+      type: "choice",
+      options: [
+        { value: "auto", label: "Auto (Detect from Label)" },
+        { value: "scope-interior", label: "Scope: Interior" },
+        { value: "scope-full", label: "Scope: Full Detail" },
+        { value: "scope-exterior", label: "Scope: Exterior" },
+        { value: "whats-included", label: "Action: What's Included" },
+        { value: "add-to-cart", label: "Action: Add to Cart" },
+      ],
+      defaultValue: "auto",
+      displayName: "Button Role Hook (Packages Engine)",
     },
     glowColor: {
       type: "color",
