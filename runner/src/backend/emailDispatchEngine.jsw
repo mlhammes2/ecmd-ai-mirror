@@ -1,0 +1,253 @@
+// ----- backend/emailDispatchEngine.jsw ----- //
+
+import sgMail from "@sendgrid/mail";
+import { getSecret } from 'wix-secrets-backend';
+import wixData from 'wix-data';
+
+async function initSendGrid() {
+    const apiKey = await getSecret("SENDGRID_API_KEY");
+    sgMail.setApiKey(apiKey);
+}
+
+// ==========================================
+// 1. WELCOME ENGINE
+// ==========================================
+export async function sendWelcomeEmail(customerEmail, customerName, userId) {
+    try {
+        await initSendGrid();
+        const templateId = "d-d48ef164406e4199b527467bc9515906"; 
+        const senderEmail = "admin@emeraldcoastmobiledetailing.com"; 
+
+        const msg = {
+            to: customerEmail,
+            from: { email: senderEmail, name: "Emerald Coast Mobile Detailing" },
+            templateId: templateId,
+            dynamicTemplateData: {
+                first_name: customerName || "there", 
+                verify_url: `https://www.emeraldcoastmobiledetailing.com/confirmation?verify=${userId}`
+            }
+        };
+
+        const response = await sgMail.send(msg);
+        console.log("📌 [BACKEND_EMAIL_DISPATCH -> sendWelcomeEmail]: 📧 Welcome email sent to", customerEmail);
+        return { success: true, response: response[0].statusCode };
+
+    } catch (error) {
+        console.error("📌 [BACKEND_EMAIL_DISPATCH -> sendWelcomeEmail]: 🚨 Failed to send Welcome email:", error);
+        return { success: false, error: error.message };
+    }
+}
+
+// 💥 UPDATED BULLETPROOF IMAGE HELPER
+function resolveWixImage(wixImageUrl) {
+    if (!wixImageUrl) return "https://static.wixstatic.com/media/your-default-image-url-here.jpg";
+    
+    if (wixImageUrl.startsWith("wix:image://v1/")) {
+        return `https://static.wixstatic.com/media/${wixImageUrl.split('/')[3]}`;
+    }
+    if (wixImageUrl.startsWith("image://v1/")) {
+        return `https://static.wixstatic.com/media/${wixImageUrl.split('/')[3]}`;
+    }
+    
+    return wixImageUrl;
+}
+
+// ==========================================
+// 2. MASTER TRANSACTIONAL ENGINE
+// ==========================================
+export async function sendMasterTransactionalEmail(customerEmail, orderData, eventType) {
+    try {
+        console.log(`📌 [BACKEND_EMAIL_DISPATCH -> sendMasterTransactionalEmail]: Preparing ${eventType} email for ${customerEmail}`);
+        await initSendGrid();
+        const templateId = "d-8721471eaf594d99973ee553f4617d04"; 
+
+        const jobsList = Array.isArray(orderData?.jobs) ? orderData.jobs : [];
+        const activeJobsCount = jobsList.filter(job => job.status !== "Cancelled").length;
+        const hasActiveJobs = activeJobsCount > 0;
+
+        let emailSubject = ""; let emailTitle = ""; let emailPhrase = "";
+        let emailIntro = ""; let pricingDescText = "";
+        let showEditButton = false; let showPaymentButton = false; let showPrepModule = false;
+
+        if (eventType === "CONFIRMATION") {
+            emailSubject = "Thank you for your order!"; emailTitle = "Booking confirmation"; emailPhrase = "Thank you for your order!";
+            emailIntro = "Your booking is secured! We are ready to safely lift away imperfections, restore your vehicle's pristine condition, and lock in a brilliant, lasting shine that protects your investment. Leave the hard work to us as we bring our signature detailing experience directly to you.";
+            pricingDescText = "** For your convenience, payments can be completed securely online. A formal receipt will be automatically sent to your inbox as soon as your online payment is completed.";
+            showEditButton = true; showPaymentButton = true; showPrepModule = true;
+        } else if (eventType === "RESCHEDULE") {
+            emailSubject = "Your order has been Rescheduled!"; emailTitle = "Rescheduled"; emailPhrase = "Your Order has been rescheduled!";
+            emailIntro = "New date, same flawless results! Your appointment has been successfully updated, and our team is ready to bring the showroom shine directly to you. Please take a quick look at your new scheduled details below.";
+            pricingDescText = "** For your convenience, payments can be completed securely online. A formal receipt will be automatically sent to your inbox as soon as your online payment is completed.";
+            showEditButton = true; showPaymentButton = true; showPrepModule = true;
+        } else if (eventType === "UPDATE") {
+            emailSubject = "Your order has been Updated!"; emailTitle = "Information Updated"; emailPhrase = "Your order has been modified!";
+            emailIntro = "New information, same flawless results! Your appointment has been successfully updated, and our team is ready to bring the showroom shine directly to you. Please take a quick look at your new scheduled details below.";
+            pricingDescText = "** For your convenience, payments can be completed securely online. A formal receipt will be automatically sent to your inbox as soon as your online payment is completed.";
+            showEditButton = true; showPaymentButton = true; showPrepModule = true;
+        } else if (eventType === "CANCEL") {
+            emailSubject = "Your order has been canceled!"; emailTitle = "Cancellation Confirmation"; emailPhrase = "We're Sorry to see you go!";
+            emailIntro = "As requested, the detailing service listed below has been successfully canceled. If this was a mistake, or if you need to book a new time, you can easily schedule a new appointment through your profile.";
+            pricingDescText = hasActiveJobs ? "** For your convenience, payments can be completed securely online. A formal receipt will be automatically sent to your inbox as soon as your online payment is completed." : "";
+            showEditButton = hasActiveJobs; showPaymentButton = hasActiveJobs; showPrepModule = hasActiveJobs;
+        } else if (eventType === "RECEIPT") {
+            emailSubject = "Payment Successful: Your Emerald Coast Receipt"; emailTitle = "Purchase Receipt"; emailPhrase = "Thank you for your payment!";
+            emailIntro = "&nbsp;";
+            pricingDescText = "** This is your official payment receipt. The items listed above have been paid in full. **";
+            showEditButton = false; showPaymentButton = false; showPrepModule = false;
+        }
+
+        let activeSubTotal = 0; let activeDiscounts = 0; let activeGrandTotal = 0;
+
+        const formattedJobs = jobsList.map(job => {
+            let isJobCanceled = job.status === "Cancelled"; 
+            let allAddOns = [...(job.interiorAddOns || []), ...(job.exteriorAddOns || []), ...(job.customAddOns || [])].map(a => a.title || a);
+            
+            if (!isJobCanceled) {
+                activeSubTotal += Number(job.subTotal || 0);
+                activeDiscounts += Number(job.discountsTotal || 0);
+                activeGrandTotal += Number(job.totalPrice || 0);
+            }
+
+            let builtCityStateZip = `${job.city || ''}${job.state ? ', ' + job.state : ''} ${job.zip || ''}`.replace(/^,\s*/, '').trim();
+            let isUpdate = eventType === "UPDATE";
+
+            return {
+                orderId: job.orderId || "N/A",
+                packageImage: resolveWixImage(job.packageImage || job.packageImageUrl),
+                packageName: job.packageTitle,
+                detailerName: job.detailerName || job.detailerAlias || "Unassigned", 
+                vehicleInfo: `${job.vehicleYear || ''} ${job.vehicleMake || ''} ${job.vehicleModel || ''}`.trim() || job.vehicleInfo || "Vehicle",
+                contactName: `${job.firstName || ''} ${job.lastName || ''}`.trim() || orderData.firstName || "No Name Provided",
+                contactPhone: job.phone || "No Phone Provided",
+                serviceDate: job.serviceDate ? new Date(job.serviceDate).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }) : "Scheduled Date", 
+                serviceTime: job.scheduledTime || job.serviceTime,
+                address1: job.address1 || "No Address Provided",
+                address2: job.address2 || null,
+                cityStateZip: builtCityStateZip,
+                isCanceled: isJobCanceled,
+                specialRequests: job.specialInstructions || null,
+                packageChanged: isUpdate && job.packageChanged === true,
+                vehicleChanged: isUpdate && job.vehicleChanged === true,
+                contactChanged: isUpdate && job.contactChanged === true,
+                dateChanged: (isUpdate && job.dateChanged === true) || eventType === "RESCHEDULE",
+                locationChanged: isUpdate && job.locationChanged === true,
+                addOnsChanged: isUpdate && job.addOnsChanged === true,
+                requestsChanged: isUpdate && job.requestsChanged === true,
+                hasAddOns: allAddOns.length > 0,
+                addOnsList: allAddOns,
+                hasDiscounts: job.discountsApplied && job.discountsApplied.length > 0,
+                discountsList: job.discountsApplied || [],
+                hasMobileFee: Number(job.mobileFee || 0) > 0,
+                basePrice: `$${Number(job.basePrice || 0).toFixed(2)}`,
+                mobileFee: `$${Number(job.mobileFee || 0).toFixed(2)}`,
+                addOnsTotal: `$${Number(job.totalAddOnsPrice || 0).toFixed(2)}`,
+                subTotal: `$${Number(job.subTotal || 0).toFixed(2)}`,
+                discountTotal: `-$${Number(job.discountsTotal || 0).toFixed(2)}`,
+                grandTotal: `$${Number(job.totalPrice || 0).toFixed(2)}`
+            };
+        });
+
+        let methodText = null;
+        if (eventType === "RECEIPT" && jobsList.length > 0) {
+            let firstJob = jobsList[0];
+            if (firstJob.cardNetwork && firstJob.cardLast4) {
+                methodText = `${firstJob.cardNetwork.toUpperCase()} ending in ${firstJob.cardLast4}`;
+            } else if (firstJob.paymentMethodString) {
+                methodText = firstJob.paymentMethodString.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+            } else {
+                methodText = "Online Payment";
+            }
+        }
+
+        const msg = {
+            to: customerEmail,
+            from: { email: "admin@emeraldcoastmobiledetailing.com", name: "Emerald Coast Mobile Detailing" },
+            templateId: templateId,
+            dynamicTemplateData: {
+                subject: emailSubject, 
+                emailTitle: emailTitle,
+                emailPhrase: emailPhrase,
+                emailIntro: emailIntro,
+                editButtonDescription: "Click to view, edit, reschedule, cancel, or track your details.",
+                pricingDescText: pricingDescText,
+                showEditButton: showEditButton,
+                showPaymentButton: showPaymentButton,
+                showPrepModule: showPrepModule,
+                customerName: orderData.firstName || orderData.customerName,
+                orderId: orderData.orderId || orderData._id,
+                jobs: formattedJobs, 
+                paymentMethodUsed: methodText,
+                hasDiscounts: activeDiscounts > 0,
+                subTotal: `$${activeSubTotal.toFixed(2)}`,
+                discountTotal: `-$${activeDiscounts.toFixed(2)}`,
+                grandTotal: `$${activeGrandTotal.toFixed(2)}`
+            }
+        };
+
+        await sgMail.send(msg);
+        console.log(`📌 [BACKEND_EMAIL_DISPATCH -> sendMasterTransactionalEmail]: 📧 ${eventType} Email sent successfully!`);
+        return { success: true };
+    } catch (error) { 
+        console.error("📌 [BACKEND_EMAIL_DISPATCH -> sendMasterTransactionalEmail]: 🚨 DISPATCH ERROR:", error);
+        return { success: false, error: error.message };
+    }
+}
+
+// ==========================================
+// 3. PURCHASE RECEIPT HELPER (Used by filePaymentPortal.js)
+// ==========================================
+export async function sendPurchaseReceiptEmail(customerEmail, orderData, _paidJobIds = []) {
+    console.log(`📌 [BACKEND_EMAIL_DISPATCH -> sendPurchaseReceiptEmail]: Dispatching RECEIPT email to ${customerEmail}`);
+    return await sendMasterTransactionalEmail(customerEmail, orderData, "RECEIPT");
+}
+
+// ==========================================
+// 4. SECURE HQ JOB INSERT & UPDATE (Used by hqCalendar, hqCustomerForms, hqDetailBuilder)
+// ==========================================
+export async function secureInsertJob(jobPayload, shouldSendEmail = true) {
+    try {
+        console.log(`📌 [BACKEND_EMAIL_DISPATCH -> secureInsertJob]: Inserting scheduledJob (${jobPayload?.packageTitle || "Detail"}), sendEmail=${shouldSendEmail}`);
+        let inserted = await wixData.insert("scheduledJobs", jobPayload, { suppressAuth: true });
+
+        if (shouldSendEmail && inserted && inserted.email) {
+            let orderData = {
+                firstName: inserted.firstName || "Valued Customer",
+                orderId: inserted.orderId || inserted._id,
+                jobs: [inserted]
+            };
+            await sendMasterTransactionalEmail(inserted.email, orderData, "CONFIRMATION").catch(err => {
+                console.warn("📌 [BACKEND_EMAIL_DISPATCH -> secureInsertJob]: Email dispatch skipped:", err.message);
+            });
+        }
+        return inserted;
+    } catch (error) {
+        console.error("📌 [BACKEND_EMAIL_DISPATCH -> secureInsertJob]: 🚨 Insert failed:", error);
+        throw error;
+    }
+}
+
+export async function secureUpdateJob(jobPayload, shouldSendEmail = true) {
+    try {
+        console.log(`📌 [BACKEND_EMAIL_DISPATCH -> secureUpdateJob]: Updating scheduledJob _id=${jobPayload?._id}, sendEmail=${shouldSendEmail}`);
+        let updated = await wixData.update("scheduledJobs", jobPayload, { suppressAuth: true });
+
+        if (shouldSendEmail && updated && updated.email) {
+            let eventType = "UPDATE";
+            if (updated.status === "Cancelled") eventType = "CANCEL";
+            else if (updated.wasRescheduled) eventType = "RESCHEDULE";
+
+            let orderData = {
+                firstName: updated.firstName || "Valued Customer",
+                orderId: updated.orderId || updated._id,
+                jobs: [updated]
+            };
+            await sendMasterTransactionalEmail(updated.email, orderData, eventType).catch(err => {
+                console.warn("📌 [BACKEND_EMAIL_DISPATCH -> secureUpdateJob]: Email dispatch skipped:", err.message);
+            });
+        }
+        return updated;
+    } catch (error) {
+        console.error("📌 [BACKEND_EMAIL_DISPATCH -> secureUpdateJob]: 🚨 Update failed:", error);
+        throw error;
+    }
+}

@@ -1,0 +1,27 @@
+// --- backend/detailerScheduleClean.jsw ---
+
+import wixData from 'wix-data';
+
+export async function deleteExpiredRules() {
+    let yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+
+    try {
+        console.log("📌 [BACKEND_SCHEDULE_CLEAN -> deleteExpiredRules]: Checking for expired Specific Date rules...");
+        let res = await wixData.query("availabilityRules")
+            .eq("ruleType", "Specific Date")
+            .lt("targetDate", yesterday)
+            .limit(1000)
+            .find({ suppressAuth: true });
+
+        if (res.items.length > 0) {
+            let idsToDelete = res.items.map(item => item._id);
+            await wixData.bulkRemove("availabilityRules", idsToDelete, { suppressAuth: true });
+            console.log(`📌 [BACKEND_SCHEDULE_CLEAN -> deleteExpiredRules]: 🧹 Deleted ${idsToDelete.length} expired schedule rules.`);
+        } else {
+            console.log("📌 [BACKEND_SCHEDULE_CLEAN -> deleteExpiredRules]: 🧹 No expired rules found today.");
+        }
+    } catch (error) {
+        console.error("📌 [BACKEND_SCHEDULE_CLEAN -> deleteExpiredRules]: 🚨 Failed to run routine:", error);
+    }
+}

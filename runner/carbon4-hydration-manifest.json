@@ -1,0 +1,15 @@
+﻿{
+    "status":  "Ready for 0-credit Git push",
+    "files":  [
+                  "src/integrations/supabase/client.ts",
+                  "src/engines/stateManager.ts",
+                  "src/engines/hqCalendar.ts",
+                  "src/engines/profileEngine.ts",
+                  "src/pages/BookingHQ.tsx",
+                  "src/pages/DetailerPortal.tsx",
+                  "src/pages/Console.tsx"
+              ],
+    "project":  "Emerald Coast Detailing Hub",
+    "repo":  "https://github.com/mlhammes2/emerald-coast-detailing-hub.git",
+    "bridge":  "https://lvynkeuceiqxafgpgdvs.supabase.co/functions/v1/ecmd-carbon-bridge"
+}

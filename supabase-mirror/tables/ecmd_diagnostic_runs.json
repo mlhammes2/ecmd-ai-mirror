@@ -1,0 +1,20 @@
+{
+  "table": "ecmd_diagnostic_runs",
+  "exportedAt": "2026-11-25T21:11:31.763Z",
+  "totalRowsInDb": 1,
+  "exportedRowCount": 1,
+  "rows": [
+    {
+      "id": "011d84a6-7363-4468-883f-d34ad3ceb312",
+      "status": "passed",
+      "new_sha": "v7.7",
+      "check_type": "velo_gatekeeper",
+      "created_at": "2026-11-16T02:26:08.028775+00:00",
+      "target_path": "C:\\ECMD\\console.html v7.7 + Start-EcmdCliBridge.ps1 v4.1",
+      "previous_sha": "v7.6",
+      "error_detected": "",
+      "estimated_cost_usd": 0,
+      "healer_action_taken": "Verified 0 JavaScript syntax errors via node --check; enabled deterministic suggestion auto-completion."
+    }
+  ]
+}

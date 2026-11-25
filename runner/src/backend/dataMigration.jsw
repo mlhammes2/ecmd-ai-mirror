@@ -1,0 +1,66 @@
+// --- backend/dataMigration.jsw ---
+
+import wixData from 'wix-data';
+
+export async function migrateVehicleDataToJobs() {
+    console.log("📌 [BACKEND_DATA_MIGRATION -> migrateVehicleDataToJobs]: 🚀 Starting Vehicle Data Migration...");
+
+    try {
+        // 1. Fetch vehicles and build a lookup dictionary for blazing fast matching
+        let vehicleResults = await wixData.query("customerVehicles").limit(1000).find({ suppressAuth: true });
+        let vehicles = vehicleResults.items || [];
+
+        let vehicleMap = {};
+        vehicles.forEach(vehicle => {
+            let idToMatch = vehicle.vehicleId || vehicle._id; 
+            vehicleMap[idToMatch] = vehicle;
+        });
+
+        console.log(`📌 [BACKEND_DATA_MIGRATION -> migrateVehicleDataToJobs]: Loaded ${vehicles.length} vehicles into dictionary.`);
+
+        // 2. Fetch scheduled jobs that are missing the 'vehicleYear' data
+        let jobsResults = await wixData.query("scheduledJobs")
+            .isEmpty("vehicleYear")
+            .limit(1000)
+            .find({ suppressAuth: true });
+        
+        let jobs = jobsResults.items || [];
+        console.log(`📌 [BACKEND_DATA_MIGRATION -> migrateVehicleDataToJobs]: Found ${jobs.length} jobs needing updates.`);
+
+        if (jobs.length === 0) {
+            console.log("📌 [BACKEND_DATA_MIGRATION -> migrateVehicleDataToJobs]: 🏁 No jobs to update.");
+            return { success: true, updated: 0 };
+        }
+
+        let jobsToUpdate = [];
+
+        // 3. Match the data
+        jobs.forEach(job => {
+            if (job.vehicleId && vehicleMap[job.vehicleId]) {
+                let matchedVehicle = vehicleMap[job.vehicleId];
+
+                job.vehicleYear = matchedVehicle.vehicleYear || matchedVehicle.year;
+                job.vehicleMake = matchedVehicle.vehicleMake || matchedVehicle.make;
+                job.vehicleModel = matchedVehicle.vehicleModel || matchedVehicle.model;
+                job.vehicleColor = matchedVehicle.vehicleColor || matchedVehicle.color;
+
+                jobsToUpdate.push(job);
+            }
+        });
+
+        // 4. Bulk save the updated jobs back to the database
+        if (jobsToUpdate.length > 0) {
+            console.log(`📌 [BACKEND_DATA_MIGRATION -> migrateVehicleDataToJobs]: Bulk updating ${jobsToUpdate.length} jobs...`);
+            let updateResult = await wixData.bulkUpdate("scheduledJobs", jobsToUpdate, { suppressAuth: true });
+            console.log(`📌 [BACKEND_DATA_MIGRATION -> migrateVehicleDataToJobs]: 🎉 Migration Complete! Updated ${updateResult.updated} items.`);
+            return { success: true, updated: updateResult.updated };
+        } else {
+            console.warn("📌 [BACKEND_DATA_MIGRATION -> migrateVehicleDataToJobs]: No matches found between job vehicleIds and customerVehicles.");
+            return { success: true, updated: 0 };
+        }
+
+    } catch (error) {
+        console.error("📌 [BACKEND_DATA_MIGRATION -> migrateVehicleDataToJobs]: 🚨 Migration failed:", error);
+        return { success: false, error: error.message };
+    }
+}

@@ -1,0 +1,248 @@
+/* global.css ----*/
+
+
+
+
+/* =========================================
+   WIX STUDIO BREAKPOINT REFERENCE NOTES
+   Copy the @media line, paste your CSS inside, and close with }
+   ========================================= */
+
+
+/* Desktop (1201px and above) */
+/* @media (min-width: 1201px) { */
+
+
+/* Landscape Smartphone / Small Desktop (1001px - 1200px) */
+/* @media (min-width: 1001px) and (max-width: 1200px) { */
+
+
+/* Tablet (751px - 1000px) */
+/* @media (min-width: 751px) and (max-width: 1000px) { */
+
+
+/* Mobile (320px - 750px) */
+/* @media (min-width: 320px) and (max-width: 750px) { */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+* {
+    /* Removes the blue flash when tapping elements on mobile devices */
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+
+/* Optional: Removes the blue/black outline when clicking elements on desktop */
+*:focus {
+    outline: none !important;
+}
+
+
+
+
+.fixed-viewport-video {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important; /* Forces it to stretch */
+    bottom: 0 !important; /* Forces it to stretch */
+    width: 100vw !important;
+    height: 100dvh !important; /* Use dynamic viewport height instead of vh */
+    object-fit: cover !important;
+    z-index: -999 !important;
+    pointer-events: none !important;
+    margin: 0 !important;
+    padding: 0 !important; /* Kills any invisible Wix padding */
+    box-sizing: border-box !important;
+}
+
+
+.fixed-viewport-video * {
+    width: 100vw !important;
+    height: 100dvh !important; /* Match parent's dynamic height */
+    object-fit: cover !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* DESKTOP (1201px and above): Strictly locked to remaining viewport height */
+@media (min-width: 1201px) {
+    .my-spa-section {
+        min-height: calc(100dvh - var(--header-height, 10vh) - var(--footer-height, 0px)) !important;
+        height: calc(100dvh - var(--header-height, 10vh) - var(--footer-height, 0px)) !important;
+    }
+}
+
+/* TABLET & MOBILE (1200px and below): Minimum height applied, but free to expand */
+@media (max-width: 1200px) {
+    .my-spa-section {
+        min-height: calc(100dvh - var(--header-height, 10vh) - var(--footer-height, 0px)) !important;
+        height: auto !important; /* Allows the section to grow with its content */
+    }
+}
+
+
+
+
+
+
+.custom-menu-box {
+    height: max-content !important;
+    min-height: 0svh !important;
+    max-height: 91svh !important;
+}
+
+
+
+
+
+
+
+
+/*tablet and mobile title bar*/
+@media (min-width: 320px) and (max-width: 750px) {
+    .my-sticky-title {
+        position: sticky !important;
+        top: var(--header-height) !important;
+    }
+}
+
+
+
+
+/* Tablet (751px - 1000px) */
+@media (min-width: 751px) and (max-width: 1200px) {
+    .my-cart-toolbar {
+        position: sticky !important;
+        top: var(--title-height) !important;
+    }
+}
+
+
+/* Mobile (320px - 750px) */
+@media (min-width: 320px) and (max-width: 750px) {
+    .my-cart-toolbar {
+        position: sticky !important;
+        top: calc(var(--header-height) + var(--title-height)) !important;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 2. PUSH EFFECT LOGIC (push-effect) */
+.push-effect {
+    transition: all 0.1s ease-in-out;
+    /* Starting shadow: 4px distance, 4px blur */
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.78);
+    transform: translateY(0) scale(1);
+}
+
+
+/* 3. HOVER STATE: Keep visual appearance identical to regular state */
+.push-effect:hover {
+    transform: translateY(0) scale(1) !important;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.78) !important;
+    filter: brightness(1) !important;
+}
+
+
+/* 4. DISABLED STATE: Keep the "Push Effect" active */
+.push-effect:disabled,
+.push-effect[aria-disabled="true"] {
+    /* Moves down 2px and shrinks very slightly to 99% */
+    transform: translateY(2px) scale(0.99) !important;
+    /* Shadow tightens to 2px distance but remains visible */
+    box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.78) !important;
+    filter: brightness(0.95);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* PURE EXPANSION (No Color/Border Changes) */
+.expand-button {
+    transition: transform 0.3s ease-in-out;
+    /* No border or box-shadow defined here */
+}
+
+
+.expand-button:hover {
+    transform: scale(1.05) !important; /* Grows by 5% */
+    z-index: 10; /* Ensures it pops on top of nearby elements */
+}
+
+
+/* Lock both the TextBox input and the Mirror Text to identical metrics */
+.sync-box .text-box__input,
+.sync-mirror,
+.sync-mirror .rich-text__text {
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    line-height: 26px !important;
+    letter-spacing: 0px !important;
+    padding: 8px 12px !important;
+    margin: 0px !important;
+    border: none !important;
+    box-sizing: border-box !important;
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+}
+
+/* Hide scrollbar inside the TextBox so width never shrinks */
+.sync-box .text-box__input {
+    overflow: hidden !important;
+    resize: none !important;
+}

@@ -1,0 +1,143 @@
+name: "🤖 Mobile AI Code Agent (Gemini -> Git -> Wix)"
+on:
+  issues:
+    types: [opened, labeled]
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  ai-edit-and-publish:
+    if: >
+      github.event.sender.login == github.repository_owner &&
+      (
+        (github.event_name == 'issues' && (contains(github.event.issue.title, '[AI]') || contains(github.event.issue.labels.*.name, 'ai'))) ||
+        (github.event_name == 'issue_comment' && (contains(github.event.issue.title, '[AI]') || contains(github.event.comment.body, '/ai')))
+      )
+    runs-on: ubuntu-latest
+    steps:
+      - name: "📥 Checkout ECMD Repository"
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: "🟢 Setup Node.js"
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: "🧠 Run Gemini Code Edit Agent"
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body || '' }}
+          COMMENT_BODY: ${{ github.event.comment.body || '' }}
+        run: |
+          node -e '
+            const fs = require("fs");
+            const path = require("path");
+
+            function listFiles(dir, fileList = []) {
+              if (!fs.existsSync(dir)) return fileList;
+              for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+                const full = path.join(dir, entry.name);
+                if (entry.isDirectory()) listFiles(full, fileList);
+                else if (/\.(js|jsw|web\.js|json|css|yml)$/.test(entry.name)) fileList.push(full);
+              }
+              return fileList;
+            }
+
+            async function run() {
+              const promptText = [
+                `Issue Title: ${process.env.ISSUE_TITLE}`,
+                `Issue Body:\n${process.env.ISSUE_BODY}`,
+                process.env.COMMENT_BODY ? `Follow-up Instruction:\n${process.env.COMMENT_BODY}` : ""
+              ].filter(Boolean).join("\n\n");
+
+              const allFiles = listFiles("src");
+
+              let targetFiles = allFiles.filter(f =>
+                promptText.toLowerCase().includes(path.basename(f).toLowerCase()) ||
+                promptText.toLowerCase().includes(f.toLowerCase())
+              );
+              if (targetFiles.length === 0) {
+                targetFiles = allFiles.filter(f =>
+                  f.includes("packages.kujb1.js") ||
+                  f.includes("aiBrain.web.js") ||
+                  f.includes("geminiAssistant.web.js") ||
+                  f.includes("aiTelemetry.js")
+                );
+              }
+
+              const fileContext = targetFiles.map(f =>
+                `=== FILE: ${f} ===\n${fs.readFileSync(f, "utf8")}\n=== END FILE: ${f} ===`
+              ).join("\n\n");
+
+              const systemInstruction = [
+                "You are an autonomous Wix Velo and Supabase engineer for the ECMD repository.",
+                "All repository source files:",
+                allFiles.join(", "),
+                "Return ONLY valid JSON matching this exact schema:",
+                "{ \"summary\": \"concise explanation of what was changed or answered\", \"files\": [ { \"path\": \"src/...\", \"content\": \"complete updated file content\" } ] }",
+                "If the user only asked a question or to view code without editing, return an empty \"files\": [] array and put the full answer in \"summary\".",
+                "Never truncate file content. Always output the full, valid file content for every modified file."
+              ].join("\n");
+
+              const res = await fetch(
+                `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=${process.env.GEMINI_API_KEY}`,
+                {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({
+                    systemInstruction: { parts: [{ text: systemInstruction }] },
+                    contents: [{ role: "user", parts: [{ text: `${promptText}\n\n${fileContext}` }] }],
+                    generationConfig: { responseMimeType: "application/json", temperature: 0.1 }
+                  })
+                }
+              );
+
+              if (!res.ok) {
+                throw new Error(`Gemini API Error ${res.status}: ${await res.text()}`);
+              }
+
+              const data = await res.json();
+              const rawJson = data.candidates?.[0]?.content?.parts?.[0]?.text;
+              const result = JSON.parse(rawJson);
+
+              for (const file of result.files || []) {
+                fs.mkdirSync(path.dirname(file.path), { recursive: true });
+                fs.writeFileSync(file.path, file.content, "utf8");
+                console.log("Updated:", file.path);
+              }
+              fs.writeFileSync("/tmp/ai_summary.txt", result.summary || "Completed request.", "utf8");
+            }
+
+            run().catch(err => { console.error(err); process.exit(1); });
+          '
+
+      - name: "📤 Commit Changes & Publish to ecmdutah.com"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WIX_CLI_API_KEY: ${{ secrets.WIX_CLI_API_KEY }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          git config user.name "ECMD AI Agent"
+          git config user.email "actions@github.com"
+          SUMMARY=$(cat /tmp/ai_summary.txt)
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "🤖 AI Edit (#$ISSUE_NUMBER): $SUMMARY"
+            git push origin main
+            sleep 5
+            curl -s -X POST "https://www.wixapis.com/site-publisher/v1/site/publish" \
+              -H "Authorization: $WIX_CLI_API_KEY" \
+              -H "wix-site-id: 44f1571c-d7a3-43d9-a503-10a71816bec6" \
+              -H "Content-Type: application/json" \
+              -d '{}'
+            gh issue comment "$ISSUE_NUMBER" --body "✅ **Committed to \`main\` & published to ecmdutah.com!**\n\n$SUMMARY"
+          else
+            gh issue comment "$ISSUE_NUMBER" --body "🧠 **AI Agent Response:**\n\n$SUMMARY"
+          fi

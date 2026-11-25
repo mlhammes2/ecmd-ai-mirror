@@ -1,0 +1,95 @@
+// --- backend/twilioProxy.jsw ---
+
+import { fetch } from 'wix-fetch';
+import wixSecretsBackend from 'wix-secrets-backend';
+import wixData from 'wix-data';
+
+// ==========================================
+// 🧠 1. GEMINI AI FILTER
+// ==========================================
+export async function rewriteTextWithGemini(rawText) {
+    try {
+        console.log("📌 [BACKEND_TWILIO_PROXY -> rewriteTextWithGemini]: Polishing detailer SMS with Gemini 2.5 Flash...");
+        const apiKey = await wixSecretsBackend.getSecret("GEMINI_API_KEY");
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+        
+        const prompt = `You are a professional dispatcher for a high-end auto detailing company. 
+        Rewrite the following text message from a detailer to a customer. 
+        Keep it under 160 characters. Fix all grammar, spelling, and slang. 
+        Use a polite, professional, and friendly tone. Do not invent any new facts, times, or prices. 
+        Do not include quotes around your response. 
+        Original Text: "${rawText}"`;
+
+        const response = await fetch(url, {
+            method: 'post',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                contents: [{ parts: [{ text: prompt }] }]
+            })
+        });
+
+        if (!response.ok) throw new Error(`Gemini API failed (${response.status})`);
+
+        const data = await response.json();
+        const polished = data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || rawText;
+        console.log("📌 [BACKEND_TWILIO_PROXY -> rewriteTextWithGemini]: Polished SMS ready.");
+        return polished;
+        
+    } catch (error) {
+        console.error("📌 [BACKEND_TWILIO_PROXY -> rewriteTextWithGemini]: 🚨 Gemini Error:", error);
+        return rawText; // Fallback to original text if AI fails
+    }
+}
+
+// ==========================================
+// 📱 2. SEND SMS VIA TWILIO
+// ==========================================
+export async function sendTwilioSMS(toNumber, fromNumber, messageBody) {
+    try {
+        console.log(`📌 [BACKEND_TWILIO_PROXY -> sendTwilioSMS]: Sending SMS to ${toNumber}`);
+        const apiKeySid = await wixSecretsBackend.getSecret("ECMD_FL_TWILIO_KEY_SID");
+        const apiSecret = await wixSecretsBackend.getSecret("ECMD_FL_TWILIO_SECRET");
+        const accountSid = await wixSecretsBackend.getSecret("TWILIO_ACCOUNT_SID").catch(() => "YOUR_TWILIO_ACCOUNT_SID_HERE");
+        
+        let bodyParams = new URLSearchParams();
+        bodyParams.append("To", toNumber);
+        bodyParams.append("From", fromNumber);
+        bodyParams.append("Body", messageBody);
+
+        const response = await fetch(`https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`, {
+            method: 'post',
+            headers: {
+                'Authorization': 'Basic ' + Buffer.from(apiKeySid + ':' + apiSecret).toString('base64'),
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: bodyParams.toString()
+        });
+
+        return await response.json();
+    } catch (error) {
+        console.error("📌 [BACKEND_TWILIO_PROXY -> sendTwilioSMS]: 🚨 Twilio Error:", error);
+    }
+}
+
+// ==========================================
+// 💾 3. SAVE TO CMS (ARRAY INJECTION)
+// ==========================================
+export async function logMessageToJob(jobId, sender, textBody) {
+    try {
+        let job = await wixData.get("scheduledJobs", jobId, { suppressAuth: true });
+        if (!job) return;
+
+        if (!job.chatHistory) job.chatHistory = [];
+
+        job.chatHistory.push({
+            timestamp: new Date().toISOString(),
+            sender: sender, // "Detailer" or "Customer"
+            text: textBody
+        });
+
+        await wixData.update("scheduledJobs", job, { suppressAuth: true });
+        console.log(`📌 [BACKEND_TWILIO_PROXY -> logMessageToJob]: Logged ${sender} SMS onto job ${jobId}`);
+    } catch (error) {
+        console.error("📌 [BACKEND_TWILIO_PROXY -> logMessageToJob]: 🚨 Database Log Error:", error);
+    }
+}

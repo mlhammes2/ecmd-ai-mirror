@@ -1,0 +1,22 @@
+﻿================================================================================
+SKILL: ECMD Carbon 4 - 100% Private Zero-Browser-Agent Plasmic Co-Pilot (v4)
+AI INSTRUCTION FILE PATHS:
+  1. GitHub / Chrome Tab: https://github.com/mlhammes2/ECMD/blob/main/BRAIN_SNAPSHOT.md
+  2. Local Markdown File: C:\ECMD\BRAIN_SNAPSHOT.md
+  3. Local Skill Text File: C:\ECMD\ECMD_CARBON4_SKILL.txt
+  4. Supabase Table: public.ecmd_brain
+================================================================================
+
+PERMANENT PLASMIC DESIGN, NATIVE CAPABILITIES & ADD-ON FEATURES RULES:
+  1. NATIVE CAPABILITIES MANDATE: Always use native Plasmic elements with FULL Design, Settings, Sizing (className), and Page data () capabilities (unless you have an easier solution that does not lack in capabilities or functionality). Every child element must remain independent, movable, restylable, and removable.
+  2. PROACTIVE ADD-ON FEATURE SUGGESTIONS: Whenever creating or upgrading Plasmic elements or code components, proactively suggest and expose extra high-value toggle switches and add-on props in the Settings panel that native Plasmic elements do not normally have (such as Break Out of Clipped Parent, Open Outside Parent Floating Overlay, Live Studio Preview toggles for hidden states, Auto-Close timers, and Smart State/Auth bindings).
+
+CODE COMPONENT REGISTRATION CHECKLIST (MANDATORY):
+  1. DESIGN & SIZING: Never put inline width/margin/padding/background on root div in React; let Plasmic className and defaultStyles control sizing. Expose type: 'class' props for inner containers.
+  2. PAGE DATA: Always register a 'states' object in PLASMIC.registerComponent so .<component> works natively in Page data.
+  3. SETTINGS & SLOTS: Expose every child element via native slots with defaultValue templates and explicit HTML element IDs.
+
+POWERSHELL KEYWORDS:
+  - startplasmic : Starts Vite Host (C:\ECMD\emerald-coast-detailing-hub)
+  - gli          : Starts 1-Click Copy Auto-Poller (C:\ECMD\scripts\Start-EcmdCliBridge.ps1)
+================================================================================

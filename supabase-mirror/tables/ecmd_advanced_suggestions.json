@@ -1,0 +1,571 @@
+{
+  "table": "ecmd_advanced_suggestions",
+  "exportedAt": "2026-11-25T21:11:31.763Z",
+  "totalRowsInDb": 31,
+  "exportedRowCount": 31,
+  "rows": [
+    {
+      "id": "81f86480-8339-4bc9-957d-c56e37bf86de",
+      "slug": "adv_duckdb_wasm_revenue_olap",
+      "title": "Client-Side DuckDB-Wasm In-Browser OLAP Engine for Instant Detailing Revenue, Payroll & Customer Analytics",
+      "status": "saved",
+      "summary": "Embeds DuckDB-Wasm directly into the Command Console (/console) and WeWeb Admin dashboard, allowing Michael to query hundreds of thousands of customer jobs, contractor commissions, and ceramic warranty records via columnar vectorized SQL in <15ms without querying or taxing production Supabase Postgres instances.",
+      "category": "Analytics & High-Performance Data Architecture",
+      "created_at": "2026-11-23T20:32:54.512692+00:00",
+      "updated_at": "2026-11-23T20:32:54.282+00:00",
+      "difficulty_tier": "Highly Advanced",
+      "why_it_matters_for_ecmd": "As ECMD scales past thousands of bookings across Utah and the Panhandle, heavy analytical SQL aggregations (daily dispatch burn rates, contractor margin breakdowns, multi-year ceramic repeat cohorts) can spike Supabase CPU or encounter connection pool limits. DuckDB-Wasm executes analytical queries entirely on the client CPU with blazing zero-latency speed and zero server compute cost.",
+      "source_conversation_topic": "ECMD PEN v3 Live Telemetry & Theme Controller Popover Fix",
+      "implementation_steps_prompt": "Install @duckdb/duckdb-wasm in emerald-coast-detailing-hub, initialize an in-memory DuckDB instance inside an analytics Web Worker, stream cached JSON/Parquet dumps of public.ecmd_crm_jobs and public.ecmd_pen_turns into DuckDB tables, and expose instant sub-10ms SQL aggregations on /console.",
+      "external_downloads_and_accounts": [
+        "@duckdb/duckdb-wasm npm package (npm install @duckdb/duckdb-wasm)",
+        "Zero outside accounts or fees (100% open-source in-browser WebAssembly columnar database)"
+      ]
+    },
+    {
+      "id": "cfb56d8b-613c-4b9d-ad0f-942535fefeac",
+      "slug": "adv_plasmic_visual_regression_ci_percy",
+      "title": "Automated Plasmic Studio Visual Regression CI & Component DOM Snapshot Gate via Percy",
+      "status": "saved",
+      "summary": "Connects automated visual regression testing (Percy CLI / Chromatic) into GitHub Actions that renders headless snapshots of the Plasmic Host canvas across all 3 theme presets (Coastal Light, Midnight Slate, Emerald Dark) and both viewport sizes, preventing accidental CSS regressions, font drops, or broken modal breakouts on site deploys.",
+      "category": "CI/CD & Visual Reliability",
+      "created_at": "2026-11-23T19:47:39.680096+00:00",
+      "updated_at": "2026-11-23T19:47:39.41+00:00",
+      "difficulty_tier": "Moderately Advanced",
+      "why_it_matters_for_ecmd": "Plasmic Studio allows instant visual edits that can unknowingly break theme group inheritance (.ecmd-group-1 to .ecmd-group-8) or modal triggers. Visual regression testing automatically catches unintended pixel and layout shifts in PRs before customers see broken layouts on mobile.",
+      "source_conversation_topic": "Plasmic Layout Hydration & Modal Toggling Architecture",
+      "implementation_steps_prompt": "Install @percy/cli and @percy/playwright in emerald-coast-detailing-hub, add an e2e snapshot script test/percy-visual.test.ts capturing Homepage in Coastal Light, Midnight Slate, and open Side Menu / Auth Modal states, and add .github/workflows/visual-regression.yml triggering on pull requests.",
+      "external_downloads_and_accounts": [
+        "Free Percy by BrowserStack account (https://percy.io) - 5,000 free snapshots/mo",
+        "@percy/cli and @percy/playwright (npm install --save-dev @percy/cli @percy/playwright)",
+        "PERCY_TOKEN added to GitHub Actions repository secrets"
+      ]
+    },
+    {
+      "id": "025a001a-7b06-47d2-8b13-9583a8bfcf59",
+      "slug": "adv_livekit_detailer_audio_intercom",
+      "title": "LiveKit WebRTC Hands-Free Push-to-Talk Voice Intercom for Booking HQ & Detailer Portal",
+      "status": "saved",
+      "summary": "Deploys a low-latency WebRTC push-to-talk audio channel via LiveKit Cloud and Supabase Edge Functions linking Booking HQ with Detailer Portal for hands-free team communication during active jobs.",
+      "category": "Operations & Voice Communication",
+      "created_at": "2026-11-23T04:30:23.127485+00:00",
+      "updated_at": "2026-11-23T04:30:23.066+00:00",
+      "difficulty_tier": "Highly Advanced",
+      "why_it_matters_for_ecmd": "Detailers operating noisy rotary polishers and pressure washers can receive immediate gate code alerts and schedule updates directly through Bluetooth headsets without stopping work or touching screens with wet hands.",
+      "source_conversation_topic": "Side Menu Modal (EcmdSideMenuController) Build & Plasmic Registration",
+      "implementation_steps_prompt": "Deploy a Supabase Edge Function ecmd-livekit-token generating scoped JWT room tokens using livekit-server-sdk, integrate a Push-to-Talk mic component into Booking HQ and Detailer Portal using livekit-client, and bind intercom channels automatically to active contractor job IDs.",
+      "external_downloads_and_accounts": [
+        "Free LiveKit Cloud Account (https://livekit.io - 50GB free bandwidth/mo)",
+        "livekit-client npm package in frontend",
+        "Supabase Edge Function for LiveKit JWT token issuance"
+      ]
+    },
+    {
+      "id": "5120e6fa-31cf-47c7-b98d-3450f54943e5",
+      "slug": "adv_deepgram_voice_job_walkaround",
+      "title": "Deepgram Nova-2 + Supabase Edge Functions Autonomous Voice Walk-Around Inspection & Work-Order Scope Adjuster",
+      "status": "saved",
+      "summary": "Integrates Deepgram Nova-2 streaming speech-to-text directly inside Detailer Portal and a Supabase Edge Function ecmd-voice-auditor. Detailers hold a push-to-talk button and speak out loud while inspecting customer vehicles; Gemini parses condition notes into structured add-ons, price deltas, and liability photos, updating public.ecmd_crm_jobs in under 3 seconds.",
+      "category": "Mobile Operations & AI Voice Engineering",
+      "created_at": "2026-11-23T03:01:28.558484+00:00",
+      "updated_at": "2026-11-23T03:01:28.309+00:00",
+      "difficulty_tier": "Highly Advanced",
+      "why_it_matters_for_ecmd": "Mobile detailers constantly encounter unexpected conditions (severe pet hair, water spot etching, oxidized clearcoat) requiring add-on fees or scratch liability notes. Hands-free voice auditing eliminates typing with wet hands, captures billable upsells, and integrates 100% serverless into our WeWeb mobile detailer experience.",
+      "source_conversation_topic": "Action Turn Log Redesign & Wix Legacy Vault Archiving",
+      "implementation_steps_prompt": "Deploy Supabase Edge Function `ecmd-voice-auditor` that accepts multipart audio from Detailer Portal, streams to Deepgram Nova-2, uses Gemini 2.5 Flash to parse vehicle conditions into structured price deltas and add-ons from servicePackages, updates public.ecmd_crm_jobs line-items, and texts a 1-tap customer approval link.",
+      "external_downloads_and_accounts": [
+        "Free Deepgram account (https://deepgram.com) - $200 free credit (~45,000 minutes)",
+        "Existing Supabase project lvynkeuceiqxafgpgdvs and Edge Function deployment",
+        "Standard HTML5 browser MediaRecorder API on Detailer Portal (zero app store download)"
+      ]
+    },
+    {
+      "id": "795c9e19-5580-417e-b8d0-015841416f37",
+      "slug": "adv_sse_websocket_live_pty_stream",
+      "title": "Sub-10ms Server-Sent Events (SSE) Live PTY Stream for Instant Eyes-to-Pen Telemetry Grounding",
+      "status": "saved",
+      "summary": "Replaces 2000ms polling of /ai-telemetry.json with a lightweight Server-Sent Events (SSE) streaming endpoint integrated into Vite (/__ecmd_telemetry_stream), streaming Gemini CLI stdout, compiler checks, and token telemetry character-by-character directly into the Command Console DOM node in under 10ms.",
+      "category": "AI DevOps & Terminal Streaming",
+      "created_at": "2026-11-23T01:57:48.945477+00:00",
+      "updated_at": "2026-11-23T01:57:48.703+00:00",
+      "difficulty_tier": "Highly Advanced",
+      "why_it_matters_for_ecmd": "Eliminates the 2-second polling interval between Gemini CLI completing a turn and Chrome Sidebar detecting the verified tsc status, enabling instantaneous turn hand-offs between the visual architect and the terminal execution engine.",
+      "source_conversation_topic": "ECMD Command Console Suite Rebuild & Eyes-Pen Architecture",
+      "implementation_steps_prompt": "Add a Server-Sent Events (SSE) endpoint to vite.config.ts under /__ecmd_telemetry_stream that broadcasts line-by-line stdout/stderr from run-pen-task.mjs directly to src/pages/Console.tsx via new EventSource('/__ecmd_telemetry_stream'), updating #ecmd-live-pen-telemetry with sub-10ms latency.",
+      "external_downloads_and_accounts": [
+        "Zero outside accounts — utilizes native browser EventSource API and local Vite dev server H3 middlewares",
+        "Optional: node-pty (npm install node-pty) for streaming ANSI color escape codes into xterm.js"
+      ]
+    },
+    {
+      "id": "3f5e8e6a-eef1-484b-b5f8-4e8e59424e7f",
+      "slug": "adv_twilio_mms_ai_damage_detection",
+      "title": "Autonomous MMS Customer Pre-Detail Vehicle Damage & Paint Inspection via Supabase Edge Function & Gemini Vision",
+      "status": "saved",
+      "summary": "Connects Twilio Inbound MMS to a Supabase Edge Function using Gemini 2.5 Flash multimodal vision to instantly detect paint oxidation, swirls, scratches, and wheel curb rash from customer-submitted cell phone photos before the detailer arrives, auto-tagging suggested add-on upsells (e.g. Stage 2 Paint Correction) in public.ecmd_crm_jobs.",
+      "category": "AI Automation & Customer Experience",
+      "created_at": "2026-11-23T00:35:19.635254+00:00",
+      "updated_at": "2026-11-23T00:35:19.405+00:00",
+      "difficulty_tier": "Moderately Advanced",
+      "why_it_matters_for_ecmd": "Customers often book a basic exterior wash when their car actually needs extensive clay bar and multi-stage compound buffing. Analyzing photos before arrival sets realistic customer expectations, prevents detailer scheduling overruns, and automatically boosts average job ticket size by $150-$300.",
+      "source_conversation_topic": "Command Console Live Telemetry Auto-Polling & Sidebar Synchronization",
+      "implementation_steps_prompt": "Deploy Supabase Edge Function ecmd-mms-vision-intake, wire Twilio incoming message webhook to the edge function, parse incoming media URLs with Gemini 2.5 Flash multimodal endpoint to classify vehicle paint condition, and store condition assessment in public.ecmd_crm_jobs.damage_inspection.",
+      "external_downloads_and_accounts": [
+        "Twilio Inbound Phone Number with MMS enabled",
+        "Free Google AI Studio / Gemini API key stored in Supabase Vault"
+      ]
+    },
+    {
+      "id": "04fc4990-c45f-4246-bddc-3df0e34c98d1",
+      "slug": "adv_cloudflare_worker_robots_allow_proxy",
+      "title": "Cloudflare Worker robots.txt-Allow Same-Turn AI Execution Proxy for ecmd-carbon-bridge & ecmd_cli_queue",
+      "status": "implemented",
+      "summary": "Deploys a lightweight Cloudflare Worker with an explicit Allow-all /robots.txt that proxies authenticated GET/b64 requests from Gemini in Chrome browsing:browse directly to ecmd-carbon-bridge and polls public.ecmd_cli_queue until Start-EcmdCliBridge.ps1 returns the verified 3-Agent Triad result in the exact same turn.",
+      "category": "AI Autonomy & Same-Turn Execution",
+      "created_at": "2026-11-19T20:29:33.246721+00:00",
+      "updated_at": "2026-11-19T20:48:36.442366+00:00",
+      "difficulty_tier": "Moderately Advanced",
+      "why_it_matters_for_ecmd": "Bypasses the domain-level robots.txt crawler blocks on *.supabase.co and Wix /_functions/* so Gemini can execute SQL, read/patch files, and run local CLI builds mid-turn and verify the result before replying.",
+      "source_conversation_topic": "Same-Turn Cloudflare Worker Proxy & 3-Agent Triad Integration",
+      "implementation_steps_prompt": "Deploy ecmd-same-turn-proxy Cloudflare Worker with /robots.txt Allow: / forwarding to ecmd-carbon-bridge and waiting on ecmd_cli_queue.",
+      "external_downloads_and_accounts": [
+        "Free Cloudflare Workers Account (workers.dev subdomain)",
+        "npx wrangler deploy"
+      ]
+    },
+    {
+      "id": "6c671ae7-ecf8-48d0-ad3d-b4cb43985585",
+      "slug": "adv_realtime_customer_dispatch_tracker",
+      "title": "Supabase Realtime Customer Live Detailing Tracker & Stage Telemetry Portal",
+      "status": "saved",
+      "summary": "Creates a zero-install customer-facing live detailing tracker page (/track/:jobId) powered by Supabase Realtime broadcast channels and MapLibre GL. Detailers stream GPS pings and stage milestones directly from Detailer Portal so customers can track detailer arrival and detailing progress in real time.",
+      "category": "Customer Experience & Live Telemetry",
+      "created_at": "2026-11-16T19:26:49.536382+00:00",
+      "updated_at": "2026-11-16T19:26:49.433+00:00",
+      "difficulty_tier": "Moderately Advanced",
+      "why_it_matters_for_ecmd": "Elevates customer confidence and transparency on high-ticket ($400-$1,200) ceramic coating jobs, eliminates repetitive \"Where is my detailer?\" calls, and establishes ECMD as the premier tech-driven mobile detailing operation on the Emerald Coast.",
+      "source_conversation_topic": "Brand Logo Asset CMS & Header Integration",
+      "implementation_steps_prompt": "Create /routes/track.$jobId.tsx using MapLibre GL subscribing to Supabase Realtime broadcast channel 'job-track-' + jobId, and add stage progression buttons (En Route, Washing, Paint Correction, Ceramic Curing) to Detailer Portal that push updates directly to the channel.",
+      "external_downloads_and_accounts": [
+        "Zero outside downloads — utilizes built-in Supabase Realtime Broadcast channels",
+        "Free MapLibre GL JS (npm install maplibre-gl) with free OpenMapTiles or Carto Dark vector tiles",
+        "Standard browser navigator.geolocation on Detailer Portal"
+      ]
+    },
+    {
+      "id": "7e72fb53-fea9-43cc-a684-06c561b20dfa",
+      "slug": "adv_supabase_db_branching_staging",
+      "title": "Supabase Database Branching & Ephemeral Preview Environments for Plasmic & WeWeb Staging",
+      "status": "saved",
+      "summary": "Configures automated Supabase database branching using the Supabase CLI in GitHub Actions, automatically creating isolated, ephemeral PostgreSQL staging branches seeded with sanitized CRM fixtures for every Plasmic preview build and PR, then safely destroying them upon merge.",
+      "category": "CI/CD & Database Infrastructure",
+      "created_at": "2026-11-16T18:58:57.982761+00:00",
+      "updated_at": "2026-11-16T18:58:57.76+00:00",
+      "difficulty_tier": "Highly Advanced",
+      "why_it_matters_for_ecmd": "Prevents experimental Plasmic designs, test bookings, and detailer dispatch simulation from polluting production tables (ecmd_crm_jobs, ecmd_crm_customers), giving Michael a completely realistic sandbox to verify WeWeb frontends and Plasmic components without manual database rollbacks.",
+      "source_conversation_topic": "Plasmic Header Atoms & WeWeb Preview Staging",
+      "implementation_steps_prompt": "Enable Database Branching in Supabase dashboard for lvynkeuceiqxafgpgdvs, add .github/workflows/preview-branch.yml to spin up a temporary database branch on preview PRs, run migrations, seed mock CRM jobs/customers, and inject branch DB URL into Plasmic host preview environments.",
+      "external_downloads_and_accounts": [
+        "Supabase CLI (npm install -g supabase or npx supabase)",
+        "Supabase Pro / Branching feature (https://supabase.com/dashboard/project/lvynkeuceiqxafgpgdvs/settings/branching)",
+        "GitHub Actions Secrets: SUPABASE_ACCESS_TOKEN and SUPABASE_DB_PASSWORD"
+      ]
+    },
+    {
+      "id": "4421f873-e8eb-4f4f-80a3-25bf9c5f8caa",
+      "slug": "adv_posthog_funnel_replays",
+      "title": "PostHog Session Replays & Visual Funnel Analytics for TanStack / WeWeb Mobile Detailing Conversion Optimization",
+      "status": "saved",
+      "summary": "Integrates PostHog Session Replay and conversion funnel telemetry into the TanStack Start and WeWeb booking flows, capturing video-like replays of customer vehicle selections, add-on toggles, and abandoned checkouts linked directly to public.ecmd_crm_customers.",
+      "category": "Analytics & Conversion Rate Optimization",
+      "created_at": "2026-11-16T16:58:33.354592+00:00",
+      "updated_at": "2026-11-16T16:58:33.148+00:00",
+      "difficulty_tier": "Moderately Advanced",
+      "why_it_matters_for_ecmd": "In automotive mobile detailing, customers often drop off when configuring ceramic coatings, boat lengths, or paint correction tiers. PostHog session replays allow Michael to watch the exact micro-interactions, scroll stalls, and form hesitations leading to abandoned bookings, giving clear empirical data to optimize checkout conversion rates and maximize booking revenue.",
+      "source_conversation_topic": "Plasmic Code Component Registration & BookingHQ Architecture",
+      "implementation_steps_prompt": "Install posthog-js in emerald-coast-detailing-hub, initialize PostHog inside src/routes/__root.tsx or an analytics hook with session recording enabled, and call posthog.identify(customerEmail) when contact details are entered into stateManager to link booking funnels and drop-offs to CRM profiles.",
+      "external_downloads_and_accounts": [
+        "Free PostHog Cloud Account (https://posthog.com - 1M free events + 5,000 free session recordings/mo)",
+        "posthog-js client package (npm install posthog-js)",
+        "PostHog Project API Key and Host URL from PostHog project settings"
+      ]
+    },
+    {
+      "id": "4466394f-6aab-4afa-85be-97024807d25e",
+      "slug": "adv_google_maps_matrix_routing",
+      "title": "Google Maps Routes API for Dynamic Travel Dispatch Surcharges",
+      "status": "saved",
+      "summary": "Integrates the Google Maps Routes Matrix API within a Supabase Edge Function to compute exact driving distances between detailer jobs, automatically applying a dynamic travel surcharge (e.g., $1.50/mile over 20 miles) to the cart before checkout.",
+      "category": "Operations & Routing",
+      "created_at": "2026-11-16T06:29:48.139172+00:00",
+      "updated_at": "2026-11-16T06:29:47.935+00:00",
+      "difficulty_tier": "Moderately Advanced",
+      "why_it_matters_for_ecmd": "Prevents mobile detailers from losing money on long travel times across the Panhandle by automatically calculating and enforcing geographic travel fees based on real driving distances.",
+      "source_conversation_topic": "Booking HQ React Migration",
+      "implementation_steps_prompt": "Deploy a Supabase Edge Function `ecmd-routing-fee` that receives the customer's service address. It calls the Google Maps Routes Matrix API to calculate the driving distance from the Detailer's starting location or previous job. If the distance exceeds 20 miles, automatically inject a `mobileFee` line item into the cart.",
+      "external_downloads_and_accounts": [
+        "Google Cloud Console (Routes API Enabled, Billing Account)"
+      ]
+    },
+    {
+      "id": "21f5612b-0d3e-4eda-b95c-10ce9edfdfbd",
+      "slug": "adv_wasm_vin_license_plate_scanner",
+      "title": "On-Device WebAssembly VIN & License Plate Scanner with NHTSA Auto-Decode",
+      "status": "in_progress",
+      "summary": "Embeds an on-device WebAssembly OCR scanner in the mobile booking and garage UI that reads vehicle door-jamb VIN stickers or license plates from photos and auto-populates exact vehicle specifications into public.ecmd_crm_vehicles via the free NHTSA vPIC API.",
+      "category": "Mobile UX & Computer Vision",
+      "created_at": "2026-11-15T23:48:15.928011+00:00",
+      "updated_at": "2026-11-16T03:15:22.107+00:00",
+      "difficulty_tier": "Highly Advanced",
+      "why_it_matters_for_ecmd": "Eliminates vehicle entry errors (wrong trim or category) which throw off pricing calculations, cuts mobile booking friction by 80%, and enables detailers to onboard new fleet vehicles on-site in under 3 seconds.",
+      "source_conversation_topic": "Mobile Computer Vision & Frictionless Vehicle Onboarding",
+      "implementation_steps_prompt": "Integrate Tesseract.js camera scanner into vehicle add component, pass recognized 17-char VIN to NHTSA decode API, and upsert vehicle records into public.ecmd_crm_vehicles.",
+      "external_downloads_and_accounts": [
+        "Tesseract.js WASM camera OCR engine (npm install tesseract.js)",
+        "Zero outside accounts — uses free US DOT NHTSA vPIC public API"
+      ]
+    },
+    {
+      "id": "c9110bec-7fac-482d-aaf4-29addc588909",
+      "slug": "adv_pdf_lib_warranty_certificates",
+      "title": "Automated Ceramic Warranty & Detailing Inspection Certificate PDF Generator via Supabase Edge Function & PDF-Lib",
+      "status": "unwanted",
+      "summary": "Generates tamper-proof, high-resolution PDF Warranty Certificates and Inspection Reports directly inside a Supabase Edge Function using pdf-lib. On job completion, automatically pulls detailer notes, paint thickness readings, ceramic warranty tier, and customer VIN, compiles the PDF, saves to Cloudflare R2, and texts the link to the customer.",
+      "category": "Customer Experience & WeWeb Migration",
+      "created_at": "2026-11-16T01:10:40.037481+00:00",
+      "updated_at": "2026-11-16T02:51:54.95+00:00",
+      "difficulty_tier": "Moderately Advanced",
+      "why_it_matters_for_ecmd": "High-end ceramic coating clients in Utah paying $1,000–$2,500 expect official warranty documentation for vehicle value and insurance claims. Automating this eliminates all manual paperwork for Michael, elevates ECMD's premium brand authority, and operates serverless with zero recurring SaaS fees.",
+      "source_conversation_topic": "Mobile Console & Detailing Operations",
+      "implementation_steps_prompt": "Deploy a Supabase Edge Function ecmd-certificate-generator importing pdf-lib, loading a high-resolution SVG/PDF certificate template, injecting vehicle VIN, paint correction depth readings, ceramic warranty tier (e.g., 3-Year / 5-Year Ceramic Pro), uploading the generated PDF to Cloudflare R2, and returning a permanent customer download link via SMS upon job completion.",
+      "external_downloads_and_accounts": [
+        "Zero outside paid accounts — uses free open-source pdf-lib (https://esm.sh/pdf-lib) in Supabase Edge Functions",
+        "Existing Cloudflare R2 / Supabase Storage & Twilio SMS"
+      ]
+    },
+    {
+      "id": "52d842c3-543d-4a9a-9335-0b8ab260bb30",
+      "slug": "adv_autonomous_triad_healer",
+      "title": "3-Agent Velo-Style Pre-Publish Diagnostic, Self-Healing & Auto-Revert System + Live AI Cost Ledger",
+      "status": "implemented",
+      "summary": "Uses a 3-Agent Triad (Builder -> Gatekeeper QA -> Healer/Rollback) to syntax-check (node --check / esbuild) and smoke-test every code patch before publishing, automatically rewriting or reverting to the previous GitHub SHA on failure, plus a live AI token cost meter.",
+      "category": "AI Autonomy & Site Reliability",
+      "created_at": "2026-11-16T01:55:09.698047+00:00",
+      "updated_at": "2026-11-16T02:27:08.422+00:00",
+      "difficulty_tier": "Super Advanced",
+      "why_it_matters_for_ecmd": "Prevents broken scripts or backend 500 errors from ever reaching production on ecmdutah.com or console.html, while tracking exact backend Gemini API token costs in real time.",
+      "source_conversation_topic": "Autonomous Diagnostic & Repair System + Backend AI Cost Inquiry",
+      "implementation_steps_prompt": "Build the ??? Diagnostics & Cost Meter tab in console.html and wire the pre-publish syntax/smoke-test gatekeeper + auto-revert into Start-EcmdCliBridge.ps1 and ecmd-carbon-bridge.",
+      "external_downloads_and_accounts": [
+        "Zero outside downloads - uses native Node/Deno syntax verification + gemini-2.5-flash"
+      ]
+    },
+    {
+      "id": "ae9baa27-cf14-4479-bb6c-c8d6c5ef5f85",
+      "slug": "adv_hosted_command_console",
+      "title": "Hosted Interactive Command Console (C:\\ECMD\\console.html + ecmdutah.com/_functions/ecmdConsole)",
+      "status": "implemented",
+      "summary": "Renders the full ECMD Carbon 4 Autonomous Console (AI Bootloader, Suggestions Vault, AI Inbox, and Local CLI Queue) with proper UTF-8 HTML rendering bypassing Supabase API Gateway text/plain restrictions.",
+      "category": "Mobile & Desktop Command Center",
+      "created_at": "2026-11-16T01:07:49.591352+00:00",
+      "updated_at": "2026-11-16T01:07:49.53+00:00",
+      "difficulty_tier": "Moderately Advanced",
+      "why_it_matters_for_ecmd": "Allows 1-click access to all 17 architectural suggestions, AI mode toggles, and the local PowerShell Gemini CLI queue from Chrome Desktop and Mobile.",
+      "source_conversation_topic": "Bypassing Supabase text/plain Gateway Filter",
+      "implementation_steps_prompt": "Open C:\\ECMD\\console.html or https://www.ecmdutah.com/_functions/ecmdConsole?key=[REDACTED_SECRET]",
+      "external_downloads_and_accounts": [
+        "Zero outside downloads"
+      ]
+    },
+    {
+      "id": "90df253e-63aa-4a8b-b49f-9a03bcb799ed",
+      "slug": "adv_postgis_geofence_arrival_detection",
+      "title": "Supabase PostGIS Geofencing for Automated Detailer On-Site Arrival & Departure Detection",
+      "status": "saved",
+      "summary": "Leverages Supabase PostGIS to calculate real-time proximity (ST_DWithin) between detailer mobile GPS coordinates and customer service addresses, automatically checking in detailers and texting customers upon arrival without requiring detailers to tap screens with wet hands.",
+      "category": "Geolocation & Field Operations",
+      "created_at": "2026-11-16T00:38:41.042269+00:00",
+      "updated_at": "2026-11-16T00:38:40.871+00:00",
+      "difficulty_tier": "Highly Advanced",
+      "why_it_matters_for_ecmd": "Detailers often forget to toggle status to 'In Progress' while unloading pressure washers and hoses. Automated geofence arrival triggers customer SMS alerts seamlessly, eliminates arrival disputes, and records exact on-site labor durations for payroll.",
+      "source_conversation_topic": "Automated Field Operations & Geofencing",
+      "implementation_steps_prompt": "Enable PostGIS in Supabase Postgres, add geometry column coordinates to public.ecmd_crm_locations and public.ecmd_crm_jobs, and create an RPC function verify_detailer_geofence_arrival(job_id, lat, lng) that automatically updates job status to 'In Progress' when ST_DWithin detects contractor is within 150m of service coordinates.",
+      "external_downloads_and_accounts": [
+        "Enable postgis extension in Supabase Postgres (CREATE EXTENSION postgis;)",
+        "Zero outside accounts — uses browser HTML5 Geolocation API & Google Maps Geocoding API"
+      ]
+    },
+    {
+      "id": "7fcaeaa9-c956-44a5-ab7d-423d5085f419",
+      "slug": "adv_mcp_gemini_cli",
+      "title": "Native Model Context Protocol (MCP) Server for Gemini CLI & Cursor",
+      "status": "implemented",
+      "summary": "Exposes ecmd-carbon-bridge as a JSON-RPC 2.0 MCP Tool Server so Gemini CLI (@google/gemini-cli) can autonomously read your bootloader CMS, query ecmd_codebase in <10ms, run SQL migrations, and patch Wix/WeWeb without copy-pasting.",
+      "category": "AI Autonomy & DevOps",
+      "created_at": "2026-11-15T22:39:33.510791+00:00",
+      "updated_at": "2026-11-16T00:29:07.365835+00:00",
+      "difficulty_tier": "Moderately Advanced",
+      "why_it_matters_for_ecmd": "Eliminates manual JSON packet copy-pasting forever and boots every AI session with public.ecmd_external_ai_cms.",
+      "source_conversation_topic": "External AI Bootloader CMS & Autonomous Execution",
+      "implementation_steps_prompt": "Connect Gemini CLI to ecmd-carbon-bridge MCP endpoint and run ecmd_boot_context.",
+      "external_downloads_and_accounts": [
+        "Node.js v20+ (https://nodejs.org)",
+        "Gemini CLI: npm install -g @google/gemini-cli",
+        "Existing GEMINI_API_KEY & ECMD_BRIDGE_KEY"
+      ]
+    },
+    {
+      "id": "c9cc497a-b049-46cf-99a1-4ff75eb22245",
+      "slug": "adv_upstash_redis_distributed_slot_locks",
+      "title": "Upstash Serverless Redis Distributed Slot Locks & 5-Minute Checkout Reservations",
+      "status": "saved",
+      "summary": "Implements distributed Redis locks via Upstash REST API in Supabase Edge Functions to reserve contractor calendar slots for 5 minutes during checkout, eliminating race conditions and double-bookings across concurrent customers.",
+      "category": "Booking Concurrency & High Availability",
+      "created_at": "2026-11-16T00:20:34.474474+00:00",
+      "updated_at": "2026-11-16T00:20:34.285+00:00",
+      "difficulty_tier": "Moderately Advanced",
+      "why_it_matters_for_ecmd": "Prevents overlapping bookings and scheduling conflicts when multiple customers or dispatchers pick the same slot simultaneously, provides sub-15ms reservation checks without database row locking, and enables a high-converting reservation countdown timer in WeWeb.",
+      "source_conversation_topic": "Bootloader CMS Inspection & Booking Architecture",
+      "implementation_steps_prompt": "Create an Upstash Redis database, store UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN in Supabase Vault, and add /reserve-slot and /release-slot endpoints to ecmd-carbon-bridge with 5-minute TTL keys for contractor slot locking.",
+      "external_downloads_and_accounts": [
+        "Free Upstash Redis Account (https://upstash.com) - 10,000 requests/day free tier",
+        "@upstash/redis client in Supabase Edge Functions (https://esm.sh/@upstash/redis)"
+      ]
+    },
+    {
+      "id": "4af699f3-891e-474c-8318-28be3af5db0b",
+      "slug": "adv_github_actions_edge_autodeploy",
+      "title": "GitHub Actions Automatic Supabase Edge Function Deployer (supabase-deploy.yml)",
+      "status": "implemented",
+      "summary": "Adds a GitHub Actions workflow (.github/workflows/supabase-deploy.yml) that automatically deploys supabase/functions/ecmd-carbon-bridge/index.ts to Supabase whenever a commit touches supabase/functions/**.",
+      "category": "CI/CD & Zero-Touch Deployment",
+      "created_at": "2026-11-15T23:41:48.184165+00:00",
+      "updated_at": "2026-11-16T00:16:14.930442+00:00",
+      "difficulty_tier": "Moderately Advanced",
+      "why_it_matters_for_ecmd": "Guarantees that even if an AI patches supabase/functions/ecmd-carbon-bridge/index.ts via standard carbon_patch or #geminiBox, GitHub Actions deploys the updated Edge Function in the cloud automatically.",
+      "source_conversation_topic": "Autonomous Edge Function Self-Deployment",
+      "implementation_steps_prompt": "Create .github/workflows/supabase-deploy.yml to auto-deploy Supabase Edge Functions on push to main.",
+      "external_downloads_and_accounts": [
+        "Existing GitHub repo mlhammes2/ECMD + ECMD_SB_ACCESS_TOKEN repository secret"
+      ]
+    },
+    {
+      "id": "f2dd7c90-dab7-40d2-9024-8090791d8279",
+      "slug": "adv_supabase_vault_pgnet",
+      "title": "Supabase Vault + pg_net In-Database Edge Function Bridge Caller",
+      "status": "implemented",
+      "summary": "Stores ECMD_BRIDGE_KEY securely encrypted inside Supabase Vault (vault.secrets) and exposes public.call_ecmd_bridge_from_db(payload jsonb) utilizing pg_net to invoke ecmd-carbon-bridge Edge Function asynchronously directly from Postgres triggers and cron jobs.",
+      "category": "DevOps & Security Architecture",
+      "created_at": "2026-11-15T23:47:55.466086+00:00",
+      "updated_at": "2026-11-15T23:47:55.466086+00:00",
+      "difficulty_tier": "Moderately Advanced",
+      "why_it_matters_for_ecmd": "Enables 100% autonomous database-driven webhooks, calendar syncing, and background jobs directly from Postgres triggers without storing plain-text API keys in database tables or code.",
+      "source_conversation_topic": "Database-Driven Bridge Invocations & Vault Encryption",
+      "implementation_steps_prompt": "Enable pg_net and pg_cron, store ECMD_BRIDGE_KEY in vault.secrets, and create public.call_ecmd_bridge_from_db(payload jsonb) to call the carbon bridge with decrypted keys.",
+      "external_downloads_and_accounts": [
+        "Supabase Vault (built-in vault.secrets)",
+        "pg_net extension (enabled in Supabase Postgres)"
+      ]
+    },
+    {
+      "id": "3341546d-3445-4a4a-9559-8eeee84dbe05",
+      "slug": "adv_stripe_instant_payout_splits",
+      "title": "Stripe Connect Transfers for Autonomous Same-Day Detailer Commission Payouts",
+      "status": "saved",
+      "summary": "Connects Stripe Transfers / Express Connect to public.ecmd_crm_jobs so that when a job status transitions to Completed, the detailer commission (calculated via enrichJobPayrollAndDetailer) is instantly paid out to their bank account with zero manual bookkeeping.",
+      "category": "FinTech & Automated Payroll",
+      "created_at": "2026-11-15T23:42:50.870533+00:00",
+      "updated_at": "2026-11-15T23:42:50.644+00:00",
+      "difficulty_tier": "Highly Advanced",
+      "why_it_matters_for_ecmd": "Attracts top-tier automotive detailers by offering instant same-day payouts upon job sign-off, completely eliminates Michael's manual weekly payroll calculations, and keeps an immutable audit log in Supabase Postgres.",
+      "source_conversation_topic": "Automated Contractor Payroll & Banking",
+      "implementation_steps_prompt": "Configure Stripe Connect Express in ecmd-carbon-bridge, add stripe_account_id to public.ecmd_crm_contractors, and trigger a transfer call when job status is marked Completed.",
+      "external_downloads_and_accounts": [
+        "Stripe Connect platform account (https://stripe.com/connect)",
+        "Stripe CLI (stripe listen --forward-to) or Supabase webhook endpoint"
+      ]
+    },
+    {
+      "id": "56888097-fb07-4502-9c71-98ec3b1825c9",
+      "slug": "adv_supabase_realtime_webhook_push",
+      "title": "Supabase Postgres Trigger -> Instant Mobile / WeWeb Push Feed for New AI Suggestions & Inbox Questions",
+      "status": "saved",
+      "summary": "Adds a Postgres AFTER INSERT trigger on public.ecmd_advanced_suggestions and public.ecmd_ai_inbox that broadcasts real-time events to WeWeb (via Supabase Realtime) or a mobile Discord/SMS webhook whenever any AI agent logs a new suggestion or flags an unsure customer question.",
+      "category": "Real-Time Notifications & WeWeb",
+      "created_at": "2026-11-15T23:41:48.184165+00:00",
+      "updated_at": "2026-11-15T23:41:48.184165+00:00",
+      "difficulty_tier": "Moderately Advanced",
+      "why_it_matters_for_ecmd": "Keeps your phone and WeWeb Admin dashboard updated in real time across all AI sessions.",
+      "source_conversation_topic": "Cross-Session Suggestion Logging",
+      "implementation_steps_prompt": "Enable Supabase Realtime publication on public.ecmd_advanced_suggestions and public.ecmd_ai_inbox via ecmd_run_sql.",
+      "external_downloads_and_accounts": [
+        "Supabase Realtime (built-in) or optional free Discord Webhook URL"
+      ]
+    },
+    {
+      "id": "7755a9e5-7bea-4bb1-8222-72dc9f225339",
+      "slug": "adv_trigger_dev_weather_engine",
+      "title": "Trigger.dev v3 Background Workflow Engine for Dynamic Weather Rain-Delay Rescheduling",
+      "status": "saved",
+      "summary": "Orchestrates background tasks using Trigger.dev v3 connected to OpenWeather/National Weather Service APIs to monitor coordinates for scheduled outdoor detailing jobs, automatically alerting customers and dispatchers 18 hours prior if rain probability exceeds 60% and offering 1-tap reschedule slots.",
+      "category": "Automation & Operations",
+      "created_at": "2026-11-15T23:34:01.005244+00:00",
+      "updated_at": "2026-11-15T23:34:00.719+00:00",
+      "difficulty_tier": "Highly Advanced",
+      "why_it_matters_for_ecmd": "Eliminates wasted detailer travel time and last-minute customer frustration caused by unpredictable Florida Panhandle rain storms, while providing complex multi-step background logic with zero serverless timeout limits.",
+      "source_conversation_topic": "Weather-Aware Dispatch Automation",
+      "implementation_steps_prompt": "Initialize Trigger.dev v3 project, write a scheduled task that queries upcoming jobs from public.ecmd_crm_jobs, checks precipitation forecasts against service address coordinates, and sends Twilio rescheduling prompts.",
+      "external_downloads_and_accounts": [
+        "Free Trigger.dev Cloud Account (https://trigger.dev)",
+        "npx trigger.dev@latest init",
+        "Free OpenWeatherMap API Key (https://openweathermap.org)"
+      ]
+    },
+    {
+      "id": "4559943d-55bf-46e0-9ef0-8fe45a7ab7ee",
+      "slug": "adv_gemini_cli_slash_commands",
+      "title": "Custom Gemini CLI Slash Commands /vault, /audit, /inbox",
+      "status": "completed",
+      "summary": "Configures custom TOML slash commands (/vault, /audit, /inbox) in ~/.gemini/commands/ enabling instant 1-tap interactive terminal workflows for querying architectural suggestions, inspecting database health, and managing AI inbox rules.",
+      "category": "AI DevOps & Terminal Ergonomics",
+      "created_at": "2026-11-15T23:33:40.390051+00:00",
+      "updated_at": "2026-11-15T23:33:40.390051+00:00",
+      "difficulty_tier": "Moderately Advanced",
+      "why_it_matters_for_ecmd": "Provides instantaneous single-keyword execution of complex multi-table Supabase queries and AI governance directly in the terminal with zero prompt typing overhead.",
+      "source_conversation_topic": "Gemini CLI Slash Commands & Terminal Workflow",
+      "implementation_steps_prompt": "Add .toml command definitions into ~/.gemini/commands/ for /vault, /audit, and /inbox to enable immediate terminal shortcuts.",
+      "external_downloads_and_accounts": [
+        "Gemini CLI (@google/gemini-cli)",
+        "Configured commands in ~/.gemini/commands/*.toml"
+      ]
+    },
+    {
+      "id": "a479b522-2b21-469d-9539-5f12925a0e91",
+      "slug": "adv_playwright_headless_mcp",
+      "title": "Playwright Headless Browser MCP Server for Invisible Background UI Testing",
+      "status": "saved",
+      "summary": "Runs a headless Playwright browser instance connected as an MCP tool to Gemini CLI, allowing AI to autonomously verify cart pricing, calendar slot selections, and booking checkout flows invisibly in the background without opening browser windows or screen takeovers.",
+      "category": "Testing & Quality Assurance",
+      "created_at": "2026-11-15T23:33:40.390051+00:00",
+      "updated_at": "2026-11-15T23:33:40.390051+00:00",
+      "difficulty_tier": "Moderately Advanced",
+      "why_it_matters_for_ecmd": "Provides 100% automated regression testing for complex cart discount logic, vehicle tier selectors, and WeWeb checkout workflows before releasing updates to customers.",
+      "source_conversation_topic": "Automated UI & Cart Verification",
+      "implementation_steps_prompt": "Add playwright-mcp-server to .gemini/settings.json mcpServers configuration and run automated end-to-end booking tests in the background.",
+      "external_downloads_and_accounts": [
+        "Node.js (https://nodejs.org)",
+        "npx playwright install chromium",
+        "Playwright MCP Server (@executeautomation/playwright-mcp-server)"
+      ]
+    },
+    {
+      "id": "80d32912-a82f-450f-bc21-a9cff817ef22",
+      "slug": "adv_cloudflare_r2_vehicle_media",
+      "title": "Cloudflare R2 Zero-Egress Vehicle Before/After Photo Vault",
+      "status": "saved",
+      "summary": "Stores detailer Before/After inspection photos and customer garage photos in Cloudflare R2 (10GB free + $0 egress bandwidth) linked to public.ecmd_crm_jobs and public.ecmd_crm_vehicles via pre-signed upload URLs.",
+      "category": "Media & WeWeb Migration",
+      "created_at": "2026-11-15T22:39:33.510791+00:00",
+      "updated_at": "2026-11-15T23:33:40.390051+00:00",
+      "difficulty_tier": "Highly Advanced",
+      "why_it_matters_for_ecmd": "Prevents hitting Wix Media / CMS storage limits and gives WeWeb instant, ultra-fast image galleries for every customer vehicle and completed job.",
+      "source_conversation_topic": "Wix CMS Limit Avoidance & WeWeb Migration",
+      "implementation_steps_prompt": "Set up a pre-signed Cloudflare R2 upload action in ecmd-carbon-bridge and link photo URLs to ecmd_crm_vehicles and ecmd_crm_jobs.",
+      "external_downloads_and_accounts": [
+        "Free Cloudflare Account (https://dash.cloudflare.com)",
+        "Enable R2 Object Storage (Free 10GB/month tier, zero egress fees)"
+      ]
+    },
+    {
+      "id": "fe0ea7e9-a70c-4905-b8e7-29599bafa0a3",
+      "slug": "adv_supabase_pg_cron_webhooks",
+      "title": "Supabase pg_cron + pg_net Automated SMS/Email Follow-Up & Review Engine",
+      "status": "saved",
+      "summary": "Uses built-in Postgres extensions (pg_cron and pg_net) inside Supabase to automatically text customers 24 hours after a Completed detail job asking for a 5-star Google Review and offering a 6-month ceramic maintenance reminder.",
+      "category": "CRM & Marketing Automation",
+      "created_at": "2026-11-15T22:39:33.510791+00:00",
+      "updated_at": "2026-11-15T23:33:40.390051+00:00",
+      "difficulty_tier": "Moderately Advanced",
+      "why_it_matters_for_ecmd": "Runs 100% inside your existing free Supabase database with zero Wix automation limits and stays completely intact when you migrate to WeWeb.",
+      "source_conversation_topic": "Supabase CRM & ScheduledJobs Migration",
+      "implementation_steps_prompt": "Enable pg_cron and pg_net in Supabase and create a daily cron job on public.ecmd_crm_jobs that triggers a review/maintenance SMS 24 hours after status becomes Completed.",
+      "external_downloads_and_accounts": [
+        "Zero outside downloads — enable pg_cron and pg_net in Supabase Database -> Extensions"
+      ]
+    },
+    {
+      "id": "3437e854-6258-4f67-8cb5-1b1d5ba4d265",
+      "slug": "adv_pgvector_hybrid_search_rrf",
+      "title": "Supabase pgvector Hybrid Full-Text & Semantic Search with Reciprocal Rank Fusion",
+      "status": "saved",
+      "summary": "Upgrades public.ecmd_brain from pure vector search to hybrid search combining Postgres full-text indexing (GIN tsvector) with pgvector cosine similarity via Reciprocal Rank Fusion (RRF) for 100% accurate package and vehicle matching.",
+      "category": "AI Search & Vector Database",
+      "created_at": "2026-11-15T23:28:14.482828+00:00",
+      "updated_at": "2026-11-15T23:28:14.06+00:00",
+      "difficulty_tier": "Highly Advanced",
+      "why_it_matters_for_ecmd": "Pure vector search often misinterprets specific vehicle trim tokens (like 'GLE 53' or 'F-150 Lightning') or exact package names. Hybrid search guarantees exact lexical keyword matches while maintaining conversational semantic understanding.",
+      "source_conversation_topic": "Vector Brain & Hybrid RAG Retrieval",
+      "implementation_steps_prompt": "Add a tsvector column and GIN index alongside the embedding column in public.ecmd_brain, and create an SQL function match_ecmd_brain_hybrid implementing Reciprocal Rank Fusion (RRF).",
+      "external_downloads_and_accounts": [
+        "Enable vector extension in Supabase Dashboard (Database -> Extensions)",
+        "@google/genai or OpenAI embeddings API key"
+      ]
+    },
+    {
+      "id": "79bba7de-fece-4e3b-9440-2e23211dafd3",
+      "slug": "adv_resend_react_email_templates",
+      "title": "Resend & React Email Transactional Engine via Supabase Edge Webhooks",
+      "status": "saved",
+      "summary": "Replaces Wix transactional email limitations with Resend + React Email templates triggered via Supabase Database Webhooks, providing dynamic booking receipts, calendar invites (.ics), and detailer dispatch alerts with 99.9% deliverability.",
+      "category": "Customer Communications & WeWeb Migration",
+      "created_at": "2026-11-15T23:26:38.266613+00:00",
+      "updated_at": "2026-11-15T23:26:38.063+00:00",
+      "difficulty_tier": "Moderately Advanced",
+      "why_it_matters_for_ecmd": "Wix email templates are rigid and will break completely upon migrating frontend to WeWeb. Resend runs 100% serverless through Supabase Edge Functions, ensuring your transactional emails stay bulletproof regardless of frontend framework.",
+      "source_conversation_topic": "Wix Email Limits & WeWeb Transactional Messaging",
+      "implementation_steps_prompt": "Deploy a Supabase Edge Function ecmd-email-dispatcher that accepts job IDs, compiles React Email templates for receipts and dispatch alerts, and sends via Resend API.",
+      "external_downloads_and_accounts": [
+        "Free Resend Account (https://resend.com) - 3,000 free emails/mo",
+        "Verified DNS Domain (ecmdutah.com DKIM/SPF in Cloudflare or Wix)",
+        "@react-email/components npm package"
+      ]
+    },
+    {
+      "id": "7d258407-9d7a-4113-8e21-a42ee0454105",
+      "slug": "adv_pg_net_realtime_calendar_sync",
+      "title": "Supabase pg_net Postgres Triggers for Zero-Latency Google Calendar Sync",
+      "status": "saved",
+      "summary": "Replaces client-side Google Calendar API calls with Postgres database event triggers using pg_net, automatically creating, updating, or deleting calendar events in detailer Google Calendars whenever jobs change in Supabase.",
+      "category": "DevOps & Dispatch Automation",
+      "created_at": "2026-11-15T23:19:34.694178+00:00",
+      "updated_at": "2026-11-15T23:19:34.611+00:00",
+      "difficulty_tier": "Moderately Advanced",
+      "why_it_matters_for_ecmd": "Decouples calendar syncing from Wix frontend runtime, ensures calendar events are 100% synchronized even when jobs are booked, rescheduled, or cancelled via WeWeb, and runs entirely in background without user wait times.",
+      "source_conversation_topic": "Contractor Email Sanitization & Calendar Dispatch",
+      "implementation_steps_prompt": "Create an AFTER INSERT OR UPDATE trigger on public.ecmd_crm_jobs that invokes net.http_post to a calendar sync edge function whenever detailerId, serviceDate, or scheduledTime changes.",
+      "external_downloads_and_accounts": [
+        "Enable pg_net extension in Supabase Dashboard (Database -> Extensions)",
+        "Google Cloud Console Service Account for Google Calendar API"
+      ]
+    },
+    {
+      "id": "60b6d991-8d26-4c69-b763-111aac580953",
+      "slug": "adv_retell_ai_voice_receptionist",
+      "title": "Retell AI Inbound Voice AI Receptionist for Hands-Free Detailing Quotes & Booking",
+      "status": "saved",
+      "summary": "Deploys a low-latency inbound voice agent using Retell AI + Supabase Edge Functions that answers phone calls when detailers are running machinery, checks vehicle & customer records in ecmd_crm_*, calculates pricing, and schedules appointments autonomously.",
+      "category": "AI Automation & Customer Experience",
+      "created_at": "2026-11-15T23:07:25.124964+00:00",
+      "updated_at": "2026-11-15T23:07:24.937+00:00",
+      "difficulty_tier": "Highly Advanced",
+      "why_it_matters_for_ecmd": "Mobile detailers constantly miss high-ticket phone calls due to pressure washers, polishers, and extractors. This captures 100% of phone leads, quotes accurate ceramic/detail pricing instantly, and writes bookings straight to Supabase for Wix/WeWeb dispatch.",
+      "source_conversation_topic": "External AI Bootloader & Voice Dispatch Upgrade",
+      "implementation_steps_prompt": "Deploy a Supabase Edge Function acting as a custom tool webhook for Retell AI, connecting customer phone lookups and job creations to ecmd_crm_customers and ecmd_crm_jobs.",
+      "external_downloads_and_accounts": [
+        "Free Retell AI account (https://retellai.com)",
+        "Twilio phone number for call forwarding (~$1.15/mo)",
+        "Supabase CLI (npx supabase)"
+      ]
+    }
+  ]
+}

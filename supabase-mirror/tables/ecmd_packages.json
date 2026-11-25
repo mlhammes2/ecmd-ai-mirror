@@ -1,0 +1,112 @@
+{
+  "table": "ecmd_packages",
+  "exportedAt": "2026-11-25T21:11:31.763Z",
+  "totalRowsInDb": 4,
+  "exportedRowCount": 4,
+  "rows": [
+    {
+      "id": 1,
+      "slug": "premium-plus-ceramic",
+      "title": "Premium Plus - Ceramic Coating",
+      "enabled": true,
+      "sort_order": 1,
+      "updated_at": "2026-11-23T20:44:25.387647+00:00",
+      "description": "The ultimate protection and shine with a long-lasting ceramic coating layer.",
+      "addons_count": 99,
+      "review_count": "12400",
+      "review_score": "4.9",
+      "default_scope": "full",
+      "hero_image_url": "https://fakeimg.pl/400x300/121212/ffffff?text=Ceramic",
+      "pricing_matrix": {
+        "duration": "4",
+        "basePrice": 399,
+        "salePrice": 349,
+        "multipliers": {
+          "coupe": 1,
+          "truck": 1.2,
+          "lg-suv": 1.4,
+          "sm-suv": 1.25
+        }
+      },
+      "badge_image_url": ""
+    },
+    {
+      "id": 2,
+      "slug": "luxury-detail",
+      "title": "Luxury Detail",
+      "enabled": true,
+      "sort_order": 2,
+      "updated_at": "2026-11-23T20:44:25.387647+00:00",
+      "description": "Our most comprehensive interior and exterior detailing service for a pristine finish.",
+      "addons_count": 99,
+      "review_count": "9400",
+      "review_score": "4.8",
+      "default_scope": "full",
+      "hero_image_url": "https://fakeimg.pl/400x300/121212/ffffff?text=Luxury",
+      "pricing_matrix": {
+        "duration": "3",
+        "basePrice": 299,
+        "salePrice": 0,
+        "multipliers": {
+          "coupe": 1,
+          "truck": 1.2,
+          "lg-suv": 1.4,
+          "sm-suv": 1.25
+        }
+      },
+      "badge_image_url": ""
+    },
+    {
+      "id": 3,
+      "slug": "premium-detail",
+      "title": "Premium Detail",
+      "enabled": true,
+      "sort_order": 3,
+      "updated_at": "2026-11-23T20:44:25.387647+00:00",
+      "description": "A thorough refresh of your vehicle, restoring its beauty inside and out.",
+      "addons_count": 99,
+      "review_count": "9400",
+      "review_score": "4.7",
+      "default_scope": "full",
+      "hero_image_url": "https://fakeimg.pl/400x300/121212/ffffff?text=Premium",
+      "pricing_matrix": {
+        "duration": "2",
+        "basePrice": 199,
+        "salePrice": 0,
+        "multipliers": {
+          "coupe": 1,
+          "truck": 1.2,
+          "lg-suv": 1.4,
+          "sm-suv": 1.25
+        }
+      },
+      "badge_image_url": ""
+    },
+    {
+      "id": 4,
+      "slug": "classic-detail",
+      "title": "Classic Detail",
+      "enabled": true,
+      "sort_order": 4,
+      "updated_at": "2026-11-23T20:44:25.387647+00:00",
+      "description": "An essential exterior wash and interior wipe down to keep your car looking sharp.",
+      "addons_count": 99,
+      "review_count": "9400",
+      "review_score": "4.5",
+      "default_scope": "full",
+      "hero_image_url": "https://fakeimg.pl/400x300/121212/ffffff?text=Classic",
+      "pricing_matrix": {
+        "duration": "1",
+        "basePrice": 99,
+        "salePrice": 0,
+        "multipliers": {
+          "coupe": 1,
+          "truck": 1.2,
+          "lg-suv": 1.4,
+          "sm-suv": 1.25
+        }
+      },
+      "badge_image_url": ""
+    }
+  ]
+}

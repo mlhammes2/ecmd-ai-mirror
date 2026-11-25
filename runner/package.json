@@ -1,0 +1,19 @@
+{
+  "devDependencies": {
+    "@wix/cli": "^1.0.0",
+    "@wix/eslint-plugin-cli": "^1.0.0",
+    "eslint": "^8.25.0",
+    "react": "16.14.0"
+  },
+  "dependencies": {
+    "googleapis": "118.0.0",
+    "@sendgrid/mail": "8.1.6",
+    "braintree": "3.38.0",
+    "pdf-lib": "1.17.1"
+  },
+  "scripts": {
+    "postinstall": "wix sync-types",
+    "dev": "wix dev",
+    "lint": "eslint ."
+  }
+}

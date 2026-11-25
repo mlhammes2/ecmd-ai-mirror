@@ -1,0 +1,327 @@
+{
+  "table": "ecmd_plasmic_hydration",
+  "exportedAt": "2026-11-25T21:11:31.763Z",
+  "totalRowsInDb": 1,
+  "exportedRowCount": 1,
+  "rows": [
+    {
+      "id": "latest",
+      "version": "1.0.0",
+      "metadata": {
+        "apiToken": "public_token_placeholder",
+        "generatedAt": "2026-11-23T19:41:47.024Z",
+        "themeGroups": [
+          {
+            "id": 1,
+            "name": "Bars & Surfaces",
+            "group": "ecmd-group-1",
+            "selector": ".bars, .gm-bar",
+            "defaultClBg": "#F8FAFC",
+            "defaultMsBg": "#0F172A"
+          },
+          {
+            "id": 2,
+            "name": "Header Buttons",
+            "group": "ecmd-group-2",
+            "selector": ".headerButtons",
+            "defaultClBg": "#FFFFFF",
+            "defaultMsBg": "#1E293B"
+          },
+          {
+            "id": 3,
+            "name": "Modals",
+            "group": "ecmd-group-3",
+            "selector": ".modals, .side-menu-card, #ecmd-auth-modal",
+            "defaultClBg": "#FFFFFF",
+            "defaultMsBg": "#0F172A"
+          },
+          {
+            "id": 4,
+            "name": "Text buttons",
+            "group": "ecmd-group-4",
+            "selector": ".text-buttons, .side-menu-btn",
+            "defaultClBg": "#0F172A",
+            "defaultMsBg": "#F8FAFC"
+          },
+          {
+            "id": 5,
+            "name": "text buttons (on dark)",
+            "group": "ecmd-group-5",
+            "selector": ".text-buttons-dark",
+            "defaultClBg": "#F8FAFC",
+            "defaultMsBg": "#F8FAFC"
+          },
+          {
+            "id": 6,
+            "name": "Side Menu",
+            "group": "ecmd-group-6",
+            "selector": ".side-menu",
+            "defaultClBg": "#FFFFFF",
+            "defaultMsBg": "#1E293B"
+          },
+          {
+            "id": 7,
+            "name": "Group 7",
+            "group": "ecmd-group-7",
+            "selector": ".ecmd-group-7",
+            "defaultClBg": "#FFFFFF",
+            "defaultMsBg": "#1E293B"
+          },
+          {
+            "id": 8,
+            "name": "Group 8",
+            "group": "ecmd-group-8",
+            "selector": ".ecmd-group-8",
+            "defaultClBg": "#FFFFFF",
+            "defaultMsBg": "#1E293B"
+          }
+        ]
+      },
+      "project_id": "mrkoQykvpZZfVbEc1yjabw",
+      "updated_at": "2026-11-23T19:41:48.204974+00:00",
+      "components_count": 10,
+      "layout_hierarchy": {
+        "route": "/",
+        "pageName": "Homepage",
+        "description": "ECMD Master Landing Page & Mobile Detailing Workspace",
+        "arenaHierarchy": [
+          {
+            "name": "Header Bar",
+            "arenaId": "header-arena",
+            "children": [
+              {
+                "name": "Header Logo Box",
+                "arenaId": "header-logo-box",
+                "elements": [
+                  {
+                    "dims": "97px x 71px",
+                    "component": "EcmdBrandIcon",
+                    "displayName": "Brand Icon"
+                  },
+                  {
+                    "dims": "220px x 60px",
+                    "component": "EcmdBrandWordMark",
+                    "displayName": "Brand WordMark"
+                  },
+                  {
+                    "id": "ecmd-theme-logo",
+                    "component": "EcmdThemeLogo",
+                    "displayName": "Theme Logo Switcher"
+                  }
+                ],
+                "themeGroup": "ecmd-group-2",
+                "cssSelector": ".headerButtons"
+              },
+              {
+                "name": "Header Buttons Box",
+                "arenaId": "header-buttons-box",
+                "elements": [
+                  {
+                    "props": {
+                      "align": "left",
+                      "offsetY": 10,
+                      "fixedBreakout": true
+                    },
+                    "cardId": "ecmd-theme-dropdown-card",
+                    "component": "EcmdThemeGroupController",
+                    "triggerId": "ecmd-theme-trigger",
+                    "displayName": "Site Themes Modal"
+                  },
+                  {
+                    "buttonId": "btn-gemini-ai-assistant",
+                    "component": "HeaderButton",
+                    "targetUrl": "/workflow",
+                    "displayName": "Gemini AI Assistant"
+                  },
+                  {
+                    "props": {
+                      "align": "right",
+                      "offsetY": 10,
+                      "cardWidth": "240px",
+                      "fixedBreakout": true
+                    },
+                    "cardId": "ecmd-side-menu-card",
+                    "component": "EcmdSideMenuController",
+                    "triggerId": "ecmd-side-menu-trigger",
+                    "displayName": "Side Menu Modal (☰)"
+                  }
+                ],
+                "themeGroup": "ecmd-group-2",
+                "cssSelector": ".headerButtons"
+              },
+              {
+                "name": "Header Info Bar",
+                "arenaId": "header-info-bar",
+                "elements": [
+                  {
+                    "id": "header-info-bar-text",
+                    "type": "text",
+                    "value": "Mobile Detailing Panhandle & Utah Coast"
+                  }
+                ],
+                "themeGroup": "ecmd-group-1",
+                "cssSelector": ".bars"
+              },
+              {
+                "name": "Header Auth Box",
+                "arenaId": "header-auth-box",
+                "elements": [
+                  {
+                    "props": {
+                      "alignModal": "right",
+                      "autoSwapLogout": true,
+                      "showSecondTrigger": true
+                    },
+                    "modalId": "ecmd-auth-modal",
+                    "component": "EcmdAuthModalController",
+                    "displayName": "Auth Modal Controller",
+                    "triggerSlotId": "ecmd-auth-trigger-slot"
+                  }
+                ]
+              }
+            ],
+            "themeGroup": "ecmd-group-1",
+            "cssSelector": ".bars, .gm-bar"
+          },
+          {
+            "name": "Booking HQ & Multi-State Workspace",
+            "arenaId": "booking-hq-arena",
+            "children": [
+              {
+                "component": "HqMultiStateWorkspace",
+                "displayName": "HQ Multi-State Workspace"
+              },
+              {
+                "component": "HqWeeklyStrip",
+                "displayName": "HQ Weekly Strip"
+              },
+              {
+                "component": "HqDailyDispatchBoard",
+                "displayName": "HQ Daily Dispatch Board"
+              },
+              {
+                "component": "HqInvoiceCard",
+                "displayName": "HQ Invoice Card"
+              }
+            ]
+          },
+          {
+            "name": "Services & Detailing Packages",
+            "arenaId": "services-section",
+            "elements": [
+              {
+                "id": "detailing-packages-container",
+                "type": "container"
+              }
+            ],
+            "cssSelector": "#services"
+          }
+        ],
+        "sourceRouteFile": "src/routes/index.tsx"
+      },
+      "interactive_elements": {
+        "sideMenuController": {
+          "cardId": "ecmd-side-menu-card",
+          "listId": "ecmd-side-menu-list",
+          "component": "EcmdSideMenuController",
+          "triggerId": "ecmd-side-menu-trigger",
+          "buttonSlugs": [
+            "automotive-detailing",
+            "my-garage",
+            "my-profile",
+            "contacts-locations",
+            "upcoming-details",
+            "completed-details",
+            "subscriptions",
+            "gemini-ai-assistant",
+            "customer-service",
+            "career-opportunities",
+            "login-security",
+            "payment-methods",
+            "gift-cards",
+            "detailer-portal",
+            "booking-hq",
+            "login",
+            "log-out"
+          ],
+          "buttonsCount": 17,
+          "customEvents": [
+            "ecmd-popover-opened"
+          ],
+          "footerSlotId": "ecmd-side-menu-footer",
+          "headerSlotId": "ecmd-side-menu-header",
+          "categoriesCount": 7,
+          "triggerDataAttr": "data-ecmd-side-menu-trigger",
+          "sourceEventDetail": {
+            "source": "side-menu"
+          }
+        },
+        "authModalController": {
+          "links": [
+            "#ecmd-auth-forgot-link",
+            "#ecmd-auth-signup-link"
+          ],
+          "extras": [
+            "#ecmd-auth-remember-row",
+            "#ecmd-auth-eye-toggle-btn"
+          ],
+          "inputs": [
+            "#ecmd-auth-email-input",
+            "#ecmd-auth-password-input",
+            "#ecmd-auth-confirm-input"
+          ],
+          "component": "EcmdAuthModalController",
+          "backdropId": "ecmd-auth-backdrop",
+          "closeIconId": "ecmd-auth-close-icon",
+          "modalCardId": "ecmd-auth-modal",
+          "customEvents": [
+            "ecmd-popover-opened"
+          ],
+          "actionButtons": [
+            "#ecmd-auth-cancel-btn",
+            "#ecmd-auth-submit-btn"
+          ],
+          "triggerSlotId": "ecmd-auth-trigger-slot",
+          "sourceEventDetail": {
+            "source": "auth-modal"
+          },
+          "signupTriggerBtnId": "ecmd-auth-signup-trigger-btn",
+          "primaryTriggerBtnId": "ecmd-auth-trigger-btn"
+        },
+        "themeGroupController": {
+          "cardId": "ecmd-theme-dropdown-card",
+          "listId": "ecmd-theme-dropdown-list",
+          "component": "EcmdThemeGroupController",
+          "triggerId": "ecmd-theme-trigger",
+          "customEvents": [
+            "ecmd-popover-opened"
+          ],
+          "themeOptions": [
+            {
+              "key": "coastal-light",
+              "rowId": "ecmd-theme-opt-coastal-light",
+              "checkId": "ecmd-theme-check-coastal-light",
+              "dotColor": "#0EA5E9"
+            },
+            {
+              "key": "midnight-slate",
+              "rowId": "ecmd-theme-opt-midnight-slate",
+              "checkId": "ecmd-theme-check-midnight-slate",
+              "dotColor": "#64748B"
+            },
+            {
+              "key": "emerald-dark",
+              "rowId": "ecmd-theme-opt-emerald-dark",
+              "checkId": "ecmd-theme-check-emerald-dark",
+              "dotColor": "#059669"
+            }
+          ],
+          "triggerDataAttr": "data-ecmd-theme-trigger",
+          "sourceEventDetail": {
+            "source": "theme-group"
+          }
+        }
+      }
+    }
+  ]
+}

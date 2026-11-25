@@ -1,0 +1,30 @@
+// --- backend/testDispatch.jsw ---
+
+import { sendMasterTransactionalEmail } from 'backend/emailDispatchEngine.jsw';
+
+export async function triggerDummyReceipt(testEmail) {
+    console.log(`📌 [BACKEND_TEST_DISPATCH -> triggerDummyReceipt]: Sending test UPDATE email to ${testEmail}`);
+    let dummyOrder = {
+        firstName: "Test User",
+        orderId: "TEST-12345",
+        jobs: [
+            {
+                status: "Active",
+                packageTitle: "Test Package",
+                packageImage: "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
+                vehicleYear: "2024",
+                vehicleMake: "Porsche",
+                vehicleModel: "911",
+                serviceDate: new Date().toISOString(),
+                scheduledTime: "10:00 AM",
+                address1: "123 Test St",
+                city: "Destin",
+                basePrice: 100,
+                totalPrice: 100,
+                packageChanged: true
+            }
+        ]
+    };
+
+    return await sendMasterTransactionalEmail(testEmail, dummyOrder, "UPDATE");
+}

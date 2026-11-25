@@ -1,0 +1,29 @@
+name: 🚀 Auto-Deploy Supabase Edge Functions
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'supabase/functions/**'
+  workflow_dispatch:
+
+jobs:
+  deploy-edge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: ⚡ Trigger Self-Deploy via ECMD Carbon Bridge (Uses Internal ECMD_SB_ACCESS_TOKEN)
+        env:
+          BRIDGE_KEY: ${{ secrets.ECMD_BRIDGE_KEY }}
+        run: |
+          if [ -f "supabase/functions/ecmd-carbon-bridge/index.ts" ]; then
+            jq -n --rawfile code supabase/functions/ecmd-carbon-bridge/index.ts \
+              '{action: "deploy_edge_function", slug: "ecmd-carbon-bridge", content: $code}' > payload.json
+            curl -sS -X POST "https://lvynkeuceiqxafgpgdvs.supabase.co/functions/v1/ecmd-carbon-bridge" \
+              -H "Content-Type: application/json" \
+              -H "x-bridge-key: ${BRIDGE_KEY}" \
+              --data-binary @payload.json
+          fi

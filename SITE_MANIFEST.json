@@ -1,0 +1,2631 @@
+{
+  "repo": "mlhammes2/ecmd-ai-mirror",
+  "branch": "main",
+  "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
+  "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
+  "generatedAt": "2026-11-25T21:11:41.065Z",
+  "latestTurn": "TURN-037",
+  "counts": {
+    "totalFiles": 301,
+    "hubFiles": 173,
+    "runnerFiles": 113,
+    "supabaseMirrorFiles": 15,
+    "registeredPlasmicComponents": 13,
+    "supabasePublicTables": 31,
+    "supabaseMirroredTables": 11,
+    "secretsRedacted": 50
+  },
+  "supabase": {
+    "projectRef": "lvynkeuceiqxafgpgdvs",
+    "exportedAt": "2026-11-25T21:11:31.763Z",
+    "tables": [
+      {
+        "table_name": "ecmd_advanced_suggestions",
+        "row_count": 31,
+        "rls_enabled": false,
+        "mirrored": true
+      },
+      {
+        "table_name": "ecmd_ai_inbox",
+        "row_count": 1,
+        "rls_enabled": true,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_ai_registry",
+        "row_count": 31,
+        "rls_enabled": true,
+        "mirrored": true
+      },
+      {
+        "table_name": "ecmd_brain",
+        "row_count": 78,
+        "rls_enabled": true,
+        "mirrored": true
+      },
+      {
+        "table_name": "ecmd_bridge_logs",
+        "row_count": 23,
+        "rls_enabled": true,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_cli_queue",
+        "row_count": 12,
+        "rls_enabled": false,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_codebase",
+        "row_count": 78,
+        "rls_enabled": true,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_conversations",
+        "row_count": 1,
+        "rls_enabled": true,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_crm_availability",
+        "row_count": 4,
+        "rls_enabled": true,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_crm_contacts",
+        "row_count": 5,
+        "rls_enabled": true,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_crm_contractors",
+        "row_count": 4,
+        "rls_enabled": true,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_crm_customers",
+        "row_count": 4,
+        "rls_enabled": true,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_crm_jobs",
+        "row_count": 7,
+        "rls_enabled": true,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_crm_locations",
+        "row_count": 5,
+        "rls_enabled": true,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_crm_subscriptions",
+        "row_count": 0,
+        "rls_enabled": true,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_crm_temp_cart",
+        "row_count": 4,
+        "rls_enabled": true,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_crm_vehicles",
+        "row_count": 6,
+        "rls_enabled": true,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_dev_jobs",
+        "row_count": 0,
+        "rls_enabled": false,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_diagnostic_runs",
+        "row_count": 1,
+        "rls_enabled": false,
+        "mirrored": true
+      },
+      {
+        "table_name": "ecmd_external_ai_cms",
+        "row_count": 34,
+        "rls_enabled": false,
+        "mirrored": true
+      },
+      {
+        "table_name": "ecmd_files_mirror",
+        "row_count": 99,
+        "rls_enabled": false,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_members",
+        "row_count": 0,
+        "rls_enabled": true,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_messages",
+        "row_count": 6,
+        "rls_enabled": true,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_packages",
+        "row_count": 4,
+        "rls_enabled": false,
+        "mirrored": true
+      },
+      {
+        "table_name": "ecmd_pen_turns",
+        "row_count": 35,
+        "rls_enabled": false,
+        "mirrored": true
+      },
+      {
+        "table_name": "ecmd_plasmic_hydration",
+        "row_count": 1,
+        "rls_enabled": false,
+        "mirrored": true
+      },
+      {
+        "table_name": "ecmd_site_blueprints",
+        "row_count": 106,
+        "rls_enabled": true,
+        "mirrored": true
+      },
+      {
+        "table_name": "ecmd_site_menu_buttons",
+        "row_count": 17,
+        "rls_enabled": false,
+        "mirrored": true
+      },
+      {
+        "table_name": "ecmd_sql_logs",
+        "row_count": 20,
+        "rls_enabled": false,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_telemetry",
+        "row_count": 0,
+        "rls_enabled": true,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_wix_legacy_vault",
+        "row_count": 106,
+        "rls_enabled": false,
+        "mirrored": true
+      }
+    ],
+    "mirroredTables": [
+      "ecmd_advanced_suggestions",
+      "ecmd_ai_registry",
+      "ecmd_brain",
+      "ecmd_diagnostic_runs",
+      "ecmd_external_ai_cms",
+      "ecmd_packages",
+      "ecmd_pen_turns",
+      "ecmd_plasmic_hydration",
+      "ecmd_site_blueprints",
+      "ecmd_site_menu_buttons",
+      "ecmd_wix_legacy_vault"
+    ],
+    "excludedTables": [
+      "ecmd_ai_inbox",
+      "ecmd_bridge_logs",
+      "ecmd_cli_queue",
+      "ecmd_codebase",
+      "ecmd_conversations",
+      "ecmd_crm_availability",
+      "ecmd_crm_contacts",
+      "ecmd_crm_contractors",
+      "ecmd_crm_customers",
+      "ecmd_crm_jobs",
+      "ecmd_crm_locations",
+      "ecmd_crm_subscriptions",
+      "ecmd_crm_temp_cart",
+      "ecmd_crm_vehicles",
+      "ecmd_dev_jobs",
+      "ecmd_files_mirror",
+      "ecmd_members",
+      "ecmd_messages",
+      "ecmd_sql_logs",
+      "ecmd_telemetry"
+    ],
+    "edgeFunctions": [
+      {
+        "name": "ecmd-carbon-bridge",
+        "source": "deployed_reference",
+        "localMirrorPath": null,
+        "endpoint": "https://lvynkeuceiqxafgpgdvs.supabase.co/functions/v1/ecmd-carbon-bridge"
+      },
+      {
+        "name": "ecmd-dev-gateway",
+        "source": "local",
+        "localMirrorPath": "supabase-mirror/edge-functions/ecmd-dev-gateway",
+        "endpoint": "https://lvynkeuceiqxafgpgdvs.supabase.co/functions/v1/ecmd-dev-gateway"
+      },
+      {
+        "name": "geminiAssistant",
+        "source": "known_platform_function",
+        "localMirrorPath": null,
+        "endpoint": "https://lvynkeuceiqxafgpgdvs.supabase.co/functions/v1/geminiAssistant"
+      }
+    ],
+    "error": null
+  },
+  "registeredComponents": [
+    {
+      "symbol": "HqWeeklyStrip",
+      "name": "HqWeeklyStrip",
+      "displayName": "HQ Weekly Strip",
+      "importPath": "./components/booking-hq/HqWeeklyStrip"
+    },
+    {
+      "symbol": "HqDailyDispatchBoard",
+      "name": "HqDailyDispatchBoard",
+      "displayName": "HQ Daily Dispatch Board",
+      "importPath": "./components/booking-hq/HqDailyDispatchBoard"
+    },
+    {
+      "symbol": "HqInvoiceCard",
+      "name": "HqInvoiceCard",
+      "displayName": "HQ Invoice Card",
+      "importPath": "./components/booking-hq/HqInvoiceCard"
+    },
+    {
+      "symbol": "HqMultiStateWorkspace",
+      "name": "HqMultiStateWorkspace",
+      "displayName": "HQ Multi-State Workspace",
+      "importPath": "./components/booking-hq/HqMultiStateWorkspace"
+    },
+    {
+      "symbol": "EcmdAuthModalController",
+      "name": "EcmdAuthModalController",
+      "displayName": "Auth Model (ECMD Engine)",
+      "importPath": "./src/components/EcmdAuthModalController"
+    },
+    {
+      "symbol": "EcmdThemeImage",
+      "name": "EcmdBrandIcon",
+      "displayName": "Icon",
+      "importPath": "./src/components/EcmdThemeImage"
+    },
+    {
+      "symbol": "EcmdThemeImage",
+      "name": "EcmdBrandWordMark",
+      "displayName": "WordMark",
+      "importPath": "./src/components/EcmdThemeImage"
+    },
+    {
+      "symbol": "EcmdThemeLogo",
+      "name": "EcmdThemeLogo",
+      "displayName": "Theme Logo (SVG Switcher)",
+      "importPath": "./src/components/EcmdThemeLogo"
+    },
+    {
+      "symbol": "EcmdThemeGroupController",
+      "name": "EcmdThemeGroupController",
+      "displayName": "Site Themes",
+      "importPath": "./src/components/EcmdThemeGroupController"
+    },
+    {
+      "symbol": "EcmdSideMenuController",
+      "name": "EcmdSideMenuController",
+      "displayName": "Side Menu Modal (☰)",
+      "importPath": "./components/EcmdSideMenuController"
+    },
+    {
+      "symbol": "EcmdVehicleSelector",
+      "name": "EcmdVehicleSelector",
+      "displayName": "Vehicle Size Selector (4-Slot)",
+      "importPath": "./components/EcmdVehicleSelector"
+    },
+    {
+      "symbol": "EcmdPackagesRepeater",
+      "name": "EcmdPackagesRepeater",
+      "displayName": "Packages Repeater (#packagesRep)",
+      "importPath": "./components/EcmdPackagesRepeater"
+    },
+    {
+      "symbol": "EcmdBrushedSteelButton",
+      "name": "EcmdBrushedSteelButton",
+      "displayName": "Brushed Steel Button",
+      "importPath": "./components/EcmdBrushedSteelButton"
+    }
+  ],
+  "wixToPlasmicMigrationFiles": [
+    {
+      "path": "hub/public/wix-vault-index.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/wix-vault-index.json",
+      "sizeBytes": 34174,
+      "purpose": "Wix legacy vault file index"
+    },
+    {
+      "path": "hub/scripts/archive-wix-vault.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/archive-wix-vault.mjs",
+      "sizeBytes": 10101,
+      "purpose": "exports: runSql, escapeSql, getCategory, getDescription, main"
+    },
+    {
+      "path": "hub/scripts/sync-wix-vault.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/sync-wix-vault.mjs",
+      "sizeBytes": 13172,
+      "purpose": "exports: runSql, escapeSql, getCategory, getDescription, main"
+    },
+    {
+      "path": "hub/src/components/booking-hq/HqDailyDispatchBoard.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/booking-hq/HqDailyDispatchBoard.tsx",
+      "sizeBytes": 2356,
+      "purpose": "exports: HqDailyDispatchBoardProps, HqDailyDispatchBoard"
+    },
+    {
+      "path": "hub/src/components/booking-hq/HqInvoiceCard.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/booking-hq/HqInvoiceCard.tsx",
+      "sizeBytes": 2776,
+      "purpose": "exports: LineItem, HqInvoiceCardProps, HqInvoiceCard"
+    },
+    {
+      "path": "hub/src/components/booking-hq/HqMultiStateWorkspace.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/booking-hq/HqMultiStateWorkspace.tsx",
+      "sizeBytes": 3944,
+      "purpose": "exports: HqMultiStateWorkspaceProps, HqMultiStateWorkspace"
+    },
+    {
+      "path": "hub/src/components/booking-hq/HqWeeklyStrip.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/booking-hq/HqWeeklyStrip.tsx",
+      "sizeBytes": 1953,
+      "purpose": "exports: HqWeeklyStripProps, HqWeeklyStrip"
+    },
+    {
+      "path": "hub/src/components/booking-hq/index.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/booking-hq/index.ts",
+      "sizeBytes": 151,
+      "purpose": "Code module"
+    },
+    {
+      "path": "hub/src/components/EcmdAuthModalController.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdAuthModalController.tsx",
+      "sizeBytes": 36825,
+      "purpose": "exports: ECMD_AUTH_LOGO_DATA_URI, EcmdAuthModalControllerProps"
+    },
+    {
+      "path": "hub/src/components/EcmdBrushedSteelButton.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdBrushedSteelButton.tsx",
+      "sizeBytes": 6648,
+      "purpose": "exports: DEFAULT_STEEL_GLOW_COLOR, ParsedRgbColor, SteelButtonSizingVars, normalizeCssDimension, resolveSteelLabelSize, parseGlowColorToRgb"
+    },
+    {
+      "path": "hub/src/components/EcmdPackagesRepeater.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdPackagesRepeater.tsx",
+      "sizeBytes": 21594,
+      "purpose": "exports: autoHealPackageScopeButtons, PackagesOrientation, ResponsivePackagesOrientation, MobilePackagesOrientation, TabletPackagesOrientation, PackageDetailsAction"
+    },
+    {
+      "path": "hub/src/components/EcmdThemeGroupController.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdThemeGroupController.tsx",
+      "sizeBytes": 73816,
+      "purpose": "exports: PresetTheme, EcmdThemeGroupControllerProps, buildFluidClampCss, wrapCssWithBreakpointMedia"
+    },
+    {
+      "path": "hub/src/components/EcmdVehicleSelector.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdVehicleSelector.tsx",
+      "sizeBytes": 7007,
+      "purpose": "exports: VehicleSelectorResponsiveLayout, VehicleSelectorMobileLayout, EcmdVehicleSelectorProps, EcmdVehicleSelector"
+    },
+    {
+      "path": "hub/src/test/wix-vault.test.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/wix-vault.test.ts",
+      "sizeBytes": 1652,
+      "purpose": "Vitest automated test suite"
+    },
+    {
+      "path": "runner/.github/workflows/wix-publish.yml",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/.github/workflows/wix-publish.yml",
+      "sizeBytes": 1162,
+      "purpose": "GitHub Actions / YAML workflow"
+    },
+    {
+      "path": "runner/scripts/wix-auto-publish.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/wix-auto-publish.js",
+      "sizeBytes": 625,
+      "purpose": "ECMD automation/PEN runner script"
+    },
+    {
+      "path": "runner/src/pages/Booking HQ.k657b.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/pages/Booking%20HQ.k657b.js",
+      "sizeBytes": 2397,
+      "purpose": "Wix Velo legacy page controller"
+    },
+    {
+      "path": "runner/src/public/cartEngine.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/cartEngine.js",
+      "sizeBytes": 20411,
+      "purpose": "exports: getOrdinalSuffix, formatPhoneNumber, buildCalendarDates, getDetailerTimeOff, calculateNextAvailableDate, buildWeeklyDataArray"
+    },
+    {
+      "path": "runner/src/public/fileCartEdits.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/fileCartEdits.js",
+      "sizeBytes": 34800,
+      "purpose": "exports: initCartEdits, syncCartEditsDependencies, startCartEditsFlow, restoreCartEditsVaultIfNeeded"
+    },
+    {
+      "path": "runner/src/public/filePackageEdits.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/filePackageEdits.js",
+      "sizeBytes": 22957,
+      "purpose": "exports: initPackageEditEngine, loadPackageEditMode"
+    },
+    {
+      "path": "runner/src/public/fileWhatsIncluded.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/fileWhatsIncluded.js",
+      "sizeBytes": 15367,
+      "purpose": "exports: initWhatsIncludedEngine, openWhatsIncludedPopup"
+    },
+    {
+      "path": "runner/src/public/fileWhatsIncludedG.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/fileWhatsIncludedG.js",
+      "sizeBytes": 4970,
+      "purpose": "exports: initWhatsIncludedGEngine, openDetailedWiPopup"
+    },
+    {
+      "path": "runner/src/public/hqBookingEngine.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/hqBookingEngine.js",
+      "sizeBytes": 26286,
+      "purpose": "exports: refreshCartUI, initBookingHQEngine"
+    },
+    {
+      "path": "runner/src/public/packageMatcher.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/packageMatcher.js",
+      "sizeBytes": 4250,
+      "purpose": "exports: normalizeToPackageSubCategory, extractLevelAndType, findMatchingServicePackage"
+    },
+    {
+      "path": "runner/src/public/packagesEngine.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/packagesEngine.js",
+      "sizeBytes": 25506,
+      "purpose": "exports: clearActivePackageMemory, clearCustomVehicleDropdown, syncPackagesVehicles"
+    },
+    {
+      "path": "runner/src/public/repeaterEngine.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/repeaterEngine.js",
+      "sizeBytes": 4045,
+      "purpose": "exports: registerRepeater, repaintSingleItem, smartSyncRepeater"
+    },
+    {
+      "path": "runner/wix.config.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/wix.config.json",
+      "sizeBytes": 82,
+      "purpose": "JSON data / config"
+    },
+    {
+      "path": "supabase-mirror/tables/ecmd_packages.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_packages.json",
+      "sizeBytes": 3216,
+      "purpose": "Supabase public.ecmd_packages table snapshot (scrubbed)"
+    },
+    {
+      "path": "supabase-mirror/tables/ecmd_wix_legacy_vault.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_legacy_vault.json",
+      "sizeBytes": 2113046,
+      "purpose": "Supabase public.ecmd_wix_legacy_vault table snapshot (scrubbed)"
+    }
+  ],
+  "files": [
+    {
+      "section": "hub",
+      "path": "hub/.gitignore",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/.gitignore",
+      "sizeBytes": 385,
+      "purpose": "Text/config file"
+    },
+    {
+      "section": "hub",
+      "path": "hub/.prettierignore",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/.prettierignore",
+      "sizeBytes": 100,
+      "purpose": "Text/config file"
+    },
+    {
+      "section": "hub",
+      "path": "hub/.prettierrc",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/.prettierrc",
+      "sizeBytes": 96,
+      "purpose": "Text/config file"
+    },
+    {
+      "section": "hub",
+      "path": "hub/AGENTS.md",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/AGENTS.md",
+      "sizeBytes": 19752,
+      "purpose": "Markdown documentation"
+    },
+    {
+      "section": "hub",
+      "path": "hub/BRAIN_SNAPSHOT.md",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/BRAIN_SNAPSHOT.md",
+      "sizeBytes": 166,
+      "purpose": "Markdown documentation"
+    },
+    {
+      "section": "hub",
+      "path": "hub/bunfig.toml",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/bunfig.toml",
+      "sizeBytes": 414,
+      "purpose": "Text/config file"
+    },
+    {
+      "section": "hub",
+      "path": "hub/components.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/components.json",
+      "sizeBytes": 465,
+      "purpose": "JSON data / config"
+    },
+    {
+      "section": "hub",
+      "path": "hub/eslint.config.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/eslint.config.js",
+      "sizeBytes": 1290,
+      "purpose": "Code module"
+    },
+    {
+      "section": "hub",
+      "path": "hub/GEMINI.md",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/GEMINI.md",
+      "sizeBytes": 6101,
+      "purpose": "Markdown documentation"
+    },
+    {
+      "section": "hub",
+      "path": "hub/package.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/package.json",
+      "sizeBytes": 3300,
+      "purpose": "Package manifest & scripts"
+    },
+    {
+      "section": "hub",
+      "path": "hub/public/ai-history.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-history.json",
+      "sizeBytes": 621761,
+      "purpose": "JSON data / config"
+    },
+    {
+      "section": "hub",
+      "path": "hub/public/ai-telemetry.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json",
+      "sizeBytes": 3471,
+      "purpose": "ECMD PEN live turn telemetry"
+    },
+    {
+      "section": "hub",
+      "path": "hub/public/Ecmd Icon Cord Black.svg",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/Ecmd%20Icon%20Cord%20Black.svg",
+      "sizeBytes": 40836,
+      "purpose": "SVG vector asset"
+    },
+    {
+      "section": "hub",
+      "path": "hub/public/ecmd-brain.html",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ecmd-brain.html",
+      "sizeBytes": 962,
+      "purpose": "HTML template / console"
+    },
+    {
+      "section": "hub",
+      "path": "hub/public/ecmd-dolphin-logo.svg",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ecmd-dolphin-logo.svg",
+      "sizeBytes": 5611,
+      "purpose": "SVG vector asset"
+    },
+    {
+      "section": "hub",
+      "path": "hub/public/ecmd-live-readout.txt",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ecmd-live-readout.txt",
+      "sizeBytes": 114810,
+      "purpose": "Text/config file"
+    },
+    {
+      "section": "hub",
+      "path": "hub/public/logo-black.svg",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/logo-black.svg",
+      "sizeBytes": 40836,
+      "purpose": "SVG vector asset"
+    },
+    {
+      "section": "hub",
+      "path": "hub/public/logo.svg",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/logo.svg",
+      "sizeBytes": 40836,
+      "purpose": "SVG vector asset"
+    },
+    {
+      "section": "hub",
+      "path": "hub/public/plasmic-diagnostics.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/plasmic-diagnostics.json",
+      "sizeBytes": 158,
+      "purpose": "Plasmic Canvas live diagnostics store"
+    },
+    {
+      "section": "hub",
+      "path": "hub/public/plasmic-layout-hydration.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/plasmic-layout-hydration.json",
+      "sizeBytes": 3610,
+      "purpose": "JSON data / config"
+    },
+    {
+      "section": "hub",
+      "path": "hub/public/plasmic-live-dom.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/plasmic-live-dom.json",
+      "sizeBytes": 2567775,
+      "purpose": "JSON data / config"
+    },
+    {
+      "section": "hub",
+      "path": "hub/public/robots.txt",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/robots.txt",
+      "sizeBytes": 174,
+      "purpose": "Text/config file"
+    },
+    {
+      "section": "hub",
+      "path": "hub/public/runtime-errors.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/runtime-errors.json",
+      "sizeBytes": 80,
+      "purpose": "DEV browser runtime errors store"
+    },
+    {
+      "section": "hub",
+      "path": "hub/public/wix-vault-index.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/wix-vault-index.json",
+      "sizeBytes": 34174,
+      "purpose": "Wix legacy vault file index"
+    },
+    {
+      "section": "hub",
+      "path": "hub/README.md",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/README.md",
+      "sizeBytes": 1079,
+      "purpose": "Doc: Emerald Coast Detailing Hub"
+    },
+    {
+      "section": "hub",
+      "path": "hub/scripts/archive-wix-vault.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/archive-wix-vault.mjs",
+      "sizeBytes": 10101,
+      "purpose": "exports: runSql, escapeSql, getCategory, getDescription, main"
+    },
+    {
+      "section": "hub",
+      "path": "hub/scripts/ecmd-sql.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/ecmd-sql.mjs",
+      "sizeBytes": 440,
+      "purpose": "Code module"
+    },
+    {
+      "section": "hub",
+      "path": "hub/scripts/fix-plasmic-shorthands.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/fix-plasmic-shorthands.mjs",
+      "sizeBytes": 2113,
+      "purpose": "Code module"
+    },
+    {
+      "section": "hub",
+      "path": "hub/scripts/sync-plasmic-hydration.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/sync-plasmic-hydration.mjs",
+      "sizeBytes": 4331,
+      "purpose": "exports: run"
+    },
+    {
+      "section": "hub",
+      "path": "hub/scripts/sync-wix-vault.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/sync-wix-vault.mjs",
+      "sizeBytes": 13172,
+      "purpose": "exports: runSql, escapeSql, getCategory, getDescription, main"
+    },
+    {
+      "section": "hub",
+      "path": "hub/scripts/update-pen-runner.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/update-pen-runner.mjs",
+      "sizeBytes": 8410,
+      "purpose": "Code module"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/client.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/client.tsx",
+      "sizeBytes": 2288,
+      "purpose": "exports: ECMD_PLASMIC_HOST_ROOT_ID, isPlasmicHostPathname, mountPlasmicHostClientOnly, bootstrapEcmdClient"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/booking-hq/HqDailyDispatchBoard.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/booking-hq/HqDailyDispatchBoard.tsx",
+      "sizeBytes": 2356,
+      "purpose": "exports: HqDailyDispatchBoardProps, HqDailyDispatchBoard"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/booking-hq/HqInvoiceCard.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/booking-hq/HqInvoiceCard.tsx",
+      "sizeBytes": 2776,
+      "purpose": "exports: LineItem, HqInvoiceCardProps, HqInvoiceCard"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/booking-hq/HqMultiStateWorkspace.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/booking-hq/HqMultiStateWorkspace.tsx",
+      "sizeBytes": 3944,
+      "purpose": "exports: HqMultiStateWorkspaceProps, HqMultiStateWorkspace"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/booking-hq/HqWeeklyStrip.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/booking-hq/HqWeeklyStrip.tsx",
+      "sizeBytes": 1953,
+      "purpose": "exports: HqWeeklyStripProps, HqWeeklyStrip"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/booking-hq/index.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/booking-hq/index.ts",
+      "sizeBytes": 151,
+      "purpose": "Code module"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/dock/HqDockPrimitives.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/dock/HqDockPrimitives.tsx",
+      "sizeBytes": 7571,
+      "purpose": "exports: HqDockRailProps, HqDockRail, HqDockIconButtonProps, HqDockIconButton, HqSlideOutDrawerProps, HqSlideOutDrawer"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/dock/index.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/dock/index.ts",
+      "sizeBytes": 37,
+      "purpose": "Code module"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/EcmdAttributeProfilesModal.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdAttributeProfilesModal.tsx",
+      "sizeBytes": 29571,
+      "purpose": "exports: CoreAttributeKey, MappedGroupPropKey, CoreAttributeDef, CORE_STYLE_ATTRIBUTES, AttributeProfile, AttributeProfilesStore"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/EcmdAuthModalController.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdAuthModalController.tsx",
+      "sizeBytes": 36825,
+      "purpose": "exports: ECMD_AUTH_LOGO_DATA_URI, EcmdAuthModalControllerProps"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/EcmdBrushedSteelButton.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdBrushedSteelButton.tsx",
+      "sizeBytes": 6648,
+      "purpose": "exports: DEFAULT_STEEL_GLOW_COLOR, ParsedRgbColor, SteelButtonSizingVars, normalizeCssDimension, resolveSteelLabelSize, parseGlowColorToRgb"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/EcmdDeviceGlobalContext.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdDeviceGlobalContext.tsx",
+      "sizeBytes": 1950,
+      "purpose": "exports: EcmdDeviceGlobalContext"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/EcmdDynamicGroupManager.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdDynamicGroupManager.tsx",
+      "sizeBytes": 285441,
+      "purpose": "exports: GroupStateKey, SubGroupStateKey, GROUP_STATE_TABS, GroupStateThemeValues, GroupStateOverride, ThemeGroupBreakpointTarget"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/EcmdHoverTooltip.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdHoverTooltip.tsx",
+      "sizeBytes": 6670,
+      "purpose": "exports: EcmdHoverTooltipProps, EcmdHoverTooltip"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/EcmdPackagesRepeater.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdPackagesRepeater.tsx",
+      "sizeBytes": 21594,
+      "purpose": "exports: autoHealPackageScopeButtons, PackagesOrientation, ResponsivePackagesOrientation, MobilePackagesOrientation, TabletPackagesOrientation, PackageDetailsAction"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/EcmdPlasmicColorRow.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdPlasmicColorRow.tsx",
+      "sizeBytes": 100066,
+      "purpose": "exports: PresetColorToken, GM3_COLOR_PRESETS, EcmdPlasmicColorRow"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/EcmdSideMenuController.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdSideMenuController.tsx",
+      "sizeBytes": 25694,
+      "purpose": "exports: SiteMenuButtonItem, DEFAULT_WIX_SITE_MENU_BUTTONS, EcmdSideMenuControllerProps, EcmdSideMenuController"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/EcmdSpacingBoxControl.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdSpacingBoxControl.tsx",
+      "sizeBytes": 36658,
+      "purpose": "exports: createSpacingControl"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/EcmdTextShadowControl.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdTextShadowControl.tsx",
+      "sizeBytes": 21698,
+      "purpose": "exports: EcmdTextShadowControlProps, EcmdTextShadowControl"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/EcmdThemeGroupController.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdThemeGroupController.tsx",
+      "sizeBytes": 73816,
+      "purpose": "exports: PresetTheme, EcmdThemeGroupControllerProps, buildFluidClampCss, wrapCssWithBreakpointMedia"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/EcmdThemeImage.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdThemeImage.tsx",
+      "sizeBytes": 2107,
+      "purpose": "exports: ThemeKey, EcmdThemeImageProps, EcmdThemeImage"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/EcmdThemeImagesTab.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdThemeImagesTab.tsx",
+      "sizeBytes": 69872,
+      "purpose": "exports: EcmdThemeImagesTabProps, EcmdThemeImagesTab"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/EcmdThemeLogo.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdThemeLogo.tsx",
+      "sizeBytes": 2401,
+      "purpose": "exports: ThemeKey, EcmdThemeLogoProps, EcmdThemeLogo"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/EcmdThemeTokensTab.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdThemeTokensTab.tsx",
+      "sizeBytes": 47098,
+      "purpose": "exports: EcmdThemeTokensTabProps, countGroupsUsingToken, EcmdThemeTokensTab"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/EcmdTokenBindingBar.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdTokenBindingBar.tsx",
+      "sizeBytes": 17021,
+      "purpose": "exports: EcmdTokenBindingContext, EcmdLinkedTokenPill, EcmdTokenPopoverSection"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/EcmdVehicleSelector.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdVehicleSelector.tsx",
+      "sizeBytes": 7007,
+      "purpose": "exports: VehicleSelectorResponsiveLayout, VehicleSelectorMobileLayout, EcmdVehicleSelectorProps, EcmdVehicleSelector"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/layout/AppHeader.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/layout/AppHeader.tsx",
+      "sizeBytes": 9443,
+      "purpose": "exports: AppHeader"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/layout/nav-links.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/layout/nav-links.ts",
+      "sizeBytes": 283,
+      "purpose": "exports: NAV_LINKS"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/layout/PageShell.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/layout/PageShell.tsx",
+      "sizeBytes": 895,
+      "purpose": "exports: PageShell"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/accordion.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/accordion.tsx",
+      "sizeBytes": 2066,
+      "purpose": "exports: Accordion, AccordionItem, AccordionTrigger, AccordionContent"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/alert-dialog.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/alert-dialog.tsx",
+      "sizeBytes": 4298,
+      "purpose": "exports: AlertDialog, AlertDialogPortal, AlertDialogOverlay, AlertDialogTrigger, AlertDialogContent, AlertDialogHeader"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/alert.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/alert.tsx",
+      "sizeBytes": 1638,
+      "purpose": "exports: Alert, AlertTitle, AlertDescription"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/aspect-ratio.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/aspect-ratio.tsx",
+      "sizeBytes": 148,
+      "purpose": "exports: AspectRatio"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/avatar.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/avatar.tsx",
+      "sizeBytes": 1460,
+      "purpose": "exports: Avatar, AvatarImage, AvatarFallback"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/badge.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/badge.tsx",
+      "sizeBytes": 1155,
+      "purpose": "exports: BadgeProps"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/breadcrumb.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/breadcrumb.tsx",
+      "sizeBytes": 2850,
+      "purpose": "exports: Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/button.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/button.tsx",
+      "sizeBytes": 1943,
+      "purpose": "exports: ButtonProps"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/calendar.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/calendar.tsx",
+      "sizeBytes": 7403,
+      "purpose": "exports: Calendar, CalendarDayButton"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/card.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/card.tsx",
+      "sizeBytes": 1872,
+      "purpose": "exports: Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/carousel.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/carousel.tsx",
+      "sizeBytes": 6440,
+      "purpose": "exports: type CarouselApi, Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/chart.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/chart.tsx",
+      "sizeBytes": 10901,
+      "purpose": "exports: ChartConfig"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/checkbox.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/checkbox.tsx",
+      "sizeBytes": 1069,
+      "purpose": "exports: Checkbox"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/collapsible.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/collapsible.tsx",
+      "sizeBytes": 346,
+      "purpose": "exports: Collapsible, CollapsibleTrigger, CollapsibleContent"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/command.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/command.tsx",
+      "sizeBytes": 5019,
+      "purpose": "exports: Command, CommandDialog, CommandInput, CommandList, CommandEmpty, CommandGroup"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/context-menu.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/context-menu.tsx",
+      "sizeBytes": 7546,
+      "purpose": "exports: ContextMenu, ContextMenuTrigger, ContextMenuContent, ContextMenuItem, ContextMenuCheckboxItem, ContextMenuRadioItem"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/dialog.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/dialog.tsx",
+      "sizeBytes": 3752,
+      "purpose": "exports: Dialog, DialogPortal, DialogOverlay, DialogTrigger, DialogClose, DialogContent"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/drawer.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/drawer.tsx",
+      "sizeBytes": 3071,
+      "purpose": "exports: Drawer, DrawerPortal, DrawerOverlay, DrawerTrigger, DrawerClose, DrawerContent"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/dropdown-menu.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/dropdown-menu.tsx",
+      "sizeBytes": 7752,
+      "purpose": "exports: DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuCheckboxItem, DropdownMenuRadioItem"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/form.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/form.tsx",
+      "sizeBytes": 4372,
+      "purpose": "exports: useFormField, Form, FormItem, FormLabel, FormControl, FormDescription"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/hover-card.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/hover-card.tsx",
+      "sizeBytes": 1273,
+      "purpose": "exports: HoverCard, HoverCardTrigger, HoverCardContent"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/input-otp.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/input-otp.tsx",
+      "sizeBytes": 2305,
+      "purpose": "exports: InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/input.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/input.tsx",
+      "sizeBytes": 798,
+      "purpose": "exports: Input"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/label.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/label.tsx",
+      "sizeBytes": 737,
+      "purpose": "exports: Label"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/menubar.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/menubar.tsx",
+      "sizeBytes": 8743,
+      "purpose": "exports: Menubar, MenubarMenu, MenubarTrigger, MenubarContent, MenubarItem, MenubarSeparator"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/navigation-menu.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/navigation-menu.tsx",
+      "sizeBytes": 5272,
+      "purpose": "exports: navigationMenuTriggerStyle, NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuContent, NavigationMenuTrigger"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/pagination.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/pagination.tsx",
+      "sizeBytes": 2837,
+      "purpose": "exports: Pagination, PaginationContent, PaginationLink, PaginationItem, PaginationPrevious, PaginationNext"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/popover.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/popover.tsx",
+      "sizeBytes": 1383,
+      "purpose": "exports: Popover, PopoverTrigger, PopoverContent, PopoverAnchor"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/progress.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/progress.tsx",
+      "sizeBytes": 806,
+      "purpose": "exports: Progress"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/radio-group.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/radio-group.tsx",
+      "sizeBytes": 1441,
+      "purpose": "exports: RadioGroup, RadioGroupItem"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/resizable.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/resizable.tsx",
+      "sizeBytes": 1589,
+      "purpose": "exports: ResizablePanelGroup, ResizablePanel, ResizableHandle"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/scroll-area.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/scroll-area.tsx",
+      "sizeBytes": 1679,
+      "purpose": "exports: ScrollArea, ScrollBar"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/select.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/select.tsx",
+      "sizeBytes": 5901,
+      "purpose": "exports: Select, SelectGroup, SelectValue, SelectTrigger, SelectContent, SelectLabel"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/separator.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/separator.tsx",
+      "sizeBytes": 747,
+      "purpose": "exports: Separator"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/sheet.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/sheet.tsx",
+      "sizeBytes": 4370,
+      "purpose": "exports: Sheet, SheetPortal, SheetOverlay, SheetTrigger, SheetClose, SheetContent"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/sidebar.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/sidebar.tsx",
+      "sizeBytes": 24719,
+      "purpose": "exports: useSidebar"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/skeleton.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/skeleton.tsx",
+      "sizeBytes": 246,
+      "purpose": "exports: Skeleton"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/slider.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/slider.tsx",
+      "sizeBytes": 1048,
+      "purpose": "exports: Slider"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/sonner.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/sonner.tsx",
+      "sizeBytes": 757,
+      "purpose": "exports: Toaster"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/switch.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/switch.tsx",
+      "sizeBytes": 1183,
+      "purpose": "exports: Switch"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/table.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/table.tsx",
+      "sizeBytes": 2914,
+      "purpose": "exports: Table, TableHeader, TableBody, TableFooter, TableHead, TableRow"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/tabs.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/tabs.tsx",
+      "sizeBytes": 1987,
+      "purpose": "exports: Tabs, TabsList, TabsTrigger, TabsContent"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/textarea.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/textarea.tsx",
+      "sizeBytes": 698,
+      "purpose": "exports: Textarea"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/toggle-group.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/toggle-group.tsx",
+      "sizeBytes": 1809,
+      "purpose": "exports: ToggleGroup, ToggleGroupItem"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/toggle.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/toggle.tsx",
+      "sizeBytes": 1576,
+      "purpose": "exports: Toggle, toggleVariants"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/ui/tooltip.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/tooltip.tsx",
+      "sizeBytes": 1310,
+      "purpose": "exports: Tooltip, TooltipTrigger, TooltipContent, TooltipProvider"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/engines/hqCalendar.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/engines/hqCalendar.ts",
+      "sizeBytes": 2028,
+      "purpose": "exports: CalendarSlot, DaySchedule, buildHqWeekMatrix"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/engines/profileEngine.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/engines/profileEngine.ts",
+      "sizeBytes": 1043,
+      "purpose": "exports: CrmSnapshot, fetchCrmSnapshot"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/engines/stateManager.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/engines/stateManager.ts",
+      "sizeBytes": 1816,
+      "purpose": "exports: BookingDraftState, stateManager"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/hooks/use-mobile.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/hooks/use-mobile.tsx",
+      "sizeBytes": 595,
+      "purpose": "exports: useIsMobile"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/integrations/supabase/client.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/integrations/supabase/client.ts",
+      "sizeBytes": 2335,
+      "purpose": "exports: SUPABASE_URL, BRIDGE_URL, BRIDGE_KEY, carbonBridge, carbonQuery, carbonInsert"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/lib/ecmdBootPrompt.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdBootPrompt.ts",
+      "sizeBytes": 19411,
+      "purpose": "exports: ECMD_SIDEBAR_BOOT_PROMPT"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/lib/ecmdLiveComponentTelemetry.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdLiveComponentTelemetry.ts",
+      "sizeBytes": 35842,
+      "purpose": "exports: ALLOWED_PLASMIC_TOKEN_TYPES, AllowedPlasmicTokenType, RuntimeErrorEntry, RuntimeErrorsStore, EcmdRegisteredComponentMeta, ECMD_REGISTERED_COMPONENTS"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/lib/ecmdRootSizing.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdRootSizing.ts",
+      "sizeBytes": 3491,
+      "purpose": "exports: ECMD_ROOT_SIZING_STYLE_ID, ECMD_ROOT_SIZING_CSS, ensureEcmdRootSizingStyles"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/lib/ecmdRuntimeBoot.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdRuntimeBoot.ts",
+      "sizeBytes": 336,
+      "purpose": "Code module"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/lib/ecmdThemeEngine.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdThemeEngine.ts",
+      "sizeBytes": 143063,
+      "purpose": "exports: ECMD_THEME_ASSETS_BUCKET, ThemeImageObjectFit, ThemeImageVariantConfig, ThemeImageGroup, DEFAULT_THEME_PALETTE_KEYS, DEFAULT_THEME_IMAGE_CLASS_TOKENS"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/lib/error-capture.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/error-capture.ts",
+      "sizeBytes": 2979,
+      "purpose": "exports: describeError, consumeLastCapturedError"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/lib/error-page.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/error-page.ts",
+      "sizeBytes": 1401,
+      "purpose": "exports: renderErrorPage"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/lib/lovable-error-reporting.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/lovable-error-reporting.ts",
+      "sizeBytes": 2289,
+      "purpose": "exports: reportLovableError"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/lib/mediaCms.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/mediaCms.ts",
+      "sizeBytes": 996,
+      "purpose": "exports: DEFAULT_LOGO_PATH, getMediaUrl"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/lib/useEcmdBreakpoint.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/useEcmdBreakpoint.ts",
+      "sizeBytes": 10931,
+      "purpose": "exports: EcmdViewportMode, EcmdBreakpointState, getViewportWidthPx, classifyBreakpointFromWidth, computeEcmdBreakpointState, useEcmdBreakpoint"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/lib/utils.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/utils.ts",
+      "sizeBytes": 175,
+      "purpose": "exports: cn"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/pages/Cms.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/Cms.tsx",
+      "sizeBytes": 61685,
+      "purpose": "exports: Cms"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/pages/Console.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/Console.tsx",
+      "sizeBytes": 56780,
+      "purpose": "exports: Console"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/pages/ecmd-brain.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/ecmd-brain.tsx",
+      "sizeBytes": 1154,
+      "purpose": "exports: EcmdBrainLive"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/pages/EcmdBrainLive.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/EcmdBrainLive.tsx",
+      "sizeBytes": 1154,
+      "purpose": "exports: EcmdBrainLive"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/pages/Errors.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/Errors.tsx",
+      "sizeBytes": 43512,
+      "purpose": "exports: UnifiedErrorsPayload, Errors"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/pages/History.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/History.tsx",
+      "sizeBytes": 28958,
+      "purpose": "exports: HistoryRecord, History"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/pages/Homepage.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/Homepage.tsx",
+      "sizeBytes": 3603,
+      "purpose": "exports: Homepage"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/pages/PlasmicHost.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/PlasmicHost.tsx",
+      "sizeBytes": 446,
+      "purpose": "exports: PlasmicHostPage"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/pages/Workflow.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/Workflow.tsx",
+      "sizeBytes": 21529,
+      "purpose": "exports: Workflow"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/plasmic-init.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/plasmic-init.ts",
+      "sizeBytes": 74786,
+      "purpose": "exports: PLASMIC"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/router.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/router.tsx",
+      "sizeBytes": 631,
+      "purpose": "exports: getRouter"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/routes/__root.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/__root.tsx",
+      "sizeBytes": 8905,
+      "purpose": "exports: Route"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/routes/cms.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/cms.tsx",
+      "sizeBytes": 166,
+      "purpose": "exports: Route"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/routes/console.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/console.tsx",
+      "sizeBytes": 176,
+      "purpose": "exports: Route"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/routes/errors.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/errors.tsx",
+      "sizeBytes": 169,
+      "purpose": "exports: Route"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/routes/history.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/history.tsx",
+      "sizeBytes": 182,
+      "purpose": "exports: Route"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/routes/index.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/index.tsx",
+      "sizeBytes": 178,
+      "purpose": "exports: Route"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/routes/plasmic-host.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/plasmic-host.tsx",
+      "sizeBytes": 434,
+      "purpose": "exports: Route"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/routes/README.md",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/README.md",
+      "sizeBytes": 856,
+      "purpose": "Doc: Routes"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/routes/workflow.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/workflow.tsx",
+      "sizeBytes": 186,
+      "purpose": "exports: Route"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/routeTree.gen.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routeTree.gen.ts",
+      "sizeBytes": 5462,
+      "purpose": "exports: FileRoutesByFullPath, FileRoutesByTo, FileRoutesById, FileRouteTypes, RootRouteChildren, routeTree"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/server.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/server.ts",
+      "sizeBytes": 2324,
+      "purpose": "exports: getServerEntry, normalizeCatastrophicSsrResponse, isH3SwallowedErrorBody"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/start.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/start.ts",
+      "sizeBytes": 1484,
+      "purpose": "exports: startInstance"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/styles/brushedSteelButton.css",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/styles/brushedSteelButton.css",
+      "sizeBytes": 5514,
+      "purpose": "Stylesheet"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/styles.css",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/styles.css",
+      "sizeBytes": 6299,
+      "purpose": "Stylesheet"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/telemetryData.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/telemetryData.ts",
+      "sizeBytes": 124,
+      "purpose": "exports: LIVE_SNAP"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/test/app-routing.test.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/app-routing.test.tsx",
+      "sizeBytes": 868,
+      "purpose": "Vitest automated test suite"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/test/brushed-steel-button.test.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/brushed-steel-button.test.tsx",
+      "sizeBytes": 12826,
+      "purpose": "exports: MobileHydrationFixture"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/test/ecmd-telemetry-breakpoint.test.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/ecmd-telemetry-breakpoint.test.tsx",
+      "sizeBytes": 23724,
+      "purpose": "exports: setViewportWidth, BreakpointProbe"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/test/errors-page.test.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/errors-page.test.tsx",
+      "sizeBytes": 5446,
+      "purpose": "Vitest automated test suite"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/test/media-cms.test.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/media-cms.test.ts",
+      "sizeBytes": 1875,
+      "purpose": "Vitest automated test suite"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/test/packages-repeater.test.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/packages-repeater.test.tsx",
+      "sizeBytes": 12095,
+      "purpose": "Vitest automated test suite"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/test/plasmic-controllers.test.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/plasmic-controllers.test.tsx",
+      "sizeBytes": 54708,
+      "purpose": "Vitest automated test suite"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/test/plasmic-host-boot.test.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/plasmic-host-boot.test.tsx",
+      "sizeBytes": 10509,
+      "purpose": "Vitest automated test suite"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/test/plasmic-init-styles.test.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/plasmic-init-styles.test.ts",
+      "sizeBytes": 9535,
+      "purpose": "exports: ALLOWED_PLASMIC_STYLE_KEYS"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/test/setup.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/setup.ts",
+      "sizeBytes": 1621,
+      "purpose": "Vitest automated test suite"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/test/side-menu.test.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/side-menu.test.tsx",
+      "sizeBytes": 4948,
+      "purpose": "Vitest automated test suite"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/test/theme-border-controls.test.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/theme-border-controls.test.tsx",
+      "sizeBytes": 12835,
+      "purpose": "Vitest automated test suite"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/test/theme-copy-attributes.test.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/theme-copy-attributes.test.tsx",
+      "sizeBytes": 20818,
+      "purpose": "Vitest automated test suite"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/test/theme-design-tokens.test.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/theme-design-tokens.test.tsx",
+      "sizeBytes": 15541,
+      "purpose": "Vitest automated test suite"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/test/theme-gradient-studio.test.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/theme-gradient-studio.test.tsx",
+      "sizeBytes": 11748,
+      "purpose": "exports: Harness"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/test/theme-image-groups.test.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/theme-image-groups.test.tsx",
+      "sizeBytes": 12799,
+      "purpose": "Vitest automated test suite"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/test/theme-live-state-preview.test.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/theme-live-state-preview.test.tsx",
+      "sizeBytes": 14810,
+      "purpose": "exports: InspectorHarness"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/test/theme-scale-navigation.test.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/theme-scale-navigation.test.tsx",
+      "sizeBytes": 12455,
+      "purpose": "exports: Harness"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/test/theme-text-shadow.test.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/theme-text-shadow.test.tsx",
+      "sizeBytes": 14172,
+      "purpose": "Vitest automated test suite"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/test/wix-vault.test.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/wix-vault.test.ts",
+      "sizeBytes": 1652,
+      "purpose": "Vitest automated test suite"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/utils/ecmdDeviceEnv.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/utils/ecmdDeviceEnv.ts",
+      "sizeBytes": 4612,
+      "purpose": "exports: EcmdEcosystem, EcmdOS, EcmdBrowser, EcmdDeviceProfile, detectEcmdDeviceProfile, applyDeviceAttributesToDom"
+    },
+    {
+      "section": "hub",
+      "path": "hub/supabase/functions/ecmd-dev-gateway/index.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/supabase/functions/ecmd-dev-gateway/index.ts",
+      "sizeBytes": 2847,
+      "purpose": "Code module"
+    },
+    {
+      "section": "hub",
+      "path": "hub/tsconfig.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/tsconfig.json",
+      "sizeBytes": 918,
+      "purpose": "TypeScript configuration"
+    },
+    {
+      "section": "hub",
+      "path": "hub/vite.config.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/vite.config.ts",
+      "sizeBytes": 17310,
+      "purpose": "exports: LIVE_SNAP"
+    },
+    {
+      "section": "hub",
+      "path": "hub/vitest.config.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/vitest.config.ts",
+      "sizeBytes": 412,
+      "purpose": "Code module"
+    },
+    {
+      "section": "runner",
+      "path": "runner/.eslintrc.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/.eslintrc.json",
+      "sizeBytes": 50,
+      "purpose": "JSON data / config"
+    },
+    {
+      "section": "runner",
+      "path": "runner/.github/workflows/ai-code-agent.yml",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/.github/workflows/ai-code-agent.yml",
+      "sizeBytes": 6381,
+      "purpose": "GitHub Actions / YAML workflow"
+    },
+    {
+      "section": "runner",
+      "path": "runner/.github/workflows/supabase-deploy.yml",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/.github/workflows/supabase-deploy.yml",
+      "sizeBytes": 1018,
+      "purpose": "GitHub Actions / YAML workflow"
+    },
+    {
+      "section": "runner",
+      "path": "runner/.github/workflows/sync-brain.yml",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/.github/workflows/sync-brain.yml",
+      "sizeBytes": 156,
+      "purpose": "GitHub Actions / YAML workflow"
+    },
+    {
+      "section": "runner",
+      "path": "runner/.github/workflows/wix-publish.yml",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/.github/workflows/wix-publish.yml",
+      "sizeBytes": 1162,
+      "purpose": "GitHub Actions / YAML workflow"
+    },
+    {
+      "section": "runner",
+      "path": "runner/.gitignore",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/.gitignore",
+      "sizeBytes": 71,
+      "purpose": "Text/config file"
+    },
+    {
+      "section": "runner",
+      "path": "runner/BRAIN_SNAPSHOT.md",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/BRAIN_SNAPSHOT.md",
+      "sizeBytes": 215,
+      "purpose": "Markdown documentation"
+    },
+    {
+      "section": "runner",
+      "path": "runner/bridge_ui.html",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/bridge_ui.html",
+      "sizeBytes": 18748,
+      "purpose": "HTML template / console"
+    },
+    {
+      "section": "runner",
+      "path": "runner/carbon4-hydration-manifest.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/carbon4-hydration-manifest.json",
+      "sizeBytes": 655,
+      "purpose": "JSON data / config"
+    },
+    {
+      "section": "runner",
+      "path": "runner/cloudflare-proxy/worker.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/cloudflare-proxy/worker.js",
+      "sizeBytes": 608,
+      "purpose": "Code module"
+    },
+    {
+      "section": "runner",
+      "path": "runner/cloudflare-proxy/wrangler.toml",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/cloudflare-proxy/wrangler.toml",
+      "sizeBytes": 147,
+      "purpose": "Text/config file"
+    },
+    {
+      "section": "runner",
+      "path": "runner/console.html",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/console.html",
+      "sizeBytes": 56847,
+      "purpose": "HTML template / console"
+    },
+    {
+      "section": "runner",
+      "path": "runner/dependencies-metadata.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/dependencies-metadata.json",
+      "sizeBytes": 163,
+      "purpose": "JSON data / config"
+    },
+    {
+      "section": "runner",
+      "path": "runner/ECMD_CARBON4_SKILL.txt",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/ECMD_CARBON4_SKILL.txt",
+      "sizeBytes": 2127,
+      "purpose": "Text/config file"
+    },
+    {
+      "section": "runner",
+      "path": "runner/ecmd-console/.github/workflows/sync-brain-snapshot.yml",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/ecmd-console/.github/workflows/sync-brain-snapshot.yml",
+      "sizeBytes": 2526,
+      "purpose": "GitHub Actions / YAML workflow"
+    },
+    {
+      "section": "runner",
+      "path": "runner/ecmd-console/brain-snapshot.html",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/ecmd-console/brain-snapshot.html",
+      "sizeBytes": 644043,
+      "purpose": "HTML template / console"
+    },
+    {
+      "section": "runner",
+      "path": "runner/ecmd-console/carbon-mirror.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/ecmd-console/carbon-mirror.json",
+      "sizeBytes": 1184,
+      "purpose": "JSON data / config"
+    },
+    {
+      "section": "runner",
+      "path": "runner/ecmd-console/index.html",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/ecmd-console/index.html",
+      "sizeBytes": 57894,
+      "purpose": "HTML template / console"
+    },
+    {
+      "section": "runner",
+      "path": "runner/ecmd-console/README.md",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/ecmd-console/README.md",
+      "sizeBytes": 102,
+      "purpose": "Doc: ecmd-console"
+    },
+    {
+      "section": "runner",
+      "path": "runner/EcmdHelpers.ps1",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/EcmdHelpers.ps1",
+      "sizeBytes": 1491,
+      "purpose": "PowerShell automation script"
+    },
+    {
+      "section": "runner",
+      "path": "runner/GEMINI.md",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/GEMINI.md",
+      "sizeBytes": 5858,
+      "purpose": "Doc: ECMD Autonomous Engineering Protocol (C:\\ECMD — ECMD PEN v4.2 / Antigravity"
+    },
+    {
+      "section": "runner",
+      "path": "runner/Invoke-EcmdProtocol.ps1",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/Invoke-EcmdProtocol.ps1",
+      "sizeBytes": 405,
+      "purpose": "PowerShell automation script"
+    },
+    {
+      "section": "runner",
+      "path": "runner/package.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/package.json",
+      "sizeBytes": 400,
+      "purpose": "Package manifest & scripts"
+    },
+    {
+      "section": "runner",
+      "path": "runner/README.md",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/README.md",
+      "sizeBytes": 4094,
+      "purpose": "Doc: Git Integration & Wix CLI <img align=\"left\" src=\"https://user-images.github"
+    },
+    {
+      "section": "runner",
+      "path": "runner/scripts/fix-plasmic-css.cjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/fix-plasmic-css.cjs",
+      "sizeBytes": 1360,
+      "purpose": "ECMD automation/PEN runner script"
+    },
+    {
+      "section": "runner",
+      "path": "runner/scripts/run-pen-task.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/run-pen-task.mjs",
+      "sizeBytes": 12629,
+      "purpose": "ECMD automation/PEN runner script"
+    },
+    {
+      "section": "runner",
+      "path": "runner/scripts/Start-EcmdCliBridge.ps1",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/Start-EcmdCliBridge.ps1",
+      "sizeBytes": 2253,
+      "purpose": "PowerShell automation script"
+    },
+    {
+      "section": "runner",
+      "path": "runner/scripts/Start-EcmdDriveWorker.ps1",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/Start-EcmdDriveWorker.ps1",
+      "sizeBytes": 2128,
+      "purpose": "PowerShell automation script"
+    },
+    {
+      "section": "runner",
+      "path": "runner/scripts/Start-EcmdPen.ps1",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/Start-EcmdPen.ps1",
+      "sizeBytes": 1168,
+      "purpose": "PowerShell automation script"
+    },
+    {
+      "section": "runner",
+      "path": "runner/scripts/sync-ai-mirror.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/sync-ai-mirror.mjs",
+      "sizeBytes": 44088,
+      "purpose": "exports: scrubSecrets, extractLocalBridgeSecret, isEnvFile, isBinaryBuffer, ensureDir"
+    },
+    {
+      "section": "runner",
+      "path": "runner/scripts/trim-gemini-md.cjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/trim-gemini-md.cjs",
+      "sizeBytes": 411,
+      "purpose": "ECMD automation/PEN runner script"
+    },
+    {
+      "section": "runner",
+      "path": "runner/scripts/wix-auto-publish.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/wix-auto-publish.js",
+      "sizeBytes": 625,
+      "purpose": "ECMD automation/PEN runner script"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/backend/admin-tools.web.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/backend/admin-tools.web.js",
+      "sizeBytes": 2826,
+      "purpose": "exports: registerCustomerFromHQ"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/backend/aiBrain.web.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/backend/aiBrain.web.js",
+      "sizeBytes": 7451,
+      "purpose": "exports: logTelemetryToSupabase, searchBrain, askEcmdBrain, fetchSupabaseCrmBundle, syncWixCrmToSupabase, pushCrmRecordToSupabase"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/backend/authBackend.jsw",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/backend/authBackend.jsw",
+      "sizeBytes": 1130,
+      "purpose": "exports: verifyEmailInDB"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/backend/braintreeEngine.jsw",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/backend/braintreeEngine.jsw",
+      "sizeBytes": 2746,
+      "purpose": "exports: generateClientToken, processBraintreePayment"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/backend/calendar-dispatcher.web.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/backend/calendar-dispatcher.web.js",
+      "sizeBytes": 9465,
+      "purpose": "exports: scheduleDetailingJob, updateOrRestoreDetailingJob, broadcastCalendarUpdate, deleteGoogleEvent"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/backend/calendarTasks.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/backend/calendarTasks.js",
+      "sizeBytes": 1598,
+      "purpose": "exports: releaseAbandonedTimeSlots"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/backend/data.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/backend/data.js",
+      "sizeBytes": 19249,
+      "purpose": "exports: resolveServiceTimezone"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/backend/dataMigration.jsw",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/backend/dataMigration.jsw",
+      "sizeBytes": 3142,
+      "purpose": "exports: migrateVehicleDataToJobs"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/backend/detailerScheduleClean.jsw",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/backend/detailerScheduleClean.jsw",
+      "sizeBytes": 1197,
+      "purpose": "exports: deleteExpiredRules"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/backend/emailDispatchEngine.jsw",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/backend/emailDispatchEngine.jsw",
+      "sizeBytes": 14851,
+      "purpose": "exports: sendWelcomeEmail, sendMasterTransactionalEmail"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/backend/geminiAssistant.web.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/backend/geminiAssistant.web.js",
+      "sizeBytes": 7342,
+      "purpose": "exports: getAvailableGeminiModels, askHqCopilot, saveBlueprintToCms, getBlueprintFromCms, bulkSaveBlueprintsToCms, buildExternalGeminiBridgePacket"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/backend/googleMaps.jsw",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/backend/googleMaps.jsw",
+      "sizeBytes": 2506,
+      "purpose": "exports: getDrivingETA"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/backend/googleReviews.jsw",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/backend/googleReviews.jsw",
+      "sizeBytes": 2039,
+      "purpose": "exports: getReviewStats"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/backend/http-functions.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/backend/http-functions.js",
+      "sizeBytes": 8149,
+      "purpose": "exports: post_twilioWebhook, get_geminiBridge, post_geminiBridge, get_ecmdConsole"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/backend/jobs.config",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/backend/jobs.config",
+      "sizeBytes": 596,
+      "purpose": "Text/config file"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/backend/permissions.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/backend/permissions.json",
+      "sizeBytes": 257,
+      "purpose": "JSON data / config"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/backend/README.md",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/backend/README.md",
+      "sizeBytes": 4979,
+      "purpose": "Doc: The Backend Code Folder"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/backend/securityActions.jsw",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/backend/securityActions.jsw",
+      "sizeBytes": 1377,
+      "purpose": "exports: adminDeleteAccount, updateUserLoginEmail"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/backend/stripeEngine.jsw",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/backend/stripeEngine.jsw",
+      "sizeBytes": 3351,
+      "purpose": "exports: createPaymentIntent, chargeSavedCard"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/backend/testDispatch.jsw",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/backend/testDispatch.jsw",
+      "sizeBytes": 1154,
+      "purpose": "exports: triggerDummyReceipt"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/backend/twilioProxy.jsw",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/backend/twilioProxy.jsw",
+      "sizeBytes": 4273,
+      "purpose": "exports: rewriteTextWithGemini, sendTwilioSMS, logMessageToJob"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/backend/vehicleClassifier.web.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/backend/vehicleClassifier.web.js",
+      "sizeBytes": 13652,
+      "purpose": "exports: verifyVehicleType, auditAndSyncUpcomingJobs"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/pages/account.a9k07.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/pages/account.a9k07.js",
+      "sizeBytes": 6813,
+      "purpose": "Wix Velo legacy page controller"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/pages/Blank.sss70.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/pages/Blank.sss70.js",
+      "sizeBytes": 0,
+      "purpose": "Wix Velo legacy page controller"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/pages/Booking HQ.k657b.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/pages/Booking%20HQ.k657b.js",
+      "sizeBytes": 2397,
+      "purpose": "Wix Velo legacy page controller"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/pages/checkout.qpi7b.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/pages/checkout.qpi7b.js",
+      "sizeBytes": 11776,
+      "purpose": "Wix Velo legacy page controller"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/pages/Confirmation.f7bn3.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/pages/Confirmation.f7bn3.js",
+      "sizeBytes": 2904,
+      "purpose": "Wix Velo legacy page controller"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/pages/Detailer Portal.k61r5.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/pages/Detailer%20Portal.k61r5.js",
+      "sizeBytes": 2449,
+      "purpose": "Wix Velo legacy page controller"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/pages/Extra.c1dmp.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/pages/Extra.c1dmp.js",
+      "sizeBytes": 333,
+      "purpose": "Wix Velo legacy page controller"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/pages/Home.s4vq4.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/pages/Home.s4vq4.js",
+      "sizeBytes": 0,
+      "purpose": "Wix Velo legacy page controller"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/pages/masterPage.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/pages/masterPage.js",
+      "sizeBytes": 5162,
+      "purpose": "exports: shouldRunBlueprintMapper"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/pages/packages.kujb1.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/pages/packages.kujb1.js",
+      "sizeBytes": 6254,
+      "purpose": "Wix Velo legacy page controller"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/pages/payment.cr0ig.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/pages/payment.cr0ig.js",
+      "sizeBytes": 2570,
+      "purpose": "Wix Velo legacy page controller"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/pages/privacy policy.kgmav.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/pages/privacy%20policy.kgmav.js",
+      "sizeBytes": 1344,
+      "purpose": "Wix Velo legacy page controller"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/pages/README.md",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/pages/README.md",
+      "sizeBytes": 2275,
+      "purpose": "Doc: The Page Code Folder"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/pages/register.mjuyh.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/pages/register.mjuyh.js",
+      "sizeBytes": 1597,
+      "purpose": "Wix Velo legacy page controller"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/pages/terms of service.j02j1.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/pages/terms%20of%20service.j02j1.js",
+      "sizeBytes": 1023,
+      "purpose": "Wix Velo legacy page controller"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/aiTelemetry.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/aiTelemetry.js",
+      "sizeBytes": 91351,
+      "purpose": "exports: aiTelemetry, registerModuleState, registerModuleFunctions, registerDomElements, buildAllModulesSnapshot, scanLivePageDOM"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/animationsEngine.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/animationsEngine.js",
+      "sizeBytes": 3852,
+      "purpose": "exports: hideAndCollapseUp, expandAndShowDown, applyTextOrHighlight"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/authEngine.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/authEngine.js",
+      "sizeBytes": 20527,
+      "purpose": "exports: initAuthEngine, getActiveUserId"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/calendarEngine.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/calendarEngine.js",
+      "sizeBytes": 77303,
+      "purpose": "exports: initDetailerDropdown, initCalendarEngine, updateCalendarQueueText"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/cartEngine.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/cartEngine.js",
+      "sizeBytes": 20411,
+      "purpose": "exports: getOrdinalSuffix, formatPhoneNumber, buildCalendarDates, getDetailerTimeOff, calculateNextAvailableDate, buildWeeklyDataArray"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/cartUIEngine.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/cartUIEngine.js",
+      "sizeBytes": 50748,
+      "purpose": "exports: clearBreadcrumb, initCartUIEngine, syncCartData, bootBatchMode"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/cartWidget.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/cartWidget.js",
+      "sizeBytes": 2911,
+      "purpose": "exports: spinCartBubble"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/custom-elements/footer-tracker.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/custom-elements/footer-tracker.js",
+      "sizeBytes": 5498,
+      "purpose": "Wix Velo legacy client engine"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/custom-elements/height-tracker.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/custom-elements/height-tracker.js",
+      "sizeBytes": 1143,
+      "purpose": "Wix Velo legacy client engine"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/custom-elements/stripeWallet.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/custom-elements/stripeWallet.js",
+      "sizeBytes": 5193,
+      "purpose": "Wix Velo legacy client engine"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/custom-elements/title-tracker.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/custom-elements/title-tracker.js",
+      "sizeBytes": 980,
+      "purpose": "Wix Velo legacy client engine"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/detailerPortal.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/detailerPortal.js",
+      "sizeBytes": 68944,
+      "purpose": "exports: initDetailerPortal"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/fileCartEdits.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/fileCartEdits.js",
+      "sizeBytes": 34800,
+      "purpose": "exports: initCartEdits, syncCartEditsDependencies, startCartEditsFlow, restoreCartEditsVaultIfNeeded"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/fileContactLocation.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/fileContactLocation.js",
+      "sizeBytes": 34145,
+      "purpose": "exports: initContactLocationEngine, fetchContactLocationData, syncContactLocationData, initProfileAddressesEngine"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/fileDetailInfo.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/fileDetailInfo.js",
+      "sizeBytes": 43725,
+      "purpose": "exports: initDetailInfoEngine, syncDetailJobs, triggerSavedJobClick"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/fileLoginSecurity.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/fileLoginSecurity.js",
+      "sizeBytes": 17280,
+      "purpose": "exports: initLoginSecurityEngine, loadSecurityData, loadDynamicInputUI"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/filePackageEdits.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/filePackageEdits.js",
+      "sizeBytes": 22957,
+      "purpose": "exports: initPackageEditEngine, loadPackageEditMode"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/filePaymentPortal.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/filePaymentPortal.js",
+      "sizeBytes": 66896,
+      "purpose": "exports: initPaymentPortalEngine, loadPaymentPortalData, resetPaymentPortal, selectJobInPortal"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/fileSiteMenu.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/fileSiteMenu.js",
+      "sizeBytes": 7052,
+      "purpose": "exports: initSiteMenuEngine"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/fileSummary.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/fileSummary.js",
+      "sizeBytes": 27260,
+      "purpose": "exports: initSummaryEngine, syncSummaryData, setSelectedSummaryVehicle, startSummaryEditFlow, updateSummary"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/fileVehicleAdd.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/fileVehicleAdd.js",
+      "sizeBytes": 29996,
+      "purpose": "exports: initVehicleAddEngine, syncVehicleCategories, getEditingVehicleId, setEditingVehicleId"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/fileWhatsIncluded.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/fileWhatsIncluded.js",
+      "sizeBytes": 15367,
+      "purpose": "exports: initWhatsIncludedEngine, openWhatsIncludedPopup"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/fileWhatsIncludedG.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/fileWhatsIncludedG.js",
+      "sizeBytes": 4970,
+      "purpose": "exports: initWhatsIncludedGEngine, openDetailedWiPopup"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/garageEngine.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/garageEngine.js",
+      "sizeBytes": 19445,
+      "purpose": "exports: initGarageEngine, loadGarageData, refreshSelectionUI, applyVehicleFilter"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/headerEngine.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/headerEngine.js",
+      "sizeBytes": 8339,
+      "purpose": "exports: initHeaderEngine"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/hqBookingEngine.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/hqBookingEngine.js",
+      "sizeBytes": 26286,
+      "purpose": "exports: refreshCartUI, initBookingHQEngine"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/hqCalendar.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/hqCalendar.js",
+      "sizeBytes": 43771,
+      "purpose": "exports: initCalendarButtons, getJobsAndCorrectionsForDate, buildWeeklyDataArray, paintWeeklyCalendarUI, generateWeeklyCalendar, appendMoreWeeks"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/hqCustomerForms.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/hqCustomerForms.js",
+      "sizeBytes": 57408,
+      "purpose": "exports: searchCustomerByPhone, loadCustomerForExistingJob, loadCustomerDropdowns, resetCustomerDropdowns, attachCustomerToActiveCartItem"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/hqDetailBuilder.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/hqDetailBuilder.js",
+      "sizeBytes": 54511,
+      "purpose": "exports: loadNewDetailOptions, syncHqPackagesToVehicle, paintSummaryBox"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/hqOfficeAndCorrections.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/hqOfficeAndCorrections.js",
+      "sizeBytes": 45193,
+      "purpose": "exports: padPreviousJobsList, formatPrevDateText, renderPreviousJobSummary, syncPreviousRepButtons, initPreviousCustomerJobsRepeater, loadCustomerHistory"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/hqState.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/hqState.js",
+      "sizeBytes": 11413,
+      "purpose": "exports: createEmptyDraft, hqState, getMountainDateString, parseTags, parseSummaryTags, formatPrevPackageAbbrev"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/hqTabsAndCart.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/hqTabsAndCart.js",
+      "sizeBytes": 39654,
+      "purpose": "exports: formatDynamicTabLabel, syncTabMenuButtonLabel, closeTabAndCalendarMenus, createNewTab, switchTab"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/loggerConfig.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/loggerConfig.js",
+      "sizeBytes": 2050,
+      "purpose": "exports: APP_LOGS, flagModuleForExtensiveLogs, createSmartLogger"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/packageMatcher.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/packageMatcher.js",
+      "sizeBytes": 4250,
+      "purpose": "exports: normalizeToPackageSubCategory, extractLevelAndType, findMatchingServicePackage"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/packagesEngine.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/packagesEngine.js",
+      "sizeBytes": 25506,
+      "purpose": "exports: clearActivePackageMemory, clearCustomVehicleDropdown, syncPackagesVehicles"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/profileEngine.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/profileEngine.js",
+      "sizeBytes": 10008,
+      "purpose": "exports: initProfileEngine, preloadAllProfileData, initProfileSubscriptionsEngine, executeFullAccountDeletion, initAccountDeletionEngine, initProfileButtonsRepeater"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/README.md",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/README.md",
+      "sizeBytes": 815,
+      "purpose": "Doc: The Public Code Folder"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/repeaterEngine.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/repeaterEngine.js",
+      "sizeBytes": 4045,
+      "purpose": "exports: registerRepeater, repaintSingleItem, smartSyncRepeater"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/reviewWidget.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/reviewWidget.js",
+      "sizeBytes": 3098,
+      "purpose": "exports: activateReviewWidget"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/routerEngine.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/routerEngine.js",
+      "sizeBytes": 53036,
+      "purpose": "exports: executePreRouteLogic"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/siteBlueprintMapper.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/siteBlueprintMapper.js",
+      "sizeBytes": 5968,
+      "purpose": "exports: captureFullPageBlueprint"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/public/stateManager.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/stateManager.js",
+      "sizeBytes": 10844,
+      "purpose": "exports: getInstantCache, setInstantCache, getMemoryState, getCatalogData, getVehicleCategories, syncGlobalCartBadge"
+    },
+    {
+      "section": "runner",
+      "path": "runner/src/styles/global.css",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/styles/global.css",
+      "sizeBytes": 5342,
+      "purpose": "Stylesheet"
+    },
+    {
+      "section": "runner",
+      "path": "runner/wix.config.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/wix.config.json",
+      "sizeBytes": 82,
+      "purpose": "JSON data / config"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/edge-functions/deployed_functions.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/edge-functions/deployed_functions.json",
+      "sizeBytes": 767,
+      "purpose": "Supabase Edge Functions registry & endpoint metadata"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/edge-functions/ecmd-dev-gateway/index.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/edge-functions/ecmd-dev-gateway/index.ts",
+      "sizeBytes": 2847,
+      "purpose": "Supabase Edge Function source"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/schema/schema_overview.sql",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/schema/schema_overview.sql",
+      "sizeBytes": 25918,
+      "purpose": "Supabase public schema DDL, RLS policies, triggers & custom functions"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/schema/tables_and_columns.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/schema/tables_and_columns.json",
+      "sizeBytes": 111518,
+      "purpose": "Supabase public tables, columns, constraints, policies & functions JSON"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/tables/ecmd_advanced_suggestions.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_advanced_suggestions.json",
+      "sizeBytes": 48280,
+      "purpose": "Supabase public.ecmd_advanced_suggestions table snapshot (scrubbed)"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/tables/ecmd_ai_registry.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_ai_registry.json",
+      "sizeBytes": 38480,
+      "purpose": "Supabase public.ecmd_ai_registry table snapshot (scrubbed)"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/tables/ecmd_brain.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_brain.json",
+      "sizeBytes": 690955,
+      "purpose": "Supabase public.ecmd_brain table snapshot (scrubbed)"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/tables/ecmd_diagnostic_runs.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_diagnostic_runs.json",
+      "sizeBytes": 662,
+      "purpose": "Supabase public.ecmd_diagnostic_runs table snapshot (scrubbed)"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/tables/ecmd_external_ai_cms.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_external_ai_cms.json",
+      "sizeBytes": 67277,
+      "purpose": "Supabase public.ecmd_external_ai_cms table snapshot (scrubbed)"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/tables/ecmd_packages.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_packages.json",
+      "sizeBytes": 3216,
+      "purpose": "Supabase public.ecmd_packages table snapshot (scrubbed)"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/tables/ecmd_pen_turns.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_pen_turns.json",
+      "sizeBytes": 325007,
+      "purpose": "Supabase public.ecmd_pen_turns table snapshot (scrubbed)"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/tables/ecmd_plasmic_hydration.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_plasmic_hydration.json",
+      "sizeBytes": 10698,
+      "purpose": "Supabase public.ecmd_plasmic_hydration table snapshot (scrubbed)"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/tables/ecmd_site_blueprints.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_site_blueprints.json",
+      "sizeBytes": 3165797,
+      "purpose": "Supabase public.ecmd_site_blueprints table snapshot (scrubbed)"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/tables/ecmd_site_menu_buttons.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_site_menu_buttons.json",
+      "sizeBytes": 9377,
+      "purpose": "Supabase public.ecmd_site_menu_buttons table snapshot (scrubbed)"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/tables/ecmd_wix_legacy_vault.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_legacy_vault.json",
+      "sizeBytes": 2113046,
+      "purpose": "Supabase public.ecmd_wix_legacy_vault table snapshot (scrubbed)"
+    }
+  ]
+}

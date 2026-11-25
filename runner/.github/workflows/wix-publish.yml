@@ -1,0 +1,36 @@
+name: "🚀 Auto-Publish ECMD to Wix"
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: wix-publish-main
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "⏳ Wait 5s for Wix Git Sync to Ingest Commit"
+        run: sleep 5
+
+      - name: "🚀 Publish Site Directly via Wix Site Publisher API"
+        run: |
+          response=$(curl -s -w "\n%{http_code}" -X POST \
+            "https://www.wixapis.com/site-publisher/v1/site/publish" \
+            -H "Authorization: ${{ secrets.WIX_CLI_API_KEY }}" \
+            -H "wix-site-id: 44f1571c-d7a3-43d9-a503-10a71816bec6" \
+            -H "Content-Type: application/json" \
+            -d '{}')
+          body=$(echo "$response" | sed '$d')
+          status=$(echo "$response" | tail -n 1)
+          echo "HTTP Status: $status"
+          echo "Response: $body"
+          if [ "$status" -ge 200 ] && [ "$status" -lt 300 ]; then
+            echo "✅ Successfully published to ecmdutah.com!"
+          else
+            echo "❌ Publish API returned status $status"
+            exit 1
+          fi

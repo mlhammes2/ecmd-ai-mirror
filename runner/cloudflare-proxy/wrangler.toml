@@ -1,0 +1,4 @@
+﻿name = "ecmd-relay"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+routes = [ { pattern = "api.ecmddev.dev", custom_domain = true } ]

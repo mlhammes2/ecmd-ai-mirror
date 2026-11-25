@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ECMD Carbon 4 — Autonomous Console v7.2 (10-Tool MCP + Auto-Seed Vault)</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; padding: 12px; background: #090d16; color: #e2e8f0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; }
+  h1 { font-size: 16px; margin: 0 0 8px 0; color: #38bdf8; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; }
+  .panel { background: #111827; border: 1px solid #1f2937; border-radius: 8px; padding: 10px; margin-bottom: 10px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  button { background: #1e293b; color: #f8fafc; border: 1px solid #334155; border-radius: 6px; padding: 6px 10px; font-family: inherit; font-size: 12px; cursor: pointer; }
+  button:hover { background: #334155; }
+  button.primary { background: #0284c7; border-color: #38bdf8; font-weight: bold; }
+  button.warn { background: #059669; border-color: #34d399; font-weight: bold; }
+  button.purple { background: #7c3aed; border-color: #a78bfa; font-weight: bold; }
+  button.amber { background: #d97706; border-color: #fbbf24; font-weight: bold; }
+  button.pink { background: #db2777; border-color: #f472b6; font-weight: bold; }
+  input, textarea { width: 100%; box-sizing: border-box; background: #0b0f19; color: #f8fafc; border: 1px solid #334155; border-radius: 6px; padding: 8px; font-family: inherit; font-size: 12px; margin-top: 6px; }
+  #statusBanner { padding: 8px; border-radius: 6px; background: #1e293b; color: #38bdf8; margin-bottom: 10px; font-weight: bold; word-break: break-all; }
+  #viewer { white-space: pre-wrap; word-break: break-word; background: #050811; border: 1px solid #1e293b; border-radius: 8px; padding: 10px; font-size: 11.5px; line-height: 1.45; min-height: 240px; }
+  .row { display: flex; gap: 6px; align-items: center; margin-top: 6px; flex-wrap: wrap; }
+  .card { background: #0b1324; border: 1px solid #334155; border-radius: 6px; padding: 10px; margin-top: 8px; }
+  .badge { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 11px; background: #1e293b; color: #38bdf8; margin-right: 4px; }
+</style>
+</head>
+<body>
+  <h1>
+    <span>⚡ ECMD Carbon 4 Autonomous Console v7.2 (10-Tool MCP + Auto-Seed Vault)</span>
+    <div class="row" style="margin:0;">
+      <button class="primary" onclick="loadBootloaderPanel()">🧭 AI Bootloader & Toggles</button>
+      <button class="pink" onclick="loadSuggestionsVault()">🚀 Advanced Suggestions Vault</button>
+      <button class="amber" onclick="loadAiInbox()">📬 AI Unsure Inbox</button>
+      <button class="purple" onclick="syncEverything()">🗄️ Sync All -> Supabase</button>
+      <button class="warn" onclick="publishNow()">🚀 Publish Wix</button>
+    </div>
+  </h1>
+  <div id="statusBanner">READY — 10-Tool MCP Server + Auto-Seed Suggestions Vault Active.</div>
+
+  <div id="dynamicPanel" class="panel" style="display:none;">
+    <strong id="dynamicPanelTitle">Panel</strong>
+    <div id="dynamicPanelContent"></div>
+  </div>
+
+  <div class="panel">
+    <strong>1-Tap File Inspector (Sub-10ms Reads from Supabase ecmd_codebase):</strong>
+    <div class="chips"><button class="chip" onclick="readFile('src/backend/data.js')">backend/data.js</button><button class="chip" onclick="readFile('src/backend/aiBrain.web.js')">backend/aiBrain.web.js</button><button class="chip" onclick="readFile('src/backend/geminiAssistant.web.js')">backend/geminiAssistant.web.js</button><button class="chip" onclick="readFile('src/public/stateManager.js')">public/stateManager.js</button><button class="chip" onclick="readFile('src/public/hqCalendar.js')">public/hqCalendar.js</button><button class="chip" onclick="readFile('src/public/profileEngine.js')">public/profileEngine.js</button><button class="chip" onclick="readFile('src/public/fileDetailInfo.js')">public/fileDetailInfo.js</button><button class="chip" onclick="readFile('src/public/fileVehicleAdd.js')">public/fileVehicleAdd.js</button><button class="chip" onclick="readFile('src/public/fileContactLocation.js')">public/fileContactLocation.js</button><button class="chip" onclick="readFile('src/public/fileSummary.js')">public/fileSummary.js</button><button class="chip" onclick="readFile('src/pages/checkout.qpi7b.js')">pages/checkout.qpi7b.js</button><button class="chip" onclick="readFile('src/pages/account.a9k07.js')">pages/account.a9k07.js</button><button class="chip" onclick="readFile('src/pages/packages.kujb1.js')">pages/packages.kujb1.js</button><button class="chip" onclick="readFile('src/pages/Booking HQ.k657b.js')">pages/Booking HQ.k657b.js</button><button class="chip" onclick="readFile('src/pages/Detailer Portal.k61r5.js')">pages/Detailer Portal.k61r5.js</button><button class="chip" onclick="readFile('src/pages/payment.cr0ig.js')">pages/payment.cr0ig.js</button><button class="chip" onclick="readFile('src/pages/masterPage.js')">pages/masterPage.js</button><button class="chip" onclick="readFile('src/public/aiTelemetry.js')">public/aiTelemetry.js</button><button class="chip" onclick="readFile('src/styles/global.css')">styles/global.css</button></div>
+    <div class="row">
+      <input id="customPath" placeholder="src/path/to/file.js or directory" />
+      <button class="primary" onclick="readFile(document.getElementById('customPath').value)">Read</button>
+    </div>
+  </div>
+
+  <div class="panel">
+    <strong>Carbon 4 Packet / Autonomous SQL Runner (carbon_batch / run_sql / get_external_ai_bootloader):</strong>
+    <textarea id="batchInput" rows="5" placeholder='{"action":"get_external_ai_bootloader","chatLocation":"CHROME_SIDEBAR"}'></textarea>
+    <div class="row">
+      <button class="primary" onclick="runBatch()">⚡ Execute Packet</button>
+      <button onclick="listCodebase()">📁 List Cached Codebase</button>
+      <button onclick="document.getElementById('batchInput').value=''">Clear</button>
+    </div>
+  </div>
+
+  <div id="viewer">// Output / File Contents will render here...</div>
+
+<script>
+const BRIDGE_KEY = "[REDACTED_SECRET]";
+const BASE_URL = "https://lvynkeuceiqxafgpgdvs.supabase.co/functions/v1/ecmd-carbon-bridge";
+
+function setStatus(msg, isErr = false) {
+  const el = document.getElementById("statusBanner");
+  el.style.color = isErr ? "#f87171" : "#38bdf8";
+  el.textContent = msg;
+}
+
+async function loadBootloaderPanel() {
+  setStatus("Loading External AI Bootloader CMS & Mode Toggles...");
+  try {
+    const res = await fetch(BASE_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-bridge-key": BRIDGE_KEY },
+      body: JSON.stringify({ action: "get_external_ai_bootloader", chatLocation: "ALL" })
+    });
+    const data = await res.json();
+    const panel = document.getElementById("dynamicPanel");
+    const title = document.getElementById("dynamicPanelTitle");
+    const content = document.getElementById("dynamicPanelContent");
+    panel.style.display = "block";
+    title.textContent = "🧭 External AI Bootloader CMS (Mode Toggles, Location Profiles & Auto-Logged Capabilities)";
+
+    const togglesHtml = (data.modeToggles || []).map(t => `
+      <div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
+        <div>
+          <strong style="color:${t.is_enabled ? '#34d399' : '#94a3b8'};">${t.is_enabled ? '🟢 ON' : '⚪ OFF'} — ${t.title}</strong>
+          <div style="color:#94a3b8;font-size:11.5px;margin-top:4px;">${t.system_prompt_directive}</div>
+        </div>
+        <button class="${t.is_enabled ? 'warn' : ''}" onclick="toggleAiMode('${t.id}', ${!t.is_enabled})">
+          Switch ${t.is_enabled ? 'OFF' : 'ON'}
+        </button>
+      </div>
+    `).join("");
+
+    const learnedHtml = (data.learnedCapabilities || []).map(c => `
+      <div class="card">
+        <span class="badge">Auto-Logged Capability</span> <strong>${c.title}</strong>
+        <div style="color:#94a3b8;font-size:11.5px;margin-top:4px;">${c.system_prompt_directive}</div>
+      </div>
+    `).join("");
+
+    content.innerHTML = `
+      <div style="margin-top:8px;"><strong>Master Mode Toggles:</strong>${togglesHtml}</div>
+      <div style="margin-top:12px;"><strong>Auto-Logged Capabilities (${(data.learnedCapabilities || []).length}):</strong>${learnedHtml}</div>
+    `;
+    setStatus("Bootloader Loaded — Super Advanced Suggestion Mode: " + (data.superAdvancedSuggestionMode ? "ON" : "OFF"));
+    document.getElementById("viewer").textContent = data.compiledBootloaderPrompt || JSON.stringify(data, null, 2);
+  } catch (e) {
+    setStatus("Bootloader Error: " + e.message, true);
+  }
+}
+
+async function toggleAiMode(id, nextState) {
+  setStatus("Updating toggle " + id + " -> " + nextState + "...");
+  try {
+    await fetch(BASE_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-bridge-key": BRIDGE_KEY },
+      body: JSON.stringify({ action: "toggle_external_ai_cms", id, isEnabled: nextState })
+    });
+    await loadBootloaderPanel();
+  } catch (e) {
+    setStatus("Toggle Error: " + e.message, true);
+  }
+}
+
+async function loadSuggestionsVault() {
+  setStatus("Loading Super Advanced Suggestions Vault from Supabase...");
+  try {
+    const res = await fetch(BASE_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-bridge-key": BRIDGE_KEY },
+      body: JSON.stringify({ action: "get_advanced_suggestions" })
+    });
+    const data = await res.json();
+    const panel = document.getElementById("dynamicPanel");
+    const title = document.getElementById("dynamicPanelTitle");
+    const content = document.getElementById("dynamicPanelContent");
+    panel.style.display = "block";
+    title.textContent = "🚀 Super Advanced Suggestions Vault (Saved Architectural & Automation Upgrades)";
+
+    const list = data.suggestions || [];
+    content.innerHTML = list.map(s => `
+      <div class="card">
+        <div>
+          <span class="badge">${s.difficulty_tier}</span>
+          <span class="badge" style="color:#fbbf24;">Status: ${s.status}</span>
+          <strong style="color:#f472b6;font-size:14px;">${s.title}</strong>
+        </div>
+        <div style="margin-top:6px;">${s.summary}</div>
+        <div style="color:#38bdf8;margin-top:4px;font-size:12px;"><strong>Why It Matters for ECMD & WeWeb:</strong> ${s.why_it_matters_for_ecmd}</div>
+        <div style="color:#a78bfa;margin-top:4px;font-size:11.5px;"><strong>Outside Downloads / Accounts Needed:</strong> ${JSON.stringify(s.external_downloads_and_accounts || [])}</div>
+        <div class="row">
+          <button class="primary" onclick="navigator.clipboard.writeText(${JSON.stringify(s.implementation_steps_prompt || s.title)});setStatus('Copied implementation prompt to clipboard!')">📋 Copy Prompt to Ask AI</button>
+          <button class="warn" onclick="updateSuggestionStatus('${s.id}', 'implemented')">✅ Mark Implemented</button>
+          <button onclick="updateSuggestionStatus('${s.id}', 'in_progress')">🚧 Mark In Progress</button>
+        </div>
+      </div>
+    `).join("");
+    setStatus("Loaded " + list.length + " Super Advanced Suggestion(s).");
+    document.getElementById("viewer").textContent = JSON.stringify(data, null, 2);
+  } catch (e) {
+    setStatus("Vault Error: " + e.message, true);
+  }
+}
+
+async function updateSuggestionStatus(id, status) {
+  await fetch(BASE_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "x-bridge-key": BRIDGE_KEY },
+    body: JSON.stringify({ action: "update_suggestion_status", id, status })
+  });
+  await loadSuggestionsVault();
+}
+
+async function syncEverything() {
+  setStatus("Syncing ALL GitHub Code Files, DOM/CSS Blueprints, and Wix CRM Collections into Supabase...");
+  try {
+    const res = await fetch(BASE_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-bridge-key": BRIDGE_KEY },
+      body: JSON.stringify({ action: "sync_everything" })
+    });
+    const data = await res.json();
+    setStatus("Full Mirror Complete — ok: " + data.ok);
+    document.getElementById("viewer").textContent = JSON.stringify(data, null, 2);
+  } catch (e) {
+    setStatus("Sync Error: " + e.message, true);
+  }
+}
+
+async function listCodebase() {
+  setStatus("Querying public.ecmd_codebase via Autonomous SQL...");
+  try {
+    const res = await fetch(BASE_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-bridge-key": BRIDGE_KEY },
+      body: JSON.stringify({
+        action: "run_sql",
+        sql: "SELECT path, folder, line_count, size_bytes, updated_at FROM public.ecmd_codebase ORDER BY folder, path"
+      })
+    });
+    const data = await res.json();
+    setStatus("Loaded " + (data.rows ? data.rows.length : 0) + " cached files in Supabase ecmd_codebase");
+    document.getElementById("viewer").textContent = JSON.stringify(data, null, 2);
+  } catch (e) {
+    setStatus("SQL Error: " + e.message, true);
+  }
+}
+
+async function loadAiInbox() {
+  setStatus("Loading pending AI Unsure Questions & Recent Conversations...");
+  try {
+    const res = await fetch(BASE_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-bridge-key": BRIDGE_KEY },
+      body: JSON.stringify({ action: "get_ai_inbox" })
+    });
+    const data = await res.json();
+    const panel = document.getElementById("dynamicPanel");
+    const title = document.getElementById("dynamicPanelTitle");
+    const list = document.getElementById("dynamicPanelContent");
+    panel.style.display = "block";
+    title.textContent = "📬 Pending Customer Questions (Flip Yes/No or Type Answer to Teach ECMD Brain)";
+    const pending = (data.inbox || []).filter(i => i.status === "pending");
+    if (pending.length === 0) {
+      list.innerHTML = "<div style='margin-top:8px;color:#94a3b8;'>No pending unsure questions!</div>";
+    } else {
+      list.innerHTML = pending.map(item => `
+        <div class="card">
+          <div><strong style="color:#fbbf24;">Customer (${item.customer_name || 'Visitor'} ${item.customer_phone || ''}):</strong> "${item.customer_question}"</div>
+          <div style="color:#94a3b8;margin-top:4px;"><em>AI Supplemental Reply Sent:</em> ${item.ai_supplemental_reply_sent}</div>
+          <div style="color:#38bdf8;margin-top:6px;"><strong>AI Proposed Yes/No Question:</strong> ${item.ai_yes_no_prompt_for_owner}</div>
+          <input id="ans_${item.id}" placeholder="Optional extra details or pricing rule..." />
+          <div class="row">
+            <button class="warn" onclick="answerInbox('${item.id}', true)">✅ YES (Teach Brain)</button>
+            <button style="background:#dc2626;border-color:#f87171;font-weight:bold;" onclick="answerInbox('${item.id}', false)">❌ NO (Teach Brain)</button>
+            <button class="primary" onclick="answerInbox('${item.id}', null)">💬 Save Text Answer Only</button>
+          </div>
+        </div>
+      `).join("");
+    }
+    setStatus("Loaded " + pending.length + " pending AI Inbox item(s).");
+    document.getElementById("viewer").textContent = JSON.stringify(data, null, 2);
+  } catch (e) {
+    setStatus("Inbox Error: " + e.message, true);
+  }
+}
+
+async function answerInbox(inboxId, yesNoVal) {
+  const noteEl = document.getElementById("ans_" + inboxId);
+  const noteText = noteEl ? noteEl.value : "";
+  setStatus("Teaching ECMD Brain & marking question learned...");
+  try {
+    const res = await fetch(BASE_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-bridge-key": BRIDGE_KEY },
+      body: JSON.stringify({
+        action: "answer_inbox_question",
+        inboxId,
+        ownerYesNoToggle: yesNoVal,
+        ownerAnswerText: noteText
+      })
+    });
+    const data = await res.json();
+    setStatus("Learned! Brain Vector ID: " + data.learnedBrainId);
+    await loadAiInbox();
+  } catch (e) {
+    setStatus("Answer Error: " + e.message, true);
+  }
+}
+
+async function readFile(path) {
+  if (!path) return;
+  document.getElementById("customPath").value = path;
+  setStatus("Reading " + path + " ...");
+  try {
+    const res = await fetch(BASE_URL + "?key=" + encodeURIComponent(BRIDGE_KEY) + "&action=read_file&lines=1&path=" + encodeURIComponent(path));
+    const data = await res.json();
+    if (!data.ok) {
+      setStatus("Error: " + (data.error || "Failed"), true);
+      document.getElementById("viewer").textContent = JSON.stringify(data, null, 2);
+      return;
+    }
+    if (data.files) {
+      setStatus("Directory listing: " + path + " (" + data.files.length + " items)");
+      document.getElementById("viewer").textContent = JSON.stringify(data.files, null, 2);
+      return;
+    }
+    setStatus("LOADED (" + (data.source || "cache") + "): " + data.path + " | SHA: " + data.sha + " | Lines: " + data.lineCount);
+    document.getElementById("viewer").textContent = "=== FILE: " + data.path + " (SHA: " + data.sha + " • Source: " + (data.source || "supabase") + ") ===\n" + (data.numberedContent || data.content);
+  } catch (e) {
+    setStatus("Fetch Error: " + e.message, true);
+  }
+}
+
+async function publishNow() {
+  setStatus("Triggering Wix Publish...");
+  try {
+    const res = await fetch(BASE_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-bridge-key": BRIDGE_KEY },
+      body: JSON.stringify({ action: "carbon_batch", publish: true, ops: [] })
+    });
+    const data = await res.json();
+    setStatus("Wix Publish Status: " + data.wixPublishStatus);
+    document.getElementById("viewer").textContent = JSON.stringify(data, null, 2);
+  } catch (e) {
+    setStatus("Publish Error: " + e.message, true);
+  }
+}
+
+async function runBatch() {
+  const raw = document.getElementById("batchInput").value.trim();
+  if (!raw) return;
+  setStatus("Executing Carbon 4 Command Packet...");
+  try {
+    const payload = JSON.parse(raw);
+    if (!payload.action) payload.action = "carbon_batch";
+    const res = await fetch(BASE_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-bridge-key": BRIDGE_KEY },
+      body: JSON.stringify(payload)
+    });
+    const data = await res.json();
+    setStatus("Packet Complete — ok: " + data.ok);
+    if (data.results && data.results.length === 1 && data.results[0].numberedContent) {
+      const r = data.results[0];
+      document.getElementById("viewer").textContent = "=== FILE: " + r.path + " (SHA: " + r.sha + ") ===\n" + r.numberedContent;
+    } else {
+      document.getElementById("viewer").textContent = JSON.stringify(data, null, 2);
+    }
+  } catch (e) {
+    setStatus("JSON / Execution Error: " + e.message, true);
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+{
+  "projectId": "mrkoQykvpZZfVbEc1yjabw",
+  "tokenConfigured": true,
+  "componentsCount": 13,
+  "registeredComponents": [
+    {
+      "symbol": "HqWeeklyStrip",
+      "name": "HqWeeklyStrip",
+      "displayName": "HQ Weekly Strip",
+      "importPath": "./components/booking-hq/HqWeeklyStrip",
+      "slots": []
+    },
+    {
+      "symbol": "HqDailyDispatchBoard",
+      "name": "HqDailyDispatchBoard",
+      "displayName": "HQ Daily Dispatch Board",
+      "importPath": "./components/booking-hq/HqDailyDispatchBoard",
+      "slots": []
+    },
+    {
+      "symbol": "HqInvoiceCard",
+      "name": "HqInvoiceCard",
+      "displayName": "HQ Invoice Card",
+      "importPath": "./components/booking-hq/HqInvoiceCard",
+      "slots": []
+    },
+    {
+      "symbol": "HqMultiStateWorkspace",
+      "name": "HqMultiStateWorkspace",
+      "displayName": "HQ Multi-State Workspace",
+      "importPath": "./components/booking-hq/HqMultiStateWorkspace",
+      "slots": []
+    },
+    {
+      "symbol": "EcmdAuthModalController",
+      "name": "EcmdAuthModalController",
+      "displayName": "Auth Model (ECMD Engine)",
+      "importPath": "./src/components/EcmdAuthModalController",
+      "slots": [
+        "trigger",
+        "closeIcon",
+        "title",
+        "children",
+        "footer"
+      ]
+    },
+    {
+      "symbol": "EcmdThemeImage",
+      "name": "EcmdBrandIcon",
+      "displayName": "Icon",
+      "importPath": "./src/components/EcmdThemeImage",
+      "slots": []
+    },
+    {
+      "symbol": "EcmdThemeImage",
+      "name": "EcmdBrandWordMark",
+      "displayName": "WordMark",
+      "importPath": "./src/components/EcmdThemeImage",
+      "slots": []
+    },
+    {
+      "symbol": "EcmdThemeLogo",
+      "name": "EcmdThemeLogo",
+      "displayName": "Theme Logo (SVG Switcher)",
+      "importPath": "./src/components/EcmdThemeLogo",
+      "slots": [
+        "children",
+        "emeraldDarkSlot",
+        "coastalLightSlot",
+        "midnightSlateSlot"
+      ]
+    },
+    {
+      "symbol": "EcmdThemeGroupController",
+      "name": "EcmdThemeGroupController",
+      "displayName": "Site Themes",
+      "importPath": "./src/components/EcmdThemeGroupController",
+      "slots": [
+        "trigger",
+        "children"
+      ]
+    },
+    {
+      "symbol": "EcmdSideMenuController",
+      "name": "EcmdSideMenuController",
+      "displayName": "Side Menu Modal (☰)",
+      "importPath": "./components/EcmdSideMenuController",
+      "slots": [
+        "trigger",
+        "headerSlot",
+        "footerSlot"
+      ]
+    },
+    {
+      "symbol": "EcmdVehicleSelector",
+      "name": "EcmdVehicleSelector",
+      "displayName": "Vehicle Size Selector (4-Slot)",
+      "importPath": "./components/EcmdVehicleSelector",
+      "slots": [
+        "slot1",
+        "slot2",
+        "slot3",
+        "slot4"
+      ]
+    },
+    {
+      "symbol": "EcmdPackagesRepeater",
+      "name": "EcmdPackagesRepeater",
+      "displayName": "Packages Repeater (#packagesRep)",
+      "importPath": "./components/EcmdPackagesRepeater",
+      "slots": [
+        "mobileItemTemplate",
+        "itemTemplate"
+      ]
+    },
+    {
+      "symbol": "EcmdBrushedSteelButton",
+      "name": "EcmdBrushedSteelButton",
+      "displayName": "Brushed Steel Button",
+      "importPath": "./components/EcmdBrushedSteelButton",
+      "slots": []
+    }
+  ],
+  "imageGroupClassTokens": {
+    "headerLogo": "ecmd-img-header-logo",
+    "footerLogo": "ecmd-img-footer-logo",
+    "cardBanner": "ecmd-img-card-banner",
+    "heroArtwork": "ecmd-img-hero-artwork"
+  },
+  "livePages": [],
+  "liveComponents": [],
+  "updatedAt": "2026-11-25T19:53:46.924Z"
+}

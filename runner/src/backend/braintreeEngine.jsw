@@ -1,0 +1,63 @@
+// --- backend/braintreeEngine.jsw ---
+
+import braintree from 'braintree';
+import { getSecret } from 'wix-secrets-backend';
+
+// Helper function to initialize the gateway securely
+async function initBraintreeGateway() {
+    const merchantId = await getSecret("BT_MERCHANT_ID");
+    const publicKey = await getSecret("BT_PUBLIC_KEY");
+    const privateKey = await getSecret("BT_PRIVATE_KEY");
+
+    return new braintree.BraintreeGateway({
+        environment: braintree.Environment.Sandbox,
+        merchantId: merchantId,
+        publicKey: publicKey,
+        privateKey: privateKey
+    });
+}
+
+export async function generateClientToken() {
+    try {
+        console.log("📌 [BACKEND_BRAINTREE -> generateClientToken]: Requesting Braintree client token...");
+        const gateway = await initBraintreeGateway();
+        const response = await gateway.clientToken.generate({});
+        
+        if (response.clientToken) {
+            console.log("📌 [BACKEND_BRAINTREE -> generateClientToken]: Token generated successfully.");
+            return { success: true, clientToken: response.clientToken };
+        } else {
+            console.warn("📌 [BACKEND_BRAINTREE -> generateClientToken]: No clientToken returned by Braintree.");
+            return { success: false, error: "Failed to generate token from Braintree." };
+        }
+    } catch (error) {
+        console.error("📌 [BACKEND_BRAINTREE -> generateClientToken]: Backend Braintree Error:", error);
+        return { success: false, error: error.message };
+    }
+}
+
+export async function processBraintreePayment(nonce, amount) {
+    try {
+        console.log(`📌 [BACKEND_BRAINTREE -> processBraintreePayment]: Processing sale for amount=$${amount}`);
+        const gateway = await initBraintreeGateway();
+        
+        const result = await gateway.transaction.sale({
+            amount: amount.toString(),
+            paymentMethodNonce: nonce,
+            options: {
+                submitForSettlement: true // Instantly captures the funds
+            }
+        });
+
+        if (result.success) {
+            console.log(`📌 [BACKEND_BRAINTREE -> processBraintreePayment]: Success! transactionId=${result.transaction.id}`);
+            return { success: true, transactionId: result.transaction.id };
+        } else {
+            console.warn(`📌 [BACKEND_BRAINTREE -> processBraintreePayment]: Declined/Failed: ${result.message}`);
+            return { success: false, error: result.message };
+        }
+    } catch (error) {
+        console.error("📌 [BACKEND_BRAINTREE -> processBraintreePayment]: Backend Braintree Charge Error:", error);
+        return { success: false, error: error.message };
+    }
+}

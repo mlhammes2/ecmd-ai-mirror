@@ -1,0 +1,32 @@
+// --- backend/securityActions.jsw ---
+
+import { members } from 'wix-members-backend';
+import * as wixAuth from 'wix-auth';
+import { authentication, currentMember } from 'wix-members-backend';
+
+const elevatedDeleteMember = wixAuth.elevate(members.deleteMember);
+
+export async function adminDeleteAccount(userId) {
+    try {
+        console.log(`📌 [BACKEND_SECURITY -> adminDeleteAccount]: Executing authorized deletion for userId=${userId}`);
+        await elevatedDeleteMember(userId);
+        return { success: true };
+    } catch (error) {
+        console.error("📌 [BACKEND_SECURITY -> adminDeleteAccount]: 🚨 Backend Deletion Failed:", error);
+        throw new Error("Failed to delete account in backend.");
+    }
+}
+
+export async function updateUserLoginEmail(newEmail) {
+    try {
+        let member = await currentMember.getMember();
+        if (!member) throw new Error("Not logged in");
+
+        console.log(`📌 [BACKEND_SECURITY -> updateUserLoginEmail]: Updating login email for memberId=${member._id} to ${newEmail}`);
+        await authentication.changeLoginEmail(member._id, newEmail);
+        return { success: true };
+    } catch (error) {
+        console.error("📌 [BACKEND_SECURITY -> updateUserLoginEmail]: 🚨 Backend Email Update Failed:", error);
+        return { success: false, error: error.message };
+    }
+}

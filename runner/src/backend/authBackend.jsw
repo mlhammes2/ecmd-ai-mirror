@@ -1,0 +1,24 @@
+// --- backend/authBackend.jsw ---
+
+import wixData from 'wix-data';
+
+export async function verifyEmailInDB(userId) {
+    try {
+        console.log(`📌 [BACKEND_AUTH -> verifyEmailInDB]: Verifying email for userId=${userId}`);
+        // suppressAuth: true allows this to run even if they aren't logged in on that device
+        let res = await wixData.query("customerProfiles").eq("_id", userId).find({ suppressAuth: true });
+        
+        if (res.items.length > 0) {
+            let profile = res.items[0];
+            profile.emailConfirmed = true; // 💥 Flips your custom boolean
+            await wixData.update("customerProfiles", profile, { suppressAuth: true });
+            console.log(`📌 [BACKEND_AUTH -> verifyEmailInDB]: Successfully confirmed email for userId=${userId}`);
+            return true;
+        }
+        console.warn(`📌 [BACKEND_AUTH -> verifyEmailInDB]: No customerProfiles record found for userId=${userId}`);
+        return false;
+    } catch (e) {
+        console.error("📌 [BACKEND_AUTH -> verifyEmailInDB]: Verification failed", e);
+        return false;
+    }
+}

@@ -1,0 +1,1888 @@
+=== GLI ===
+$ErrorActionPreference = "Continue";
+$endpoint = "https://lvynkeuceiqxafgpgdvs.supabase.co/functions/v1/ecmd-carbon-bridge";
+$secretTag = "#ECMD_AUTO_RUN_[REDACTED_SECRET]";
+$headers = @{ "x-bridge-key" = "[REDACTED_SECRET]" };
+$lastClip = "";
+function Invoke-BridgeSql([string]$sql) {
+  $payload = ConvertTo-Json -InputObject @{ action = "run_sql"; sql = $sql.Trim() } -Compress;
+  $q = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($payload));
+  $uri = $endpoint + "?b64=" + [uri]::EscapeDataString($q);
+  return Invoke-RestMethod -Uri $uri -Headers $headers -Method Get;
+};
+Write-Host "=====================================================================" -ForegroundColor Cyan;
+Write-Host " ECMD Carbon 4 Security-Hardened Auto-Poller (gli) Online (Private)" -ForegroundColor Green;
+Write-Host " -> 1. Watches private Supabase queue (public.ecmd_cli_queue)" -ForegroundColor Gray;
+Write-Host " -> 2. Watches 1-Click Copy blocks signed with secret key" -ForegroundColor Gray;
+Write-Host "=====================================================================" -ForegroundColor Cyan;
+while ($true) {
+  try {
+    $clip = Get-Clipboard -Raw -ErrorAction SilentlyContinue;
+    if ($clip -and $clip.StartsWith($secretTag) -and ($clip -ne $lastClip)) {
+      $lastClip = $clip;
+      Set-Clipboard -Value "#ECMD_EXECUTED_SAFELY";
+      Write-Host "`n[gli 1-Click Auto-Run] Verified Secret Signature! Executing..." -ForegroundColor Magenta;
+      $body = $clip.Substring($secretTag.Length).Trim();
+      $rawOut = Invoke-Expression -Command $body 2>&1;
+      $outText = [string]::Join("`n", $rawOut).Trim();
+      Write-Host ("[gli Completed] " + $outText) -ForegroundColor Green;
+    };
+  } catch {
+    Write-Host ("[gli Warning] " + $_.Exception.Message) -ForegroundColor DarkYellow;
+  };
+  Start-Sleep -Seconds 2;
+};
+
+=== C:\ECMD\emerald-coast-detailing-hub\src\components\EcmdDynamicGroupManager.tsx ===
+import { EcmdPlasmicColorRow } from "./EcmdPlasmicColorRow";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { EcmdPaddingBoxControl, EcmdMarginBoxControl, EcmdGapControl, EcmdRadiusBoxControl } from "./EcmdSpacingBoxControl";
+
+export interface DynamicGroupItem {
+  id: number;
+  enabled: boolean;
+  name: string;
+  selector: string;
+  radius: string;
+  spacing: boolean;
+  padding: string;
+  margin: string;
+  gap: string;
+  clBg: string;
+  clText: string;
+  clBorder: string;
+  clIcon: string;
+  clSelBg: string;
+  clSelText: string;
+  msBg: string;
+  msText: string;
+  msBorder: string;
+  msIcon: string;
+  msSelBg: string;
+  msSelText: string;
+  borderWidth?: string | undefined;
+  fontWeight?: string | undefined;
+  clHoverBg?: string | undefined;
+  clHoverText?: string | undefined;
+  clFocusBorder?: string | undefined;
+  clShadow?: string | undefined;
+  msHoverBg?: string | undefined;
+  msHoverText?: string | undefined;
+  msFocusBorder?: string | undefined;
+  msShadow?: string | undefined;
+}
+
+export interface DynamicGroupsPayload {
+  selectedId: number | "multi";
+  multiIds?: number[];
+  groups: Record<string, DynamicGroupItem>;
+}
+
+function emitChange(props: any, val: string) {
+  if (typeof props?.updateValue === "function") props.updateValue(val);
+  if (typeof props?.onChange === "function" && props.onChange !== props.updateValue) props.onChange(val);
+}
+
+export function buildInitialGroupsFromProps(compProps: any, rawJson?: string): DynamicGroupsPayload {
+  let parsed: any = null;
+  if (typeof rawJson === "string" && rawJson.trim().startsWith("{")) {
+    try { parsed = JSON.parse(rawJson); } catch {}
+  }
+  const groups: Record<string, DynamicGroupItem> = (parsed && parsed.groups) ? { ...parsed.groups } : {};
+
+  const googleM3Presets: Record<number, DynamicGroupItem> = {
+    1: {
+      id: 1, enabled: true, name: "Surface Bar", selector: ".gm-bar, .bars",
+      radius: "", borderWidth: "0 0 1px 0", fontWeight: "", spacing: false, padding: "", margin: "", gap: "",
+      clBg: "#F8FAFD", clText: "#1F1F1F", clBorder: "#E1E3E1", clIcon: "#444746", clSelBg: "#D3E3FD", clSelText: "#041E49",
+      clHoverBg: "", clHoverText: "", clFocusBorder: "", clShadow: "0 1px 2px rgba(0,0,0,0.05)",
+      msBg: "#28292A", msText: "#E3E3E3", msBorder: "#444746", msIcon: "#C4C7C5", msSelBg: "#004A77", msSelText: "#C2E7FF",
+      msHoverBg: "", msHoverText: "", msFocusBorder: "", msShadow: "0 1px 3px rgba(0,0,0,0.35)"
+    },
+    2: {
+      id: 2, enabled: true, name: "Icon Button", selector: ".gm-icon-btn, .headerButtons",
+      radius: "9999px", borderWidth: "0px", fontWeight: "500", spacing: false, padding: "", margin: "", gap: "",
+      clBg: "transparent", clText: "#444746", clBorder: "transparent", clIcon: "#444746", clSelBg: "#D3E3FD", clSelText: "#041E49",
+      clHoverBg: "rgba(31, 31, 31, 0.08)", clHoverText: "#1F1F1F", clFocusBorder: "#0B57D0", clShadow: "none",
+      msBg: "transparent", msText: "#E3E3E3", msBorder: "transparent", msIcon: "#E3E3E3", msSelBg: "#004A77", msSelText: "#C2E7FF",
+      msHoverBg: "rgba(227, 227, 227, 0.08)", msHoverText: "#FFFFFF", msFocusBorder: "#A8C7FA", msShadow: "none"
+    },
+    3: {
+      id: 3, enabled: true, name: "Dialog & Drawer", selector: ".gm-dialog, .modals",
+      radius: "16px", borderWidth: "1px", fontWeight: "", spacing: false, padding: "", margin: "", gap: "",
+      clBg: "#FFFFFF", clText: "#1F1F1F", clBorder: "#E1E3E1", clIcon: "#444746", clSelBg: "#D3E3FD", clSelText: "#041E49",
+      clHoverBg: "", clHoverText: "", clFocusBorder: "", clShadow: "0 8px 24px rgba(15, 23, 42, 0.14), 0 2px 6px rgba(15, 23, 42, 0.08)",
+      msBg: "#303134", msText: "#E3E3E3", msBorder: "#444746", msIcon: "#C4C7C5", msSelBg: "#004A77", msSelText: "#C2E7FF",
+      msHoverBg: "", msHoverText: "", msFocusBorder: "", msShadow: "0 12px 32px rgba(0, 0, 0, 0.52), 0 2px 6px rgba(0, 0, 0, 0.36)"
+    },
+    4: {
+      id: 4, enabled: true, name: "Surface Card", selector: ".gm-card, .cards",
+      radius: "12px", borderWidth: "1px", fontWeight: "", spacing: false, padding: "", margin: "", gap: "",
+      clBg: "#F3F6FC", clText: "#1F1F1F", clBorder: "#E1E3E1", clIcon: "#444746", clSelBg: "#D3E3FD", clSelText: "#041E49",
+      clHoverBg: "#EDF2FA", clHoverText: "", clFocusBorder: "#0B57D0", clShadow: "0 1px 3px rgba(0, 0, 0, 0.08)",
+      msBg: "#28292A", msText: "#E3E3E3", msBorder: "#444746", msIcon: "#C4C7C5", msSelBg: "#004A77", msSelText: "#C2E7FF",
+      msHoverBg: "#2E3032", msHoverText: "", msFocusBorder: "#A8C7FA", msShadow: "0 2px 6px rgba(0, 0, 0, 0.36)"
+    },
+    5: {
+      id: 5, enabled: true, name: "Menu Item", selector: ".gm-menu-item, .listbuttons",
+      radius: "8px", borderWidth: "0px", fontWeight: "500", spacing: false, padding: "", margin: "", gap: "",
+      clBg: "transparent", clText: "#1F1F1F", clBorder: "transparent", clIcon: "#444746", clSelBg: "#D3E3FD", clSelText: "#041E49",
+      clHoverBg: "rgba(31, 31, 31, 0.08)", clHoverText: "#1F1F1F", clFocusBorder: "#0B57D0", clShadow: "none",
+      msBg: "transparent", msText: "#E3E3E3", msBorder: "transparent", msIcon: "#C4C7C5", msSelBg: "#004A77", msSelText: "#C2E7FF",
+      msHoverBg: "rgba(227, 227, 227, 0.08)", msHoverText: "#E3E3E3", msFocusBorder: "#A8C7FA", msShadow: "none"
+    },
+    6: {
+      id: 6, enabled: true, name: "Filled Button", selector: ".gm-btn-filled, .btn-primary",
+      radius: "9999px", borderWidth: "0px", fontWeight: "500", spacing: false, padding: "", margin: "", gap: "",
+      clBg: "#0B57D0", clText: "#FFFFFF", clBorder: "transparent", clIcon: "#FFFFFF", clSelBg: "#0842A0", clSelText: "#FFFFFF",
+      clHoverBg: "#0842A0", clHoverText: "#FFFFFF", clFocusBorder: "#0B57D0", clShadow: "0 1px 2px rgba(0, 0, 0, 0.18)",
+      msBg: "#A8C7FA", msText: "#062E6F", msBorder: "transparent", msIcon: "#062E6F", msSelBg: "#8AB4F8", msSelText: "#041E49",
+      msHoverBg: "#B8D4FE", msHoverText: "#041E49", msFocusBorder: "#D3E3FD", msShadow: "0 1px 3px rgba(0, 0, 0, 0.42)"
+    },
+    7: {
+      id: 7, enabled: true, name: "Tonal Button", selector: ".gm-btn-tonal, .btn-tonal",
+      radius: "9999px", borderWidth: "0px", fontWeight: "500", spacing: false, padding: "", margin: "", gap: "",
+      clBg: "#D3E3FD", clText: "#041E49", clBorder: "transparent", clIcon: "#041E49", clSelBg: "#A8C7FA", clSelText: "#041E49",
+      clHoverBg: "#C2D7FC", clHoverText: "#041E49", clFocusBorder: "#0B57D0", clShadow: "none",
+      msBg: "#004A77", msText: "#C2E7FF", msBorder: "transparent", msIcon: "#C2E7FF", msSelBg: "#00639B", msSelText: "#D3E3FD",
+      msHoverBg: "#005B8F", msHoverText: "#D3E3FD", msFocusBorder: "#A8C7FA", msShadow: "none"
+    },
+    8: {
+      id: 8, enabled: true, name: "Outlined Field", selector: ".gm-field, .inputs",
+      radius: "8px", borderWidth: "1px", fontWeight: "400", spacing: false, padding: "", margin: "", gap: "",
+      clBg: "#FFFFFF", clText: "#1F1F1F", clBorder: "#747775", clIcon: "#444746", clSelBg: "#FFFFFF", clSelText: "#0B57D0",
+      clHoverBg: "#FFFFFF", clHoverText: "#1F1F1F", clFocusBorder: "#0B57D0", clShadow: "none",
+      msBg: "#1F1F1F", msText: "#E3E3E3", msBorder: "#8E918F", msIcon: "#C4C7C5", msSelBg: "#1F1F1F", msSelText: "#A8C7FA",
+      msHoverBg: "#1F1F1F", msHoverText: "#E3E3E3", msFocusBorder: "#A8C7FA", msShadow: "none"
+    },
+    9: {
+      id: 9, enabled: true, name: "Subtle Text", selector: ".gm-text-subtle, .text-muted",
+      radius: "", borderWidth: "", fontWeight: "400", spacing: false, padding: "", margin: "", gap: "",
+      clBg: "", clText: "#444746", clBorder: "", clIcon: "#444746", clSelBg: "", clSelText: "",
+      clHoverBg: "", clHoverText: "#1F1F1F", clFocusBorder: "", clShadow: "",
+      msBg: "", msText: "#C4C7C5", msBorder: "", msIcon: "#C4C7C5", msSelBg: "", msSelText: "",
+      msHoverBg: "", msHoverText: "#E3E3E3", msFocusBorder: "", msShadow: ""
+    },
+    10: {
+      id: 10, enabled: true, name: "Assist Chip", selector: ".gm-chip, .chips",
+      radius: "8px", borderWidth: "1px", fontWeight: "500", spacing: false, padding: "", margin: "", gap: "",
+      clBg: "#F0F4F9", clText: "#1F1F1F", clBorder: "#C4C7C5", clIcon: "#444746", clSelBg: "#D3E3FD", clSelText: "#041E49",
+      clHoverBg: "#E4EAF2", clHoverText: "#1F1F1F", clFocusBorder: "#0B57D0", clShadow: "none",
+      msBg: "#333537", msText: "#E3E3E3", msBorder: "#444746", msIcon: "#C4C7C5", msSelBg: "#004A77", msSelText: "#C2E7FF",
+      msHoverBg: "#3C4043", msHoverText: "#FFFFFF", msFocusBorder: "#A8C7FA", msShadow: "none"
+    }
+  };
+
+  const oldAutoNames = new Set([
+    "bars & surfaces", "bars & header", "header buttons", "modals & cards", "modals & drawers",
+    "cards & surfaces", "list buttons", "primary cta buttons", "tonal / secondary btns",
+    "inputs & fields", "muted / secondary text", "chips & badges",
+    "group 4", "group 5", "group 6", "group 7", "group 8"
+  ]);
+  const oldAutoSelectors = new Set([
+    ".bars", ".headerbuttons", ".modals", ".cards", ".listbuttons",
+    ".btn-primary", ".btn-tonal", ".inputs", ".text-muted", ".chips",
+    ".group-4", ".group-6", ".group-7", ".group-8"
+  ]);
+
+  // Only seed default groups if rawJson has NEVER been saved yet (so if user deletes all groups down to 0, they stay deleted!)
+  const hasSavedJson = Boolean(parsed && parsed.groups);
+  if (!hasSavedJson) {
+    for (let n = 1; n <= 10; n++) {
+      const k = String(n);
+      const d = googleM3Presets[n];
+      if (!d) continue;
+      if (!groups[k]) {
+        const propNm = (n <= 8 && compProps?.["group" + n + "Name"]) ? String(compProps["group" + n + "Name"]) : "";
+        const propSel = (n <= 8 && compProps?.["group" + n + "Selector"]) ? String(compProps["group" + n + "Selector"]) : "";
+        const useM3Name = !propNm || oldAutoNames.has(propNm.trim().toLowerCase());
+        const useM3Sel = !propSel || oldAutoSelectors.has(propSel.trim().toLowerCase());
+        groups[k] = {
+          ...d,
+          enabled: true,
+          name: useM3Name ? d.name : propNm,
+          selector: useM3Sel ? d.selector : propSel,
+          radius: (n <= 8 && compProps?.["group" + n + "Radius"]) ? compProps["group" + n + "Radius"] : d.radius,
+          spacing: n <= 8 ? Boolean(compProps?.["group" + n + "Spacing"]) : d.spacing,
+          padding: (n <= 8 && compProps?.["group" + n + "Padding"]) ? compProps["group" + n + "Padding"] : d.padding,
+          margin: (n <= 8 && compProps?.["group" + n + "Margin"]) ? compProps["group" + n + "Margin"] : d.margin,
+          gap: (n <= 8 && compProps?.["group" + n + "Gap"]) ? compProps["group" + n + "Gap"] : d.gap,
+          clBg: (n <= 8 && compProps?.["cl_g" + n + "Bg"]) ? compProps["cl_g" + n + "Bg"] : d.clBg,
+          clText: (n <= 8 && compProps?.["cl_g" + n + "Text"]) ? compProps["cl_g" + n + "Text"] : d.clText,
+          clBorder: (n <= 8 && compProps?.["cl_g" + n + "Border"]) ? compProps["cl_g" + n + "Border"] : d.clBorder,
+          clIcon: (n <= 8 && compProps?.["cl_g" + n + "Icon"]) ? compProps["cl_g" + n + "Icon"] : d.clIcon,
+          clSelBg: (n <= 8 && compProps?.["cl_g" + n + "SelBg"]) ? compProps["cl_g" + n + "SelBg"] : d.clSelBg,
+          clSelText: (n <= 8 && compProps?.["cl_g" + n + "SelText"]) ? compProps["cl_g" + n + "SelText"] : d.clSelText,
+          msBg: (n <= 8 && compProps?.["ms_g" + n + "Bg"]) ? compProps["ms_g" + n + "Bg"] : d.msBg,
+          msText: (n <= 8 && compProps?.["ms_g" + n + "Text"]) ? compProps["ms_g" + n + "Text"] : d.msText,
+          msBorder: (n <= 8 && compProps?.["ms_g" + n + "Border"]) ? compProps["ms_g" + n + "Border"] : d.msBorder,
+          msIcon: (n <= 8 && compProps?.["ms_g" + n + "Icon"]) ? compProps["ms_g" + n + "Icon"] : d.msIcon,
+          msSelBg: (n <= 8 && compProps?.["ms_g" + n + "SelBg"]) ? compProps["ms_g" + n + "SelBg"] : d.msSelBg,
+          msSelText: (n <= 8 && compProps?.["ms_g" + n + "SelText"]) ? compProps["ms_g" + n + "SelText"] : d.msSelText
+        };
+      }
+    }
+  } else {
+    // Auto-upgrade untouched legacy group names & selectors inside already-saved JSON so the renamed Google M3 names & `.gm-*` classes show up right away!
+    for (let n = 1; n <= 10; n++) {
+      const k = String(n);
+      const d = googleM3Presets[n];
+      const ex = groups[k];
+      if (d && ex) {
+        const curNm = (ex.name || "").trim().toLowerCase();
+        const curSel = (ex.selector || "").trim().toLowerCase();
+        groups[k] = {
+          ...ex,
+          name: oldAutoNames.has(curNm) ? d.name : ex.name,
+          selector: oldAutoSelectors.has(curSel) ? d.selector : ex.selector,
+          borderWidth: ex.borderWidth !== undefined ? ex.borderWidth : d.borderWidth,
+          fontWeight: ex.fontWeight !== undefined ? ex.fontWeight : d.fontWeight,
+          clHoverBg: ex.clHoverBg !== undefined ? ex.clHoverBg : d.clHoverBg,
+          clHoverText: ex.clHoverText !== undefined ? ex.clHoverText : d.clHoverText,
+          clFocusBorder: ex.clFocusBorder !== undefined ? ex.clFocusBorder : d.clFocusBorder,
+          clShadow: ex.clShadow !== undefined ? ex.clShadow : d.clShadow,
+          msHoverBg: ex.msHoverBg !== undefined ? ex.msHoverBg : d.msHoverBg,
+          msHoverText: ex.msHoverText !== undefined ? ex.msHoverText : d.msHoverText,
+          msFocusBorder: ex.msFocusBorder !== undefined ? ex.msFocusBorder : d.msFocusBorder,
+          msShadow: ex.msShadow !== undefined ? ex.msShadow : d.msShadow
+        };
+      }
+    }
+  }
+
+  const enabledIds = Object.values(groups).filter((g) => g && g.enabled).map((g) => g.id).sort((a, b) => a - b);
+  const firstId = enabledIds[0] ?? 0;
+  const rawSel = parsed?.selectedId === "all" ? "multi" : (parsed?.selectedId ?? firstId);
+  const multiIds = Array.isArray(parsed?.multiIds) ? parsed.multiIds : enabledIds.slice(0, 2);
+  return { selectedId: rawSel, multiIds, groups };
+}
+
+function findNextAvailableGroupSlotAndName(groups: Record<string, DynamicGroupItem>): { slotId: number; defaultName: string } {
+  const usedNames = new Set(
+    Object.values(groups)
+      .filter((g) => g && g.enabled)
+      .map((g) => (g.name || "").trim().toLowerCase())
+  );
+  let slotId = 1;
+  for (let i = 1; i <= 100; i++) {
+    const existing = groups[String(i)];
+    if (!existing || !existing.enabled) { slotId = i; break; }
+  }
+  let defaultName = "Group " + slotId;
+  if (usedNames.has(defaultName.toLowerCase())) {
+    for (let i = 1; i <= 100; i++) {
+      const candidate = "Group " + i;
+      if (!usedNames.has(candidate.toLowerCase())) {
+        defaultName = candidate;
+        break;
+      }
+    }
+  }
+  return { slotId, defaultName };
+}
+
+// --- Color Row with Native Swatch + Hex Input + Far-Right 3-Dot Menu (Eyedropper, Transparent, Copy, Clear) + Mixed Indicator ---
+function ColorRow({ label, value, isMixed, onChange }: { label: string; value: string; isMixed?: boolean; onChange: (v: string) => void }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const btnRef = useRef<HTMLButtonElement>(null);
+  const hexMatch = /^#[0-9a-fA-F]{6}$/.test((value || "").trim()) ? value.trim() : "#0F172A";
+  const isTrans = (value || "").trim().toLowerCase() === "transparent";
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const doc = btnRef.current?.ownerDocument || document;
+    const onDown = (e: MouseEvent) => {
+      const t = e.target as Node;
+      if (menuRef.current?.contains(t) || btnRef.current?.contains(t)) return;
+      setMenuOpen(false);
+    };
+    doc.addEventListener("mousedown", onDown, true);
+    return () => doc.removeEventListener("mousedown", onDown, true);
+  }, [menuOpen]);
+
+  const pickWithEyedropper = async () => {
+    setMenuOpen(false);
+    try {
+      const docWin: any = btnRef.current?.ownerDocument?.defaultView || window;
+      const EyeDropperCtor = docWin.EyeDropper || (window as any).EyeDropper || (window.top as any)?.EyeDropper;
+      if (EyeDropperCtor) {
+        const dropper = new EyeDropperCtor();
+        const res = await dropper.open();
+        if (res?.sRGBHex) onChange(res.sRGBHex.toUpperCase());
+      }
+    } catch {}
+  };
+
+  return (
+    <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px", padding: "3px 0" }}>
+      <span style={{ fontSize: "11.5px", color: "#334155", fontWeight: 500, width: "92px", flexShrink: 0 }}>{label}</span>
+      <div style={{ display: "flex", alignItems: "center", gap: "5px", flex: 1, minWidth: 0 }}>
+        <label
+          title="Click to open color picker"
+          style={{
+            width: "24px",
+            height: "24px",
+            borderRadius: "5px",
+            border: isMixed ? "1px dashed #8B5CF6" : "1px solid #CBD5E1",
+            background: isMixed
+              ? "linear-gradient(135deg, #E2E8F0 0%, #CBD5E1 50%, #94A3B8 100%)"
+              : isTrans
+                ? "repeating-conic-gradient(#CBD5E1 0% 25%, #FFFFFF 0% 50%) 50% / 8px 8px"
+                : (value && value.trim() ? value.trim() : "#FFFFFF"),
+            cursor: "pointer",
+            flexShrink: 0,
+            position: "relative",
+            overflow: "hidden"
+          }}
+        >
+          <input
+            type="color"
+            value={hexMatch}
+            onChange={(e) => onChange(e.target.value.toUpperCase())}
+            style={{ position: "absolute", inset: 0, opacity: 0, width: "100%", height: "100%", cursor: "pointer" }}
+          />
+        </label>
+        <input
+          type="text"
+          value={isMixed ? "" : (value || "")}
+          placeholder={isMixed ? "Mixed — edit to sync" : "unset"}
+          onChange={(e) => onChange(e.target.value)}
+          onKeyDown={(e) => e.stopPropagation()}
+          style={{
+            flex: 1,
+            minWidth: 0,
+            padding: "4px 7px",
+            fontSize: "11.5px",
+            fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
+            borderRadius: "6px",
+            border: isMixed ? "1px dashed rgba(139,92,246,0.55)" : "1px solid #E2E8F0",
+            background: isMixed ? "rgba(139,92,246,0.05)" : "#F8FAFC",
+            color: "#0F172A",
+            outline: "none"
+          }}
+        />
+        <button
+          ref={btnRef}
+          type="button"
+          title="Color Tools (Eyedropper, Transparent, Clear)"
+          onClick={() => setMenuOpen((v) => !v)}
+          style={{
+            width: "22px",
+            height: "24px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            border: menuOpen ? "1px solid #0D9488" : "1px solid #E2E8F0",
+            borderRadius: "5px",
+            background: menuOpen ? "rgba(13,148,136,0.10)" : "#F8FAFC",
+            color: "#475569",
+            fontSize: "13px",
+            fontWeight: 700,
+            cursor: "pointer",
+            flexShrink: 0,
+            padding: 0
+          }}
+        >
+          ⋮
+        </button>
+      </div>
+
+      {menuOpen && (
+        <div
+          ref={menuRef}
+          style={{
+            position: "absolute",
+            top: "28px",
+            right: 0,
+            width: "168px",
+            background: "#FFFFFF",
+            border: "1px solid #CBD5E1",
+            borderRadius: "8px",
+            boxShadow: "0 12px 28px rgba(15, 23, 42, 0.22)",
+            padding: "4px",
+            zIndex: 2147483646,
+            display: "flex",
+            flexDirection: "column",
+            gap: "2px"
+          }}
+        >
+          <button
+            type="button"
+            onClick={pickWithEyedropper}
+            style={{ display: "flex", alignItems: "center", gap: "7px", width: "100%", textAlign: "left", padding: "6px 8px", border: "none", borderRadius: "5px", background: "transparent", color: "#0F172A", fontSize: "11.5px", fontWeight: 600, cursor: "pointer" }}
+            onMouseEnter={(e) => (e.currentTarget.style.background = "#F1F5F9")}
+            onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+          >
+            <span>💧</span><span>Eyedropper</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => { onChange("transparent"); setMenuOpen(false); }}
+            style={{ display: "flex", alignItems: "center", gap: "7px", width: "100%", textAlign: "left", padding: "6px 8px", border: "none", borderRadius: "5px", background: "transparent", color: "#0F172A", fontSize: "11.5px", fontWeight: 500, cursor: "pointer" }}
+            onMouseEnter={(e) => (e.currentTarget.style.background = "#F1F5F9")}
+            onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+          >
+            <span>🫥</span><span>Set Transparent</span>
+          </button>
+          {value && !isMixed && (
+            <button
+              type="button"
+              onClick={() => { navigator.clipboard?.writeText(value); setMenuOpen(false); }}
+              style={{ display: "flex", alignItems: "center", gap: "7px", width: "100%", textAlign: "left", padding: "6px 8px", border: "none", borderRadius: "5px", background: "transparent", color: "#0F172A", fontSize: "11.5px", fontWeight: 500, cursor: "pointer" }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = "#F1F5F9")}
+              onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+            >
+              <span>📋</span><span>Copy Value</span>
+            </button>
+          )}
+          <button
+            type="button"
+            onClick={() => { onChange(""); setMenuOpen(false); }}
+            style={{ display: "flex", alignItems: "center", gap: "7px", width: "100%", textAlign: "left", padding: "6px 8px", border: "none", borderRadius: "5px", background: "transparent", color: "#DC2626", fontSize: "11.5px", fontWeight: 500, cursor: "pointer" }}
+            onMouseEnter={(e) => (e.currentTarget.style.background = "#FEF2F2")}
+            onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+          >
+            <span>✕</span><span>Clear (Unset)</span>
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+const STUDIO_UI_STORAGE_KEY = "ecmd_group_studio_ui_state_v2";
+
+interface WinBoxRect {
+  top: number;
+  left: number;
+  width: number;
+  height: number;
+}
+
+interface PersistedStudioUI {
+  panelOpen: boolean;
+  multiPickerOpen: boolean;
+  editPalette?: string;
+  hasMoved: boolean;
+  box: WinBoxRect;
+}
+
+let memoryStudioUI: PersistedStudioUI | null = null;
+
+function clampBoxToViewport(box: WinBoxRect, minW: number, minH: number, docWin: Window): WinBoxRect {
+  const vw = docWin.innerWidth || 1280;
+  const vh = docWin.innerHeight || 800;
+  const width = Math.max(minW, Math.min(box.width, Math.max(minW, vw - 16)));
+  const height = Math.max(minH, Math.min(box.height, Math.max(minH, vh - 16)));
+  const left = Math.max(4, Math.min(box.left, Math.max(4, vw - 80)));
+  const top = Math.max(4, Math.min(box.top, Math.max(4, vh - 48)));
+  return { top, left, width, height };
+}
+
+function loadStudioUI(minW: number, minH: number, docWin: Window): PersistedStudioUI | null {
+  try {
+    const latestRaw = window.localStorage.getItem(STUDIO_UI_STORAGE_KEY);
+    if (latestRaw) {
+      const lp = JSON.parse(latestRaw);
+      if (lp && lp.box && typeof lp.box.width === "number") {
+        memoryStudioUI = { panelOpen: Boolean(lp.panelOpen), multiPickerOpen: Boolean(lp.multiPickerOpen), editPalette: lp.editPalette, hasMoved: Boolean(lp.hasMoved), box: clampBoxToViewport(lp.box, minW, minH, docWin) };
+        return memoryStudioUI;
+      }
+    }
+  } catch {}
+  if (memoryStudioUI) {
+    return { ...memoryStudioUI, box: clampBoxToViewport(memoryStudioUI.box, minW, minH, docWin) };
+  }
+  try {
+    const raw = window.localStorage.getItem(STUDIO_UI_STORAGE_KEY);
+    if (!raw) return null;
+    const p = JSON.parse(raw);
+    if (p && p.box && typeof p.box.width === "number") {
+      const loaded: PersistedStudioUI = {
+        panelOpen: Boolean(p.panelOpen),
+        multiPickerOpen: Boolean(p.multiPickerOpen),
+        editPalette: typeof p.editPalette === "string" ? p.editPalette : undefined,
+        hasMoved: Boolean(p.hasMoved),
+        box: clampBoxToViewport(p.box, minW, minH, docWin)
+      };
+      memoryStudioUI = loaded;
+      return loaded;
+    }
+  } catch {}
+  return null;
+}
+
+function saveStudioUI(next: PersistedStudioUI) {
+  memoryStudioUI = next;
+  try {
+    window.localStorage.setItem(STUDIO_UI_STORAGE_KEY, JSON.stringify(next));
+  } catch {}
+}
+
+export const STUDIO_THEME_OPTIONS: Array<{ id: string; label: string }> = [
+  { id: "cl", label: "☀️ Light theme" },
+  { id: "ms", label: "🌙 Dark theme" }
+];
+export function EcmdDynamicGroupManagerControl(props: any) {
+  const MIN_W = 346;
+  const MIN_H = 440;
+  const ASPECT = MIN_W / MIN_H;
+
+  const compProps = props?.componentProps || {};
+  const propIsMs = compProps?.presetTheme === "midnight-slate";
+  const triggerRef = useRef<HTMLDivElement>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  const getDocWin = (): Window => triggerRef.current?.ownerDocument?.defaultView || modalRef.current?.ownerDocument?.defaultView || window;
+  const savedInit = loadStudioUI(MIN_W, MIN_H, typeof window !== "undefined" ? window : ({} as any));
+
+  const [editPalette, setEditPalette] = useState<string>(() => savedInit?.editPalette || (propIsMs ? "ms" : "cl"));
+  const [state, setState] = useState<DynamicGroupsPayload>(() => buildInitialGroupsFromProps(compProps, props?.value));
+  const [panelOpen, setPanelOpen] = useState<boolean>(() => savedInit ? savedInit.panelOpen : false);
+  const [multiPickerOpen, setMultiPickerOpen] = useState<boolean>(() => savedInit ? savedInit.multiPickerOpen : false);
+  const [confirmDeleteId, setConfirmDeleteId] = useState<number | "multi" | "revert" | null>(null);
+  const [winBox, setWinBox] = useState<WinBoxRect>(() => savedInit?.box || {
+    top: 84,
+    left: 100,
+    width: MIN_W,
+    height: 520
+  });
+  const hasUserMovedRef = useRef<boolean>(Boolean(savedInit?.hasMoved));
+
+  // Sync if user changes Active Theme dropdown outside the popup
+  const prevPropThemeRef = useRef(compProps?.presetTheme);
+  useEffect(() => {
+    if (prevPropThemeRef.current !== compProps?.presetTheme) {
+      prevPropThemeRef.current = compProps?.presetTheme;
+      setEditPalette(propIsMs ? "ms" : "cl");
+    }
+  }, [compProps?.presetTheme, propIsMs]);
+
+  useEffect(() => {
+    setState(buildInitialGroupsFromProps(compProps, props?.value));
+  }, [props?.value]);
+
+  const isMs = editPalette === "ms";
+
+  // Initial default placement ONLY if user has never moved/resized the popup yet; otherwise clamp saved box to Plasmic Studio ownerDocument window!
+  useLayoutEffect(() => {
+    if (!triggerRef.current) return;
+    const docWin = getDocWin();
+    const latest = loadStudioUI(MIN_W, MIN_H, docWin);
+    if (latest && latest.hasMoved) {
+      hasUserMovedRef.current = true;
+      setWinBox(latest.box);
+      return;
+    }
+    if (!panelOpen || hasUserMovedRef.current) return;
+    const rect = triggerRef.current.getBoundingClientRect();
+    const initH = Math.min(540, Math.max(MIN_H, docWin.innerHeight - 48));
+    const preferLeft = rect.left - MIN_W - 16;
+    const left = preferLeft >= 12 ? preferLeft : Math.max(12, Math.min(rect.right - MIN_W, docWin.innerWidth - MIN_W - 12));
+    const top = Math.max(14, Math.min(rect.top - 28, docWin.innerHeight - initH - 14));
+    setWinBox({ top, left, width: MIN_W, height: initH });
+  }, [panelOpen]);
+
+  // Persist open/closed state, multi-picker state, active palette, and exact window size + coordinates on every change!
+  useEffect(() => {
+    saveStudioUI({
+      panelOpen,
+      multiPickerOpen,
+      editPalette,
+      hasMoved: hasUserMovedRef.current,
+      box: winBox
+    });
+  }, [panelOpen, multiPickerOpen, editPalette, winBox]);
+
+  const startHeaderDrag = (e: React.MouseEvent) => {
+    const tag = (e.target as HTMLElement)?.tagName?.toLowerCase();
+    if (tag === "select" || tag === "option" || tag === "button") return;
+    e.preventDefault();
+    e.stopPropagation();
+    hasUserMovedRef.current = true;
+    const doc = modalRef.current?.ownerDocument || document;
+    const docWin = doc.defaultView || window;
+    const startX = e.clientX;
+    const startY = e.clientY;
+    const orig = { ...winBox };
+    const onMove = (ev: MouseEvent) => {
+      const nextLeft = Math.max(4, Math.min(orig.left + (ev.clientX - startX), docWin.innerWidth - 80));
+      const nextTop = Math.max(4, Math.min(orig.top + (ev.clientY - startY), docWin.innerHeight - 48));
+      setWinBox((prev) => ({ ...prev, left: nextLeft, top: nextTop }));
+    };
+    const onUp = () => {
+      doc.removeEventListener("mousemove", onMove, true);
+      doc.removeEventListener("mouseup", onUp, true);
+    };
+    doc.addEventListener("mousemove", onMove, true);
+    doc.addEventListener("mouseup", onUp, true);
+  };
+
+  // Equal / Proportional Window Resize via Top Bar Edge OR Bottom-Left Corner Grip (locked to MIN_W x MIN_H floor!)
+  const startProportionalResize = (mode: "top" | "bottom-left") => (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    hasUserMovedRef.current = true;
+    const doc = modalRef.current?.ownerDocument || document;
+    const docWin = doc.defaultView || window;
+    const startX = e.clientX;
+    const startY = e.clientY;
+    const orig = { ...winBox };
+    const ratio = orig.width / orig.height || ASPECT;
+
+    const onMove = (ev: MouseEvent) => {
+      if (mode === "top") {
+        // Pulling UP (negative dy) grows height AND width equally, keeping bottom-center anchored!
+        const dy = startY - ev.clientY;
+        const maxH = orig.top + orig.height - 8;
+        const nextH = Math.max(MIN_H, Math.min(maxH, orig.height + dy));
+        const scale = nextH / orig.height;
+        const nextW = Math.max(MIN_W, Math.min(docWin.innerWidth - 16, Math.round(orig.width * scale)));
+        const syncedH = Math.max(MIN_H, Math.round(nextW / ratio));
+        const bottomEdge = orig.top + orig.height;
+        const centerX = orig.left + orig.width / 2;
+        const nextTop = Math.max(6, bottomEdge - syncedH);
+        const nextLeft = Math.max(6, Math.min(docWin.innerWidth - nextW - 6, Math.round(centerX - nextW / 2)));
+        setWinBox({ top: nextTop, left: nextLeft, width: nextW, height: syncedH });
+      } else {
+        // Bottom-left corner: pulling LEFT (-dx) and/or DOWN (+dy) scales width & height equally, keeping top-right corner anchored!
+        const dx = startX - ev.clientX;
+        const dy = ev.clientY - startY;
+        const dominantDelta = Math.abs(dx) > Math.abs(dy) ? dx : Math.round(dy * ratio);
+        const rightEdge = orig.left + orig.width;
+        const maxWByLeft = rightEdge - 6;
+        const maxWByBottom = Math.round((docWin.innerHeight - orig.top - 8) * ratio);
+        const nextW = Math.max(MIN_W, Math.min(maxWByLeft, maxWByBottom, orig.width + dominantDelta));
+        const nextH = Math.max(MIN_H, Math.round(nextW / ratio));
+        const nextLeft = Math.max(6, rightEdge - nextW);
+        setWinBox({ top: orig.top, left: nextLeft, width: nextW, height: nextH });
+      }
+    };
+    const onUp = () => {
+      doc.removeEventListener("mousemove", onMove, true);
+      doc.removeEventListener("mouseup", onUp, true);
+    };
+    doc.addEventListener("mousemove", onMove, true);
+    doc.addEventListener("mouseup", onUp, true);
+  };
+
+
+  // Independent Horizontal (Left/Right) & Vertical (Bottom) Edge Grab Resize (locked to MIN_W x MIN_H floor!)
+  const startEdgeResize = (edge: "left" | "right" | "bottom") => (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    hasUserMovedRef.current = true;
+    const doc = modalRef.current?.ownerDocument || document;
+    const docWin = doc.defaultView || window;
+    const startX = e.clientX;
+    const startY = e.clientY;
+    const orig = { ...winBox };
+
+    const onMove = (ev: MouseEvent) => {
+      if (edge === "left") {
+        const rightEdge = orig.left + orig.width;
+        const dx = startX - ev.clientX;
+        const nextW = Math.max(MIN_W, Math.min(rightEdge - 6, orig.width + dx));
+        const nextLeft = Math.max(6, rightEdge - nextW);
+        setWinBox((prev) => ({ ...prev, left: nextLeft, width: nextW }));
+      } else if (edge === "right") {
+        const dx = ev.clientX - startX;
+        const maxW = docWin.innerWidth - orig.left - 6;
+        const nextW = Math.max(MIN_W, Math.min(maxW, orig.width + dx));
+        setWinBox((prev) => ({ ...prev, width: nextW }));
+      } else if (edge === "bottom") {
+        const dy = ev.clientY - startY;
+        const maxH = docWin.innerHeight - orig.top - 6;
+        const nextH = Math.max(MIN_H, Math.min(maxH, orig.height + dy));
+        setWinBox((prev) => ({ ...prev, height: nextH }));
+      }
+    };
+    const onUp = () => {
+      doc.removeEventListener("mousemove", onMove, true);
+      doc.removeEventListener("mouseup", onUp, true);
+    };
+    doc.addEventListener("mousemove", onMove, true);
+    doc.addEventListener("mouseup", onUp, true);
+  };
+
+  const commitState = (next: DynamicGroupsPayload) => {
+    const serialized = JSON.stringify(next);
+    setState(next);
+    emitChange(props, serialized);
+  };
+
+  const allGroupsSorted = Object.values(state.groups).filter((g): g is DynamicGroupItem => Boolean(g)).sort((a, b) => a.id - b.id);
+  const enabledGroups = allGroupsSorted.filter((g) => g.enabled);
+
+  const handleDropdownChange = (val: string) => {
+    if (val === "__SYNC_GOOGLE_M3__") {
+      setPanelOpen(true);
+      setConfirmDeleteId("revert");
+      return;
+    }
+    if (val === "__APPLY_REVERT_NOW__") {
+      const freshM3 = buildInitialGroupsFromProps({}, undefined).groups;
+      const merged: Record<string, DynamicGroupItem> = { ...state.groups };
+      Object.keys(freshM3).forEach((k) => {
+        const m3 = freshM3[k];
+        if (!m3) return;
+        const ex = merged[k];
+        merged[k] = ex ? {
+          ...m3,
+          enabled: true,
+          spacing: ex.spacing,
+          padding: ex.padding,
+          margin: ex.margin,
+          gap: ex.gap
+        } : { ...m3, enabled: true };
+      });
+      commitState({ ...state, selectedId: 1, groups: merged });
+      setMultiPickerOpen(false);
+      setPanelOpen(true);
+      return;
+    }
+    if (val === "__ADD_GROUP__") {
+      const { slotId, defaultName } = findNextAvailableGroupSlotAndName(state.groups);
+      const prev = state.groups[String(slotId)];
+      const created: DynamicGroupItem = {
+        id: slotId,
+        enabled: true,
+        name: defaultName,
+        selector: prev?.selector && prev.selector.trim() ? prev.selector : (".gm-group-" + slotId),
+        radius: prev?.radius || "",
+        spacing: prev?.spacing ?? false,
+        padding: prev?.padding || "",
+        margin: prev?.margin || "",
+        gap: prev?.gap || "",
+        clBg: prev?.clBg || "",
+        clText: prev?.clText || "",
+        clBorder: prev?.clBorder || "",
+        clIcon: prev?.clIcon || "",
+        clSelBg: prev?.clSelBg || "",
+        clSelText: prev?.clSelText || "",
+        msBg: prev?.msBg || "",
+        msText: prev?.msText || "",
+        msBorder: prev?.msBorder || "",
+        msIcon: prev?.msIcon || "",
+        msSelBg: prev?.msSelBg || "",
+        msSelText: prev?.msSelText || ""
+      };
+      commitState({ ...state, selectedId: slotId, groups: { ...state.groups, [String(slotId)]: created } });
+      setMultiPickerOpen(false);
+      setPanelOpen(true);
+      return;
+    }
+    if (val === "multi") {
+      const validMulti = (state.multiIds || []).filter((id) => state.groups[String(id)]?.enabled);
+      const seededMulti = validMulti.length > 0 ? validMulti : enabledGroups.map((g) => g.id);
+      commitState({ ...state, selectedId: "multi", multiIds: seededMulti });
+      setPanelOpen(true);
+      setMultiPickerOpen(true);
+      return;
+    }
+    const num = parseInt(val, 10);
+    if (!isNaN(num)) {
+      commitState({ ...state, selectedId: num });
+      setMultiPickerOpen(false);
+      setPanelOpen(true);
+    }
+  };
+
+  const updateSingleGroup = (id: number, patch: Partial<DynamicGroupItem>) => {
+    const cur = state.groups[String(id)];
+    if (!cur) return;
+    commitState({ ...state, groups: { ...state.groups, [String(id)]: { ...cur, ...patch } } });
+  };
+
+  const activeMultiIds = (state.multiIds || []).filter((id) => state.groups[String(id)]?.enabled);
+  const multiTargetGroups = activeMultiIds.map((id) => state.groups[String(id)]).filter((g): g is DynamicGroupItem => Boolean(g));
+
+  const updateMultipleGroups = (patch: Partial<DynamicGroupItem>) => {
+    if (!activeMultiIds.length) return;
+    const nextGroups = { ...state.groups };
+    activeMultiIds.forEach((id) => {
+      const cur = nextGroups[String(id)];
+      if (cur) nextGroups[String(id)] = { ...cur, ...patch };
+    });
+    commitState({ ...state, groups: nextGroups });
+  };
+
+  const toggleMultiId = (id: number) => {
+    const curSet = new Set(activeMultiIds);
+    if (curSet.has(id)) curSet.delete(id);
+    else curSet.add(id);
+    commitState({ ...state, multiIds: Array.from(curSet).sort((a, b) => a - b) });
+  };
+
+  const getSharedProp = <K extends keyof DynamicGroupItem>(key: K): { val: DynamicGroupItem[K]; mixed: boolean } => {
+    const firstGroup = multiTargetGroups[0];
+    if (!firstGroup) return { val: "" as any, mixed: false };
+    const first = firstGroup[key];
+    const allSame = multiTargetGroups.every((g) => g[key] === first);
+    return { val: first, mixed: !allSame };
+  };
+
+  const removeGroup = (id: number) => {
+    const cur = state.groups[String(id)];
+    if (!cur) return;
+    const nextGroups = { ...state.groups, [String(id)]: { ...cur, enabled: false } };
+    const remaining = Object.values(nextGroups).filter((g) => g && g.enabled).sort((a, b) => a.id - b.id);
+    commitState({ ...state, selectedId: remaining[0]?.id || 1, groups: nextGroups });
+  };
+
+  const executeConfirmedDelete = () => {
+    if (confirmDeleteId === null) return;
+    if (confirmDeleteId === "revert") {
+      setConfirmDeleteId(null);
+      handleDropdownChange("__APPLY_REVERT_NOW__");
+      return;
+    }
+    const nextGroups = { ...state.groups };
+    if (confirmDeleteId === "multi") {
+      activeMultiIds.forEach((id) => { delete nextGroups[String(id)]; });
+    } else {
+      delete nextGroups[String(confirmDeleteId)];
+    }
+    const remaining = Object.values(nextGroups).filter((g): g is DynamicGroupItem => Boolean(g && g.enabled)).sort((a, b) => a.id - b.id);
+    const nextSel = remaining[0]?.id ?? 0;
+    commitState({ selectedId: nextSel, multiIds: remaining.map((g) => g.id), groups: nextGroups });
+    setConfirmDeleteId(null);
+    setMultiPickerOpen(false);
+  };
+  const isMultiMode = state.selectedId === "multi";
+  const singleGroup = (!isMultiMode && enabledGroups.length > 0) ? (state.groups[String(state.selectedId)] || enabledGroups[0] || null) : null;
+  const activeTitle = enabledGroups.length === 0 ? "No Groups (0)" : isMultiMode ? ("Multiple (" + activeMultiIds.length + ")") : (singleGroup?.name || ("Group " + state.selectedId));
+
+  const portalTarget = triggerRef.current?.ownerDocument?.body || (typeof document !== "undefined" ? document.body : null);
+
+  // Shared checks for Multi-Group Batch Mode
+  const mRad = getSharedProp("radius");
+  const mSpc = getSharedProp("spacing");
+  const mPad = getSharedProp("padding");
+  const mMar = getSharedProp("margin");
+  const mGap = getSharedProp("gap");
+  const mBg = getSharedProp(isMs ? "msBg" : "clBg");
+  const mTxt = getSharedProp(isMs ? "msText" : "clText");
+  const mBrd = getSharedProp(isMs ? "msBorder" : "clBorder");
+  const mIco = getSharedProp(isMs ? "msIcon" : "clIcon");
+  const mSBg = getSharedProp(isMs ? "msSelBg" : "clSelBg");
+  const mSTx = getSharedProp(isMs ? "msSelText" : "clSelText");
+  const mBW = getSharedProp("borderWidth");
+  const mFW = getSharedProp("fontWeight");
+  const mHBg = getSharedProp(isMs ? "msHoverBg" : "clHoverBg");
+  const mHTx = getSharedProp(isMs ? "msHoverText" : "clHoverText");
+  const mFBr = getSharedProp(isMs ? "msFocusBorder" : "clFocusBorder");
+  const mShd = getSharedProp(isMs ? "msShadow" : "clShadow");
+  const anySpacingInMulti = multiTargetGroups.some((g) => g.spacing);
+
+  const studioModal = panelOpen ? (
+    <div
+      ref={modalRef}
+      onMouseDown={(e) => e.stopPropagation()}
+      onClick={(e) => e.stopPropagation()}
+      style={{
+        position: "fixed",
+        top: winBox.top + "px",
+        left: winBox.left + "px",
+        width: winBox.width + "px",
+        height: winBox.height + "px",
+        minWidth: MIN_W + "px",
+        minHeight: MIN_H + "px",
+        display: "flex",
+        flexDirection: "column",
+        background: "#FFFFFF",
+        color: "#0F172A",
+        borderRadius: "12px",
+        boxShadow: "0 22px 54px rgba(15, 23, 42, 0.34), 0 0 0 1px rgba(148, 163, 184, 0.42)",
+        zIndex: 2147483550,
+        fontFamily: "Inter, system-ui, sans-serif",
+        fontSize: "12px",
+        userSelect: "none"
+      }}
+    >
+      {/* Windows-Style Top Bar Edge Resize Handle (Equally Resizes Window Above Minimum Floor) */}
+      <div
+        title="Drag top edge to resize equally"
+        onMouseDown={startProportionalResize("top")}
+        style={{
+          position: "absolute",
+          top: "-4px",
+          left: "12px",
+          right: "12px",
+          height: "8px",
+          cursor: "ns-resize",
+          zIndex: 20,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center"
+        }}
+      >
+        <div style={{ width: "36px", height: "3px", borderRadius: "999px", background: "#CBD5E1" }} />
+      </div>
+
+      {/* Draggable Title Bar (Move Window Anywhere) + Live Theme Dropdown + Close Button */}
+      <div
+        onMouseDown={startHeaderDrag}
+        title="Drag header bar to move window"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "11px 12px 9px",
+          borderBottom: "1px solid #E2E8F0",
+          background: "#F8FAFC",
+          borderRadius: "12px 12px 0 0",
+          cursor: "grab",
+          flexShrink: 0
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+          <span style={{ fontWeight: 700, fontSize: "12px", color: "#0F172A" }}>📂 Groups</span>
+          <select
+            value={editPalette}
+            onChange={(e) => setEditPalette(e.target.value)}
+            title="Select theme palette to edit"
+            style={{
+              padding: "3px 8px",
+              fontSize: "11px",
+              fontWeight: 700,
+              borderRadius: "6px",
+              border: isMs ? "1px solid #334155" : "1px solid #CBD5E1",
+              background: isMs ? "#1E293B" : "#FFFFFF",
+              color: isMs ? "#F8FAFC" : "#0F766E",
+              cursor: "pointer",
+              outline: "none",
+              maxWidth: "156px"
+            }}
+          >
+            {STUDIO_THEME_OPTIONS.map((t) => (
+              <option key={t.id} value={t.id} style={{ background: "#FFFFFF", color: "#0F172A" }}>
+                {t.label}
+              </option>
+            ))}
+          </select>
+        </div>
+        <button
+          type="button"
+          onClick={() => { setMultiPickerOpen(false); setPanelOpen(false); }}
+          style={{ border: "1px solid #CBD5E1", background: "#FFFFFF", color: "#0F172A", borderRadius: "6px", padding: "3px 9px", fontSize: "11px", fontWeight: 700, cursor: "pointer" }}
+        >
+          ✕ Close
+        </button>
+      </div>
+
+      {/* Group Selector Dropdown ("✨ Edit Multiple..." + "+ Add Group...") */}
+      <div style={{ position: "relative", padding: "10px 14px 8px", borderBottom: "1px solid #F1F5F9", display: "flex", flexDirection: "column", gap: "7px" }}>
+        <select
+          value={String(state.selectedId)}
+          onChange={(e) => handleDropdownChange(e.target.value)}
+          style={{
+            width: "100%",
+            padding: "6px 9px",
+            fontSize: "12px",
+            fontWeight: 600,
+            borderRadius: "7px",
+            border: isMultiMode ? "1px solid #8B5CF6" : "1px solid #CBD5E1",
+            background: isMultiMode ? "rgba(139, 92, 246, 0.06)" : "#FFFFFF",
+            color: "#0F172A",
+            cursor: "pointer",
+            outline: "none"
+          }}
+        >
+          {enabledGroups.length === 0 && <option value="0">— No Groups (Click Add Group) —</option>}
+          {enabledGroups.length < 100 && <option value="__ADD_GROUP__">➕ Add Group...</option>}
+          {enabledGroups.length > 1 && <option value="multi">✨ Edit Multiple...</option>}
+          <option value="__SYNC_GOOGLE_M3__">🔄 Revert Google Default</option>
+          {enabledGroups.length > 0 && <option disabled>──────────────</option>}
+          {enabledGroups.map((g) => (
+            <option key={g.id} value={String(g.id)}>
+              {g.name || ("Group " + g.id)} ({(g.selector || "").split(",")[0]})
+            </option>
+          ))}
+        </select>
+
+        {/* Nested Scrollable Boolean Group Selector Popup When in "Edit Multiple" Mode! */}
+        {isMultiMode && (
+          <div style={{ position: "relative" }}>
+            <button
+              type="button"
+              onClick={() => setMultiPickerOpen((v) => !v)}
+              style={{
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                padding: "6px 10px",
+                borderRadius: "7px",
+                border: "1px solid rgba(139, 92, 246, 0.45)",
+                background: "rgba(139, 92, 246, 0.10)",
+                color: "#5B21B6",
+                fontSize: "11.5px",
+                fontWeight: 700,
+                cursor: "pointer"
+              }}
+            >
+              <span>🎯 Target Groups ({activeMultiIds.length} of {enabledGroups.length} toggled ON)</span>
+              <span>{multiPickerOpen ? "▴" : "▾"}</span>
+            </button>
+
+            {multiPickerOpen && (
+              <div
+                style={{
+                  position: "absolute",
+                  top: "36px",
+                  left: 0,
+                  right: 0,
+                  background: "#FFFFFF",
+                  border: "1px solid #CBD5E1",
+                  borderRadius: "10px",
+                  boxShadow: "0 16px 36px rgba(15, 23, 42, 0.25)",
+                  padding: "8px 10px 10px",
+                  zIndex: 2147483645,
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "6px"
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingBottom: "6px", borderBottom: "1px solid #F1F5F9" }}>
+                  <div style={{ display: "flex", gap: "6px" }}>
+                    <button type="button" onClick={() => commitState({ ...state, multiIds: enabledGroups.map((g) => g.id) })} style={{ border: "1px solid #E2E8F0", background: "#F8FAFC", color: "#334155", borderRadius: "5px", padding: "2px 7px", fontSize: "10.5px", fontWeight: 600, cursor: "pointer" }}>All</button>
+                    <button type="button" onClick={() => commitState({ ...state, multiIds: [] })} style={{ border: "1px solid #E2E8F0", background: "#F8FAFC", color: "#64748B", borderRadius: "5px", padding: "2px 7px", fontSize: "10.5px", fontWeight: 600, cursor: "pointer" }}>None</button>
+                  </div>
+                  <button type="button" onClick={() => setMultiPickerOpen(false)} style={{ border: "none", background: "#8B5CF6", color: "#FFFFFF", borderRadius: "5px", padding: "3px 9px", fontSize: "10.5px", fontWeight: 700, cursor: "pointer" }}>✓ Done</button>
+                </div>
+
+                <div style={{ maxHeight: Math.max(196, winBox.height - 175) + "px", overflowY: "auto", display: "flex", flexDirection: "column", gap: "4px", paddingRight: "2px" }}>
+                  {enabledGroups.map((g) => {
+                    const checked = activeMultiIds.includes(g.id);
+                    return (
+                      <div
+                        key={g.id}
+                        onClick={() => toggleMultiId(g.id)}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          padding: "5px 8px",
+                          borderRadius: "6px",
+                          background: checked ? "rgba(139, 92, 246, 0.10)" : "#F8FAFC",
+                          border: checked ? "1px solid rgba(139, 92, 246, 0.35)" : "1px solid #F1F5F9",
+                          cursor: "pointer"
+                        }}
+                      >
+                        <div style={{ display: "flex", flexDirection: "column", minWidth: 0 }}>
+                          <span style={{ fontSize: "11.5px", fontWeight: 600, color: "#0F172A", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{g.name || ("Group " + g.id)}</span>
+                          <span style={{ fontSize: "10px", color: "#64748B", fontFamily: "ui-monospace, monospace" }}>{g.selector || (".group-" + g.id)}</span>
+                        </div>
+                        {/* Pill Toggle Switch */}
+                        <span style={{ width: "30px", height: "17px", borderRadius: "999px", background: checked ? "#8B5CF6" : "#CBD5E1", position: "relative", transition: "background 0.15s ease", flexShrink: 0 }}>
+                          <span style={{ position: "absolute", top: "2px", left: checked ? "15px" : "2px", width: "13px", height: "13px", borderRadius: "50%", background: "#FFFFFF", transition: "left 0.15s ease" }} />
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* Body: Either Batch Shared-Property Editor OR Single Group Editor */}
+      <div style={{ flex: 1, minHeight: 0, padding: "10px 14px 20px", overflowY: "auto", display: "flex", flexDirection: "column", gap: "10px" }}>
+        {isMultiMode ? (
+          activeMultiIds.length === 0 ? (
+            <div style={{ padding: "18px 12px", textAlign: "center", color: "#64748B", background: "#F8FAFC", borderRadius: "8px", border: "1px dashed #CBD5E1" }}>
+              Click <b>🎯 Target Groups</b> above and toggle ON at least 2 groups to batch-edit their shared styles!
+            </div>
+          ) : (
+            <div style={{ border: "1px solid rgba(139, 92, 246, 0.35)", borderRadius: "9px", padding: "10px 12px", background: "#FFFFFF", display: "flex", flexDirection: "column", gap: "7px" }}>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "6px", paddingBottom: "6px", borderBottom: "1px solid #F1F5F9" }}>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "4px", flex: 1, minWidth: 0 }}>
+                  {multiTargetGroups.map((g) => (
+                    <span key={g.id} style={{ fontSize: "10px", fontWeight: 600, padding: "2px 6px", borderRadius: "5px", background: "rgba(139, 92, 246, 0.10)", color: "#5B21B6" }}>
+                      {g.name || ("G" + g.id)}
+                    </span>
+                  ))}
+                </div>
+                <button type="button" onClick={() => setConfirmDeleteId("multi")} style={{ border: "1px solid rgba(220,38,38,0.25)", background: "rgba(239,68,68,0.10)", color: "#DC2626", borderRadius: "5px", padding: "3px 7px", fontSize: "10.5px", fontWeight: 700, cursor: "pointer", flexShrink: 0 }}>🗑️ Delete ({activeMultiIds.length})</button>
+              </div>
+
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
+                <span style={{ fontSize: "11.5px", color: "#334155", fontWeight: 500, width: "92px", flexShrink: 0 }}>Corner Radius</span>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <EcmdRadiusBoxControl value={mRad.mixed ? "" : String(mRad.val || "")} updateValue={(v: string) => updateMultipleGroups({ radius: v })} />
+                </div>
+              </div>
+
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "2px 0" }}>
+                <span style={{ fontSize: "11.5px", color: "#334155", fontWeight: 500 }}>📐 Spacing {mSpc.mixed ? "(Mixed)" : ""}</span>
+                <input type="checkbox" checked={Boolean(anySpacingInMulti)} onChange={(e) => updateMultipleGroups({ spacing: e.target.checked })} style={{ cursor: "pointer" }} />
+              </div>
+
+              {anySpacingInMulti && (
+                <div style={{ display: "flex", flexDirection: "column", gap: "6px", paddingLeft: "8px", borderLeft: "2px solid #C4B5FD" }}>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
+                    <span style={{ fontSize: "11.5px", color: "#334155", fontWeight: 500, width: "82px", flexShrink: 0 }}>Padding</span>
+                    <div style={{ flex: 1, minWidth: 0 }}><EcmdPaddingBoxControl value={mPad.mixed ? "" : String(mPad.val || "")} updateValue={(v: string) => updateMultipleGroups({ padding: v })} /></div>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
+                    <span style={{ fontSize: "11.5px", color: "#334155", fontWeight: 500, width: "82px", flexShrink: 0 }}>Margin</span>
+                    <div style={{ flex: 1, minWidth: 0 }}><EcmdMarginBoxControl value={mMar.mixed ? "" : String(mMar.val || "")} updateValue={(v: string) => updateMultipleGroups({ margin: v })} /></div>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
+                    <span style={{ fontSize: "11.5px", color: "#334155", fontWeight: 500, width: "82px", flexShrink: 0 }}>Gap</span>
+                    <div style={{ flex: 1, minWidth: 0 }}><EcmdGapControl value={mGap.mixed ? "" : String(mGap.val || "")} updateValue={(v: string) => updateMultipleGroups({ gap: v })} /></div>
+                  </div>
+                </div>
+              )}
+
+              <div style={{ marginTop: "3px", paddingTop: "7px", borderTop: "1px solid #F1F5F9", display: "flex", flexDirection: "column", gap: "4px" }}>
+                <EcmdPlasmicColorRow label="Background" value={String(mBg.val || "")} isMixed={mBg.mixed} onChange={(v) => updateMultipleGroups(isMs ? { msBg: v } : { clBg: v })} />
+                <EcmdPlasmicColorRow label="Text" value={String(mTxt.val || "")} isMixed={mTxt.mixed} onChange={(v) => updateMultipleGroups(isMs ? { msText: v } : { clText: v })} />
+                <EcmdPlasmicColorRow label="Border" value={String(mBrd.val || "")} isMixed={mBrd.mixed} onChange={(v) => updateMultipleGroups(isMs ? { msBorder: v } : { clBorder: v })} />
+                <EcmdPlasmicColorRow label="Icon Color" value={String(mIco.val || "")} isMixed={mIco.mixed} onChange={(v) => updateMultipleGroups(isMs ? { msIcon: v } : { clIcon: v })} />
+                <EcmdPlasmicColorRow label="Selected Bg" value={String(mSBg.val || "")} isMixed={mSBg.mixed} onChange={(v) => updateMultipleGroups(isMs ? { msSelBg: v } : { clSelBg: v })} />
+                <EcmdPlasmicColorRow label="Selected Text" value={String(mSTx.val || "")} isMixed={mSTx.mixed} onChange={(v) => updateMultipleGroups(isMs ? { msSelText: v } : { clSelText: v })} />
+                <EcmdPlasmicColorRow label="Hover Bg" value={String(mHBg.val || "")} isMixed={mHBg.mixed} onChange={(v) => updateMultipleGroups(isMs ? { msHoverBg: v } : { clHoverBg: v })} />
+                <EcmdPlasmicColorRow label="Hover Text" value={String(mHTx.val || "")} isMixed={mHTx.mixed} onChange={(v) => updateMultipleGroups(isMs ? { msHoverText: v } : { clHoverText: v })} />
+                <EcmdPlasmicColorRow label="Focus Border" value={String(mFBr.val || "")} isMixed={mFBr.mixed} onChange={(v) => updateMultipleGroups(isMs ? { msFocusBorder: v } : { clFocusBorder: v })} />
+
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px", paddingTop: "4px", marginTop: "2px", borderTop: "1px dashed #E2E8F0" }}>
+                  <span style={{ fontSize: "11.5px", color: "#334155", fontWeight: 500, width: "92px", flexShrink: 0 }}>Border Width</span>
+                  <input type="text" value={mBW.mixed ? "" : String(mBW.val || "")} placeholder={mBW.mixed ? "Mixed" : "e.g. 1px or 0px"} onChange={(e) => updateMultipleGroups({ borderWidth: e.target.value })} onKeyDown={(e) => e.stopPropagation()} style={{ flex: 1, minWidth: 0, padding: "4px 7px", fontSize: "11.5px", fontFamily: "ui-monospace, monospace", borderRadius: "6px", border: "1px solid #E2E8F0", background: "#F8FAFC", color: "#0F172A", outline: "none" }} />
+                </div>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
+                  <span style={{ fontSize: "11.5px", color: "#334155", fontWeight: 500, width: "92px", flexShrink: 0 }}>Font Weight</span>
+                  <select value={mFW.mixed ? "__MIXED__" : String(mFW.val || "")} onChange={(e) => { if (e.target.value !== "__MIXED__") updateMultipleGroups({ fontWeight: e.target.value }); }} style={{ flex: 1, minWidth: 0, padding: "4px 7px", fontSize: "11.5px", borderRadius: "6px", border: "1px solid #E2E8F0", background: "#F8FAFC", color: "#0F172A", outline: "none" }}>
+                    {mFW.mixed && <option value="__MIXED__">Mixed — select to sync</option>}
+                    <option value="">Unset (Inherit)</option>
+                    <option value="400">400 — Regular</option>
+                    <option value="500">500 — Google Medium</option>
+                    <option value="600">600 — Semi-Bold</option>
+                    <option value="700">700 — Bold</option>
+                  </select>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
+                  <span style={{ fontSize: "11.5px", color: "#334155", fontWeight: 500, width: "92px", flexShrink: 0 }}>Elevation</span>
+                  <input type="text" value={mShd.mixed ? "" : String(mShd.val || "")} placeholder={mShd.mixed ? "Mixed" : "none or CSS box-shadow"} onChange={(e) => updateMultipleGroups(isMs ? { msShadow: e.target.value } : { clShadow: e.target.value })} onKeyDown={(e) => e.stopPropagation()} style={{ flex: 1, minWidth: 0, padding: "4px 7px", fontSize: "11px", fontFamily: "ui-monospace, monospace", borderRadius: "6px", border: "1px solid #E2E8F0", background: "#F8FAFC", color: "#0F172A", outline: "none" }} />
+                </div>
+              </div>
+            </div>
+          )
+        ) : singleGroup ? (
+          <div style={{ border: "1px solid #E2E8F0", borderRadius: "9px", padding: "10px 12px", background: "#FFFFFF", display: "flex", flexDirection: "column", gap: "7px" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingBottom: "6px", borderBottom: "1px solid #F1F5F9" }}>
+              <label style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "11.5px", fontWeight: 700, color: "#0F172A", cursor: "pointer" }}>
+                <input type="checkbox" checked={singleGroup.enabled} onChange={(e) => updateSingleGroup(singleGroup.id, { enabled: e.target.checked })} />
+                <span>Enabled (#{singleGroup.id})</span>
+              </label>
+              <button type="button" onClick={() => setConfirmDeleteId(singleGroup.id)} style={{ border: "1px solid rgba(220,38,38,0.25)", background: "rgba(239,68,68,0.10)", color: "#DC2626", borderRadius: "5px", padding: "2px 8px", fontSize: "10.5px", fontWeight: 700, cursor: "pointer" }}>🗑️ Delete Group</button>
+            </div>
+
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
+              <span style={{ fontSize: "11.5px", color: "#334155", fontWeight: 500, width: "92px", flexShrink: 0 }}>Name</span>
+              <input type="text" value={singleGroup.name} placeholder={"Group " + singleGroup.id} onChange={(e) => updateSingleGroup(singleGroup.id, { name: e.target.value })} onKeyDown={(e) => e.stopPropagation()} style={{ flex: 1, minWidth: 0, padding: "4px 8px", fontSize: "11.5px", borderRadius: "6px", border: "1px solid #E2E8F0", background: "#F8FAFC", color: "#0F172A", outline: "none" }} />
+            </div>
+
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
+              <span style={{ fontSize: "11.5px", color: "#334155", fontWeight: 500, width: "92px", flexShrink: 0 }}>CSS Selector</span>
+              <input type="text" value={singleGroup.selector} placeholder={".group-" + singleGroup.id} onChange={(e) => updateSingleGroup(singleGroup.id, { selector: e.target.value })} onKeyDown={(e) => e.stopPropagation()} style={{ flex: 1, minWidth: 0, padding: "4px 8px", fontSize: "11.5px", fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace", borderRadius: "6px", border: "1px solid #E2E8F0", background: "#F8FAFC", color: "#0F172A", outline: "none" }} />
+            </div>
+
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
+              <span style={{ fontSize: "11.5px", color: "#334155", fontWeight: 500, width: "92px", flexShrink: 0 }}>Corner Radius</span>
+              <div style={{ flex: 1, minWidth: 0 }}><EcmdRadiusBoxControl value={singleGroup.radius} updateValue={(v: string) => updateSingleGroup(singleGroup.id, { radius: v })} /></div>
+            </div>
+
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "2px 0" }}>
+              <span style={{ fontSize: "11.5px", color: "#334155", fontWeight: 500 }}>📐 Spacing</span>
+              <input type="checkbox" checked={Boolean(singleGroup.spacing)} onChange={(e) => updateSingleGroup(singleGroup.id, { spacing: e.target.checked })} style={{ cursor: "pointer" }} />
+            </div>
+
+            {singleGroup.spacing && (
+              <div style={{ display: "flex", flexDirection: "column", gap: "6px", paddingLeft: "8px", borderLeft: "2px solid #CBD5E1" }}>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
+                  <span style={{ fontSize: "11.5px", color: "#334155", fontWeight: 500, width: "82px", flexShrink: 0 }}>Padding</span>
+                  <div style={{ flex: 1, minWidth: 0 }}><EcmdPaddingBoxControl value={singleGroup.padding} updateValue={(v: string) => updateSingleGroup(singleGroup.id, { padding: v })} /></div>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
+                  <span style={{ fontSize: "11.5px", color: "#334155", fontWeight: 500, width: "82px", flexShrink: 0 }}>Margin</span>
+                  <div style={{ flex: 1, minWidth: 0 }}><EcmdMarginBoxControl value={singleGroup.margin} updateValue={(v: string) => updateSingleGroup(singleGroup.id, { margin: v })} /></div>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
+                  <span style={{ fontSize: "11.5px", color: "#334155", fontWeight: 500, width: "82px", flexShrink: 0 }}>Gap</span>
+                  <div style={{ flex: 1, minWidth: 0 }}><EcmdGapControl value={singleGroup.gap} updateValue={(v: string) => updateSingleGroup(singleGroup.id, { gap: v })} /></div>
+                </div>
+              </div>
+            )}
+
+            <div style={{ marginTop: "3px", paddingTop: "7px", borderTop: "1px solid #F1F5F9", display: "flex", flexDirection: "column", gap: "4px" }}>
+              <EcmdPlasmicColorRow label="Background" value={isMs ? singleGroup.msBg : singleGroup.clBg} onChange={(v) => updateSingleGroup(singleGroup.id, isMs ? { msBg: v } : { clBg: v })} />
+              <EcmdPlasmicColorRow label="Text" value={isMs ? singleGroup.msText : singleGroup.clText} onChange={(v) => updateSingleGroup(singleGroup.id, isMs ? { msText: v } : { clText: v })} />
+              <EcmdPlasmicColorRow label="Border" value={isMs ? singleGroup.msBorder : singleGroup.clBorder} onChange={(v) => updateSingleGroup(singleGroup.id, isMs ? { msBorder: v } : { clBorder: v })} />
+              <EcmdPlasmicColorRow label="Icon Color" value={isMs ? singleGroup.msIcon : singleGroup.clIcon} onChange={(v) => updateSingleGroup(singleGroup.id, isMs ? { msIcon: v } : { clIcon: v })} />
+              <EcmdPlasmicColorRow label="Selected Bg" value={isMs ? singleGroup.msSelBg : singleGroup.clSelBg} onChange={(v) => updateSingleGroup(singleGroup.id, isMs ? { msSelBg: v } : { clSelBg: v })} />
+              <EcmdPlasmicColorRow label="Selected Text" value={isMs ? singleGroup.msSelText : singleGroup.clSelText} onChange={(v) => updateSingleGroup(singleGroup.id, isMs ? { msSelText: v } : { clSelText: v })} />
+              <EcmdPlasmicColorRow label="Hover Bg" value={(isMs ? singleGroup.msHoverBg : singleGroup.clHoverBg) || ""} onChange={(v) => updateSingleGroup(singleGroup.id, isMs ? { msHoverBg: v } : { clHoverBg: v })} />
+              <EcmdPlasmicColorRow label="Hover Text" value={(isMs ? singleGroup.msHoverText : singleGroup.clHoverText) || ""} onChange={(v) => updateSingleGroup(singleGroup.id, isMs ? { msHoverText: v } : { clHoverText: v })} />
+              <EcmdPlasmicColorRow label="Focus Border" value={(isMs ? singleGroup.msFocusBorder : singleGroup.clFocusBorder) || ""} onChange={(v) => updateSingleGroup(singleGroup.id, isMs ? { msFocusBorder: v } : { clFocusBorder: v })} />
+
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px", paddingTop: "5px", marginTop: "3px", borderTop: "1px dashed #E2E8F0" }}>
+                <span style={{ fontSize: "11.5px", color: "#334155", fontWeight: 500, width: "92px", flexShrink: 0 }}>Border Width</span>
+                <input type="text" value={singleGroup.borderWidth || ""} placeholder="unset (e.g. 1px)" onChange={(e) => updateSingleGroup(singleGroup.id, { borderWidth: e.target.value })} onKeyDown={(e) => e.stopPropagation()} style={{ flex: 1, minWidth: 0, padding: "4px 8px", fontSize: "11.5px", fontFamily: "ui-monospace, monospace", borderRadius: "6px", border: "1px solid #E2E8F0", background: "#F8FAFC", color: "#0F172A", outline: "none" }} />
+              </div>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
+                <span style={{ fontSize: "11.5px", color: "#334155", fontWeight: 500, width: "92px", flexShrink: 0 }}>Font Weight</span>
+                <select value={singleGroup.fontWeight || ""} onChange={(e) => updateSingleGroup(singleGroup.id, { fontWeight: e.target.value })} style={{ flex: 1, minWidth: 0, padding: "4px 8px", fontSize: "11.5px", borderRadius: "6px", border: "1px solid #E2E8F0", background: "#F8FAFC", color: "#0F172A", outline: "none" }}>
+                  <option value="">Unset (Inherit)</option>
+                  <option value="400">400 — Regular</option>
+                  <option value="500">500 — Google Medium</option>
+                  <option value="600">600 — Semi-Bold</option>
+                  <option value="700">700 — Bold</option>
+                </select>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
+                <span style={{ fontSize: "11.5px", color: "#334155", fontWeight: 500, width: "92px", flexShrink: 0 }}>Elevation</span>
+                <input type="text" value={(isMs ? singleGroup.msShadow : singleGroup.clShadow) || ""} placeholder="unset or box-shadow" onChange={(e) => updateSingleGroup(singleGroup.id, isMs ? { msShadow: e.target.value } : { clShadow: e.target.value })} onKeyDown={(e) => e.stopPropagation()} style={{ flex: 1, minWidth: 0, padding: "4px 8px", fontSize: "11px", fontFamily: "ui-monospace, monospace", borderRadius: "6px", border: "1px solid #E2E8F0", background: "#F8FAFC", color: "#0F172A", outline: "none" }} />
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div style={{ padding: "22px 14px", textAlign: "center", background: "#F8FAFC", borderRadius: "10px", border: "1px dashed #CBD5E1", display: "flex", flexDirection: "column", alignItems: "center", gap: "10px" }}>
+            <span style={{ fontSize: "12.5px", fontWeight: 700, color: "#0F172A" }}>No Theme Groups Active</span>
+            <span style={{ fontSize: "11px", color: "#64748B", lineHeight: 1.4 }}>All groups have been deleted. Create a fresh blank group or restore Google Material 3 defaults:</span>
+            <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", justifyContent: "center" }}>
+              <button type="button" onClick={() => handleDropdownChange("__ADD_GROUP__")} style={{ border: "none", background: "#0B57D0", color: "#FFFFFF", borderRadius: "6px", padding: "6px 12px", fontSize: "11.5px", fontWeight: 700, cursor: "pointer" }}>➕ Add Group</button>
+              <button type="button" onClick={() => handleDropdownChange("__SYNC_GOOGLE_M3__")} style={{ border: "1px solid #CBD5E1", background: "#FFFFFF", color: "#0F172A", borderRadius: "6px", padding: "6px 12px", fontSize: "11.5px", fontWeight: 600, cursor: "pointer" }}>🔄 Revert Google Default</button>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Delete Verification Popup Overlay */}
+      {confirmDeleteId !== null && (
+        <div
+          onMouseDown={(e) => e.stopPropagation()}
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "rgba(15, 23, 42, 0.48)",
+            backdropFilter: "blur(2px)",
+            borderRadius: "12px",
+            zIndex: 2147483647,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "18px"
+          }}
+        >
+          <div style={{ width: "100%", maxWidth: "296px", background: "#FFFFFF", borderRadius: "10px", padding: "14px 16px", boxShadow: "0 18px 40px rgba(15, 23, 42, 0.35)", border: "1px solid #E2E8F0", display: "flex", flexDirection: "column", gap: "10px" }}>
+            <div style={{ fontWeight: 700, fontSize: "13px", color: "#0F172A" }}>
+              {confirmDeleteId === "revert" ? "Revert to Google M3 Defaults?" : confirmDeleteId === "multi"
+                ? ("Delete " + activeMultiIds.length + " Selected Groups?")
+                : ("Delete \"" + (state.groups[String(confirmDeleteId)]?.name || ("Group " + confirmDeleteId)) + "\"?")}
+            </div>
+            <div style={{ fontSize: "11.5px", color: "#475569", lineHeight: 1.45 }}>
+              {confirmDeleteId === "revert" ? "This resets Groups 1–10 back to Google Material 3 Light & Dark colors while keeping your custom Padding, Margin, and Gap intact." : confirmDeleteId === "multi"
+                ? "This will permanently remove all toggled groups and their custom theme rules. Are you sure?"
+                : ("Elements using " + (state.groups[String(confirmDeleteId)]?.selector || (".gm-group-" + confirmDeleteId)) + " will stop receiving custom theme colors. This cannot be undone.")}
+            </div>
+            <div style={{ display: "flex", justifyContent: "flex-end", gap: "8px", marginTop: "4px" }}>
+              <button
+                type="button"
+                onClick={() => setConfirmDeleteId(null)}
+                style={{ border: "1px solid #CBD5E1", background: "#F8FAFC", color: "#334155", borderRadius: "6px", padding: "5px 11px", fontSize: "11.5px", fontWeight: 600, cursor: "pointer" }}
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={executeConfirmedDelete}
+                style={{ border: "none", background: confirmDeleteId === "revert" ? "#0B57D0" : "#DC2626", color: "#FFFFFF", borderRadius: "6px", padding: "5px 12px", fontSize: "11.5px", fontWeight: 700, cursor: "pointer" }}
+              >
+                {confirmDeleteId === "revert" ? "🔄 Yes, Revert" : "🗑️ Yes, Delete"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Left Edge Grab — Horizontal Resize */}
+      <div
+        title="Drag left edge to resize width"
+        onMouseDown={startEdgeResize("left")}
+        style={{ position: "absolute", top: "14px", bottom: "24px", left: "-4px", width: "8px", cursor: "ew-resize", zIndex: 22 }}
+      />
+
+      {/* Right Edge Grab — Horizontal Resize */}
+      <div
+        title="Drag right edge to resize width"
+        onMouseDown={startEdgeResize("right")}
+        style={{ position: "absolute", top: "14px", bottom: "10px", right: "-4px", width: "8px", cursor: "ew-resize", zIndex: 22 }}
+      />
+
+      {/* Bottom Edge Grab — Vertical Resize */}
+      <div
+        title="Drag bottom edge to resize height"
+        onMouseDown={startEdgeResize("bottom")}
+        style={{ position: "absolute", bottom: "-4px", left: "24px", right: "10px", height: "8px", cursor: "ns-resize", zIndex: 22 }}
+      />
+
+      {/* Bottom-Left Corner Tab — Equally / Proportionally Resizes Popup (Locked to Current Size Minimum!) */}
+      <div
+        title="Drag bottom-left corner to resize equally"
+        onMouseDown={startProportionalResize("bottom-left")}
+        style={{
+          position: "absolute",
+          bottom: "0px",
+          left: "0px",
+          width: "22px",
+          height: "22px",
+          cursor: "nesw-resize",
+          zIndex: 25,
+          display: "flex",
+          alignItems: "flex-end",
+          justifyContent: "flex-start",
+          padding: "3px 4px",
+          borderBottomLeftRadius: "12px",
+          background: "linear-gradient(45deg, rgba(148,163,184,0.28) 0%, rgba(148,163,184,0.10) 52%, transparent 53%)"
+        }}
+      >
+        <svg width="10" height="10" viewBox="0 0 10 10" style={{ pointerEvents: "none" }}>
+          <line x1="1" y1="3" x2="7" y2="9" stroke="#64748B" strokeWidth="1.4" strokeLinecap="round" />
+          <line x1="1" y1="6.5" x2="3.5" y2="9" stroke="#64748B" strokeWidth="1.4" strokeLinecap="round" />
+        </svg>
+      </div>
+    </div>
+  ) : null;
+
+  return (
+    <div ref={triggerRef} style={{ display: "flex", flexDirection: "column", gap: "5px", width: "100%" }}>
+      <select
+        value={String(state.selectedId)}
+        onChange={(e) => handleDropdownChange(e.target.value)}
+        style={{
+          width: "100%",
+          padding: "5px 7px",
+          fontSize: "11.5px",
+          fontWeight: 600,
+          borderRadius: "6px",
+          border: isMultiMode ? "1px solid #8B5CF6" : "1px solid #CBD5E1",
+          background: "#FFFFFF",
+          color: "#0F172A",
+          cursor: "pointer",
+          outline: "none"
+        }}
+      >
+          {enabledGroups.length === 0 && <option value="0">— No Groups (Click Add Group) —</option>}
+          {enabledGroups.length < 100 && <option value="__ADD_GROUP__">➕ Add Group...</option>}
+          {enabledGroups.length > 1 && <option value="multi">✨ Edit Multiple...</option>}
+          <option value="__SYNC_GOOGLE_M3__">🔄 Revert Google Default</option>
+          {enabledGroups.length > 0 && <option disabled>──────────────</option>}
+          {enabledGroups.map((g) => (
+            <option key={g.id} value={String(g.id)}>
+              {g.name || ("Group " + g.id)} ({(g.selector || "").split(",")[0]})
+            </option>
+          ))}
+      </select>
+
+      <button
+        type="button"
+        onClick={() => setPanelOpen((v) => !v)}
+        style={{
+          width: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "5px 9px",
+          borderRadius: "6px",
+          border: panelOpen ? "1px solid #0D9488" : "1px solid #CBD5E1",
+          background: panelOpen ? "rgba(13, 148, 136, 0.12)" : "#F8FAFC",
+          color: "#0F172A",
+          fontSize: "11.5px",
+          fontWeight: 600,
+          cursor: "pointer"
+        }}
+      >
+        <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>🎨 Edit {activeTitle}</span>
+        <span style={{ fontSize: "10px", opacity: 0.7, flexShrink: 0 }}>{panelOpen ? "▾" : "▸"}</span>
+      </button>
+
+      {panelOpen && (portalTarget ? createPortal(studioModal, portalTarget) : studioModal)}
+    </div>
+  );
+}
+
+export function getDynamicGroupOptionsForPlasmic(compProps?: any): Array<{ value: string; label: string }> {
+  const state = buildInitialGroupsFromProps(compProps || {}, compProps?.dynamicGroupsJson);
+  const enabled = Object.values(state.groups)
+    .filter((g): g is DynamicGroupItem => Boolean(g && g.enabled))
+    .sort((a, b) => a.id - b.id);
+  const opts: Array<{ value: string; label: string }> = [{ value: "none", label: "None (Unstyled)" }];
+  enabled.forEach((g) => {
+    const primarySel = ((g.selector || (".gm-group-" + g.id)).split(",")[0] || "").trim();
+    opts.push({
+      value: String(g.id),
+      label: "Group " + g.id + " — " + (g.name || ("Group " + g.id)) + (primarySel ? (" (" + primarySel + ")") : "")
+    });
+  });
+  return opts;
+}
+
+export function resolveGroupPrimaryClass(groupRef: string | number | undefined, compProps?: any): string {
+  if (groupRef === undefined || groupRef === null) return "";
+  const raw = String(groupRef).trim();
+  if (!raw || raw === "none" || raw === "0" || raw === "false") return "";
+  const state = buildInitialGroupsFromProps(compProps || {}, compProps?.dynamicGroupsJson);
+  // Support numeric ID ("1", "3", "10"), "group-3", "g3", OR legacy class string (".bars", "modals", "headerButtons")
+  let num = parseInt(raw.replace(/^(group-|g)/i, ""), 10);
+  if (isNaN(num)) {
+    const clean = raw.replace(/^\./, "").toLowerCase();
+    const matched = Object.values(state.groups).find((g) => {
+      if (!g) return false;
+      return (g.selector || "").split(",").some((s) => s.trim().replace(/^\./, "").toLowerCase() === clean);
+    });
+    if (matched) num = matched.id;
+  }
+  if (!isNaN(num) && num >= 1) {
+    const grp = state.groups[String(num)];
+    if (grp && grp.selector) {
+      const classes = grp.selector
+        .split(",")
+        .map((s) => s.trim())
+        .filter((s) => s.startsWith(".") && !s.includes(" ") && !s.includes(">") && !s.includes(":"))
+        .map((s) => s.slice(1));
+      if (classes.length > 0) return classes.join(" ");
+    }
+    return "gm-group-" + num + " group-" + num;
+  }
+  return raw.replace(/^\./, "");
+}
+export function getEcmdGroupChoiceOptions(compProps?: any): Array<{ value: string; label: string }> {
+  const state = buildInitialGroupsFromProps(compProps || {}, compProps?.dynamicGroupsJson);
+  const enabled = Object.values(state.groups)
+    .filter((g): g is DynamicGroupItem => Boolean(g && g.enabled))
+    .sort((a, b) => a.id - b.id);
+  const opts: Array<{ value: string; label: string }> = [{ value: "none", label: "None (Unstyled)" }];
+  enabled.forEach((g) => {
+    const primarySel = ((g.selector || (".gm-group-" + g.id)).split(",")[0] || "").trim();
+    opts.push({
+      value: "ecmd-group-" + g.id,
+      label: (g.name || ("Group " + g.id)) + (primarySel ? (" (" + primarySel + ")") : "")
+    });
+  });
+  return opts;
+}
+export function EcmdGroupSelectControl(props: any) {
+  const compProps = props?.componentProps || {};
+  const state = buildInitialGroupsFromProps(compProps, compProps?.dynamicGroupsJson);
+  const enabled = Object.values(state.groups)
+    .filter((g): g is DynamicGroupItem => Boolean(g && g.enabled))
+    .sort((a, b) => a.id - b.id);
+  const curVal = props?.value ? String(props.value) : "none";
+  const handleChange = (nextVal: string) => {
+    if (typeof props?.updateValue === "function") props.updateValue(nextVal);
+    else if (typeof props?.onChange === "function") props.onChange(nextVal);
+  };
+  return (
+    <select
+      value={curVal}
+      onChange={(e) => handleChange(e.target.value)}
+      style={{
+        width: "100%",
+        padding: "5px 8px",
+        fontSize: "11.5px",
+        fontWeight: 500,
+        borderRadius: "6px",
+        border: "1px solid #CBD5E1",
+        background: "#F8FAFC",
+        color: "#0F172A",
+        cursor: "pointer",
+        outline: "none"
+      }}
+    >
+      <option value="none">None (Use Design Tab Colors)</option>
+      {enabled.map((g) => {
+        const primarySel = ((g.selector || (".gm-group-" + g.id)).split(",")[0] || "").trim();
+        return (
+          <option key={g.id} value={"ecmd-group-" + g.id}>
+            {"Group " + g.id + ": " + (g.name || ("Group " + g.id)) + (primarySel ? (" (" + primarySel + ")") : "")}
+          </option>
+        );
+      })}
+    </select>
+  );
+}
+=== C:\ECMD\emerald-coast-detailing-hub\src\pages\Console.backup.tsx ===
+import React, { useState } from "react"; import { PageShell } from "@/components/layout/PageShell"; import { LIVE_SNAP } from "@/telemetryData"; const M_TOK = "[REDACTED_SECRET]"; export default function Console() { const [cmd, setCmd] = useState("{\"action\":\"get_external_ai_bootloader\"}"); const [out, setOut] = useState<any>(null); const [loading, setLoading] = useState(false); const runWorker = async (payloadStr?: string) => { setLoading(true); try { const body = JSON.parse(payloadStr ?? cmd); if (body.action === "run_local_cli") { const r = await fetch("/__ecmd_local_cli", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ key: "[REDACTED_SECRET]", mtok: M_TOK, cmd: body.cmd }) }); setOut(await r.json()); } else { const r = await fetch("https://ecmd-same-turn-proxy.ecmd-hub.workers.dev/?key=[REDACTED_SECRET]", { method: "POST", headers: { "Content-Type": "application/json", "x-machine-token": M_TOK }, body: JSON.stringify(body) }); setOut(await r.json()); } } catch (e: any) { setOut({ ok: false, error: e?.message || String(e) }); } setLoading(false); }; return (<PageShell eyebrow="ECMD CARBON 4" title="ECMD Command Console & Live Brain Telemetry" description="Hardware IP Locked (66.219.214.18) + 256-Bit Machine Token + 127.0.0.1 Loopback Lock"><div style={{ background: "#0F172A", color: "#E2E8F0", padding: "16px", borderRadius: "10px", fontFamily: "monospace", border: "1px solid #10B981" }}><div style={{ display: "flex", gap: "8px", marginBottom: "12px", flexWrap: "wrap", alignItems: "center" }}><span style={{ background: "#065F46", color: "#A7F3D0", padding: "6px 10px", borderRadius: "6px", fontSize: "11px", fontWeight: 700 }}>LOCKED: IP 66.219.214.18 + 127.0.0.1</span><input id="ecmd-cmd-input" value={cmd} onChange={(e) => setCmd(e.target.value)} style={{ flex: 1, minWidth: "280px", background: "#1E293B", color: "#38BDF8", border: "1px solid #334155", borderRadius: "6px", padding: "8px 12px", fontFamily: "monospace", fontSize: "12px" }} /><button id="ecmd-cmd-run" onClick={() => runWorker()} style={{ background: "#10B981", color: "#0F172A", fontWeight: 700, border: "none", borderRadius: "6px", padding: "8px 16px", cursor: "pointer" }}>{loading ? "Running..." : "Execute via Worker"}</button><button id="ecmd-btn-boot" onClick={() => runWorker("{\"action\":\"get_external_ai_bootloader\"}")} style={{ background: "#334155", color: "#E2E8F0", border: "none", borderRadius: "6px", padding: "8px 12px", cursor: "pointer" }}>Bootloader</button><button id="ecmd-btn-vault" onClick={() => runWorker("{\"action\":\"get_advanced_suggestions\"}")} style={{ background: "#334155", color: "#E2E8F0", border: "none", borderRadius: "6px", padding: "8px 12px", cursor: "pointer" }}>Vault (25)</button><button id="ecmd-btn-local" onClick={() => runWorker("{\"action\":\"run_local_cli\",\"cmd\":\"Get-Date; Get-Location | Out-String\"}")} style={{ background: "#0284C7", color: "#FFF", fontWeight: 600, border: "none", borderRadius: "6px", padding: "8px 12px", cursor: "pointer" }}>Test Local CLI</button></div><pre id="ecmd-live-json" style={{ background: "#1E293B", padding: "16px", borderRadius: "8px", whiteSpace: "pre-wrap", wordBreak: "break-all", fontSize: "12px", border: "1px solid #334155", maxHeight: "75vh", overflow: "auto" }}>{JSON.stringify(out ?? LIVE_SNAP, null, 2)}</pre></div></PageShell>); }
+=== C:\ECMD\emerald-coast-detailing-hub\src\pages\Console.tsx ===
+import React, { useState, useEffect } from "react";
+import { LIVE_SNAP } from "../telemetryData";
+
+interface AiFeature {
+  id: string;
+  label: string;
+  tag: string;
+  defaultOn: boolean;
+  desc: string;
+}
+
+const AI_FEATURES: AiFeature[] = [
+  { id: "autopilot", label: "autopilot", tag: "LOOP", defaultOn: true, desc: "Runs the hands-free self-healing loop: executes code via #ECMD_AUTO_RUN_[REDACTED_SECRET] / /__ecmd_local_cli / Cloudflare Worker (https://ecmd-same-turn-proxy.ecmd-hub.workers.dev), runs npx tsc --noEmit compiler verification, keeps hmr.overlay: false so Command Console is never blocked, and streams results to src/telemetryData.ts (#ecmd-live-json)." },
+  { id: "bootcheck", label: "bootcheck", tag: "3 TABS", defaultOn: true, desc: "Verifies your 3 required Chrome tabs are open (Command Console, Homepage - ECMD - Plasmic, and BRAIN_SNAPSHOT.md) and prompts you to run startplasmic and gli if port 8080 is offline." },
+  { id: "startplasmic", label: "startplasmic", tag: ":8080", defaultOn: true, desc: "PowerShell alias (Start-EcmdPlasmic.ps1) that launches your local Vite dev server on http://localhost:8080 (C:\\ECMD\\emerald-coast-detailing-hub) for Plasmic Studio app-hosting." },
+  { id: "gli", label: "gli", tag: "1-CLICK", defaultOn: true, desc: "PowerShell 1-Click Clipboard Watcher & Background CLI Queue Poller (Start-EcmdCliBridge.ps1) that watches for #ECMD_AUTO_RUN_[REDACTED_SECRET] and executes PowerShell locally with zero paste required." },
+  { id: "triad", label: "triad", tag: "3-AGENT", defaultOn: true, desc: "The 3-Agent Local Validation Pipeline (C:\\ECMD\\Invoke-Triad.ps1: Architect + Builder + Verifier) that checks syntax, balanced braces, and TypeScript compilation before code goes live." },
+  { id: "xray", label: "xray", tag: "DOM CSS", defaultOn: false, desc: "Live Plasmic DOM & Computed CSS Extractor that walks any component rendered on the Plasmic Studio canvas and beams its full parent-child style tree (width, height, padding, gap, font, color, border, src) to Command Console via Vite WebSocket (ecmd:snap)." },
+  { id: "bridge", label: "bridge", tag: "v7.2", defaultOn: true, desc: "Your 10-Tool Supabase Edge Function (ecmd-carbon-bridge v7.2) + Cloudflare Worker Proxy (https://ecmd-same-turn-proxy.ecmd-hub.workers.dev) for instant SQL (run_sql), schema discovery, and public.ecmd_brain sync." },
+  { id: "vault", label: "vault", tag: "25 ITEMS", defaultOn: true, desc: "Your 25-Item Advanced Suggestions & Roadmap Vault (public.ecmd_advanced_suggestions) tracked with status, priority, and category." },
+  { id: "ironlock", label: "ironlock", tag: "SECURITY", defaultOn: true, desc: "Your 3-Layer Hardware & IP Security Lock (Cloudflare Worker locked to CF-Connecting-IP: 66.219.214.18, 256-bit local C:\\ECMD\\.ecmd-machine-token, and 127.0.0.1 loopback lock on /__ecmd_local_cli)." },
+  { id: "console_ui", label: "Command Console", tag: "TELEMETRY", defaultOn: true, desc: "Command Console (src/pages/Console.tsx): Live Brain Telemetry viewer (#ecmd-live-json) and Cloudflare/Local CLI execution bar." },
+  { id: "git_checkout", label: "git checkout", tag: "RESTORE", defaultOn: true, desc: "Plasmic element copy & checkpoint restore file — rolls back or compares any coded component against its clean Git snapshot." },
+  { id: "freeze", label: "freeze", tag: "BAKE", defaultOn: false, desc: "Indicates you want to copy an element's visual design into local code defaults and save it into git checkout." },
+  { id: "set_patch", label: "Set-EcmdPatch", tag: "SURGICAL", defaultOn: true, desc: "Surgical Line Replacer (C:\\ECMD\\EcmdHelpers.ps1) that normalizes CRLF/LF line endings and swaps exact code blocks cleanly without regex collisions." },
+  { id: "invoke_gz", label: "Invoke-EcmdGz", tag: "GZIP", defaultOn: true, desc: "Compressed GZip + Base64 runner/writer in C:\\ECMD\\EcmdHelpers.ps1 for zero-escape multi-hundred-line file updates." }
+];
+
+const WORKER_URL = "https://ecmd-same-turn-proxy.ecmd-hub.workers.dev";
+
+export default function Console() {
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
+  const [hovered, setHovered] = useState<{ item: AiFeature; top: number } | null>(null);
+  const [payload, setPayload] = useState<string>(JSON.stringify({ action: "get_external_ai_bootloader" }));
+  const [output, setOutput] = useState<any>(LIVE_SNAP);
+  const [busy, setBusy] = useState<boolean>(false);
+
+  const [flags, setFlags] = useState<Record<string, boolean>>(() => {
+    const init: Record<string, boolean> = {};
+    AI_FEATURES.forEach((f) => { init[f.id] = f.defaultOn; });
+    try {
+      const saved = localStorage.getItem("ecmd_console_ai_flags");
+      return saved ? { ...init, ...JSON.parse(saved) } : init;
+    } catch {
+      return init;
+    }
+  });
+
+  useEffect(() => { setOutput(LIVE_SNAP); }, [LIVE_SNAP]);
+
+  useEffect(() => {
+    if ((import.meta as any).hot) {
+      (import.meta as any).hot.on("ecmd:snap", (data: any) => {
+        if (flags["xray"]) setOutput(data);
+      });
+    }
+  }, [flags["xray"]]);
+
+  const toggleFlag = (id: string) => {
+    setFlags((prev) => {
+      const next = { ...prev, [id]: !prev[id] };
+      try { localStorage.setItem("ecmd_console_ai_flags", JSON.stringify(next)); } catch {}
+      fetch("/__ecmd_dom_snap", { method: "POST", body: JSON.stringify({ aiFeatureFlags: next, toggled: id, state: next[id], ts: new Date().toISOString() }) }).catch(() => {});
+      return next;
+    });
+  };
+
+  const launchStartPlasmic = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setFlags((prev) => {
+      const next = { ...prev, startplasmic: true };
+      try { localStorage.setItem("ecmd_console_ai_flags", JSON.stringify(next)); } catch {}
+      return next;
+    });
+    try {
+      const res = await fetch("/__ecmd_local_cli", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ command: "Start-Process powershell.exe -ArgumentList '-NoExit','-ExecutionPolicy','Bypass','-File','C:\\ECMD\\Start-EcmdPlasmic.ps1'; Write-Output 'Launched Start-EcmdPlasmic.ps1 in new PowerShell window!'" })
+      });
+      if (res.ok) {
+        setOutput(await res.json());
+        return;
+      }
+    } catch {}
+    window.location.href = "ecmd://startplasmic";
+  };
+
+  const runBootcheck = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const plasmicUrl = "https://studio.plasmic.app/projects/mrkoQykvpZZfVbEc1yjabw/-/Homepage?arena_type=page&arena=l9eJm43430U2";
+    const brainUrl = "https://github.com/mlhammes2/ECMD/blob/main/BRAIN_SNAPSHOT.md";
+    const opened: string[] = [];
+    const wPlasmic = window.open(plasmicUrl, "ecmd_plasmic_tab");
+    if (wPlasmic) opened.push("Homepage - ECMD - Plasmic");
+    const wBrain = window.open(brainUrl, "ecmd_brain_tab");
+    if (wBrain) opened.push("BRAIN_SNAPSHOT.md");
+    window.focus();
+    setFlags((prev) => {
+      const next = { ...prev, bootcheck: true };
+      try { localStorage.setItem("ecmd_console_ai_flags", JSON.stringify(next)); } catch {}
+      fetch("/__ecmd_dom_snap", { method: "POST", body: JSON.stringify({ aiFeatureFlags: next }) }).catch(() => {});
+      return next;
+    });
+    setOutput({ status: "BOOTCHECK_COMPLETE", bootcheckToggle: "ON", verifiedTabs: ["Command Console (current)", ...opened] });
+  };
+
+  const setAllFlags = (val: boolean) => {
+    const next: Record<string, boolean> = {};
+    AI_FEATURES.forEach((f) => { next[f.id] = val; });
+    setFlags(next);
+    try { localStorage.setItem("ecmd_console_ai_flags", JSON.stringify(next)); } catch {}
+  };
+
+  const runWorker = async (customBody?: any) => {
+    if (!flags["bridge"]) {
+      setOutput({ warning: "bridge feature is currently toggled OFF in the AI Control Sidebar." });
+      return;
+    }
+    setBusy(true);
+    try {
+      const bodyStr = customBody ? JSON.stringify(customBody) : payload;
+      const res = await fetch(WORKER_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-bridge-key": "[REDACTED_SECRET]" },
+        body: bodyStr
+      });
+      setOutput(await res.json());
+    } catch (e: any) {
+      setOutput({ error: e?.message || String(e) });
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const runLocalCliTest = async () => {
+    if (!flags["gli"]) {
+      setOutput({ warning: "gli / Local CLI execution is currently toggled OFF in the AI Control Sidebar." });
+      return;
+    }
+    setBusy(true);
+    try {
+      const res = await fetch("/__ecmd_local_cli", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ command: "Write-Output 'Local Loopback CLI Active & Verified'" })
+      });
+      setOutput(await res.json());
+    } catch (e: any) {
+      setOutput({ error: e?.message || String(e) });
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const activeList = AI_FEATURES.filter((f) => flags[f.id]).map((f) => f.id);
+  const disabledList = AI_FEATURES.filter((f) => !flags[f.id]).map((f) => f.id);
+
+  return (
+    <div style={{ minHeight: "100vh", background: "radial-gradient(circle at 20% 0%, #062825 0%, #040B14 55%)", color: "#F8FAFC", fontFamily: "Inter, system-ui, sans-serif", display: "flex", flexDirection: "column" }}>
+      {/* Compact Sidebar Toggle Strip (Global ECMD Navbar is already rendered above) */}
+      <div style={{ display: "flex", alignItems: "center", padding: "10px 20px", borderBottom: "1px solid rgba(16, 185, 129, 0.14)", background: "rgba(4, 11, 20, 0.65)" }}>
+        <button
+          type="button"
+          onClick={() => setSidebarOpen((v) => !v)}
+          style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 12px", borderRadius: "8px", border: "1px solid rgba(16, 185, 129, 0.45)", background: sidebarOpen ? "rgba(16, 185, 129, 0.16)" : "#0F172A", color: "#10B981", fontWeight: 700, fontSize: "12px", cursor: "pointer" }}
+        >
+          <span>{sidebarOpen ? "◀ Hide AI Sidebar" : "▶ Show AI Sidebar (" + activeList.length + "/" + AI_FEATURES.length + ")"}</span>
+        </button>
+      </div>
+
+      {/* Body Layout: Left Collapsible Sidebar + Main Console Area */}
+      <div style={{ display: "flex", flex: 1, position: "relative" }}>
+        {sidebarOpen && (
+          <aside
+            id="ecmd-ai-feature-sidebar"
+            style={{ width: "310px", minWidth: "310px", borderRight: "1px solid rgba(16, 185, 129, 0.22)", background: "rgba(7, 15, 28, 0.92)", padding: "16px 14px", display: "flex", flexDirection: "column", gap: "10px", position: "relative", zIndex: 40 }}
+          >
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingBottom: "8px", borderBottom: "1px solid rgba(148, 163, 184, 0.14)" }}>
+              <div>
+                <div style={{ fontSize: "11px", fontWeight: 800, letterSpacing: "0.08em", color: "#10B981", textTransform: "uppercase" }}>Hands-Free AI Switches</div>
+                <div style={{ fontSize: "12px", color: "#94A3B8", marginTop: "2px" }}>{activeList.length} of {AI_FEATURES.length} active · Hover for info</div>
+              </div>
+              <div style={{ display: "flex", gap: "4px" }}>
+                <button type="button" onClick={() => setAllFlags(true)} style={{ padding: "3px 7px", fontSize: "10px", fontWeight: 700, borderRadius: "5px", border: "1px solid rgba(16,185,129,0.4)", background: "rgba(16,185,129,0.12)", color: "#10B981", cursor: "pointer" }}>All On</button>
+                <button type="button" onClick={() => setAllFlags(false)} style={{ padding: "3px 7px", fontSize: "10px", fontWeight: 700, borderRadius: "5px", border: "1px solid rgba(148,163,184,0.3)", background: "rgba(30,41,59,0.6)", color: "#94A3B8", cursor: "pointer" }}>All Off</button>
+              </div>
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
+              {AI_FEATURES.map((feat) => {
+                const isOn = !!flags[feat.id];
+                const isHov = hovered?.item.id === feat.id;
+                return (
+                  <div
+                    key={feat.id}
+                    onMouseEnter={(e) => {
+                      const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+                      setHovered({ item: feat, top: Math.min(window.innerHeight - 160, Math.max(72, rect.top)) });
+                    }}
+                    onMouseLeave={() => setHovered((cur) => (cur?.item.id === feat.id ? null : cur))}
+                    onClick={() => toggleFlag(feat.id)}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      padding: "8px 10px",
+                      borderRadius: "9px",
+                      cursor: "pointer",
+                      userSelect: "none",
+                      background: isHov ? "rgba(30, 41, 59, 0.95)" : isOn ? "rgba(15, 23, 42, 0.78)" : "rgba(15, 23, 42, 0.35)",
+                      border: isHov ? "1px solid #38BDF8" : isOn ? "1px solid rgba(16, 185, 129, 0.28)" : "1px solid rgba(51, 65, 85, 0.4)",
+                      opacity: isOn ? 1 : 0.62,
+                      transition: "all 0.15s ease"
+                    }}
+                  >
+                    <div style={{ display: "flex", alignItems: "center", gap: "8px", minWidth: 0 }}>
+                      <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: isOn ? "#10B981" : "#64748B", boxShadow: isOn ? "0 0 8px rgba(16,185,129,0.7)" : "none", flexShrink: 0 }} />
+                      <span style={{ fontSize: "13px", fontWeight: 600, color: isOn ? "#F8FAFC" : "#94A3B8", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{feat.label}</span>
+                      <span style={{ fontSize: "9px", fontWeight: 700, padding: "2px 5px", borderRadius: "4px", background: isOn ? "rgba(16, 185, 129, 0.15)" : "rgba(51, 65, 85, 0.5)", color: isOn ? "#34D399" : "#94A3B8", letterSpacing: "0.04em" }}>{feat.tag}</span>
+                    </div>
+                    <div style={{ display: "flex", alignItems: "center", gap: "6px", flexShrink: 0 }}>
+                      {feat.id === "startplasmic" && (
+                        <button
+                          type="button"
+                          onClick={launchStartPlasmic}
+                          title="Launch PowerShell with startplasmic now"
+                          style={{ padding: "3px 8px", borderRadius: "6px", border: "1px solid #10B981", background: "rgba(16, 185, 129, 0.2)", color: "#34D399", fontSize: "10px", fontWeight: 800, cursor: "pointer" }}
+                        >
+                          ▶ Run
+                        </button>
+                      )}
+                      {feat.id === "bootcheck" && (
+                        <button
+                          type="button"
+                          onClick={runBootcheck}
+                          title="Open any missing required tabs & set bootcheck ON"
+                          style={{ padding: "3px 8px", borderRadius: "6px", border: "1px solid #38BDF8", background: "rgba(56, 189, 248, 0.2)", color: "#38BDF8", fontSize: "10px", fontWeight: 800, cursor: "pointer" }}
+                        >
+                          ▶ Open 3
+                        </button>
+                      )}
+                    {/* Pill Switch */}
+                    <div
+                      role="switch"
+                      aria-checked={isOn}
+                      style={{ width: "36px", height: "20px", borderRadius: "999px", background: isOn ? "#10B981" : "#334155", padding: "2px", boxSizing: "border-box", display: "flex", alignItems: "center", justifyContent: isOn ? "flex-end" : "flex-start", transition: "all 0.18s ease", flexShrink: 0 }}
+                    >
+                      <div style={{ width: "16px", height: "16px", borderRadius: "50%", background: "#FFFFFF", boxShadow: "0 1px 3px rgba(0,0,0,0.4)" }} />
+                    </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </aside>
+        )}
+
+        {/* Floating Hover Tooltip Card */}
+        {hovered && sidebarOpen && (
+          <div
+            style={{
+              position: "fixed",
+              left: "322px",
+              top: hovered.top + "px",
+              width: "360px",
+              padding: "14px 16px",
+              borderRadius: "12px",
+              background: "#0F172A",
+              border: "1px solid #38BDF8",
+              boxShadow: "0 20px 45px rgba(2, 6, 23, 0.85)",
+              zIndex: 9999,
+              pointerEvents: "none"
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "6px" }}>
+              <span style={{ fontSize: "14px", fontWeight: 800, color: "#38BDF8" }}>{hovered.item.label}</span>
+              <span style={{ fontSize: "10px", fontWeight: 800, padding: "2px 7px", borderRadius: "999px", background: flags[hovered.item.id] ? "rgba(16,185,129,0.2)" : "rgba(239,68,68,0.2)", color: flags[hovered.item.id] ? "#10B981" : "#F87171" }}>
+                {flags[hovered.item.id] ? "ACTIVE (ON)" : "DISABLED (OFF)"}
+              </span>
+            </div>
+            <div style={{ fontSize: "12.5px", lineHeight: 1.55, color: "#E2E8F0" }}>{hovered.item.desc}</div>
+          </div>
+        )}
+
+        {/* Main Command Console View */}
+        <main style={{ flex: 1, padding: "40px 44px", maxWidth: "1060px", margin: "0 auto" }}>
+          <div style={{ fontSize: "11px", fontWeight: 800, letterSpacing: "0.14em", color: "#10B981", textTransform: "uppercase", marginBottom: "8px" }}>ECMD CARBON 4</div>
+          <h1 style={{ fontSize: "38px", fontWeight: 800, margin: "0 0 10px", lineHeight: 1.15 }}>ECMD Command Console &amp; Live Brain Telemetry</h1>
+          <p style={{ color: "#94A3B8", fontSize: "14px", margin: "0 0 18px" }}>
+            {flags["ironlock"] ? "Hardware IP Locked (66.219.214.18) + 256-Bit Machine Token + 127.0.0.1 Loopback Lock" : "⚠️ ironlock toggle is marked OFF in Console UI (Server hardware lock remains enforced on Worker)"}
+          </p>
+
+          {/* Machine-Readable Active AI Feature Strip so Gemini always sees current toggle state */}
+          <div id="ecmd-active-flags" style={{ marginBottom: "20px", padding: "10px 14px", borderRadius: "10px", background: "rgba(15, 23, 42, 0.72)", border: "1px solid rgba(56, 189, 248, 0.28)", fontSize: "12px", color: "#CBD5E1", display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center" }}>
+            <strong style={{ color: "#38BDF8" }}>SILENT_SWITCH_RULE (Announce Turn 1 &amp; Every 30 Turns Only — Obey Silently Otherwise) | Active ({activeList.length}):</strong>
+            <span>{activeList.join(", ") || "None"}</span>
+            {disabledList.length > 0 && (
+              <span style={{ marginLeft: "auto", color: "#F87171", fontWeight: 600 }}>OFF: {disabledList.join(", ")}</span>
+            )}
+          </div>
+
+          {flags["console_ui"] ? (
+            <section style={{ borderRadius: "14px", border: "1px solid rgba(16, 185, 129, 0.4)", background: "rgba(11, 19, 32, 0.88)", padding: "18px", boxShadow: "0 20px 50px rgba(0, 0, 0, 0.45)" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", alignItems: "center", marginBottom: "16px" }}>
+                <span style={{ padding: "7px 12px", borderRadius: "7px", background: "rgba(16, 185, 129, 0.14)", border: "1px solid rgba(16, 185, 129, 0.35)", color: "#34D399", fontSize: "11px", fontWeight: 700, fontFamily: "monospace" }}>
+                  LOCKED: IP 66.219.214.18 + 127.0.0.1
+                </span>
+                <input
+                  value={payload}
+                  onChange={(e) => setPayload(e.target.value)}
+                  style={{ flex: 1, minWidth: "220px", padding: "8px 12px", borderRadius: "7px", border: "1px solid #1E293B", background: "#060D18", color: "#38BDF8", fontFamily: "monospace", fontSize: "12px" }}
+                />
+                <button type="button" disabled={busy || !flags["bridge"]} onClick={() => runWorker()} style={{ padding: "8px 14px", borderRadius: "7px", border: "none", background: flags["bridge"] ? "#10B981" : "#334155", color: flags["bridge"] ? "#041311" : "#94A3B8", fontWeight: 700, fontSize: "12px", cursor: flags["bridge"] ? "pointer" : "not-allowed" }}>
+                  Execute via Worker
+                </button>
+                <button type="button" disabled={busy || !flags["bridge"]} onClick={() => runWorker({ action: "get_external_ai_bootloader" })} style={{ padding: "8px 12px", borderRadius: "7px", border: "1px solid #334155", background: "#1E293B", color: "#E2E8F0", fontWeight: 600, fontSize: "12px", cursor: flags["bridge"] ? "pointer" : "not-allowed" }}>
+                  Bootloader
+                </button>
+                <button type="button" disabled={busy || !flags["vault"]} onClick={() => runWorker({ action: "run_sql", sql: "SELECT id, title, category, priority, status FROM public.ecmd_advanced_suggestions ORDER BY id ASC LIMIT 25" })} style={{ padding: "8px 12px", borderRadius: "7px", border: "1px solid #334155", background: "#1E293B", color: flags["vault"] ? "#E2E8F0" : "#64748B", fontWeight: 600, fontSize: "12px", cursor: flags["vault"] ? "pointer" : "not-allowed" }}>
+                  Vault (25)
+                </button>
+                <button type="button" disabled={busy || !flags["gli"]} onClick={runLocalCliTest} style={{ padding: "8px 14px", borderRadius: "7px", border: "none", background: flags["gli"] ? "#0284C7" : "#334155", color: "#FFFFFF", fontWeight: 700, fontSize: "12px", cursor: flags["gli"] ? "pointer" : "not-allowed" }}>
+                  Test Local CLI
+                </button>
+              </div>
+
+              <pre id="ecmd-live-json" style={{ margin: 0, padding: "18px", borderRadius: "10px", background: "#060C17", border: "1px solid #1E293B", color: "#E2E8F0", fontFamily: "ui-monospace, SFMono-Regular, Consolas, monospace", fontSize: "12.5px", lineHeight: 1.55, overflowX: "auto", maxHeight: "540px" }}>
+                {JSON.stringify(output, null, 2)}
+              </pre>
+            </section>
+          ) : (
+            <div style={{ padding: "28px", borderRadius: "14px", border: "1px dashed rgba(148, 163, 184, 0.35)", background: "rgba(15, 23, 42, 0.5)", textAlign: "center", color: "#94A3B8" }}>
+              <div style={{ fontSize: "15px", fontWeight: 700, color: "#F8FAFC", marginBottom: "6px" }}>Command Console Telemetry Viewer &amp; CLI Bar Paused</div>
+              <div style={{ fontSize: "13px", marginBottom: "14px" }}>Toggle <strong>Command Console</strong> back ON in the left sidebar whenever you want live `#ecmd-live-json` telemetry and CLI execution controls visible.</div>
+              <button type="button" onClick={() => toggleFlag("console_ui")} style={{ padding: "8px 16px", borderRadius: "8px", border: "none", background: "#10B981", color: "#041311", fontWeight: 700, cursor: "pointer" }}>
+                Re-Enable Command Console Viewer
+              </button>
+            </div>
+          )}
+        </main>
+      </div>
+    </div>
+  );
+}
+
+=== C:\ECMD\emerald-coast-detailing-hub\src\pages\ecmd-brain.tsx ===
+import React, { useEffect, useState } from "react"; export default function EcmdBrainLive() { const [snap, setSnap] = useState("Waiting for Plasmic canvas telemetry..."); const [ts, setTs] = useState(""); useEffect(() => { const r = () => { const raw = window.localStorage.getItem("__ECMD_LIVE_BRAIN_SNAP"); const time = window.localStorage.getItem("__ECMD_LIVE_BRAIN_TS"); if (raw) { setSnap(raw); setTs(time || ""); } }; r(); const id = setInterval(r, 800); window.addEventListener("storage", r); return () => { clearInterval(id); window.removeEventListener("storage", r); }; }, []); return (<div style={{ background: "#0F172A", color: "#E2E8F0", minHeight: "100vh", padding: "20px", fontFamily: "monospace" }}><h2 style={{ color: "#10B981", margin: "0 0 8px 0" }}>ECMD LIVE LOCAL BRAIN TELEMETRY (0ms Zero-CORS)</h2><div style={{ color: "#94A3B8", fontSize: "12px", marginBottom: "12px" }}>Last Canvas Sync: {ts || "Pending..."}</div><pre id="ecmd-live-json" style={{ background: "#1E293B", padding: "16px", borderRadius: "8px", whiteSpace: "pre-wrap", wordBreak: "break-all", fontSize: "12px", border: "1px solid #334155" }}>{snap}</pre></div>); }
+=== C:\ECMD\emerald-coast-detailing-hub\src\pages\EcmdBrainLive.tsx ===
+import React, { useEffect, useState } from "react"; export default function EcmdBrainLive() { const [snap, setSnap] = useState("Waiting for Plasmic canvas telemetry..."); const [ts, setTs] = useState(""); useEffect(() => { const r = () => { const raw = window.localStorage.getItem("__ECMD_LIVE_BRAIN_SNAP"); const time = window.localStorage.getItem("__ECMD_LIVE_BRAIN_TS"); if (raw) { setSnap(raw); setTs(time || ""); } }; r(); const id = setInterval(r, 800); window.addEventListener("storage", r); return () => { clearInterval(id); window.removeEventListener("storage", r); }; }, []); return (<div style={{ background: "#0F172A", color: "#E2E8F0", minHeight: "100vh", padding: "20px", fontFamily: "monospace" }}><h2 style={{ color: "#10B981", margin: "0 0 8px 0" }}>ECMD LIVE LOCAL BRAIN TELEMETRY (0ms Zero-CORS)</h2><div style={{ color: "#94A3B8", fontSize: "12px", marginBottom: "12px" }}>Last Canvas Sync: {ts || "Pending..."}</div><pre id="ecmd-live-json" style={{ background: "#1E293B", padding: "16px", borderRadius: "8px", whiteSpace: "pre-wrap", wordBreak: "break-all", fontSize: "12px", border: "1px solid #334155" }}>{snap}</pre></div>); }
+=== C:\ECMD\emerald-coast-detailing-hub\src\routes\console.tsx ===
+import { createFileRoute } from "@tanstack/react-router"; import Console from "../pages/Console"; export const Route = createFileRoute("/console")({ component: Console });
+
+=== C:\ECMD\emerald-coast-detailing-hub\src\routes\plasmic-host.tsx ===
+import { createFileRoute } from "@tanstack/react-router";
+import { PlasmicCanvasHost } from "@plasmicapp/loader-react";
+import "../plasmic-init";
+
+export const Route = createFileRoute("/plasmic-host")({
+  component: PlasmicHostPage,
+});
+
+function PlasmicHostPage() {
+  return <PlasmicCanvasHost />;
+}
+
+export default PlasmicHostPage;
