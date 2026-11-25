@@ -3,11 +3,11 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-25T21:15:48.762Z",
-  "latestTurn": "TURN-037",
+  "generatedAt": "2026-11-25T21:48:15.470Z",
+  "latestTurn": "TURN-038",
   "counts": {
-    "totalFiles": 301,
-    "hubFiles": 173,
+    "totalFiles": 293,
+    "hubFiles": 165,
     "runnerFiles": 113,
     "supabaseMirrorFiles": 15,
     "registeredPlasmicComponents": 13,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-25T21:15:38.764Z",
+    "exportedAt": "2026-11-25T21:48:05.629Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -165,7 +165,7 @@
       },
       {
         "table_name": "ecmd_pen_turns",
-        "row_count": 35,
+        "row_count": 36,
         "rls_enabled": false,
         "mirrored": true
       },
@@ -345,12 +345,6 @@
   ],
   "wixToPlasmicMigrationFiles": [
     {
-      "path": "hub/public/wix-vault-index.json",
-      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/wix-vault-index.json",
-      "sizeBytes": 34174,
-      "purpose": "Wix legacy vault file index"
-    },
-    {
       "path": "hub/scripts/archive-wix-vault.mjs",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/archive-wix-vault.mjs",
       "sizeBytes": 10101,
@@ -425,7 +419,7 @@
     {
       "path": "hub/src/test/wix-vault.test.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/wix-vault.test.ts",
-      "sizeBytes": 1652,
+      "sizeBytes": 1645,
       "purpose": "Vitest automated test suite"
     },
     {
@@ -545,7 +539,7 @@
       "section": "hub",
       "path": "hub/AGENTS.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/AGENTS.md",
-      "sizeBytes": 20803,
+      "sizeBytes": 21133,
       "purpose": "Markdown documentation"
     },
     {
@@ -580,7 +574,7 @@
       "section": "hub",
       "path": "hub/GEMINI.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/GEMINI.md",
-      "sizeBytes": 6085,
+      "sizeBytes": 6122,
       "purpose": "Markdown documentation"
     },
     {
@@ -592,16 +586,9 @@
     },
     {
       "section": "hub",
-      "path": "hub/public/ai-history.json",
-      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-history.json",
-      "sizeBytes": 621761,
-      "purpose": "JSON data / config"
-    },
-    {
-      "section": "hub",
       "path": "hub/public/ai-telemetry.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json",
-      "sizeBytes": 5045,
+      "sizeBytes": 6149,
       "purpose": "ECMD PEN live turn telemetry"
     },
     {
@@ -680,13 +667,6 @@
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/runtime-errors.json",
       "sizeBytes": 80,
       "purpose": "DEV browser runtime errors store"
-    },
-    {
-      "section": "hub",
-      "path": "hub/public/wix-vault-index.json",
-      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/wix-vault-index.json",
-      "sizeBytes": 34174,
-      "purpose": "Wix legacy vault file index"
     },
     {
       "section": "hub",
@@ -930,7 +910,7 @@
       "section": "hub",
       "path": "hub/src/components/layout/nav-links.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/layout/nav-links.ts",
-      "sizeBytes": 283,
+      "sizeBytes": 138,
       "purpose": "exports: NAV_LINKS"
     },
     {
@@ -1301,7 +1281,7 @@
       "section": "hub",
       "path": "hub/src/lib/ecmdBootPrompt.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdBootPrompt.ts",
-      "sizeBytes": 20398,
+      "sizeBytes": 20273,
       "purpose": "exports: ECMD_SIDEBAR_BOOT_PROMPT"
     },
     {
@@ -1376,20 +1356,6 @@
     },
     {
       "section": "hub",
-      "path": "hub/src/pages/Cms.tsx",
-      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/Cms.tsx",
-      "sizeBytes": 61685,
-      "purpose": "exports: Cms"
-    },
-    {
-      "section": "hub",
-      "path": "hub/src/pages/Console.tsx",
-      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/Console.tsx",
-      "sizeBytes": 56780,
-      "purpose": "exports: Console"
-    },
-    {
-      "section": "hub",
       "path": "hub/src/pages/ecmd-brain.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/ecmd-brain.tsx",
       "sizeBytes": 1154,
@@ -1406,21 +1372,14 @@
       "section": "hub",
       "path": "hub/src/pages/Errors.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/Errors.tsx",
-      "sizeBytes": 43512,
+      "sizeBytes": 43607,
       "purpose": "exports: UnifiedErrorsPayload, Errors"
-    },
-    {
-      "section": "hub",
-      "path": "hub/src/pages/History.tsx",
-      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/History.tsx",
-      "sizeBytes": 28958,
-      "purpose": "exports: HistoryRecord, History"
     },
     {
       "section": "hub",
       "path": "hub/src/pages/Homepage.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/Homepage.tsx",
-      "sizeBytes": 3603,
+      "sizeBytes": 3606,
       "purpose": "exports: Homepage"
     },
     {
@@ -1434,7 +1393,7 @@
       "section": "hub",
       "path": "hub/src/pages/Workflow.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/Workflow.tsx",
-      "sizeBytes": 21529,
+      "sizeBytes": 22051,
       "purpose": "exports: Workflow"
     },
     {
@@ -1455,21 +1414,7 @@
       "section": "hub",
       "path": "hub/src/routes/__root.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/__root.tsx",
-      "sizeBytes": 8905,
-      "purpose": "exports: Route"
-    },
-    {
-      "section": "hub",
-      "path": "hub/src/routes/cms.tsx",
-      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/cms.tsx",
-      "sizeBytes": 166,
-      "purpose": "exports: Route"
-    },
-    {
-      "section": "hub",
-      "path": "hub/src/routes/console.tsx",
-      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/console.tsx",
-      "sizeBytes": 176,
+      "sizeBytes": 9078,
       "purpose": "exports: Route"
     },
     {
@@ -1477,13 +1422,6 @@
       "path": "hub/src/routes/errors.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/errors.tsx",
       "sizeBytes": 169,
-      "purpose": "exports: Route"
-    },
-    {
-      "section": "hub",
-      "path": "hub/src/routes/history.tsx",
-      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/history.tsx",
-      "sizeBytes": 182,
       "purpose": "exports: Route"
     },
     {
@@ -1518,7 +1456,7 @@
       "section": "hub",
       "path": "hub/src/routeTree.gen.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routeTree.gen.ts",
-      "sizeBytes": 5462,
+      "sizeBytes": 3685,
       "purpose": "exports: FileRoutesByFullPath, FileRoutesByTo, FileRoutesById, FileRouteTypes, RootRouteChildren, routeTree"
     },
     {
@@ -1560,7 +1498,7 @@
       "section": "hub",
       "path": "hub/src/test/app-routing.test.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/app-routing.test.tsx",
-      "sizeBytes": 868,
+      "sizeBytes": 1355,
       "purpose": "Vitest automated test suite"
     },
     {
@@ -1693,7 +1631,7 @@
       "section": "hub",
       "path": "hub/src/test/wix-vault.test.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/wix-vault.test.ts",
-      "sizeBytes": 1652,
+      "sizeBytes": 1645,
       "purpose": "Vitest automated test suite"
     },
     {
@@ -1875,7 +1813,7 @@
       "section": "runner",
       "path": "runner/GEMINI.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/GEMINI.md",
-      "sizeBytes": 5846,
+      "sizeBytes": 5803,
       "purpose": "Doc: ECMD Autonomous Engineering Protocol (C:\\ECMD — ECMD PEN v4.2 / Antigravity"
     },
     {
@@ -1910,7 +1848,7 @@
       "section": "runner",
       "path": "runner/scripts/run-pen-task.mjs",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/run-pen-task.mjs",
-      "sizeBytes": 12629,
+      "sizeBytes": 12321,
       "purpose": "ECMD automation/PEN runner script"
     },
     {
@@ -1938,7 +1876,7 @@
       "section": "runner",
       "path": "runner/scripts/sync-ai-mirror.mjs",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/sync-ai-mirror.mjs",
-      "sizeBytes": 44088,
+      "sizeBytes": 43948,
       "purpose": "exports: scrubSecrets, extractLocalBridgeSecret, isEnvFile, isBinaryBuffer, ensureDir"
     },
     {
@@ -2582,7 +2520,7 @@
       "section": "supabase-mirror",
       "path": "supabase-mirror/tables/ecmd_external_ai_cms.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_external_ai_cms.json",
-      "sizeBytes": 76023,
+      "sizeBytes": 75746,
       "purpose": "Supabase public.ecmd_external_ai_cms table snapshot (scrubbed)"
     },
     {
@@ -2596,7 +2534,7 @@
       "section": "supabase-mirror",
       "path": "supabase-mirror/tables/ecmd_pen_turns.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_pen_turns.json",
-      "sizeBytes": 325007,
+      "sizeBytes": 334867,
       "purpose": "Supabase public.ecmd_pen_turns table snapshot (scrubbed)"
     },
     {

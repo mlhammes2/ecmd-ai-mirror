@@ -4,5 +4,5 @@ Automatically mirrored from `C:\ECMD`, `C:\ECMD\emerald-coast-detailing-hub`, an
 
 - **Start here:** [https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md)
 - **Machine JSON:** [https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.json](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.json)
-- **Latest Turn:** `TURN-037`
-- **Last Synced:** `2026-11-25T21:15:48.762Z`
+- **Latest Turn:** `TURN-038`
+- **Last Synced:** `2026-11-25T21:48:15.470Z`

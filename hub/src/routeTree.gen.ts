@@ -10,10 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as CmsRouteImport } from './routes/cms'
-import { Route as ConsoleRouteImport } from './routes/console'
 import { Route as ErrorsRouteImport } from './routes/errors'
-import { Route as HistoryRouteImport } from './routes/history'
 import { Route as PlasmicHostRouteImport } from './routes/plasmic-host'
 import { Route as WorkflowRouteImport } from './routes/workflow'
 
@@ -22,24 +19,9 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CmsRoute = CmsRouteImport.update({
-  id: '/cms',
-  path: '/cms',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ConsoleRoute = ConsoleRouteImport.update({
-  id: '/console',
-  path: '/console',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ErrorsRoute = ErrorsRouteImport.update({
   id: '/errors',
   path: '/errors',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HistoryRoute = HistoryRouteImport.update({
-  id: '/history',
-  path: '/history',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PlasmicHostRoute = PlasmicHostRouteImport.update({
@@ -55,68 +37,34 @@ const WorkflowRoute = WorkflowRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/cms': typeof CmsRoute
-  '/console': typeof ConsoleRoute
   '/errors': typeof ErrorsRoute
-  '/history': typeof HistoryRoute
   '/plasmic-host': typeof PlasmicHostRoute
   '/workflow': typeof WorkflowRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/cms': typeof CmsRoute
-  '/console': typeof ConsoleRoute
   '/errors': typeof ErrorsRoute
-  '/history': typeof HistoryRoute
   '/plasmic-host': typeof PlasmicHostRoute
   '/workflow': typeof WorkflowRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/cms': typeof CmsRoute
-  '/console': typeof ConsoleRoute
   '/errors': typeof ErrorsRoute
-  '/history': typeof HistoryRoute
   '/plasmic-host': typeof PlasmicHostRoute
   '/workflow': typeof WorkflowRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/cms'
-    | '/console'
-    | '/errors'
-    | '/history'
-    | '/plasmic-host'
-    | '/workflow'
+  fullPaths: '/' | '/errors' | '/plasmic-host' | '/workflow'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/cms'
-    | '/console'
-    | '/errors'
-    | '/history'
-    | '/plasmic-host'
-    | '/workflow'
-  id:
-    | '__root__'
-    | '/'
-    | '/cms'
-    | '/console'
-    | '/errors'
-    | '/history'
-    | '/plasmic-host'
-    | '/workflow'
+  to: '/' | '/errors' | '/plasmic-host' | '/workflow'
+  id: '__root__' | '/' | '/errors' | '/plasmic-host' | '/workflow'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  CmsRoute: typeof CmsRoute
-  ConsoleRoute: typeof ConsoleRoute
   ErrorsRoute: typeof ErrorsRoute
-  HistoryRoute: typeof HistoryRoute
   PlasmicHostRoute: typeof PlasmicHostRoute
   WorkflowRoute: typeof WorkflowRoute
 }
@@ -130,32 +78,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/cms': {
-      id: '/cms'
-      path: '/cms'
-      fullPath: '/cms'
-      preLoaderRoute: typeof CmsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/console': {
-      id: '/console'
-      path: '/console'
-      fullPath: '/console'
-      preLoaderRoute: typeof ConsoleRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/errors': {
       id: '/errors'
       path: '/errors'
       fullPath: '/errors'
       preLoaderRoute: typeof ErrorsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/history': {
-      id: '/history'
-      path: '/history'
-      fullPath: '/history'
-      preLoaderRoute: typeof HistoryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/plasmic-host': {
@@ -177,10 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  CmsRoute: CmsRoute,
-  ConsoleRoute: ConsoleRoute,
   ErrorsRoute: ErrorsRoute,
-  HistoryRoute: HistoryRoute,
   PlasmicHostRoute: PlasmicHostRoute,
   WorkflowRoute: WorkflowRoute,
 }

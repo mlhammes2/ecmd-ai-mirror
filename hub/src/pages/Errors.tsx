@@ -461,17 +461,19 @@ export function Errors() {
           </div>
           <div className="flex gap-2">
             <Link
-              to="/console"
+              to="/workflow"
               className="rounded-lg border border-emerald-500/30 bg-emerald-950/30 px-3 py-1.5 text-xs font-semibold text-emerald-300 transition hover:bg-emerald-900/50"
             >
-              Command Console ↗
+              Workflow &amp; Boot-Up ↗
             </Link>
-            <Link
-              to="/history"
+            <a
+              href="https://github.com/mlhammes2/ecmd-ai-mirror"
+              target="_blank"
+              rel="noreferrer"
               className="rounded-lg border border-slate-700 bg-slate-900/60 px-3 py-1.5 text-xs font-semibold text-slate-300 transition hover:bg-slate-800"
             >
-              Action &amp; Turn Log ↗
-            </Link>
+              GitHub AI Mirror ↗
+            </a>
           </div>
         </div>
 

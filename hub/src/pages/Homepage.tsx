@@ -68,10 +68,10 @@ export default function Homepage() {
                 Workflow &amp; Boot-Up
               </a>
               <a
-                href="/console"
+                href="/errors"
                 className="rounded-lg border border-slate-700 bg-slate-900/60 px-5 py-2.5 text-xs font-semibold text-slate-300 transition hover:bg-slate-800"
               >
-                Command Console
+                Errors &amp; Issues
               </a>
             </div>
           </div>

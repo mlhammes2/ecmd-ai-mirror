@@ -89,6 +89,9 @@ const EXCLUDED_FILENAMES = new Set([
   "DS_Store",
   ".DS_Store",
   "Thumbs.db",
+  "ai-history.json",
+  "wix-vault-index.json",
+  "ai-site-manifest.json",
 ]);
 
 const BINARY_OR_SKIP_EXTENSIONS = new Set([
@@ -808,12 +811,6 @@ function getLatestTurnCode() {
   try {
     const tel = JSON.parse(fs.readFileSync(path.join(HUB_DIR, "public", "ai-telemetry.json"), "utf8"));
     if (tel?.refCode) return tel.refCode;
-  } catch {
-    // ignore
-  }
-  try {
-    const hist = JSON.parse(fs.readFileSync(path.join(HUB_DIR, "public", "ai-history.json"), "utf8"));
-    if (Array.isArray(hist) && hist[0]?.refCode) return hist[0].refCode;
   } catch {
     // ignore
   }

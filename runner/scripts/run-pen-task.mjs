@@ -5,14 +5,16 @@ import path from "node:path";
 
 const hub = "C:\\ECMD\\emerald-coast-detailing-hub";
 const telemetryPath = path.join(hub, "public", "ai-telemetry.json");
-const historyPath = path.join(hub, "public", "ai-history.json");
 const promptFile = process.argv[2];
 const rawTask = fs.readFileSync(promptFile, "utf8").trim();
 
-let history = [];
-try { history = JSON.parse(fs.readFileSync(historyPath, "utf8")); } catch {}
-if (!Array.isArray(history)) history = [];
-const refCode = `TURN-${String(history.length + 1).padStart(3, "0")}`;
+let prevTurnNum = 0;
+try {
+  const prevTel = JSON.parse(fs.readFileSync(telemetryPath, "utf8"));
+  const mPrev = String(prevTel?.refCode || "").match(/TURN-(\d+)/i);
+  if (mPrev) prevTurnNum = Number(mPrev[1]) || 0;
+} catch {}
+const refCode = `TURN-${String(prevTurnNum + 1).padStart(3, "0")}`;
 
 const IGNORED_DIRS = new Set([
   ".git",
@@ -27,7 +29,9 @@ const IGNORED_DIRS = new Set([
 
 const IGNORED_FILES = new Set([
   "public/ai-telemetry.json",
-  "public/ai-history.json",
+  "public/plasmic-diagnostics.json",
+  "public/plasmic-live-dom.json",
+  "public/runtime-errors.json",
 ]);
 
 const snapshotWorkspaceFiles = (rootDir) => {
@@ -289,12 +293,6 @@ child.on("close", async (code) => {
   fs.writeFileSync(telemetryPath, JSON.stringify(slimTelemetry, null, 2));
 
   const traceReport = `=== ANTIGRAVITY (AGY) STEP & SELF-HEAL LOG ===\n${attemptsLog.join("\n")}\n\n=== ASSISTANT SUMMARY ===\n${cleanCliText.slice(0, 8000)}`;
-
-  let latestHistory = [];
-  try { latestHistory = JSON.parse(fs.readFileSync(historyPath, "utf8")); } catch {}
-  if (!Array.isArray(latestHistory)) latestHistory = [];
-  latestHistory.unshift({ ...slimTelemetry, id: refCode, exitCode: code, taskPrompt: rawTask, cliSummary: traceReport, cliStderr: errText.trim() });
-  fs.writeFileSync(historyPath, JSON.stringify(latestHistory.slice(0, 50), null, 2));
 
   try {
     const b64 = (s) => Buffer.from(String(s || ""), "utf8").toString("base64");

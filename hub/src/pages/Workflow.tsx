@@ -101,11 +101,19 @@ export default function Workflow() {
               </p>
             </div>
             <div className="flex flex-wrap gap-2.5">
-              <Link
-                to="/console"
+              <a
+                href="https://github.com/mlhammes2/ecmd-ai-mirror"
+                target="_blank"
+                rel="noreferrer"
                 className="rounded-lg bg-emerald-500 px-4 py-2 text-xs font-bold text-slate-950 shadow-lg shadow-emerald-500/20 transition hover:bg-emerald-400"
               >
-                Command Console ↗
+                GitHub AI Mirror ↗
+              </a>
+              <Link
+                to="/errors"
+                className="rounded-lg border border-sky-500/40 bg-sky-950/40 px-4 py-2 text-xs font-semibold text-sky-300 transition hover:bg-sky-900/50"
+              >
+                Errors &amp; Issues ↗
               </Link>
               <a
                 href="https://studio.plasmic.app/projects/mrkoQykvpZZfVbEc1yjabw/-/Homepage"
@@ -379,10 +387,10 @@ export default function Workflow() {
               <div className="mx-auto mb-2 grid h-10 w-10 place-items-center rounded-full bg-emerald-500/10 text-lg text-emerald-400">
                 ⚡
               </div>
-              <div className="text-xs font-bold uppercase tracking-wider text-emerald-400">Phase 4: Telemetry</div>
-              <div className="mt-1 text-sm font-semibold text-white">0ms Audit Trail</div>
+              <div className="text-xs font-bold uppercase tracking-wider text-emerald-400">Phase 4: Telemetry &amp; Mirror</div>
+              <div className="mt-1 text-sm font-semibold text-white">0ms Diagnostics + Mirror</div>
               <p className="mt-2 text-xs text-slate-400 leading-relaxed">
-                Results stream to Command Console &amp; Turn Log. Sidebar reads updated state with 0ms lag.
+                Errors stream to <code className="text-sky-300">Errors &amp; Issues (/errors)</code> and code/schema auto-syncs to <strong className="text-emerald-300">GitHub AI Mirror (mlhammes2/ecmd-ai-mirror)</strong>.
               </p>
             </div>
           </div>

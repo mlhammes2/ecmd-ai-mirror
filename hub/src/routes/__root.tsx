@@ -202,7 +202,10 @@ function RootComponent() {
   const pathname = useRouterState({
     select: (state) => state.location.pathname,
   });
-  const isPlasmicHost = pathname.replace(/\/+$/, "") === "/plasmic-host";
+  const normalizedPath = pathname.replace(/\/+$/, "") || "/";
+  const isPlasmicHost = normalizedPath === "/plasmic-host";
+  const isDevDashboardRoute =
+    normalizedPath === "/workflow" || normalizedPath === "/errors";
 
   useEffect(() => {
     if (import.meta.env.DEV) {
@@ -210,7 +213,7 @@ function RootComponent() {
     }
   }, []);
 
-  if (isPlasmicHost) {
+  if (isPlasmicHost || !isDevDashboardRoute) {
     return (
       <QueryClientProvider client={queryClient}>
         <Outlet />
