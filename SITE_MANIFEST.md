@@ -4,15 +4,15 @@
 > Chrome Gemini Sidebar & external architects: fetch this manifest first, then fetch any exact raw GitHub URL below on demand.
 
 ## Summary
-- **Generated At:** `2026-11-25T23:08:14.535Z`
-- **Latest Turn:** `TURN-039`
+- **Generated At:** `2026-11-25T23:46:48.125Z`
+- **Latest Turn:** `TURN-040`
 - **Manifest Raw URL:** https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md
 - **JSON Manifest Raw URL:** https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.json
-- **Mirrored Files:** **297** total (`hub/`: 167, `runner/`: 113, `supabase-mirror/`: 17)
-- **Secrets Scrubbed:** 50 redaction(s) applied (zero `.env*`, zero auth/PII tables exported)
+- **Mirrored Files:** **310** total (`hub/`: 167, `runner/`: 114, `supabase-mirror/`: 29)
+- **Secrets Scrubbed:** 66 redaction(s) applied (zero `.env*`, zero auth/PII tables exported)
 
 ## Supabase Summary (`lvynkeuceiqxafgpgdvs`)
-- **Public Tables:** 33 total · **13** safe config/CMS/package/Wix tables mirrored · **20** auth/PII/log tables strictly excluded
+- **Public Tables:** 57 total · **25** safe config/CMS/package/Wix tables mirrored · **32** auth/PII/log tables strictly excluded
 - **Schema DDL:** https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/schema/schema_overview.sql
 - **Schema JSON:** https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/schema/tables_and_columns.json
 - **Edge Functions Registry:** https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/edge-functions/deployed_functions.json
@@ -38,20 +38,44 @@
 | `ecmd_crm_vehicles` | 6 | ON | Excluded (Auth/PII/Log) |
 | `ecmd_dev_jobs` | 0 | OFF | Excluded (Auth/PII/Log) |
 | `ecmd_diagnostic_runs` | 1 | OFF | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_diagnostic_runs.json) |
-| `ecmd_external_ai_cms` | 36 | OFF | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_external_ai_cms.json) |
+| `ecmd_external_ai_cms` | 37 | OFF | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_external_ai_cms.json) |
 | `ecmd_files_mirror` | 99 | OFF | Excluded (Auth/PII/Log) |
 | `ecmd_members` | 0 | ON | Excluded (Auth/PII/Log) |
 | `ecmd_messages` | 6 | ON | Excluded (Auth/PII/Log) |
 | `ecmd_packages` | 4 | OFF | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_packages.json) |
-| `ecmd_pen_turns` | 37 | OFF | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_pen_turns.json) |
+| `ecmd_pen_turns` | 38 | OFF | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_pen_turns.json) |
 | `ecmd_plasmic_hydration` | 1 | OFF | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_plasmic_hydration.json) |
 | `ecmd_service_packages` | 36 | ON | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_service_packages.json) |
 | `ecmd_site_blueprints` | 106 | ON | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_site_blueprints.json) |
 | `ecmd_site_menu_buttons` | 17 | OFF | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_site_menu_buttons.json) |
 | `ecmd_sql_logs` | 20 | OFF | Excluded (Auth/PII/Log) |
 | `ecmd_telemetry` | 0 | ON | Excluded (Auth/PII/Log) |
-| `ecmd_whats_included` | 18 | ON | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_whats_included.json) |
+| `ecmd_whats_included` | 30 | ON | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_whats_included.json) |
+| `ecmd_wix_active_subscriptions` | 0 | ON | Excluded (Auth/PII/Log) |
+| `ecmd_wix_ai_brain_master_index` | 7 | ON | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_ai_brain_master_index.json) |
+| `ecmd_wix_ai_capabilities_rules` | 15 | ON | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_ai_capabilities_rules.json) |
+| `ecmd_wix_ai_persona_response_rules` | 4 | ON | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_ai_persona_response_rules.json) |
+| `ecmd_wix_availability_rules` | 4 | ON | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_availability_rules.json) |
+| `ecmd_wix_bookings` | 0 | ON | Excluded (Auth/PII/Log) |
+| `ecmd_wix_calendar_time_slots` | 3 | ON | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_calendar_time_slots.json) |
+| `ecmd_wix_code_and_blueprints` | 80 | ON | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_code_and_blueprints.json) |
+| `ecmd_wix_contractors` | 4 | ON | Excluded (Auth/PII/Log) |
+| `ecmd_wix_customer_contacts` | 5 | ON | Excluded (Auth/PII/Log) |
+| `ecmd_wix_customer_locations` | 5 | ON | Excluded (Auth/PII/Log) |
+| `ecmd_wix_customer_profiles` | 3 | ON | Excluded (Auth/PII/Log) |
+| `ecmd_wix_customer_vehicles` | 6 | ON | Excluded (Auth/PII/Log) |
+| `ecmd_wix_discounts` | 1 | ON | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_discounts.json) |
+| `ecmd_wix_global_settings` | 1 | ON | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_global_settings.json) |
 | `ecmd_wix_legacy_vault` | 106 | OFF | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_legacy_vault.json) |
+| `ecmd_wix_login_security` | 7 | ON | Excluded (Auth/PII/Log) |
+| `ecmd_wix_payment_methods` | 15 | ON | Excluded (Auth/PII/Log) |
+| `ecmd_wix_profile_buttons` | 0 | ON | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_profile_buttons.json) |
+| `ecmd_wix_promo_codes` | 0 | ON | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_promo_codes.json) |
+| `ecmd_wix_scheduled_jobs` | 7 | ON | Excluded (Auth/PII/Log) |
+| `ecmd_wix_site_buttons` | 81 | ON | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_site_buttons.json) |
+| `ecmd_wix_sync_errors` | 9 | ON | Excluded (Auth/PII/Log) |
+| `ecmd_wix_temporary_data` | 2 | ON | Excluded (Auth/PII/Log) |
+| `ecmd_wix_vehicle_categories` | 14 | ON | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_vehicle_categories.json) |
 
 ## Plasmic Registered Components (`ECMD_REGISTERED_COMPONENTS` — 13)
 | Name | Display Name | Import Path |
@@ -70,7 +94,7 @@
 | `EcmdPackagesRepeater` | Packages Repeater (#packagesRep) | `./components/EcmdPackagesRepeater` |
 | `EcmdBrushedSteelButton` | Brushed Steel Button | `./components/EcmdBrushedSteelButton` |
 
-## Key Wix-to-Plasmic Migration Files (29)
+## Key Wix-to-Plasmic Migration Files (42)
 - `hub/scripts/archive-wix-vault.mjs` (9.9 KB) — exports: runSql, escapeSql, getCategory, getDescription, main — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/archive-wix-vault.mjs
 - `hub/scripts/sync-wix-vault.mjs` (12.9 KB) — exports: runSql, escapeSql, getCategory, getDescription, main — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/sync-wix-vault.mjs
 - `hub/src/components/booking-hq/HqDailyDispatchBoard.tsx` (2.3 KB) — exports: HqDailyDispatchBoardProps, HqDailyDispatchBoard — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/booking-hq/HqDailyDispatchBoard.tsx
@@ -86,6 +110,7 @@
 - `hub/src/lib/ecmdPackageMatcher.ts` (17.2 KB) — exports: PackageLevelName, PackageDetailType, PackageScopeKey, PackageSubCategory, EcmdServicePackageRow, EcmdSavedAddOnItem — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdPackageMatcher.ts
 - `hub/src/test/wix-vault.test.ts` (1.6 KB) — Vitest automated test suite — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/wix-vault.test.ts
 - `runner/.github/workflows/wix-publish.yml` (1.1 KB) — GitHub Actions / YAML workflow — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/.github/workflows/wix-publish.yml
+- `runner/scripts/import-wix-csvs.mjs` (29.7 KB) — exports: parseCsv — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/import-wix-csvs.mjs
 - `runner/scripts/wix-auto-publish.js` (625 B) — ECMD automation/PEN runner script — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/wix-auto-publish.js
 - `runner/src/pages/Booking HQ.k657b.js` (2.3 KB) — Wix Velo legacy page controller — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/pages/Booking%20HQ.k657b.js
 - `runner/src/public/cartEngine.js` (19.9 KB) — exports: getOrdinalSuffix, formatPhoneNumber, buildCalendarDates, getDetailerTimeOff, calculateNextAvailableDate, buildWeeklyDataArray — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/cartEngine.js
@@ -99,7 +124,19 @@
 - `runner/src/public/repeaterEngine.js` (4.0 KB) — exports: registerRepeater, repaintSingleItem, smartSyncRepeater — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/repeaterEngine.js
 - `runner/wix.config.json` (82 B) — JSON data / config — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/wix.config.json
 - `supabase-mirror/tables/ecmd_packages.json` (3.1 KB) — Supabase public.ecmd_packages table snapshot (scrubbed) — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_packages.json
+- `supabase-mirror/tables/ecmd_wix_ai_brain_master_index.json` (14.0 KB) — Supabase public.ecmd_wix_ai_brain_master_index table snapshot (scrubbed) — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_ai_brain_master_index.json
+- `supabase-mirror/tables/ecmd_wix_ai_capabilities_rules.json` (36.8 KB) — Supabase public.ecmd_wix_ai_capabilities_rules table snapshot (scrubbed) — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_ai_capabilities_rules.json
+- `supabase-mirror/tables/ecmd_wix_ai_persona_response_rules.json` (13.2 KB) — Supabase public.ecmd_wix_ai_persona_response_rules table snapshot (scrubbed) — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_ai_persona_response_rules.json
+- `supabase-mirror/tables/ecmd_wix_availability_rules.json` (5.4 KB) — Supabase public.ecmd_wix_availability_rules table snapshot (scrubbed) — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_availability_rules.json
+- `supabase-mirror/tables/ecmd_wix_calendar_time_slots.json` (2.9 KB) — Supabase public.ecmd_wix_calendar_time_slots table snapshot (scrubbed) — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_calendar_time_slots.json
+- `supabase-mirror/tables/ecmd_wix_code_and_blueprints.json` (647.6 KB) — Supabase public.ecmd_wix_code_and_blueprints table snapshot (scrubbed) — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_code_and_blueprints.json
+- `supabase-mirror/tables/ecmd_wix_discounts.json` (825 B) — Supabase public.ecmd_wix_discounts table snapshot (scrubbed) — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_discounts.json
+- `supabase-mirror/tables/ecmd_wix_global_settings.json` (828 B) — Supabase public.ecmd_wix_global_settings table snapshot (scrubbed) — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_global_settings.json
 - `supabase-mirror/tables/ecmd_wix_legacy_vault.json` (2.02 MB) — Supabase public.ecmd_wix_legacy_vault table snapshot (scrubbed) — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_legacy_vault.json
+- `supabase-mirror/tables/ecmd_wix_profile_buttons.json` (146 B) — Supabase public.ecmd_wix_profile_buttons table snapshot (scrubbed) — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_profile_buttons.json
+- `supabase-mirror/tables/ecmd_wix_promo_codes.json` (142 B) — Supabase public.ecmd_wix_promo_codes table snapshot (scrubbed) — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_promo_codes.json
+- `supabase-mirror/tables/ecmd_wix_site_buttons.json` (89.3 KB) — Supabase public.ecmd_wix_site_buttons table snapshot (scrubbed) — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_site_buttons.json
+- `supabase-mirror/tables/ecmd_wix_vehicle_categories.json` (10.7 KB) — Supabase public.ecmd_wix_vehicle_categories table snapshot (scrubbed) — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_vehicle_categories.json
 
 ## Files: `hub/` (167)
 | Path | Size | Exports / Purpose | Raw GitHub URL |
@@ -107,14 +144,14 @@
 | `hub/.gitignore` | 385 B | Text/config file | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/.gitignore |
 | `hub/.prettierignore` | 100 B | Text/config file | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/.prettierignore |
 | `hub/.prettierrc` | 96 B | Text/config file | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/.prettierrc |
-| `hub/AGENTS.md` | 21.9 KB | Markdown documentation | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/AGENTS.md |
+| `hub/AGENTS.md` | 22.5 KB | Markdown documentation | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/AGENTS.md |
 | `hub/BRAIN_SNAPSHOT.md` | 166 B | Markdown documentation | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/BRAIN_SNAPSHOT.md |
 | `hub/bunfig.toml` | 414 B | Text/config file | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/bunfig.toml |
 | `hub/components.json` | 465 B | JSON data / config | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/components.json |
 | `hub/eslint.config.js` | 1.3 KB | Code module | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/eslint.config.js |
-| `hub/GEMINI.md` | 6.0 KB | Markdown documentation | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/GEMINI.md |
+| `hub/GEMINI.md` | 6.1 KB | Markdown documentation | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/GEMINI.md |
 | `hub/package.json` | 3.2 KB | Package manifest & scripts | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/package.json |
-| `hub/public/ai-telemetry.json` | 5.9 KB | ECMD PEN live turn telemetry | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json |
+| `hub/public/ai-telemetry.json` | 4.6 KB | ECMD PEN live turn telemetry | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json |
 | `hub/public/Ecmd Icon Cord Black.svg` | 39.9 KB | SVG vector asset | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/Ecmd%20Icon%20Cord%20Black.svg |
 | `hub/public/ecmd-brain.html` | 962 B | HTML template / console | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ecmd-brain.html |
 | `hub/public/ecmd-dolphin-logo.svg` | 5.5 KB | SVG vector asset | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ecmd-dolphin-logo.svg |
@@ -213,7 +250,7 @@
 | `hub/src/engines/stateManager.ts` | 1.8 KB | exports: BookingDraftState, stateManager | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/engines/stateManager.ts |
 | `hub/src/hooks/use-mobile.tsx` | 595 B | exports: useIsMobile | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/hooks/use-mobile.tsx |
 | `hub/src/integrations/supabase/client.ts` | 2.3 KB | exports: SUPABASE_URL, BRIDGE_URL, BRIDGE_KEY, carbonBridge, carbonQuery, carbonInsert | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/integrations/supabase/client.ts |
-| `hub/src/lib/ecmdBootPrompt.ts` | 20.5 KB | exports: ECMD_SIDEBAR_BOOT_PROMPT | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdBootPrompt.ts |
+| `hub/src/lib/ecmdBootPrompt.ts` | 20.8 KB | exports: ECMD_SIDEBAR_BOOT_PROMPT | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdBootPrompt.ts |
 | `hub/src/lib/ecmdLiveComponentTelemetry.ts` | 35.0 KB | exports: ALLOWED_PLASMIC_TOKEN_TYPES, AllowedPlasmicTokenType, RuntimeErrorEntry, RuntimeErrorsStore, EcmdRegisteredComponentMeta, ECMD_REGISTERED_COMPONENTS | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdLiveComponentTelemetry.ts |
 | `hub/src/lib/ecmdPackageMatcher.ts` | 17.2 KB | exports: PackageLevelName, PackageDetailType, PackageScopeKey, PackageSubCategory, EcmdServicePackageRow, EcmdSavedAddOnItem | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdPackageMatcher.ts |
 | `hub/src/lib/ecmdRootSizing.ts` | 3.4 KB | exports: ECMD_ROOT_SIZING_STYLE_ID, ECMD_ROOT_SIZING_CSS, ensureEcmdRootSizingStyles | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdRootSizing.ts |
@@ -272,7 +309,7 @@
 | `hub/vite.config.ts` | 16.9 KB | exports: LIVE_SNAP | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/vite.config.ts |
 | `hub/vitest.config.ts` | 412 B | Code module | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/vitest.config.ts |
 
-## Files: `runner/` (113)
+## Files: `runner/` (114)
 | Path | Size | Exports / Purpose | Raw GitHub URL |
 |---|---:|---|---|
 | `runner/.eslintrc.json` | 50 B | JSON data / config | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/.eslintrc.json |
@@ -295,16 +332,17 @@
 | `runner/ecmd-console/index.html` | 56.5 KB | HTML template / console | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/ecmd-console/index.html |
 | `runner/ecmd-console/README.md` | 102 B | Doc: ecmd-console | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/ecmd-console/README.md |
 | `runner/EcmdHelpers.ps1` | 1.5 KB | PowerShell automation script | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/EcmdHelpers.ps1 |
-| `runner/GEMINI.md` | 5.8 KB | Doc: ECMD Autonomous Engineering Protocol (C:\ECMD — ECMD PEN v4.2 / Antigravity | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/GEMINI.md |
+| `runner/GEMINI.md` | 5.9 KB | Doc: ECMD Autonomous Engineering Protocol (C:\ECMD — ECMD PEN v4.2 / Antigravity | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/GEMINI.md |
 | `runner/Invoke-EcmdProtocol.ps1` | 405 B | PowerShell automation script | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/Invoke-EcmdProtocol.ps1 |
 | `runner/package.json` | 400 B | Package manifest & scripts | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/package.json |
 | `runner/README.md` | 4.0 KB | Doc: Git Integration & Wix CLI <img align="left" src="https://user-images.github | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/README.md |
 | `runner/scripts/fix-plasmic-css.cjs` | 1.3 KB | ECMD automation/PEN runner script | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/fix-plasmic-css.cjs |
+| `runner/scripts/import-wix-csvs.mjs` | 29.7 KB | exports: parseCsv | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/import-wix-csvs.mjs |
 | `runner/scripts/run-pen-task.mjs` | 12.0 KB | ECMD automation/PEN runner script | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/run-pen-task.mjs |
 | `runner/scripts/Start-EcmdCliBridge.ps1` | 2.2 KB | PowerShell automation script | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/Start-EcmdCliBridge.ps1 |
 | `runner/scripts/Start-EcmdDriveWorker.ps1` | 2.1 KB | PowerShell automation script | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/Start-EcmdDriveWorker.ps1 |
 | `runner/scripts/Start-EcmdPen.ps1` | 1.1 KB | PowerShell automation script | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/Start-EcmdPen.ps1 |
-| `runner/scripts/sync-ai-mirror.mjs` | 43.0 KB | exports: scrubSecrets, extractLocalBridgeSecret, isEnvFile, isBinaryBuffer, ensureDir | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/sync-ai-mirror.mjs |
+| `runner/scripts/sync-ai-mirror.mjs` | 44.9 KB | exports: scrubSecrets, extractLocalBridgeSecret, isEnvFile, isBinaryBuffer, ensureDir | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/sync-ai-mirror.mjs |
 | `runner/scripts/trim-gemini-md.cjs` | 411 B | ECMD automation/PEN runner script | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/trim-gemini-md.cjs |
 | `runner/scripts/wix-auto-publish.js` | 625 B | ECMD automation/PEN runner script | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/wix-auto-publish.js |
 | `runner/src/backend/admin-tools.web.js` | 2.8 KB | exports: registerCustomerFromHQ | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/backend/admin-tools.web.js |
@@ -389,23 +427,35 @@
 | `runner/src/styles/global.css` | 5.2 KB | Stylesheet | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/styles/global.css |
 | `runner/wix.config.json` | 82 B | JSON data / config | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/wix.config.json |
 
-## Files: `supabase-mirror/` (17)
+## Files: `supabase-mirror/` (29)
 | Path | Size | Exports / Purpose | Raw GitHub URL |
 |---|---:|---|---|
 | `supabase-mirror/edge-functions/deployed_functions.json` | 767 B | Supabase Edge Functions registry & endpoint metadata | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/edge-functions/deployed_functions.json |
 | `supabase-mirror/edge-functions/ecmd-dev-gateway/index.ts` | 2.8 KB | Supabase Edge Function source | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/edge-functions/ecmd-dev-gateway/index.ts |
-| `supabase-mirror/schema/schema_overview.sql` | 27.6 KB | Supabase public schema DDL, RLS policies, triggers & custom functions | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/schema/schema_overview.sql |
-| `supabase-mirror/schema/tables_and_columns.json` | 120.2 KB | Supabase public tables, columns, constraints, policies & functions JSON | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/schema/tables_and_columns.json |
+| `supabase-mirror/schema/schema_overview.sql` | 50.0 KB | Supabase public schema DDL, RLS policies, triggers & custom functions | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/schema/schema_overview.sql |
+| `supabase-mirror/schema/tables_and_columns.json` | 281.5 KB | Supabase public tables, columns, constraints, policies & functions JSON | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/schema/tables_and_columns.json |
 | `supabase-mirror/tables/ecmd_advanced_suggestions.json` | 47.1 KB | Supabase public.ecmd_advanced_suggestions table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_advanced_suggestions.json |
 | `supabase-mirror/tables/ecmd_ai_registry.json` | 37.6 KB | Supabase public.ecmd_ai_registry table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_ai_registry.json |
 | `supabase-mirror/tables/ecmd_brain.json` | 674.8 KB | Supabase public.ecmd_brain table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_brain.json |
 | `supabase-mirror/tables/ecmd_diagnostic_runs.json` | 662 B | Supabase public.ecmd_diagnostic_runs table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_diagnostic_runs.json |
-| `supabase-mirror/tables/ecmd_external_ai_cms.json` | 75.5 KB | Supabase public.ecmd_external_ai_cms table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_external_ai_cms.json |
+| `supabase-mirror/tables/ecmd_external_ai_cms.json` | 78.1 KB | Supabase public.ecmd_external_ai_cms table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_external_ai_cms.json |
 | `supabase-mirror/tables/ecmd_packages.json` | 3.1 KB | Supabase public.ecmd_packages table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_packages.json |
-| `supabase-mirror/tables/ecmd_pen_turns.json` | 336.6 KB | Supabase public.ecmd_pen_turns table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_pen_turns.json |
+| `supabase-mirror/tables/ecmd_pen_turns.json` | 348.8 KB | Supabase public.ecmd_pen_turns table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_pen_turns.json |
 | `supabase-mirror/tables/ecmd_plasmic_hydration.json` | 10.4 KB | Supabase public.ecmd_plasmic_hydration table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_plasmic_hydration.json |
-| `supabase-mirror/tables/ecmd_service_packages.json` | 74.8 KB | Supabase public.ecmd_service_packages table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_service_packages.json |
+| `supabase-mirror/tables/ecmd_service_packages.json` | 146.5 KB | Supabase public.ecmd_service_packages table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_service_packages.json |
 | `supabase-mirror/tables/ecmd_site_blueprints.json` | 3.02 MB | Supabase public.ecmd_site_blueprints table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_site_blueprints.json |
 | `supabase-mirror/tables/ecmd_site_menu_buttons.json` | 9.2 KB | Supabase public.ecmd_site_menu_buttons table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_site_menu_buttons.json |
-| `supabase-mirror/tables/ecmd_whats_included.json` | 8.7 KB | Supabase public.ecmd_whats_included table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_whats_included.json |
+| `supabase-mirror/tables/ecmd_whats_included.json` | 300.0 KB | Supabase public.ecmd_whats_included table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_whats_included.json |
+| `supabase-mirror/tables/ecmd_wix_ai_brain_master_index.json` | 14.0 KB | Supabase public.ecmd_wix_ai_brain_master_index table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_ai_brain_master_index.json |
+| `supabase-mirror/tables/ecmd_wix_ai_capabilities_rules.json` | 36.8 KB | Supabase public.ecmd_wix_ai_capabilities_rules table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_ai_capabilities_rules.json |
+| `supabase-mirror/tables/ecmd_wix_ai_persona_response_rules.json` | 13.2 KB | Supabase public.ecmd_wix_ai_persona_response_rules table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_ai_persona_response_rules.json |
+| `supabase-mirror/tables/ecmd_wix_availability_rules.json` | 5.4 KB | Supabase public.ecmd_wix_availability_rules table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_availability_rules.json |
+| `supabase-mirror/tables/ecmd_wix_calendar_time_slots.json` | 2.9 KB | Supabase public.ecmd_wix_calendar_time_slots table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_calendar_time_slots.json |
+| `supabase-mirror/tables/ecmd_wix_code_and_blueprints.json` | 647.6 KB | Supabase public.ecmd_wix_code_and_blueprints table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_code_and_blueprints.json |
+| `supabase-mirror/tables/ecmd_wix_discounts.json` | 825 B | Supabase public.ecmd_wix_discounts table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_discounts.json |
+| `supabase-mirror/tables/ecmd_wix_global_settings.json` | 828 B | Supabase public.ecmd_wix_global_settings table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_global_settings.json |
 | `supabase-mirror/tables/ecmd_wix_legacy_vault.json` | 2.02 MB | Supabase public.ecmd_wix_legacy_vault table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_legacy_vault.json |
+| `supabase-mirror/tables/ecmd_wix_profile_buttons.json` | 146 B | Supabase public.ecmd_wix_profile_buttons table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_profile_buttons.json |
+| `supabase-mirror/tables/ecmd_wix_promo_codes.json` | 142 B | Supabase public.ecmd_wix_promo_codes table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_promo_codes.json |
+| `supabase-mirror/tables/ecmd_wix_site_buttons.json` | 89.3 KB | Supabase public.ecmd_wix_site_buttons table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_site_buttons.json |
+| `supabase-mirror/tables/ecmd_wix_vehicle_categories.json` | 10.7 KB | Supabase public.ecmd_wix_vehicle_categories table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_vehicle_categories.json |

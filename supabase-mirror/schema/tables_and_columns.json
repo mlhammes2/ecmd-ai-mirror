@@ -1,7 +1,7 @@
 {
   "projectRef": "lvynkeuceiqxafgpgdvs",
-  "exportedAt": "2026-11-25T23:08:05.184Z",
-  "tableCount": 33,
+  "exportedAt": "2026-11-25T23:46:34.678Z",
+  "tableCount": 57,
   "tables": [
     {
       "table_name": "ecmd_advanced_suggestions",
@@ -2300,7 +2300,7 @@
     },
     {
       "table_name": "ecmd_external_ai_cms",
-      "row_count": 36,
+      "row_count": 37,
       "rls_enabled": false,
       "mirrored": true,
       "columns": [
@@ -2795,7 +2795,7 @@
     },
     {
       "table_name": "ecmd_pen_turns",
-      "row_count": 37,
+      "row_count": 38,
       "rls_enabled": false,
       "mirrored": true,
       "columns": [
@@ -3230,6 +3230,105 @@
           "is_nullable": "NO",
           "column_default": "now()",
           "ordinal_position": 23
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_service_packages",
+          "column_name": "wix_created_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 24
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_service_packages",
+          "column_name": "wix_updated_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 25
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_service_packages",
+          "column_name": "wix_owner",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 26
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_service_packages",
+          "column_name": "bi_weekly_flat",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 27
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_service_packages",
+          "column_name": "monthly_flat",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 28
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_service_packages",
+          "column_name": "quarterly_flat",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 29
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_service_packages",
+          "column_name": "sub_title",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 30
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_service_packages",
+          "column_name": "duration_ui",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 31
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_service_packages",
+          "column_name": "payout_l1",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 32
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_service_packages",
+          "column_name": "payout_l2",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 33
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "table_name": "ecmd_service_packages",
+          "column_name": "raw_wix_data",
+          "is_nullable": "NO",
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 34
         }
       ],
       "constraints": [
@@ -3669,7 +3768,7 @@
     },
     {
       "table_name": "ecmd_whats_included",
-      "row_count": 18,
+      "row_count": 30,
       "rls_enabled": true,
       "mirrored": true,
       "columns": [
@@ -3780,6 +3879,213 @@
           "is_nullable": "NO",
           "column_default": "true",
           "ordinal_position": 12
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "wix_created_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 13
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "wix_updated_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 14
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "wix_owner",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 15
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "slug_id",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 16
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "intro",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 17
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "overview",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 18
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "add_on_title",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 19
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "video",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 20
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "overview01",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 21
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "overview02",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 22
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "overview03",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 23
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "overview04",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 24
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "overview05",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 25
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "overview06",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 26
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "overview07",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 27
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "overview_t01",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 28
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "overview_t02",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 29
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "overview_t03",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 30
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "overview_t04",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 31
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "overview_t05",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 32
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "overview_t06",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 33
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_whats_included",
+          "column_name": "overview_t07",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 34
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "table_name": "ecmd_whats_included",
+          "column_name": "raw_wix_data",
+          "is_nullable": "NO",
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 35
         }
       ],
       "constraints": [
@@ -3804,6 +4110,2514 @@
           "tablename": "ecmd_whats_included",
           "permissive": "PERMISSIVE",
           "policyname": "Public read ecmd_whats_included",
+          "with_check": null
+        }
+      ],
+      "triggers": []
+    },
+    {
+      "table_name": "ecmd_wix_active_subscriptions",
+      "row_count": 0,
+      "rls_enabled": true,
+      "mirrored": false,
+      "columns": [
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_active_subscriptions",
+          "column_name": "wix_id",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 1
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_active_subscriptions",
+          "column_name": "wix_created_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 2
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_active_subscriptions",
+          "column_name": "wix_updated_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 3
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_active_subscriptions",
+          "column_name": "wix_owner",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 4
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "table_name": "ecmd_wix_active_subscriptions",
+          "column_name": "raw_wix_data",
+          "is_nullable": "NO",
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 5
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "table_name": "ecmd_wix_active_subscriptions",
+          "column_name": "imported_at",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "ordinal_position": 6
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_active_subscriptions",
+          "column_name": "title",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 7
+        }
+      ],
+      "constraints": [
+        {
+          "definition": "PRIMARY KEY (wix_id)",
+          "table_name": "ecmd_wix_active_subscriptions",
+          "constraint_name": "ecmd_wix_active_subscriptions_pkey",
+          "constraint_type": "PRIMARY KEY"
+        }
+      ],
+      "policies": [
+        {
+          "cmd": "ALL",
+          "qual": "((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)",
+          "roles": "{authenticated}",
+          "tablename": "ecmd_wix_active_subscriptions",
+          "permissive": "PERMISSIVE",
+          "policyname": "Owner admin access ecmd_wix_active_subscriptions",
+          "with_check": "((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)"
+        }
+      ],
+      "triggers": []
+    },
+    {
+      "table_name": "ecmd_wix_ai_brain_master_index",
+      "row_count": 7,
+      "rls_enabled": true,
+      "mirrored": true,
+      "columns": [
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_brain_master_index",
+          "column_name": "wix_id",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 1
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_brain_master_index",
+          "column_name": "wix_created_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 2
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_brain_master_index",
+          "column_name": "wix_updated_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 3
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_brain_master_index",
+          "column_name": "wix_owner",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 4
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "table_name": "ecmd_wix_ai_brain_master_index",
+          "column_name": "raw_wix_data",
+          "is_nullable": "NO",
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 5
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "table_name": "ecmd_wix_ai_brain_master_index",
+          "column_name": "imported_at",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "ordinal_position": 6
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_ai_brain_master_index",
+          "column_name": "pipeline_stage_order",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 7
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_brain_master_index",
+          "column_name": "module_title",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 8
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_brain_master_index",
+          "column_name": "brain_layer",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 9
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_brain_master_index",
+          "column_name": "status",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 10
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_brain_master_index",
+          "column_name": "linked_collection_table",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 11
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_brain_master_index",
+          "column_name": "human_summary",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 12
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_brain_master_index",
+          "column_name": "ai_filter_routing_rule",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 13
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_brain_master_index",
+          "column_name": "improvement_roadmap",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 14
+        }
+      ],
+      "constraints": [
+        {
+          "definition": "PRIMARY KEY (wix_id)",
+          "table_name": "ecmd_wix_ai_brain_master_index",
+          "constraint_name": "ecmd_wix_ai_brain_master_index_pkey",
+          "constraint_type": "PRIMARY KEY"
+        }
+      ],
+      "policies": [
+        {
+          "cmd": "SELECT",
+          "qual": "true",
+          "roles": "{anon,authenticated}",
+          "tablename": "ecmd_wix_ai_brain_master_index",
+          "permissive": "PERMISSIVE",
+          "policyname": "Public read ecmd_wix_ai_brain_master_index",
+          "with_check": null
+        }
+      ],
+      "triggers": []
+    },
+    {
+      "table_name": "ecmd_wix_ai_capabilities_rules",
+      "row_count": 15,
+      "rls_enabled": true,
+      "mirrored": true,
+      "columns": [
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_capabilities_rules",
+          "column_name": "wix_id",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 1
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_capabilities_rules",
+          "column_name": "wix_created_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 2
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_capabilities_rules",
+          "column_name": "wix_updated_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 3
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_capabilities_rules",
+          "column_name": "wix_owner",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 4
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "table_name": "ecmd_wix_ai_capabilities_rules",
+          "column_name": "raw_wix_data",
+          "is_nullable": "NO",
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 5
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "table_name": "ecmd_wix_ai_capabilities_rules",
+          "column_name": "imported_at",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "ordinal_position": 6
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_capabilities_rules",
+          "column_name": "sort_order",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 7
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_capabilities_rules",
+          "column_name": "capability_key_function_id",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 8
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_capabilities_rules",
+          "column_name": "title",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 9
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_capabilities_rules",
+          "column_name": "agent_target_head_body",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 10
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_capabilities_rules",
+          "column_name": "category",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 11
+        },
+        {
+          "udt_name": "bool",
+          "data_type": "boolean",
+          "table_name": "ecmd_wix_ai_capabilities_rules",
+          "column_name": "enabled_on_off_toggle",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 12
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_capabilities_rules",
+          "column_name": "requires_passcode",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 13
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_capabilities_rules",
+          "column_name": "passcode_auth_rule",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 14
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_capabilities_rules",
+          "column_name": "allowed_actors",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 15
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_capabilities_rules",
+          "column_name": "human_description",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 16
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_capabilities_rules",
+          "column_name": "ai_readable_directive_rules",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 17
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_capabilities_rules",
+          "column_name": "rules_config_json",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 18
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_capabilities_rules",
+          "column_name": "instructions_for_ui_build",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 19
+        }
+      ],
+      "constraints": [
+        {
+          "definition": "PRIMARY KEY (wix_id)",
+          "table_name": "ecmd_wix_ai_capabilities_rules",
+          "constraint_name": "ecmd_wix_ai_capabilities_rules_pkey",
+          "constraint_type": "PRIMARY KEY"
+        }
+      ],
+      "policies": [
+        {
+          "cmd": "SELECT",
+          "qual": "true",
+          "roles": "{anon,authenticated}",
+          "tablename": "ecmd_wix_ai_capabilities_rules",
+          "permissive": "PERMISSIVE",
+          "policyname": "Public read ecmd_wix_ai_capabilities_rules",
+          "with_check": null
+        }
+      ],
+      "triggers": []
+    },
+    {
+      "table_name": "ecmd_wix_ai_persona_response_rules",
+      "row_count": 4,
+      "rls_enabled": true,
+      "mirrored": true,
+      "columns": [
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_persona_response_rules",
+          "column_name": "wix_id",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 1
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_persona_response_rules",
+          "column_name": "wix_created_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 2
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_persona_response_rules",
+          "column_name": "wix_updated_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 3
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_persona_response_rules",
+          "column_name": "wix_owner",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 4
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "table_name": "ecmd_wix_ai_persona_response_rules",
+          "column_name": "raw_wix_data",
+          "is_nullable": "NO",
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 5
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "table_name": "ecmd_wix_ai_persona_response_rules",
+          "column_name": "imported_at",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "ordinal_position": 6
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_ai_persona_response_rules",
+          "column_name": "priority_order",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 7
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_persona_response_rules",
+          "column_name": "rule_key",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 8
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_persona_response_rules",
+          "column_name": "title",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 9
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_persona_response_rules",
+          "column_name": "target_actor_admin_detailer_public_all",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 10
+        },
+        {
+          "udt_name": "bool",
+          "data_type": "boolean",
+          "table_name": "ecmd_wix_ai_persona_response_rules",
+          "column_name": "enabled_on_off_toggle",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 11
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_persona_response_rules",
+          "column_name": "tone_formatting_style",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 12
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_persona_response_rules",
+          "column_name": "human_description",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 13
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_persona_response_rules",
+          "column_name": "ai_readable_persona_directive",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 14
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_persona_response_rules",
+          "column_name": "forbidden_topics_guardrails",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 15
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_persona_response_rules",
+          "column_name": "example_ideal_response",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 16
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_ai_persona_response_rules",
+          "column_name": "instructions_for_ui_build",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 17
+        }
+      ],
+      "constraints": [
+        {
+          "definition": "PRIMARY KEY (wix_id)",
+          "table_name": "ecmd_wix_ai_persona_response_rules",
+          "constraint_name": "ecmd_wix_ai_persona_response_rules_pkey",
+          "constraint_type": "PRIMARY KEY"
+        }
+      ],
+      "policies": [
+        {
+          "cmd": "SELECT",
+          "qual": "true",
+          "roles": "{anon,authenticated}",
+          "tablename": "ecmd_wix_ai_persona_response_rules",
+          "permissive": "PERMISSIVE",
+          "policyname": "Public read ecmd_wix_ai_persona_response_rules",
+          "with_check": null
+        }
+      ],
+      "triggers": []
+    },
+    {
+      "table_name": "ecmd_wix_availability_rules",
+      "row_count": 4,
+      "rls_enabled": true,
+      "mirrored": true,
+      "columns": [
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_availability_rules",
+          "column_name": "wix_id",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 1
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_availability_rules",
+          "column_name": "wix_created_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 2
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_availability_rules",
+          "column_name": "wix_updated_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 3
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_availability_rules",
+          "column_name": "wix_owner",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 4
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "table_name": "ecmd_wix_availability_rules",
+          "column_name": "raw_wix_data",
+          "is_nullable": "NO",
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 5
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "table_name": "ecmd_wix_availability_rules",
+          "column_name": "imported_at",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "ordinal_position": 6
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_availability_rules",
+          "column_name": "rule_type",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 7
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_availability_rules",
+          "column_name": "detailer_name",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 8
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_availability_rules",
+          "column_name": "target_day_of_week",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 9
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_availability_rules",
+          "column_name": "target_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 10
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_availability_rules",
+          "column_name": "effect",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 11
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_availability_rules",
+          "column_name": "target_tokens",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 12
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_availability_rules",
+          "column_name": "status",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 13
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_availability_rules",
+          "column_name": "requested_by",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 14
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_availability_rules",
+          "column_name": "detailer_id",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 15
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_availability_rules",
+          "column_name": "title",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 16
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_availability_rules",
+          "column_name": "end_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 17
+        }
+      ],
+      "constraints": [
+        {
+          "definition": "PRIMARY KEY (wix_id)",
+          "table_name": "ecmd_wix_availability_rules",
+          "constraint_name": "ecmd_wix_availability_rules_pkey",
+          "constraint_type": "PRIMARY KEY"
+        }
+      ],
+      "policies": [
+        {
+          "cmd": "SELECT",
+          "qual": "true",
+          "roles": "{anon,authenticated}",
+          "tablename": "ecmd_wix_availability_rules",
+          "permissive": "PERMISSIVE",
+          "policyname": "Public read ecmd_wix_availability_rules",
+          "with_check": null
+        }
+      ],
+      "triggers": []
+    },
+    {
+      "table_name": "ecmd_wix_bookings",
+      "row_count": 0,
+      "rls_enabled": true,
+      "mirrored": false,
+      "columns": [
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_bookings",
+          "column_name": "wix_id",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 1
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_bookings",
+          "column_name": "wix_created_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 2
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_bookings",
+          "column_name": "wix_updated_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 3
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_bookings",
+          "column_name": "wix_owner",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 4
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "table_name": "ecmd_wix_bookings",
+          "column_name": "raw_wix_data",
+          "is_nullable": "NO",
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 5
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "table_name": "ecmd_wix_bookings",
+          "column_name": "imported_at",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "ordinal_position": 6
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_bookings",
+          "column_name": "title",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 7
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_bookings",
+          "column_name": "customer_id",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 8
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_bookings",
+          "column_name": "vehicle_id",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 9
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_bookings",
+          "column_name": "service_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 10
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_bookings",
+          "column_name": "detailer_assigned",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 11
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_bookings",
+          "column_name": "alt_contact_name",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 12
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_bookings",
+          "column_name": "alt_contact_phone",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 13
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_bookings",
+          "column_name": "total_price",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 14
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_bookings",
+          "column_name": "order_id",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 15
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_bookings",
+          "column_name": "package_title",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 16
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_bookings",
+          "column_name": "add_ons",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 17
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_bookings",
+          "column_name": "duration",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 18
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_bookings",
+          "column_name": "address_id",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 19
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_bookings",
+          "column_name": "status",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 20
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_bookings",
+          "column_name": "time_slot",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 21
+        }
+      ],
+      "constraints": [
+        {
+          "definition": "PRIMARY KEY (wix_id)",
+          "table_name": "ecmd_wix_bookings",
+          "constraint_name": "ecmd_wix_bookings_pkey",
+          "constraint_type": "PRIMARY KEY"
+        }
+      ],
+      "policies": [
+        {
+          "cmd": "ALL",
+          "qual": "((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)",
+          "roles": "{authenticated}",
+          "tablename": "ecmd_wix_bookings",
+          "permissive": "PERMISSIVE",
+          "policyname": "Owner admin access ecmd_wix_bookings",
+          "with_check": "((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)"
+        }
+      ],
+      "triggers": []
+    },
+    {
+      "table_name": "ecmd_wix_calendar_time_slots",
+      "row_count": 3,
+      "rls_enabled": true,
+      "mirrored": true,
+      "columns": [
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_calendar_time_slots",
+          "column_name": "wix_id",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 1
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_calendar_time_slots",
+          "column_name": "wix_created_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 2
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_calendar_time_slots",
+          "column_name": "wix_updated_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 3
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_calendar_time_slots",
+          "column_name": "wix_owner",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 4
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "table_name": "ecmd_wix_calendar_time_slots",
+          "column_name": "raw_wix_data",
+          "is_nullable": "NO",
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 5
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "table_name": "ecmd_wix_calendar_time_slots",
+          "column_name": "imported_at",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "ordinal_position": 6
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_calendar_time_slots",
+          "column_name": "title",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 7
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_calendar_time_slots",
+          "column_name": "token",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 8
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_calendar_time_slots",
+          "column_name": "label",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 9
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_calendar_time_slots",
+          "column_name": "expected_hour",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 10
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_calendar_time_slots",
+          "column_name": "weekly_available_text",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 11
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_calendar_time_slots",
+          "column_name": "weekly_unavailable_text",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 12
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_calendar_time_slots",
+          "column_name": "arrival_hour",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 13
+        }
+      ],
+      "constraints": [
+        {
+          "definition": "PRIMARY KEY (wix_id)",
+          "table_name": "ecmd_wix_calendar_time_slots",
+          "constraint_name": "ecmd_wix_calendar_time_slots_pkey",
+          "constraint_type": "PRIMARY KEY"
+        }
+      ],
+      "policies": [
+        {
+          "cmd": "SELECT",
+          "qual": "true",
+          "roles": "{anon,authenticated}",
+          "tablename": "ecmd_wix_calendar_time_slots",
+          "permissive": "PERMISSIVE",
+          "policyname": "Public read ecmd_wix_calendar_time_slots",
+          "with_check": null
+        }
+      ],
+      "triggers": []
+    },
+    {
+      "table_name": "ecmd_wix_code_and_blueprints",
+      "row_count": 80,
+      "rls_enabled": true,
+      "mirrored": true,
+      "columns": [
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_code_and_blueprints",
+          "column_name": "wix_id",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 1
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_code_and_blueprints",
+          "column_name": "wix_created_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 2
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_code_and_blueprints",
+          "column_name": "wix_updated_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 3
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_code_and_blueprints",
+          "column_name": "wix_owner",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 4
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "table_name": "ecmd_wix_code_and_blueprints",
+          "column_name": "raw_wix_data",
+          "is_nullable": "NO",
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 5
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "table_name": "ecmd_wix_code_and_blueprints",
+          "column_name": "imported_at",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "ordinal_position": 6
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_code_and_blueprints",
+          "column_name": "title",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 7
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_code_and_blueprints",
+          "column_name": "category",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 8
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_code_and_blueprints",
+          "column_name": "velo_source_code",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 9
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_code_and_blueprints",
+          "column_name": "migration_output_code",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 10
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_code_and_blueprints",
+          "column_name": "live_dom_computed_css",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 11
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_code_and_blueprints",
+          "column_name": "last_synced_at",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 12
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_code_and_blueprints",
+          "column_name": "livedomcomputedcss",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 13
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_code_and_blueprints",
+          "column_name": "lastsynced",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 14
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_code_and_blueprints",
+          "column_name": "migrationoutputcode",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 15
+        }
+      ],
+      "constraints": [
+        {
+          "definition": "PRIMARY KEY (wix_id)",
+          "table_name": "ecmd_wix_code_and_blueprints",
+          "constraint_name": "ecmd_wix_code_and_blueprints_pkey",
+          "constraint_type": "PRIMARY KEY"
+        }
+      ],
+      "policies": [
+        {
+          "cmd": "SELECT",
+          "qual": "true",
+          "roles": "{anon,authenticated}",
+          "tablename": "ecmd_wix_code_and_blueprints",
+          "permissive": "PERMISSIVE",
+          "policyname": "Public read ecmd_wix_code_and_blueprints",
+          "with_check": null
+        }
+      ],
+      "triggers": []
+    },
+    {
+      "table_name": "ecmd_wix_contractors",
+      "row_count": 4,
+      "rls_enabled": true,
+      "mirrored": false,
+      "columns": [
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_contractors",
+          "column_name": "wix_id",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 1
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_contractors",
+          "column_name": "wix_created_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 2
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_contractors",
+          "column_name": "wix_updated_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 3
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_contractors",
+          "column_name": "wix_owner",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 4
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "table_name": "ecmd_wix_contractors",
+          "column_name": "raw_wix_data",
+          "is_nullable": "NO",
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 5
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "table_name": "ecmd_wix_contractors",
+          "column_name": "imported_at",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "ordinal_position": 6
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_contractors",
+          "column_name": "first",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 7
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_contractors",
+          "column_name": "last_name",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 8
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_contractors",
+          "column_name": "phone_number",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 9
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_contractors",
+          "column_name": "email",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 10
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_contractors",
+          "column_name": "team_alias",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 11
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_contractors",
+          "column_name": "role",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 12
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_contractors",
+          "column_name": "working_days",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 13
+        },
+        {
+          "udt_name": "bool",
+          "data_type": "boolean",
+          "table_name": "ecmd_wix_contractors",
+          "column_name": "is_active_detailer",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 14
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_contractors",
+          "column_name": "google_calendar_id",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 15
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_contractors",
+          "column_name": "pay_level",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 16
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_contractors",
+          "column_name": "is_trainee",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 17
+        },
+        {
+          "udt_name": "bool",
+          "data_type": "boolean",
+          "table_name": "ecmd_wix_contractors",
+          "column_name": "is_admin",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 18
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_contractors",
+          "column_name": "advanced_scheduling",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 19
+        },
+        {
+          "udt_name": "bool",
+          "data_type": "boolean",
+          "table_name": "ecmd_wix_contractors",
+          "column_name": "third_slot_option",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 20
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_contractors",
+          "column_name": "approved_schedule",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 21
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_contractors",
+          "column_name": "home_address",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 22
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_contractors",
+          "column_name": "sort",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 23
+        }
+      ],
+      "constraints": [
+        {
+          "definition": "PRIMARY KEY (wix_id)",
+          "table_name": "ecmd_wix_contractors",
+          "constraint_name": "ecmd_wix_contractors_pkey",
+          "constraint_type": "PRIMARY KEY"
+        }
+      ],
+      "policies": [
+        {
+          "cmd": "ALL",
+          "qual": "((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)",
+          "roles": "{authenticated}",
+          "tablename": "ecmd_wix_contractors",
+          "permissive": "PERMISSIVE",
+          "policyname": "Owner admin access ecmd_wix_contractors",
+          "with_check": "((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)"
+        }
+      ],
+      "triggers": []
+    },
+    {
+      "table_name": "ecmd_wix_customer_contacts",
+      "row_count": 5,
+      "rls_enabled": true,
+      "mirrored": false,
+      "columns": [
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_contacts",
+          "column_name": "wix_id",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 1
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_contacts",
+          "column_name": "wix_created_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 2
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_contacts",
+          "column_name": "wix_updated_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 3
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_contacts",
+          "column_name": "wix_owner",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 4
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "table_name": "ecmd_wix_customer_contacts",
+          "column_name": "raw_wix_data",
+          "is_nullable": "NO",
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 5
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "table_name": "ecmd_wix_customer_contacts",
+          "column_name": "imported_at",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "ordinal_position": 6
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_contacts",
+          "column_name": "first_name",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 7
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_contacts",
+          "column_name": "last_name",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 8
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_contacts",
+          "column_name": "phone",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 9
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_contacts",
+          "column_name": "relationship",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 10
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_contacts",
+          "column_name": "email",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 11
+        },
+        {
+          "udt_name": "bool",
+          "data_type": "boolean",
+          "table_name": "ecmd_wix_customer_contacts",
+          "column_name": "is_primary",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 12
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_contacts",
+          "column_name": "userid",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 13
+        }
+      ],
+      "constraints": [
+        {
+          "definition": "PRIMARY KEY (wix_id)",
+          "table_name": "ecmd_wix_customer_contacts",
+          "constraint_name": "ecmd_wix_customer_contacts_pkey",
+          "constraint_type": "PRIMARY KEY"
+        }
+      ],
+      "policies": [
+        {
+          "cmd": "ALL",
+          "qual": "((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)",
+          "roles": "{authenticated}",
+          "tablename": "ecmd_wix_customer_contacts",
+          "permissive": "PERMISSIVE",
+          "policyname": "Owner admin access ecmd_wix_customer_contacts",
+          "with_check": "((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)"
+        }
+      ],
+      "triggers": []
+    },
+    {
+      "table_name": "ecmd_wix_customer_locations",
+      "row_count": 5,
+      "rls_enabled": true,
+      "mirrored": false,
+      "columns": [
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_locations",
+          "column_name": "wix_id",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 1
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_locations",
+          "column_name": "wix_created_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 2
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_locations",
+          "column_name": "wix_updated_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 3
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_locations",
+          "column_name": "wix_owner",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 4
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "table_name": "ecmd_wix_customer_locations",
+          "column_name": "raw_wix_data",
+          "is_nullable": "NO",
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 5
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "table_name": "ecmd_wix_customer_locations",
+          "column_name": "imported_at",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "ordinal_position": 6
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_locations",
+          "column_name": "user_id",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 7
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_locations",
+          "column_name": "address1",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 8
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_locations",
+          "column_name": "address2",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 9
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_locations",
+          "column_name": "city",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 10
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_locations",
+          "column_name": "state",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 11
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_locations",
+          "column_name": "zip",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 12
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_locations",
+          "column_name": "is_contact_only",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 13
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_locations",
+          "column_name": "is_location_only",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 14
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_locations",
+          "column_name": "location_title",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 15
+        },
+        {
+          "udt_name": "bool",
+          "data_type": "boolean",
+          "table_name": "ecmd_wix_customer_locations",
+          "column_name": "is_primary",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 16
+        }
+      ],
+      "constraints": [
+        {
+          "definition": "PRIMARY KEY (wix_id)",
+          "table_name": "ecmd_wix_customer_locations",
+          "constraint_name": "ecmd_wix_customer_locations_pkey",
+          "constraint_type": "PRIMARY KEY"
+        }
+      ],
+      "policies": [
+        {
+          "cmd": "ALL",
+          "qual": "((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)",
+          "roles": "{authenticated}",
+          "tablename": "ecmd_wix_customer_locations",
+          "permissive": "PERMISSIVE",
+          "policyname": "Owner admin access ecmd_wix_customer_locations",
+          "with_check": "((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)"
+        }
+      ],
+      "triggers": []
+    },
+    {
+      "table_name": "ecmd_wix_customer_profiles",
+      "row_count": 3,
+      "rls_enabled": true,
+      "mirrored": false,
+      "columns": [
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_profiles",
+          "column_name": "wix_id",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 1
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_profiles",
+          "column_name": "wix_created_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 2
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_profiles",
+          "column_name": "wix_updated_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 3
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_profiles",
+          "column_name": "wix_owner",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 4
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "table_name": "ecmd_wix_customer_profiles",
+          "column_name": "raw_wix_data",
+          "is_nullable": "NO",
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 5
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "table_name": "ecmd_wix_customer_profiles",
+          "column_name": "imported_at",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "ordinal_position": 6
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_profiles",
+          "column_name": "first_name",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 7
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_profiles",
+          "column_name": "last_name",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 8
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_profiles",
+          "column_name": "email",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 9
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_profiles",
+          "column_name": "city",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 10
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_profiles",
+          "column_name": "state",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 11
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_profiles",
+          "column_name": "zip",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 12
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_profiles",
+          "column_name": "phone",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 13
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_profiles",
+          "column_name": "address1",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 14
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_profiles",
+          "column_name": "address2",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 15
+        },
+        {
+          "udt_name": "bool",
+          "data_type": "boolean",
+          "table_name": "ecmd_wix_customer_profiles",
+          "column_name": "active_subscription",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 16
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_profiles",
+          "column_name": "userid",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 17
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_profiles",
+          "column_name": "email_confirmed",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 18
+        }
+      ],
+      "constraints": [
+        {
+          "definition": "PRIMARY KEY (wix_id)",
+          "table_name": "ecmd_wix_customer_profiles",
+          "constraint_name": "ecmd_wix_customer_profiles_pkey",
+          "constraint_type": "PRIMARY KEY"
+        }
+      ],
+      "policies": [
+        {
+          "cmd": "ALL",
+          "qual": "((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)",
+          "roles": "{authenticated}",
+          "tablename": "ecmd_wix_customer_profiles",
+          "permissive": "PERMISSIVE",
+          "policyname": "Owner admin access ecmd_wix_customer_profiles",
+          "with_check": "((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)"
+        }
+      ],
+      "triggers": []
+    },
+    {
+      "table_name": "ecmd_wix_customer_vehicles",
+      "row_count": 6,
+      "rls_enabled": true,
+      "mirrored": false,
+      "columns": [
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_vehicles",
+          "column_name": "wix_id",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 1
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_vehicles",
+          "column_name": "wix_created_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 2
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_vehicles",
+          "column_name": "wix_updated_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 3
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_vehicles",
+          "column_name": "wix_owner",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 4
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "table_name": "ecmd_wix_customer_vehicles",
+          "column_name": "raw_wix_data",
+          "is_nullable": "NO",
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 5
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "table_name": "ecmd_wix_customer_vehicles",
+          "column_name": "imported_at",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "ordinal_position": 6
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_vehicles",
+          "column_name": "main_display_image",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 7
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_vehicles",
+          "column_name": "vehicle_image_gallery",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 8
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_vehicles",
+          "column_name": "model",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 9
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_vehicles",
+          "column_name": "color",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 10
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_customer_vehicles",
+          "column_name": "length",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 11
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_customer_vehicles",
+          "column_name": "year",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 12
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_vehicles",
+          "column_name": "make",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 13
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_vehicles",
+          "column_name": "vehicle_type",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 14
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_vehicles",
+          "column_name": "image",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 15
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_vehicles",
+          "column_name": "user_id",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 16
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_vehicles",
+          "column_name": "category",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 17
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_vehicles",
+          "column_name": "special_instructions",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 18
+        },
+        {
+          "udt_name": "bool",
+          "data_type": "boolean",
+          "table_name": "ecmd_wix_customer_vehicles",
+          "column_name": "archived",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 19
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_vehicles",
+          "column_name": "package_image",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 20
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_vehicles",
+          "column_name": "galleryimages",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 21
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_customer_vehicles",
+          "column_name": "vehiclenotes",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 22
+        }
+      ],
+      "constraints": [
+        {
+          "definition": "PRIMARY KEY (wix_id)",
+          "table_name": "ecmd_wix_customer_vehicles",
+          "constraint_name": "ecmd_wix_customer_vehicles_pkey",
+          "constraint_type": "PRIMARY KEY"
+        }
+      ],
+      "policies": [
+        {
+          "cmd": "ALL",
+          "qual": "((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)",
+          "roles": "{authenticated}",
+          "tablename": "ecmd_wix_customer_vehicles",
+          "permissive": "PERMISSIVE",
+          "policyname": "Owner admin access ecmd_wix_customer_vehicles",
+          "with_check": "((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)"
+        }
+      ],
+      "triggers": []
+    },
+    {
+      "table_name": "ecmd_wix_discounts",
+      "row_count": 1,
+      "rls_enabled": true,
+      "mirrored": true,
+      "columns": [
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_discounts",
+          "column_name": "wix_id",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 1
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_discounts",
+          "column_name": "wix_created_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 2
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_discounts",
+          "column_name": "wix_updated_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 3
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_discounts",
+          "column_name": "wix_owner",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 4
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "table_name": "ecmd_wix_discounts",
+          "column_name": "raw_wix_data",
+          "is_nullable": "NO",
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 5
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "table_name": "ecmd_wix_discounts",
+          "column_name": "imported_at",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "ordinal_position": 6
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_discounts",
+          "column_name": "title",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 7
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_discounts",
+          "column_name": "amount",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 8
+        },
+        {
+          "udt_name": "bool",
+          "data_type": "boolean",
+          "table_name": "ecmd_wix_discounts",
+          "column_name": "is_active",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 9
+        }
+      ],
+      "constraints": [
+        {
+          "definition": "PRIMARY KEY (wix_id)",
+          "table_name": "ecmd_wix_discounts",
+          "constraint_name": "ecmd_wix_discounts_pkey",
+          "constraint_type": "PRIMARY KEY"
+        }
+      ],
+      "policies": [
+        {
+          "cmd": "SELECT",
+          "qual": "true",
+          "roles": "{anon,authenticated}",
+          "tablename": "ecmd_wix_discounts",
+          "permissive": "PERMISSIVE",
+          "policyname": "Public read ecmd_wix_discounts",
+          "with_check": null
+        }
+      ],
+      "triggers": []
+    },
+    {
+      "table_name": "ecmd_wix_global_settings",
+      "row_count": 1,
+      "rls_enabled": true,
+      "mirrored": true,
+      "columns": [
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_global_settings",
+          "column_name": "wix_id",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 1
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_global_settings",
+          "column_name": "wix_created_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 2
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_global_settings",
+          "column_name": "wix_updated_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 3
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_global_settings",
+          "column_name": "wix_owner",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 4
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "table_name": "ecmd_wix_global_settings",
+          "column_name": "raw_wix_data",
+          "is_nullable": "NO",
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 5
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "table_name": "ecmd_wix_global_settings",
+          "column_name": "imported_at",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "ordinal_position": 6
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_global_settings",
+          "column_name": "setting_name",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 7
+        },
+        {
+          "udt_name": "bool",
+          "data_type": "boolean",
+          "table_name": "ecmd_wix_global_settings",
+          "column_name": "is_active",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 8
+        }
+      ],
+      "constraints": [
+        {
+          "definition": "PRIMARY KEY (wix_id)",
+          "table_name": "ecmd_wix_global_settings",
+          "constraint_name": "ecmd_wix_global_settings_pkey",
+          "constraint_type": "PRIMARY KEY"
+        }
+      ],
+      "policies": [
+        {
+          "cmd": "SELECT",
+          "qual": "true",
+          "roles": "{anon,authenticated}",
+          "tablename": "ecmd_wix_global_settings",
+          "permissive": "PERMISSIVE",
+          "policyname": "Public read ecmd_wix_global_settings",
           "with_check": null
         }
       ],
@@ -3903,6 +6717,2607 @@
         }
       ],
       "policies": [],
+      "triggers": []
+    },
+    {
+      "table_name": "ecmd_wix_login_security",
+      "row_count": 7,
+      "rls_enabled": true,
+      "mirrored": false,
+      "columns": [
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_login_security",
+          "column_name": "wix_id",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 1
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_login_security",
+          "column_name": "wix_created_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 2
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_login_security",
+          "column_name": "wix_updated_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 3
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_login_security",
+          "column_name": "wix_owner",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 4
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "table_name": "ecmd_wix_login_security",
+          "column_name": "raw_wix_data",
+          "is_nullable": "NO",
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 5
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "table_name": "ecmd_wix_login_security",
+          "column_name": "imported_at",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "ordinal_position": 6
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_login_security",
+          "column_name": "title",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 7
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_login_security",
+          "column_name": "button_text",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 8
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_login_security",
+          "column_name": "text",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 9
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_login_security",
+          "column_name": "target_location",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 10
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_login_security",
+          "column_name": "sort",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 11
+        },
+        {
+          "udt_name": "bool",
+          "data_type": "boolean",
+          "table_name": "ecmd_wix_login_security",
+          "column_name": "is_enabled",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 12
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_login_security",
+          "column_name": "location",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 13
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_login_security",
+          "column_name": "data_key",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 14
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_login_security",
+          "column_name": "edit_title",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 15
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_login_security",
+          "column_name": "edit_description",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 16
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_login_security",
+          "column_name": "edit_button",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 17
+        }
+      ],
+      "constraints": [
+        {
+          "definition": "PRIMARY KEY (wix_id)",
+          "table_name": "ecmd_wix_login_security",
+          "constraint_name": "ecmd_wix_login_security_pkey",
+          "constraint_type": "PRIMARY KEY"
+        }
+      ],
+      "policies": [
+        {
+          "cmd": "ALL",
+          "qual": "((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)",
+          "roles": "{authenticated}",
+          "tablename": "ecmd_wix_login_security",
+          "permissive": "PERMISSIVE",
+          "policyname": "Owner admin access ecmd_wix_login_security",
+          "with_check": "((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)"
+        }
+      ],
+      "triggers": []
+    },
+    {
+      "table_name": "ecmd_wix_payment_methods",
+      "row_count": 15,
+      "rls_enabled": true,
+      "mirrored": false,
+      "columns": [
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "wix_id",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 1
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "wix_created_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 2
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "wix_updated_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 3
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "wix_owner",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 4
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "raw_wix_data",
+          "is_nullable": "NO",
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 5
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "imported_at",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "ordinal_position": 6
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "title",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 7
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "image",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 8
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "selected",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 9
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "unselected",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 10
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "sort",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 11
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "category",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 12
+        },
+        {
+          "udt_name": "bool",
+          "data_type": "boolean",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "is_active",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 13
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "percent",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 14
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "stripe_code",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 15
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "image_square",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 16
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "image_button",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 17
+        },
+        {
+          "udt_name": "bool",
+          "data_type": "boolean",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "is_pay_box",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 18
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "details_title",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 19
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "desktop",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 20
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "mobile",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 21
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "visa_button",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 22
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "mastercard_button",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 23
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "discover_button",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 24
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "am_ex",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 25
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "visa",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 26
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "mastercard",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 27
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "discover",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 28
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "amex",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 29
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "html_desktop",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 30
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "provider",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 31
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "default_button",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 32
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "details_text_mobile",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 33
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_payment_methods",
+          "column_name": "details_text_desktop",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 34
+        }
+      ],
+      "constraints": [
+        {
+          "definition": "PRIMARY KEY (wix_id)",
+          "table_name": "ecmd_wix_payment_methods",
+          "constraint_name": "ecmd_wix_payment_methods_pkey",
+          "constraint_type": "PRIMARY KEY"
+        }
+      ],
+      "policies": [
+        {
+          "cmd": "ALL",
+          "qual": "((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)",
+          "roles": "{authenticated}",
+          "tablename": "ecmd_wix_payment_methods",
+          "permissive": "PERMISSIVE",
+          "policyname": "Owner admin access ecmd_wix_payment_methods",
+          "with_check": "((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)"
+        }
+      ],
+      "triggers": []
+    },
+    {
+      "table_name": "ecmd_wix_profile_buttons",
+      "row_count": 0,
+      "rls_enabled": true,
+      "mirrored": true,
+      "columns": [
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_profile_buttons",
+          "column_name": "wix_id",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 1
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_profile_buttons",
+          "column_name": "wix_created_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 2
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_profile_buttons",
+          "column_name": "wix_updated_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 3
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_profile_buttons",
+          "column_name": "wix_owner",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 4
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "table_name": "ecmd_wix_profile_buttons",
+          "column_name": "raw_wix_data",
+          "is_nullable": "NO",
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 5
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "table_name": "ecmd_wix_profile_buttons",
+          "column_name": "imported_at",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "ordinal_position": 6
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_profile_buttons",
+          "column_name": "title",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 7
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_profile_buttons",
+          "column_name": "image",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 8
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_profile_buttons",
+          "column_name": "text",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 9
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_profile_buttons",
+          "column_name": "sort",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 10
+        }
+      ],
+      "constraints": [
+        {
+          "definition": "PRIMARY KEY (wix_id)",
+          "table_name": "ecmd_wix_profile_buttons",
+          "constraint_name": "ecmd_wix_profile_buttons_pkey",
+          "constraint_type": "PRIMARY KEY"
+        }
+      ],
+      "policies": [
+        {
+          "cmd": "SELECT",
+          "qual": "true",
+          "roles": "{anon,authenticated}",
+          "tablename": "ecmd_wix_profile_buttons",
+          "permissive": "PERMISSIVE",
+          "policyname": "Public read ecmd_wix_profile_buttons",
+          "with_check": null
+        }
+      ],
+      "triggers": []
+    },
+    {
+      "table_name": "ecmd_wix_promo_codes",
+      "row_count": 0,
+      "rls_enabled": true,
+      "mirrored": true,
+      "columns": [
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_promo_codes",
+          "column_name": "wix_id",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 1
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_promo_codes",
+          "column_name": "wix_created_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 2
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_promo_codes",
+          "column_name": "wix_updated_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 3
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_promo_codes",
+          "column_name": "wix_owner",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 4
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "table_name": "ecmd_wix_promo_codes",
+          "column_name": "raw_wix_data",
+          "is_nullable": "NO",
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 5
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "table_name": "ecmd_wix_promo_codes",
+          "column_name": "imported_at",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "ordinal_position": 6
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_promo_codes",
+          "column_name": "title",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 7
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_promo_codes",
+          "column_name": "code",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 8
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_promo_codes",
+          "column_name": "discount_amount",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 9
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_promo_codes",
+          "column_name": "discount_type",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 10
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_promo_codes",
+          "column_name": "is_active",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 11
+        }
+      ],
+      "constraints": [
+        {
+          "definition": "PRIMARY KEY (wix_id)",
+          "table_name": "ecmd_wix_promo_codes",
+          "constraint_name": "ecmd_wix_promo_codes_pkey",
+          "constraint_type": "PRIMARY KEY"
+        }
+      ],
+      "policies": [
+        {
+          "cmd": "SELECT",
+          "qual": "true",
+          "roles": "{anon,authenticated}",
+          "tablename": "ecmd_wix_promo_codes",
+          "permissive": "PERMISSIVE",
+          "policyname": "Public read ecmd_wix_promo_codes",
+          "with_check": null
+        }
+      ],
+      "triggers": []
+    },
+    {
+      "table_name": "ecmd_wix_scheduled_jobs",
+      "row_count": 7,
+      "rls_enabled": true,
+      "mirrored": false,
+      "columns": [
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "wix_id",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 1
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "wix_created_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 2
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "wix_updated_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 3
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "wix_owner",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 4
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "raw_wix_data",
+          "is_nullable": "NO",
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 5
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "imported_at",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "ordinal_position": 6
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "user_id",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 7
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "status",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 8
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "order_id",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 9
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "package_title",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 10
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "level",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 11
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "type",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 12
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "base_price",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 13
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "total_price",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 14
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "vehicle_id",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 15
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "contact_id",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 16
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "location_id",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 17
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "special_instructions",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 18
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "detailer_id",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 19
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "detailer_alias",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 20
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "first_name",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 21
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "last_name",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 22
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "phone",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 23
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "email",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 24
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "address1",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 25
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "city",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 26
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "state",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 27
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "zip",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 28
+        },
+        {
+          "udt_name": "bool",
+          "data_type": "boolean",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "was_rescheduled",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 29
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "mobile_fee",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 30
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "sub_total",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 31
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "discounts_applied",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 32
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "discounts_total",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 33
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "interior_add_ons",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 34
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "exterior_add_ons",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 35
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "total_add_ons_price",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 36
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "sale_package_price",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 37
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "original_scheduled_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 38
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "scheduled_time",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 39
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "arrival_time",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 40
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "completion_time",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 41
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "set_duration",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 42
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "service_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 43
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "is_subscription",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 44
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "frequency",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 45
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "address2",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 46
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "custom_add_ons",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 47
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "office_notes",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 48
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "cancel_reason",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 49
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "was_booked_by_phone",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 50
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "package_image",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 51
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "vehiclecategory",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 52
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "vehicle_type",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 53
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "detailer_name",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 54
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "google_event_id",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 55
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "google_admin_event_id",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 56
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "when_rescheduled",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 57
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "payment_status",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 58
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "vehiclemodel",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 59
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "vehicleyear",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 60
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "vehiclecolor",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 61
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "vehiclemake",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 62
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "vehicleinfo",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 63
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "timetoken",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 64
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "payment_method_string",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 65
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "card_network",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 66
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "card_last4",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 67
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "scheduled_start_time",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 68
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "deadline_time",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 69
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "base_payout",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 70
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "add_on_payout",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 71
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "traineeid",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 72
+        },
+        {
+          "udt_name": "bool",
+          "data_type": "boolean",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "packagechanged",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 73
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "traineepayout",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 74
+        },
+        {
+          "udt_name": "bool",
+          "data_type": "boolean",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "locationchanged",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 75
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "payouttotal",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 76
+        },
+        {
+          "udt_name": "bool",
+          "data_type": "boolean",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "vehiclechanged",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 77
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "datechanged",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 78
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "trainerpayout",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 79
+        },
+        {
+          "udt_name": "bool",
+          "data_type": "boolean",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "contactchanged",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 80
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "chat_history",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 81
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "is_correction",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 82
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "correction_items",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 83
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "correction_images",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 84
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "correction_detailer_id",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 85
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "correction_detailer_name",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 86
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "correction_payout",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 87
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "correction_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 88
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "correction_time",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 89
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "column_name": "correction_time_token",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 90
+        }
+      ],
+      "constraints": [
+        {
+          "definition": "PRIMARY KEY (wix_id)",
+          "table_name": "ecmd_wix_scheduled_jobs",
+          "constraint_name": "ecmd_wix_scheduled_jobs_pkey",
+          "constraint_type": "PRIMARY KEY"
+        }
+      ],
+      "policies": [
+        {
+          "cmd": "ALL",
+          "qual": "((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)",
+          "roles": "{authenticated}",
+          "tablename": "ecmd_wix_scheduled_jobs",
+          "permissive": "PERMISSIVE",
+          "policyname": "Owner admin access ecmd_wix_scheduled_jobs",
+          "with_check": "((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)"
+        }
+      ],
+      "triggers": []
+    },
+    {
+      "table_name": "ecmd_wix_site_buttons",
+      "row_count": 81,
+      "rls_enabled": true,
+      "mirrored": true,
+      "columns": [
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_site_buttons",
+          "column_name": "wix_id",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 1
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_site_buttons",
+          "column_name": "wix_created_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 2
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_site_buttons",
+          "column_name": "wix_updated_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 3
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_site_buttons",
+          "column_name": "wix_owner",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 4
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "table_name": "ecmd_wix_site_buttons",
+          "column_name": "raw_wix_data",
+          "is_nullable": "NO",
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 5
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "table_name": "ecmd_wix_site_buttons",
+          "column_name": "imported_at",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "ordinal_position": 6
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_site_buttons",
+          "column_name": "title",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 7
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_site_buttons",
+          "column_name": "category",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 8
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_site_buttons",
+          "column_name": "image",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 9
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_site_buttons",
+          "column_name": "sort",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 10
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_site_buttons",
+          "column_name": "button_location",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 11
+        },
+        {
+          "udt_name": "bool",
+          "data_type": "boolean",
+          "table_name": "ecmd_wix_site_buttons",
+          "column_name": "is_enabled",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 12
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_site_buttons",
+          "column_name": "target_state",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 13
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_site_buttons",
+          "column_name": "image2",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 14
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_site_buttons",
+          "column_name": "sort2",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 15
+        },
+        {
+          "udt_name": "bool",
+          "data_type": "boolean",
+          "table_name": "ecmd_wix_site_buttons",
+          "column_name": "is_logged_out",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 16
+        }
+      ],
+      "constraints": [
+        {
+          "definition": "PRIMARY KEY (wix_id)",
+          "table_name": "ecmd_wix_site_buttons",
+          "constraint_name": "ecmd_wix_site_buttons_pkey",
+          "constraint_type": "PRIMARY KEY"
+        }
+      ],
+      "policies": [
+        {
+          "cmd": "SELECT",
+          "qual": "true",
+          "roles": "{anon,authenticated}",
+          "tablename": "ecmd_wix_site_buttons",
+          "permissive": "PERMISSIVE",
+          "policyname": "Public read ecmd_wix_site_buttons",
+          "with_check": null
+        }
+      ],
+      "triggers": []
+    },
+    {
+      "table_name": "ecmd_wix_sync_errors",
+      "row_count": 9,
+      "rls_enabled": true,
+      "mirrored": false,
+      "columns": [
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_sync_errors",
+          "column_name": "wix_id",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 1
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_sync_errors",
+          "column_name": "wix_created_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 2
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_sync_errors",
+          "column_name": "wix_updated_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 3
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_sync_errors",
+          "column_name": "wix_owner",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 4
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "table_name": "ecmd_wix_sync_errors",
+          "column_name": "raw_wix_data",
+          "is_nullable": "NO",
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 5
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "table_name": "ecmd_wix_sync_errors",
+          "column_name": "imported_at",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "ordinal_position": 6
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_sync_errors",
+          "column_name": "title",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 7
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_sync_errors",
+          "column_name": "calendar_id",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 8
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_sync_errors",
+          "column_name": "payload",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 9
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_sync_errors",
+          "column_name": "error_message",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 10
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_sync_errors",
+          "column_name": "timestamp",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 11
+        }
+      ],
+      "constraints": [
+        {
+          "definition": "PRIMARY KEY (wix_id)",
+          "table_name": "ecmd_wix_sync_errors",
+          "constraint_name": "ecmd_wix_sync_errors_pkey",
+          "constraint_type": "PRIMARY KEY"
+        }
+      ],
+      "policies": [
+        {
+          "cmd": "ALL",
+          "qual": "((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)",
+          "roles": "{authenticated}",
+          "tablename": "ecmd_wix_sync_errors",
+          "permissive": "PERMISSIVE",
+          "policyname": "Owner admin access ecmd_wix_sync_errors",
+          "with_check": "((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)"
+        }
+      ],
+      "triggers": []
+    },
+    {
+      "table_name": "ecmd_wix_temporary_data",
+      "row_count": 2,
+      "rls_enabled": true,
+      "mirrored": false,
+      "columns": [
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "wix_id",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 1
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "wix_created_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 2
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "wix_updated_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 3
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "wix_owner",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 4
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "raw_wix_data",
+          "is_nullable": "NO",
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 5
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "imported_at",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "ordinal_position": 6
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "title",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 7
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "user_id",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 8
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "status",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 9
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "order_id",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 10
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "package_title",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 11
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "level",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 12
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "type",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 13
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "base_price",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 14
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "total_price",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 15
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "total_duration",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 16
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "vehicle_id",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 17
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "contact_id",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 18
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "location_id",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 19
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "special_instructions",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 20
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "service_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 21
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "detailer_id",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 22
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "detailer_alias",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 23
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "next_sug_detail",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 24
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "detail_day",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 25
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "first_name",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 26
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "last_name",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 27
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "phone",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 28
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "email",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 29
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "address_1",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 30
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "city",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 31
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "state",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 32
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "zip",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 33
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "vehicle_info",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 34
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "was_late",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 35
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "was_rescheduled",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 36
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "mobile_fee",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 37
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "sub_total",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 38
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "discounts_applied",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 39
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "discounts_total",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 40
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "on_site_contact_name",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 41
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "on_site_contact_phone",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 42
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "interior_add_ons",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 43
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "exterior_add_ons",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 44
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "total_add_ons_price",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 45
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "sale_package_price",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 46
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "original_scheduled_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 47
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "scheduled_time",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 48
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "arrival_time",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 49
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "completion_time",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 50
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "customer_satisfaction_customer",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 51
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "customer_satisfaction_detailer",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 52
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "set_duration",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 53
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "customer_temperament_office",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 54
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "customer_temperament_detailer",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 55
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "frequency",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 56
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "subscription",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 57
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "assigneddetailerid",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 58
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "assigneddate",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 59
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "assignedslottext",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 60
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "assignedtime",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 61
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_temporary_data",
+          "column_name": "assigneddetaileralias",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 62
+        }
+      ],
+      "constraints": [
+        {
+          "definition": "PRIMARY KEY (wix_id)",
+          "table_name": "ecmd_wix_temporary_data",
+          "constraint_name": "ecmd_wix_temporary_data_pkey",
+          "constraint_type": "PRIMARY KEY"
+        }
+      ],
+      "policies": [
+        {
+          "cmd": "ALL",
+          "qual": "((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)",
+          "roles": "{authenticated}",
+          "tablename": "ecmd_wix_temporary_data",
+          "permissive": "PERMISSIVE",
+          "policyname": "Owner admin access ecmd_wix_temporary_data",
+          "with_check": "((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)"
+        }
+      ],
+      "triggers": []
+    },
+    {
+      "table_name": "ecmd_wix_vehicle_categories",
+      "row_count": 14,
+      "rls_enabled": true,
+      "mirrored": true,
+      "columns": [
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_vehicle_categories",
+          "column_name": "wix_id",
+          "is_nullable": "NO",
+          "column_default": null,
+          "ordinal_position": 1
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_vehicle_categories",
+          "column_name": "wix_created_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 2
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_vehicle_categories",
+          "column_name": "wix_updated_date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 3
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_vehicle_categories",
+          "column_name": "wix_owner",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 4
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "table_name": "ecmd_wix_vehicle_categories",
+          "column_name": "raw_wix_data",
+          "is_nullable": "NO",
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 5
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "table_name": "ecmd_wix_vehicle_categories",
+          "column_name": "imported_at",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "ordinal_position": 6
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_vehicle_categories",
+          "column_name": "category",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 7
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_vehicle_categories",
+          "column_name": "vehicle_type",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 8
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_vehicle_categories",
+          "column_name": "sub_category",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 9
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "table_name": "ecmd_wix_vehicle_categories",
+          "column_name": "sort",
+          "is_nullable": "YES",
+          "column_default": null,
+          "ordinal_position": 10
+        }
+      ],
+      "constraints": [
+        {
+          "definition": "PRIMARY KEY (wix_id)",
+          "table_name": "ecmd_wix_vehicle_categories",
+          "constraint_name": "ecmd_wix_vehicle_categories_pkey",
+          "constraint_type": "PRIMARY KEY"
+        }
+      ],
+      "policies": [
+        {
+          "cmd": "SELECT",
+          "qual": "true",
+          "roles": "{anon,authenticated}",
+          "tablename": "ecmd_wix_vehicle_categories",
+          "permissive": "PERMISSIVE",
+          "policyname": "Public read ecmd_wix_vehicle_categories",
+          "with_check": null
+        }
+      ],
       "triggers": []
     }
   ],

@@ -1,0 +1,25 @@
+{
+  "table": "ecmd_wix_global_settings",
+  "exportedAt": "2026-11-25T23:46:34.678Z",
+  "totalRowsInDb": 1,
+  "exportedRowCount": 1,
+  "rows": [
+    {
+      "wix_id": "78df7b1e-3a18-48a5-9828-666c4d7f1116",
+      "is_active": false,
+      "wix_owner": "694137b8-3b61-4856-af22-0aaded220973",
+      "imported_at": "2026-11-25T23:44:46.521+00:00",
+      "raw_wix_data": {
+        "ID": "78df7b1e-3a18-48a5-9828-666c4d7f1116",
+        "Owner": "694137b8-3b61-4856-af22-0aaded220973",
+        "isActive": "false",
+        "settingName": "Require Schedule Approvals",
+        "Created Date": "2026-10-07T17:24:11Z",
+        "Updated Date": "2026-10-07T17:24:30Z"
+      },
+      "setting_name": "Require Schedule Approvals",
+      "wix_created_date": "2026-10-07T17:24:11Z",
+      "wix_updated_date": "2026-10-07T17:24:30Z"
+    }
+  ]
+}

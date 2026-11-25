@@ -1,0 +1,27 @@
+{
+  "table": "ecmd_wix_discounts",
+  "exportedAt": "2026-11-25T23:46:34.678Z",
+  "totalRowsInDb": 1,
+  "exportedRowCount": 1,
+  "rows": [
+    {
+      "title": "Late Discount",
+      "amount": 10,
+      "wix_id": "4a852698-1643-46e4-99cb-9513d38c5a01",
+      "is_active": true,
+      "wix_owner": "694137b8-3b61-4856-af22-0aaded220973",
+      "imported_at": "2026-11-25T23:44:45.757+00:00",
+      "raw_wix_data": {
+        "ID": "4a852698-1643-46e4-99cb-9513d38c5a01",
+        "Owner": "694137b8-3b61-4856-af22-0aaded220973",
+        "Title": "Late Discount",
+        "amount": "10",
+        "isActive": "true",
+        "Created Date": "2026-07-24T01:35:26Z",
+        "Updated Date": "2026-07-24T01:35:26Z"
+      },
+      "wix_created_date": "2026-07-24T01:35:26Z",
+      "wix_updated_date": "2026-07-24T01:35:26Z"
+    }
+  ]
+}

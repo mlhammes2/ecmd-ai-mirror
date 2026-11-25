@@ -1,0 +1,86 @@
+{
+  "table": "ecmd_wix_calendar_time_slots",
+  "exportedAt": "2026-11-25T23:46:34.678Z",
+  "totalRowsInDb": 3,
+  "exportedRowCount": 3,
+  "rows": [
+    {
+      "label": "9-11am Arrival",
+      "title": "Slot 1",
+      "wix_id": "17609a6f-d33b-4cb7-8813-7b3f7bf1d86d",
+      "wix_owner": "694137b8-3b61-4856-af22-0aaded220973",
+      "imported_at": "2026-11-25T23:44:40.791+00:00",
+      "arrival_hour": 9,
+      "raw_wix_data": {
+        "ID": "17609a6f-d33b-4cb7-8813-7b3f7bf1d86d",
+        "Owner": "694137b8-3b61-4856-af22-0aaded220973",
+        "Title": "Slot 1",
+        "label": "9-11am Arrival",
+        "token": "token_1",
+        "arrivalHour": "9",
+        "Created Date": "2026-07-11T19:22:10Z",
+        "Updated Date": "2026-10-07T17:41:42Z",
+        "expectedHour": "11",
+        "Weekly Available Text": "AM",
+        "Weekly Unavailable Text": "AM"
+      },
+      "expected_hour": 11,
+      "wix_created_date": "2026-07-11T19:22:10Z",
+      "wix_updated_date": "2026-10-07T17:41:42Z",
+      "weekly_available_text": "AM",
+      "weekly_unavailable_text": "AM"
+    },
+    {
+      "label": "1-3pm Arrival",
+      "title": "Slot 2",
+      "wix_id": "d825e528-8f93-4015-ae02-8b065d0f6573",
+      "wix_owner": "694137b8-3b61-4856-af22-0aaded220973",
+      "imported_at": "2026-11-25T23:44:40.791+00:00",
+      "arrival_hour": 13,
+      "raw_wix_data": {
+        "ID": "d825e528-8f93-4015-ae02-8b065d0f6573",
+        "Owner": "694137b8-3b61-4856-af22-0aaded220973",
+        "Title": "Slot 2",
+        "label": "1-3pm Arrival",
+        "token": "token_2",
+        "arrivalHour": "13",
+        "Created Date": "2026-07-11T19:22:11Z",
+        "Updated Date": "2026-10-07T17:41:42Z",
+        "expectedHour": "15",
+        "Weekly Available Text": "PM",
+        "Weekly Unavailable Text": "PM"
+      },
+      "expected_hour": 15,
+      "wix_created_date": "2026-07-11T19:22:11Z",
+      "wix_updated_date": "2026-10-07T17:41:42Z",
+      "weekly_available_text": "PM",
+      "weekly_unavailable_text": "PM"
+    },
+    {
+      "label": "3-5pm Arrival",
+      "title": "Slot 3",
+      "wix_id": "db847bef-c500-43c7-9e79-2a1731e9b5fa",
+      "wix_owner": "694137b8-3b61-4856-af22-0aaded220973",
+      "imported_at": "2026-11-25T23:44:40.791+00:00",
+      "arrival_hour": 15,
+      "raw_wix_data": {
+        "ID": "db847bef-c500-43c7-9e79-2a1731e9b5fa",
+        "Owner": "694137b8-3b61-4856-af22-0aaded220973",
+        "Title": "Slot 3",
+        "label": "3-5pm Arrival",
+        "token": "token_3",
+        "arrivalHour": "15",
+        "Created Date": "2026-10-07T16:15:16Z",
+        "Updated Date": "2026-10-07T17:41:42Z",
+        "expectedHour": "17",
+        "Weekly Available Text": "PM Late",
+        "Weekly Unavailable Text": "PM Late"
+      },
+      "expected_hour": 17,
+      "wix_created_date": "2026-10-07T16:15:16Z",
+      "wix_updated_date": "2026-10-07T17:41:42Z",
+      "weekly_available_text": "PM Late",
+      "weekly_unavailable_text": "PM Late"
+    }
+  ]
+}

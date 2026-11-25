@@ -1,6 +1,6 @@
 -- ============================================================================
 -- ECMD Supabase Schema Overview (lvynkeuceiqxafgpgdvs)
--- Generated: 2026-11-25T23:08:08.382Z
+-- Generated: 2026-11-25T23:46:37.268Z
 -- Public schema tables, columns, constraints, triggers, RLS policies & custom SQL functions
 -- ============================================================================
 
@@ -319,7 +319,7 @@ CREATE TABLE IF NOT EXISTS public.ecmd_diagnostic_runs (
 );
 --   CONSTRAINT ecmd_diagnostic_runs_pkey (PRIMARY KEY): PRIMARY KEY (id)
 
--- Table: public.ecmd_external_ai_cms (rows: 36, rls: OFF)
+-- Table: public.ecmd_external_ai_cms (rows: 37, rls: OFF)
 CREATE TABLE IF NOT EXISTS public.ecmd_external_ai_cms (
   id text NOT NULL,
   entry_type text NOT NULL,
@@ -390,7 +390,7 @@ CREATE TABLE IF NOT EXISTS public.ecmd_packages (
 --   CONSTRAINT ecmd_packages_pkey (PRIMARY KEY): PRIMARY KEY (id)
 --   CONSTRAINT ecmd_packages_slug_key (UNIQUE): UNIQUE (slug)
 
--- Table: public.ecmd_pen_turns (rows: 37, rls: OFF)
+-- Table: public.ecmd_pen_turns (rows: 38, rls: OFF)
 CREATE TABLE IF NOT EXISTS public.ecmd_pen_turns (
   ref_code text NOT NULL,
   created_at timestamp with time zone DEFAULT now(),
@@ -445,7 +445,18 @@ CREATE TABLE IF NOT EXISTS public.ecmd_service_packages (
   quarterly_percent numeric NOT NULL DEFAULT 10,
   sort_order integer NOT NULL DEFAULT 10,
   enabled boolean NOT NULL DEFAULT true,
-  updated_at timestamp with time zone NOT NULL DEFAULT now()
+  updated_at timestamp with time zone NOT NULL DEFAULT now(),
+  wix_created_date text,
+  wix_updated_date text,
+  wix_owner text,
+  bi_weekly_flat numeric,
+  monthly_flat numeric,
+  quarterly_flat numeric,
+  sub_title text,
+  duration_ui text,
+  payout_l1 numeric,
+  payout_l2 numeric,
+  raw_wix_data jsonb NOT NULL DEFAULT '{}'::jsonb
 );
 --   CONSTRAINT ecmd_service_packages_pkey (PRIMARY KEY): PRIMARY KEY (id)
 --   CONSTRAINT ecmd_service_packages_wix_id_key (UNIQUE): UNIQUE (wix_id)
@@ -509,7 +520,7 @@ CREATE TABLE IF NOT EXISTS public.ecmd_telemetry (
 );
 --   CONSTRAINT ecmd_telemetry_pkey (PRIMARY KEY): PRIMARY KEY (id)
 
--- Table: public.ecmd_whats_included (rows: 18, rls: ON)
+-- Table: public.ecmd_whats_included (rows: 30, rls: ON)
 CREATE TABLE IF NOT EXISTS public.ecmd_whats_included (
   id integer NOT NULL DEFAULT nextval('ecmd_whats_included_id_seq'::regclass),
   wix_id text,
@@ -522,11 +533,356 @@ CREATE TABLE IF NOT EXISTS public.ecmd_whats_included (
   price numeric NOT NULL DEFAULT 0,
   notice text NOT NULL DEFAULT ''::text,
   sort integer NOT NULL DEFAULT 10,
-  enabled boolean NOT NULL DEFAULT true
+  enabled boolean NOT NULL DEFAULT true,
+  wix_created_date text,
+  wix_updated_date text,
+  wix_owner text,
+  slug_id text,
+  intro text,
+  overview text,
+  add_on_title text,
+  video text,
+  overview01 text,
+  overview02 text,
+  overview03 text,
+  overview04 text,
+  overview05 text,
+  overview06 text,
+  overview07 text,
+  overview_t01 text,
+  overview_t02 text,
+  overview_t03 text,
+  overview_t04 text,
+  overview_t05 text,
+  overview_t06 text,
+  overview_t07 text,
+  raw_wix_data jsonb NOT NULL DEFAULT '{}'::jsonb
 );
 --   CONSTRAINT ecmd_whats_included_pkey (PRIMARY KEY): PRIMARY KEY (id)
 --   CONSTRAINT ecmd_whats_included_wix_id_key (UNIQUE): UNIQUE (wix_id)
 --   POLICY "Public read ecmd_whats_included" ON public.ecmd_whats_included FOR SELECT TO {anon,authenticated} USING (true);
+
+-- Table: public.ecmd_wix_active_subscriptions (rows: 0, rls: ON)
+CREATE TABLE IF NOT EXISTS public.ecmd_wix_active_subscriptions (
+  wix_id text NOT NULL,
+  wix_created_date text,
+  wix_updated_date text,
+  wix_owner text,
+  raw_wix_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  imported_at timestamp with time zone NOT NULL DEFAULT now(),
+  title text
+);
+--   CONSTRAINT ecmd_wix_active_subscriptions_pkey (PRIMARY KEY): PRIMARY KEY (wix_id)
+--   POLICY "Owner admin access ecmd_wix_active_subscriptions" ON public.ecmd_wix_active_subscriptions FOR ALL TO {authenticated} USING (((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)) WITH CHECK (((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text));
+
+-- Table: public.ecmd_wix_ai_brain_master_index (rows: 7, rls: ON)
+CREATE TABLE IF NOT EXISTS public.ecmd_wix_ai_brain_master_index (
+  wix_id text NOT NULL,
+  wix_created_date text,
+  wix_updated_date text,
+  wix_owner text,
+  raw_wix_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  imported_at timestamp with time zone NOT NULL DEFAULT now(),
+  pipeline_stage_order numeric,
+  module_title text,
+  brain_layer text,
+  status text,
+  linked_collection_table text,
+  human_summary text,
+  ai_filter_routing_rule text,
+  improvement_roadmap text
+);
+--   CONSTRAINT ecmd_wix_ai_brain_master_index_pkey (PRIMARY KEY): PRIMARY KEY (wix_id)
+--   POLICY "Public read ecmd_wix_ai_brain_master_index" ON public.ecmd_wix_ai_brain_master_index FOR SELECT TO {anon,authenticated} USING (true);
+
+-- Table: public.ecmd_wix_ai_capabilities_rules (rows: 15, rls: ON)
+CREATE TABLE IF NOT EXISTS public.ecmd_wix_ai_capabilities_rules (
+  wix_id text NOT NULL,
+  wix_created_date text,
+  wix_updated_date text,
+  wix_owner text,
+  raw_wix_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  imported_at timestamp with time zone NOT NULL DEFAULT now(),
+  sort_order text,
+  capability_key_function_id text,
+  title text,
+  agent_target_head_body text,
+  category text,
+  enabled_on_off_toggle boolean,
+  requires_passcode text,
+  passcode_auth_rule text,
+  allowed_actors text,
+  human_description text,
+  ai_readable_directive_rules text,
+  rules_config_json text,
+  instructions_for_ui_build text
+);
+--   CONSTRAINT ecmd_wix_ai_capabilities_rules_pkey (PRIMARY KEY): PRIMARY KEY (wix_id)
+--   POLICY "Public read ecmd_wix_ai_capabilities_rules" ON public.ecmd_wix_ai_capabilities_rules FOR SELECT TO {anon,authenticated} USING (true);
+
+-- Table: public.ecmd_wix_ai_persona_response_rules (rows: 4, rls: ON)
+CREATE TABLE IF NOT EXISTS public.ecmd_wix_ai_persona_response_rules (
+  wix_id text NOT NULL,
+  wix_created_date text,
+  wix_updated_date text,
+  wix_owner text,
+  raw_wix_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  imported_at timestamp with time zone NOT NULL DEFAULT now(),
+  priority_order numeric,
+  rule_key text,
+  title text,
+  target_actor_admin_detailer_public_all text,
+  enabled_on_off_toggle boolean,
+  tone_formatting_style text,
+  human_description text,
+  ai_readable_persona_directive text,
+  forbidden_topics_guardrails text,
+  example_ideal_response text,
+  instructions_for_ui_build text
+);
+--   CONSTRAINT ecmd_wix_ai_persona_response_rules_pkey (PRIMARY KEY): PRIMARY KEY (wix_id)
+--   POLICY "Public read ecmd_wix_ai_persona_response_rules" ON public.ecmd_wix_ai_persona_response_rules FOR SELECT TO {anon,authenticated} USING (true);
+
+-- Table: public.ecmd_wix_availability_rules (rows: 4, rls: ON)
+CREATE TABLE IF NOT EXISTS public.ecmd_wix_availability_rules (
+  wix_id text NOT NULL,
+  wix_created_date text,
+  wix_updated_date text,
+  wix_owner text,
+  raw_wix_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  imported_at timestamp with time zone NOT NULL DEFAULT now(),
+  rule_type text,
+  detailer_name text,
+  target_day_of_week text,
+  target_date text,
+  effect text,
+  target_tokens text,
+  status text,
+  requested_by text,
+  detailer_id text,
+  title text,
+  end_date text
+);
+--   CONSTRAINT ecmd_wix_availability_rules_pkey (PRIMARY KEY): PRIMARY KEY (wix_id)
+--   POLICY "Public read ecmd_wix_availability_rules" ON public.ecmd_wix_availability_rules FOR SELECT TO {anon,authenticated} USING (true);
+
+-- Table: public.ecmd_wix_bookings (rows: 0, rls: ON)
+CREATE TABLE IF NOT EXISTS public.ecmd_wix_bookings (
+  wix_id text NOT NULL,
+  wix_created_date text,
+  wix_updated_date text,
+  wix_owner text,
+  raw_wix_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  imported_at timestamp with time zone NOT NULL DEFAULT now(),
+  title text,
+  customer_id text,
+  vehicle_id text,
+  service_date text,
+  detailer_assigned text,
+  alt_contact_name text,
+  alt_contact_phone text,
+  total_price text,
+  order_id text,
+  package_title text,
+  add_ons text,
+  duration text,
+  address_id text,
+  status text,
+  time_slot text
+);
+--   CONSTRAINT ecmd_wix_bookings_pkey (PRIMARY KEY): PRIMARY KEY (wix_id)
+--   POLICY "Owner admin access ecmd_wix_bookings" ON public.ecmd_wix_bookings FOR ALL TO {authenticated} USING (((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)) WITH CHECK (((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text));
+
+-- Table: public.ecmd_wix_calendar_time_slots (rows: 3, rls: ON)
+CREATE TABLE IF NOT EXISTS public.ecmd_wix_calendar_time_slots (
+  wix_id text NOT NULL,
+  wix_created_date text,
+  wix_updated_date text,
+  wix_owner text,
+  raw_wix_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  imported_at timestamp with time zone NOT NULL DEFAULT now(),
+  title text,
+  token text,
+  label text,
+  expected_hour numeric,
+  weekly_available_text text,
+  weekly_unavailable_text text,
+  arrival_hour numeric
+);
+--   CONSTRAINT ecmd_wix_calendar_time_slots_pkey (PRIMARY KEY): PRIMARY KEY (wix_id)
+--   POLICY "Public read ecmd_wix_calendar_time_slots" ON public.ecmd_wix_calendar_time_slots FOR SELECT TO {anon,authenticated} USING (true);
+
+-- Table: public.ecmd_wix_code_and_blueprints (rows: 80, rls: ON)
+CREATE TABLE IF NOT EXISTS public.ecmd_wix_code_and_blueprints (
+  wix_id text NOT NULL,
+  wix_created_date text,
+  wix_updated_date text,
+  wix_owner text,
+  raw_wix_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  imported_at timestamp with time zone NOT NULL DEFAULT now(),
+  title text,
+  category text,
+  velo_source_code text,
+  migration_output_code text,
+  live_dom_computed_css text,
+  last_synced_at text,
+  livedomcomputedcss text,
+  lastsynced text,
+  migrationoutputcode text
+);
+--   CONSTRAINT ecmd_wix_code_and_blueprints_pkey (PRIMARY KEY): PRIMARY KEY (wix_id)
+--   POLICY "Public read ecmd_wix_code_and_blueprints" ON public.ecmd_wix_code_and_blueprints FOR SELECT TO {anon,authenticated} USING (true);
+
+-- Table: public.ecmd_wix_contractors (rows: 4, rls: ON)
+CREATE TABLE IF NOT EXISTS public.ecmd_wix_contractors (
+  wix_id text NOT NULL,
+  wix_created_date text,
+  wix_updated_date text,
+  wix_owner text,
+  raw_wix_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  imported_at timestamp with time zone NOT NULL DEFAULT now(),
+  first text,
+  last_name text,
+  phone_number text,
+  email text,
+  team_alias text,
+  role text,
+  working_days text,
+  is_active_detailer boolean,
+  google_calendar_id text,
+  pay_level numeric,
+  is_trainee text,
+  is_admin boolean,
+  advanced_scheduling text,
+  third_slot_option boolean,
+  approved_schedule text,
+  home_address text,
+  sort text
+);
+--   CONSTRAINT ecmd_wix_contractors_pkey (PRIMARY KEY): PRIMARY KEY (wix_id)
+--   POLICY "Owner admin access ecmd_wix_contractors" ON public.ecmd_wix_contractors FOR ALL TO {authenticated} USING (((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)) WITH CHECK (((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text));
+
+-- Table: public.ecmd_wix_customer_contacts (rows: 5, rls: ON)
+CREATE TABLE IF NOT EXISTS public.ecmd_wix_customer_contacts (
+  wix_id text NOT NULL,
+  wix_created_date text,
+  wix_updated_date text,
+  wix_owner text,
+  raw_wix_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  imported_at timestamp with time zone NOT NULL DEFAULT now(),
+  first_name text,
+  last_name text,
+  phone text,
+  relationship text,
+  email text,
+  is_primary boolean,
+  userid text
+);
+--   CONSTRAINT ecmd_wix_customer_contacts_pkey (PRIMARY KEY): PRIMARY KEY (wix_id)
+--   POLICY "Owner admin access ecmd_wix_customer_contacts" ON public.ecmd_wix_customer_contacts FOR ALL TO {authenticated} USING (((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)) WITH CHECK (((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text));
+
+-- Table: public.ecmd_wix_customer_locations (rows: 5, rls: ON)
+CREATE TABLE IF NOT EXISTS public.ecmd_wix_customer_locations (
+  wix_id text NOT NULL,
+  wix_created_date text,
+  wix_updated_date text,
+  wix_owner text,
+  raw_wix_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  imported_at timestamp with time zone NOT NULL DEFAULT now(),
+  user_id text,
+  address1 text,
+  address2 text,
+  city text,
+  state text,
+  zip text,
+  is_contact_only text,
+  is_location_only text,
+  location_title text,
+  is_primary boolean
+);
+--   CONSTRAINT ecmd_wix_customer_locations_pkey (PRIMARY KEY): PRIMARY KEY (wix_id)
+--   POLICY "Owner admin access ecmd_wix_customer_locations" ON public.ecmd_wix_customer_locations FOR ALL TO {authenticated} USING (((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)) WITH CHECK (((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text));
+
+-- Table: public.ecmd_wix_customer_profiles (rows: 3, rls: ON)
+CREATE TABLE IF NOT EXISTS public.ecmd_wix_customer_profiles (
+  wix_id text NOT NULL,
+  wix_created_date text,
+  wix_updated_date text,
+  wix_owner text,
+  raw_wix_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  imported_at timestamp with time zone NOT NULL DEFAULT now(),
+  first_name text,
+  last_name text,
+  email text,
+  city text,
+  state text,
+  zip text,
+  phone text,
+  address1 text,
+  address2 text,
+  active_subscription boolean,
+  userid text,
+  email_confirmed text
+);
+--   CONSTRAINT ecmd_wix_customer_profiles_pkey (PRIMARY KEY): PRIMARY KEY (wix_id)
+--   POLICY "Owner admin access ecmd_wix_customer_profiles" ON public.ecmd_wix_customer_profiles FOR ALL TO {authenticated} USING (((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)) WITH CHECK (((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text));
+
+-- Table: public.ecmd_wix_customer_vehicles (rows: 6, rls: ON)
+CREATE TABLE IF NOT EXISTS public.ecmd_wix_customer_vehicles (
+  wix_id text NOT NULL,
+  wix_created_date text,
+  wix_updated_date text,
+  wix_owner text,
+  raw_wix_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  imported_at timestamp with time zone NOT NULL DEFAULT now(),
+  main_display_image text,
+  vehicle_image_gallery text,
+  model text,
+  color text,
+  length numeric,
+  year numeric,
+  make text,
+  vehicle_type text,
+  image text,
+  user_id text,
+  category text,
+  special_instructions text,
+  archived boolean,
+  package_image text,
+  galleryimages text,
+  vehiclenotes text
+);
+--   CONSTRAINT ecmd_wix_customer_vehicles_pkey (PRIMARY KEY): PRIMARY KEY (wix_id)
+--   POLICY "Owner admin access ecmd_wix_customer_vehicles" ON public.ecmd_wix_customer_vehicles FOR ALL TO {authenticated} USING (((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)) WITH CHECK (((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text));
+
+-- Table: public.ecmd_wix_discounts (rows: 1, rls: ON)
+CREATE TABLE IF NOT EXISTS public.ecmd_wix_discounts (
+  wix_id text NOT NULL,
+  wix_created_date text,
+  wix_updated_date text,
+  wix_owner text,
+  raw_wix_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  imported_at timestamp with time zone NOT NULL DEFAULT now(),
+  title text,
+  amount numeric,
+  is_active boolean
+);
+--   CONSTRAINT ecmd_wix_discounts_pkey (PRIMARY KEY): PRIMARY KEY (wix_id)
+--   POLICY "Public read ecmd_wix_discounts" ON public.ecmd_wix_discounts FOR SELECT TO {anon,authenticated} USING (true);
+
+-- Table: public.ecmd_wix_global_settings (rows: 1, rls: ON)
+CREATE TABLE IF NOT EXISTS public.ecmd_wix_global_settings (
+  wix_id text NOT NULL,
+  wix_created_date text,
+  wix_updated_date text,
+  wix_owner text,
+  raw_wix_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  imported_at timestamp with time zone NOT NULL DEFAULT now(),
+  setting_name text,
+  is_active boolean
+);
+--   CONSTRAINT ecmd_wix_global_settings_pkey (PRIMARY KEY): PRIMARY KEY (wix_id)
+--   POLICY "Public read ecmd_wix_global_settings" ON public.ecmd_wix_global_settings FOR SELECT TO {anon,authenticated} USING (true);
 
 -- Table: public.ecmd_wix_legacy_vault (rows: 106, rls: OFF)
 CREATE TABLE IF NOT EXISTS public.ecmd_wix_legacy_vault (
@@ -541,6 +897,321 @@ CREATE TABLE IF NOT EXISTS public.ecmd_wix_legacy_vault (
 );
 --   CONSTRAINT ecmd_wix_legacy_vault_file_path_key (UNIQUE): UNIQUE (file_path)
 --   CONSTRAINT ecmd_wix_legacy_vault_pkey (PRIMARY KEY): PRIMARY KEY (id)
+
+-- Table: public.ecmd_wix_login_security (rows: 7, rls: ON)
+CREATE TABLE IF NOT EXISTS public.ecmd_wix_login_security (
+  wix_id text NOT NULL,
+  wix_created_date text,
+  wix_updated_date text,
+  wix_owner text,
+  raw_wix_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  imported_at timestamp with time zone NOT NULL DEFAULT now(),
+  title text,
+  button_text text,
+  text text,
+  target_location text,
+  sort text,
+  is_enabled boolean,
+  location text,
+  data_key text,
+  edit_title text,
+  edit_description text,
+  edit_button text
+);
+--   CONSTRAINT ecmd_wix_login_security_pkey (PRIMARY KEY): PRIMARY KEY (wix_id)
+--   POLICY "Owner admin access ecmd_wix_login_security" ON public.ecmd_wix_login_security FOR ALL TO {authenticated} USING (((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)) WITH CHECK (((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text));
+
+-- Table: public.ecmd_wix_payment_methods (rows: 15, rls: ON)
+CREATE TABLE IF NOT EXISTS public.ecmd_wix_payment_methods (
+  wix_id text NOT NULL,
+  wix_created_date text,
+  wix_updated_date text,
+  wix_owner text,
+  raw_wix_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  imported_at timestamp with time zone NOT NULL DEFAULT now(),
+  title text,
+  image text,
+  selected text,
+  unselected text,
+  sort text,
+  category text,
+  is_active boolean,
+  percent numeric,
+  stripe_code text,
+  image_square text,
+  image_button text,
+  is_pay_box boolean,
+  details_title text,
+  desktop text,
+  mobile text,
+  visa_button text,
+  mastercard_button text,
+  discover_button text,
+  am_ex text,
+  visa text,
+  mastercard text,
+  discover text,
+  amex text,
+  html_desktop text,
+  provider text,
+  default_button text,
+  details_text_mobile text,
+  details_text_desktop text
+);
+--   CONSTRAINT ecmd_wix_payment_methods_pkey (PRIMARY KEY): PRIMARY KEY (wix_id)
+--   POLICY "Owner admin access ecmd_wix_payment_methods" ON public.ecmd_wix_payment_methods FOR ALL TO {authenticated} USING (((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)) WITH CHECK (((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text));
+
+-- Table: public.ecmd_wix_profile_buttons (rows: 0, rls: ON)
+CREATE TABLE IF NOT EXISTS public.ecmd_wix_profile_buttons (
+  wix_id text NOT NULL,
+  wix_created_date text,
+  wix_updated_date text,
+  wix_owner text,
+  raw_wix_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  imported_at timestamp with time zone NOT NULL DEFAULT now(),
+  title text,
+  image text,
+  text text,
+  sort text
+);
+--   CONSTRAINT ecmd_wix_profile_buttons_pkey (PRIMARY KEY): PRIMARY KEY (wix_id)
+--   POLICY "Public read ecmd_wix_profile_buttons" ON public.ecmd_wix_profile_buttons FOR SELECT TO {anon,authenticated} USING (true);
+
+-- Table: public.ecmd_wix_promo_codes (rows: 0, rls: ON)
+CREATE TABLE IF NOT EXISTS public.ecmd_wix_promo_codes (
+  wix_id text NOT NULL,
+  wix_created_date text,
+  wix_updated_date text,
+  wix_owner text,
+  raw_wix_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  imported_at timestamp with time zone NOT NULL DEFAULT now(),
+  title text,
+  code text,
+  discount_amount text,
+  discount_type text,
+  is_active text
+);
+--   CONSTRAINT ecmd_wix_promo_codes_pkey (PRIMARY KEY): PRIMARY KEY (wix_id)
+--   POLICY "Public read ecmd_wix_promo_codes" ON public.ecmd_wix_promo_codes FOR SELECT TO {anon,authenticated} USING (true);
+
+-- Table: public.ecmd_wix_scheduled_jobs (rows: 7, rls: ON)
+CREATE TABLE IF NOT EXISTS public.ecmd_wix_scheduled_jobs (
+  wix_id text NOT NULL,
+  wix_created_date text,
+  wix_updated_date text,
+  wix_owner text,
+  raw_wix_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  imported_at timestamp with time zone NOT NULL DEFAULT now(),
+  user_id text,
+  status text,
+  order_id text,
+  package_title text,
+  level text,
+  type text,
+  base_price numeric,
+  total_price numeric,
+  vehicle_id text,
+  contact_id text,
+  location_id text,
+  special_instructions text,
+  detailer_id text,
+  detailer_alias text,
+  first_name text,
+  last_name text,
+  phone text,
+  email text,
+  address1 text,
+  city text,
+  state text,
+  zip text,
+  was_rescheduled boolean,
+  mobile_fee numeric,
+  sub_total numeric,
+  discounts_applied text,
+  discounts_total numeric,
+  interior_add_ons text,
+  exterior_add_ons text,
+  total_add_ons_price numeric,
+  sale_package_price numeric,
+  original_scheduled_date text,
+  scheduled_time text,
+  arrival_time text,
+  completion_time text,
+  set_duration numeric,
+  service_date text,
+  is_subscription text,
+  frequency text,
+  address2 text,
+  custom_add_ons text,
+  office_notes text,
+  cancel_reason text,
+  was_booked_by_phone text,
+  package_image text,
+  vehiclecategory text,
+  vehicle_type text,
+  detailer_name text,
+  google_event_id text,
+  google_admin_event_id text,
+  when_rescheduled text,
+  payment_status text,
+  vehiclemodel text,
+  vehicleyear numeric,
+  vehiclecolor text,
+  vehiclemake text,
+  vehicleinfo text,
+  timetoken text,
+  payment_method_string text,
+  card_network text,
+  card_last4 text,
+  scheduled_start_time text,
+  deadline_time text,
+  base_payout numeric,
+  add_on_payout numeric,
+  traineeid text,
+  packagechanged boolean,
+  traineepayout numeric,
+  locationchanged boolean,
+  payouttotal numeric,
+  vehiclechanged boolean,
+  datechanged text,
+  trainerpayout numeric,
+  contactchanged boolean,
+  chat_history text,
+  is_correction text,
+  correction_items text,
+  correction_images text,
+  correction_detailer_id text,
+  correction_detailer_name text,
+  correction_payout text,
+  correction_date text,
+  correction_time text,
+  correction_time_token text
+);
+--   CONSTRAINT ecmd_wix_scheduled_jobs_pkey (PRIMARY KEY): PRIMARY KEY (wix_id)
+--   POLICY "Owner admin access ecmd_wix_scheduled_jobs" ON public.ecmd_wix_scheduled_jobs FOR ALL TO {authenticated} USING (((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)) WITH CHECK (((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text));
+
+-- Table: public.ecmd_wix_site_buttons (rows: 81, rls: ON)
+CREATE TABLE IF NOT EXISTS public.ecmd_wix_site_buttons (
+  wix_id text NOT NULL,
+  wix_created_date text,
+  wix_updated_date text,
+  wix_owner text,
+  raw_wix_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  imported_at timestamp with time zone NOT NULL DEFAULT now(),
+  title text,
+  category text,
+  image text,
+  sort text,
+  button_location text,
+  is_enabled boolean,
+  target_state text,
+  image2 text,
+  sort2 text,
+  is_logged_out boolean
+);
+--   CONSTRAINT ecmd_wix_site_buttons_pkey (PRIMARY KEY): PRIMARY KEY (wix_id)
+--   POLICY "Public read ecmd_wix_site_buttons" ON public.ecmd_wix_site_buttons FOR SELECT TO {anon,authenticated} USING (true);
+
+-- Table: public.ecmd_wix_sync_errors (rows: 9, rls: ON)
+CREATE TABLE IF NOT EXISTS public.ecmd_wix_sync_errors (
+  wix_id text NOT NULL,
+  wix_created_date text,
+  wix_updated_date text,
+  wix_owner text,
+  raw_wix_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  imported_at timestamp with time zone NOT NULL DEFAULT now(),
+  title text,
+  calendar_id text,
+  payload text,
+  error_message text,
+  timestamp text
+);
+--   CONSTRAINT ecmd_wix_sync_errors_pkey (PRIMARY KEY): PRIMARY KEY (wix_id)
+--   POLICY "Owner admin access ecmd_wix_sync_errors" ON public.ecmd_wix_sync_errors FOR ALL TO {authenticated} USING (((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)) WITH CHECK (((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text));
+
+-- Table: public.ecmd_wix_temporary_data (rows: 2, rls: ON)
+CREATE TABLE IF NOT EXISTS public.ecmd_wix_temporary_data (
+  wix_id text NOT NULL,
+  wix_created_date text,
+  wix_updated_date text,
+  wix_owner text,
+  raw_wix_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  imported_at timestamp with time zone NOT NULL DEFAULT now(),
+  title text,
+  user_id text,
+  status text,
+  order_id text,
+  package_title text,
+  level text,
+  type text,
+  base_price numeric,
+  total_price numeric,
+  total_duration text,
+  vehicle_id text,
+  contact_id text,
+  location_id text,
+  special_instructions text,
+  service_date text,
+  detailer_id text,
+  detailer_alias text,
+  next_sug_detail text,
+  detail_day text,
+  first_name text,
+  last_name text,
+  phone text,
+  email text,
+  address_1 text,
+  city text,
+  state text,
+  zip text,
+  vehicle_info text,
+  was_late text,
+  was_rescheduled text,
+  mobile_fee numeric,
+  sub_total numeric,
+  discounts_applied text,
+  discounts_total numeric,
+  on_site_contact_name text,
+  on_site_contact_phone text,
+  interior_add_ons text,
+  exterior_add_ons text,
+  total_add_ons_price numeric,
+  sale_package_price numeric,
+  original_scheduled_date text,
+  scheduled_time text,
+  arrival_time text,
+  completion_time text,
+  customer_satisfaction_customer text,
+  customer_satisfaction_detailer text,
+  set_duration numeric,
+  customer_temperament_office text,
+  customer_temperament_detailer text,
+  frequency text,
+  subscription text,
+  assigneddetailerid text,
+  assigneddate text,
+  assignedslottext text,
+  assignedtime text,
+  assigneddetaileralias text
+);
+--   CONSTRAINT ecmd_wix_temporary_data_pkey (PRIMARY KEY): PRIMARY KEY (wix_id)
+--   POLICY "Owner admin access ecmd_wix_temporary_data" ON public.ecmd_wix_temporary_data FOR ALL TO {authenticated} USING (((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text)) WITH CHECK (((auth.jwt() ->> 'email'::text) = 'mlhammes1@gmail.com'::text));
+
+-- Table: public.ecmd_wix_vehicle_categories (rows: 14, rls: ON)
+CREATE TABLE IF NOT EXISTS public.ecmd_wix_vehicle_categories (
+  wix_id text NOT NULL,
+  wix_created_date text,
+  wix_updated_date text,
+  wix_owner text,
+  raw_wix_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  imported_at timestamp with time zone NOT NULL DEFAULT now(),
+  category text,
+  vehicle_type text,
+  sub_category text,
+  sort text
+);
+--   CONSTRAINT ecmd_wix_vehicle_categories_pkey (PRIMARY KEY): PRIMARY KEY (wix_id)
+--   POLICY "Public read ecmd_wix_vehicle_categories" ON public.ecmd_wix_vehicle_categories FOR SELECT TO {anon,authenticated} USING (true);
 
 -- ============================================================================
 -- Custom Public SQL Functions (pg_proc, excluding pgvector internals)

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-25T23:06:29.622Z",
+  "updatedAt": "2026-11-25T23:33:31.740Z",
   "entries": {
     "EcmdBrandIcon::desktop-1440": {
       "componentName": "EcmdBrandIcon",
@@ -445,7 +445,7 @@
       "artboardTag": "desktop-1440",
       "viewportMode": "desktop",
       "viewportWidthPx": 1440,
-      "updatedAt": "2026-11-25T23:00:29.558Z",
+      "updatedAt": "2026-11-25T23:33:31.734Z",
       "snapshot": {
         "tag": "div",
         "id": "packagesRep",
@@ -461,17 +461,17 @@
         "matchedThemeGroups": [],
         "rect": {
           "width": 980,
-          "height": 1930,
+          "height": 1921,
           "x": 230,
           "y": 144
         },
         "scrollWidth": 980,
         "clientWidth": 980,
-        "scrollHeight": 1930,
-        "clientHeight": 1930,
+        "scrollHeight": 1921,
+        "clientHeight": 1921,
         "boxModel": {
           "width": "980px",
-          "height": "1929.53px",
+          "height": "1920.57px",
           "minWidth": "auto",
           "maxWidth": "none",
           "minHeight": "auto",
@@ -520,6 +520,9 @@
             "className": "ecmd-package-card",
             "textPreview": "{\"pkg\":{\"id\":1,\"slug\":\"premium-plus-ceramic\",\"title\":\"Premium Plus - Ceramic Coating\",\"enabled\":true,\"sort_order\":1,\"upd",
             "ecmdAttrs": {
+              "data-ecmd-card-key": "legacy:1",
+              "data-ecmd-package-level": "Premium Plus - Ceramic Coating",
+              "data-ecmd-active-scope": "full",
               "data-ecmd-slot-wrapper": "transparent"
             },
             "ariaAttrs": {},
@@ -3337,7 +3340,10 @@
                                     "className": "ecmd-steel-button-root button-mount __wab_instance uid-3005429",
                                     "textPreview": "Exterior",
                                     "ecmdAttrs": {
-                                      "data-ecmd-selected": "false"
+                                      "data-ecmd-selected": "false",
+                                      "data-ecmd-scope-btn": "exterior",
+                                      "data-ecmd-viewport": "desktop",
+                                      "data-ecmd-component": "EcmdBrushedSteelButton"
                                     },
                                     "ariaAttrs": {},
                                     "disabled": false,
@@ -3403,7 +3409,8 @@
                                         "className": "ecmd-steel-button steel-button",
                                         "textPreview": "Exterior",
                                         "ecmdAttrs": {
-                                          "data-ecmd-selected": "false"
+                                          "data-ecmd-selected": "false",
+                                          "data-ecmd-scope-btn": "exterior"
                                         },
                                         "ariaAttrs": {
                                           "aria-pressed": "false"
@@ -3672,9 +3679,12 @@
                                     "className": "__wab_defaults__all __wab_defaults__button __wab_defaults__button__canva uid-3005343 __wab_tag",
                                     "textPreview": "Full Detail",
                                     "ecmdAttrs": {
-                                      "data-ecmd-scope-btn": "full"
+                                      "data-ecmd-scope-btn": "full",
+                                      "data-ecmd-selected": "true"
                                     },
-                                    "ariaAttrs": {},
+                                    "ariaAttrs": {
+                                      "aria-pressed": "true"
+                                    },
                                     "disabled": false,
                                     "matchedThemeGroups": [],
                                     "rect": {
@@ -4266,8 +4276,13 @@
                                     "id": null,
                                     "className": "__wab_defaults__all __wab_defaults__button __wab_defaults__button__canva uid-3005356 __wab_tag",
                                     "textPreview": "Exterior",
-                                    "ecmdAttrs": {},
-                                    "ariaAttrs": {},
+                                    "ecmdAttrs": {
+                                      "data-ecmd-scope-btn": "exterior",
+                                      "data-ecmd-selected": "false"
+                                    },
+                                    "ariaAttrs": {
+                                      "aria-pressed": "false"
+                                    },
                                     "disabled": false,
                                     "matchedThemeGroups": [],
                                     "rect": {
@@ -7113,7 +7128,8 @@
                                     "className": "__wab_defaults__all __wab_defaults__button __wab_defaults__button__canva uid-3005087 __wab_tag __wab_text __wab_editor",
                                     "textPreview": "Add to Cart",
                                     "ecmdAttrs": {
-                                      "data-ecmd-pkg": "add-to-cart-btn"
+                                      "data-ecmd-pkg": "add-to-cart-btn",
+                                      "data-ecmd-action": "add-to-cart"
                                     },
                                     "ariaAttrs": {},
                                     "disabled": false,

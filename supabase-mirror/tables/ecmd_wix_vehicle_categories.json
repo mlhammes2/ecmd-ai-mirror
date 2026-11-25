@@ -1,0 +1,302 @@
+{
+  "table": "ecmd_wix_vehicle_categories",
+  "exportedAt": "2026-11-25T23:46:34.678Z",
+  "totalRowsInDb": 14,
+  "exportedRowCount": 14,
+  "rows": [
+    {
+      "sort": "03",
+      "wix_id": "03e81ebb-b849-401d-a9c5-f4ffddc61a87",
+      "category": "Automotive",
+      "wix_owner": "694137b8-3b61-4856-af22-0aaded220973",
+      "imported_at": "2026-11-25T23:44:54.314+00:00",
+      "raw_wix_data": {
+        "ID": "03e81ebb-b849-401d-a9c5-f4ffddc61a87",
+        "Sort": "03",
+        "Owner": "694137b8-3b61-4856-af22-0aaded220973",
+        "Category": "Automotive",
+        "Created Date": "2026-02-17T01:11:15Z",
+        "Sub-Category": "",
+        "Updated Date": "2026-02-19T02:01:18Z",
+        "Vehicle Type": "Small SUV"
+      },
+      "sub_category": "",
+      "vehicle_type": "Small SUV",
+      "wix_created_date": "2026-02-17T01:11:15Z",
+      "wix_updated_date": "2026-02-19T02:01:18Z"
+    },
+    {
+      "sort": "02",
+      "wix_id": "25e21427-2736-4369-85d8-2af967c55a42",
+      "category": "Automotive",
+      "wix_owner": "694137b8-3b61-4856-af22-0aaded220973",
+      "imported_at": "2026-11-25T23:44:54.314+00:00",
+      "raw_wix_data": {
+        "ID": "25e21427-2736-4369-85d8-2af967c55a42",
+        "Sort": "02",
+        "Owner": "694137b8-3b61-4856-af22-0aaded220973",
+        "Category": "Automotive",
+        "Created Date": "2026-02-17T01:11:14Z",
+        "Sub-Category": "",
+        "Updated Date": "2026-02-19T02:01:18Z",
+        "Vehicle Type": "Truck"
+      },
+      "sub_category": "",
+      "vehicle_type": "Truck",
+      "wix_created_date": "2026-02-17T01:11:14Z",
+      "wix_updated_date": "2026-02-19T02:01:18Z"
+    },
+    {
+      "sort": "05",
+      "wix_id": "2e5cac5d-54d1-449b-a160-9a68f38c0c98",
+      "category": "Automotive",
+      "wix_owner": "694137b8-3b61-4856-af22-0aaded220973",
+      "imported_at": "2026-11-25T23:44:54.314+00:00",
+      "raw_wix_data": {
+        "ID": "2e5cac5d-54d1-449b-a160-9a68f38c0c98",
+        "Sort": "05",
+        "Owner": "694137b8-3b61-4856-af22-0aaded220973",
+        "Category": "Automotive",
+        "Created Date": "2026-02-17T01:11:16Z",
+        "Sub-Category": "",
+        "Updated Date": "2026-02-19T02:01:18Z",
+        "Vehicle Type": "Motorcycle"
+      },
+      "sub_category": "",
+      "vehicle_type": "Motorcycle",
+      "wix_created_date": "2026-02-17T01:11:16Z",
+      "wix_updated_date": "2026-02-19T02:01:18Z"
+    },
+    {
+      "sort": "07",
+      "wix_id": "3a94c16d-9829-4361-be2e-3486bd748768",
+      "category": "Marine",
+      "wix_owner": "694137b8-3b61-4856-af22-0aaded220973",
+      "imported_at": "2026-11-25T23:44:54.314+00:00",
+      "raw_wix_data": {
+        "ID": "3a94c16d-9829-4361-be2e-3486bd748768",
+        "Sort": "07",
+        "Owner": "694137b8-3b61-4856-af22-0aaded220973",
+        "Category": "Marine",
+        "Created Date": "2026-02-17T01:14:04Z",
+        "Sub-Category": "Small Boat/Open Hull",
+        "Updated Date": "2026-02-19T02:01:18Z",
+        "Vehicle Type": "Jet-ski"
+      },
+      "sub_category": "Small Boat/Open Hull",
+      "vehicle_type": "Jet-ski",
+      "wix_created_date": "2026-02-17T01:14:04Z",
+      "wix_updated_date": "2026-02-19T02:01:18Z"
+    },
+    {
+      "sort": "11",
+      "wix_id": "43005130-d6a5-42c5-aeb6-4f7a043b505e",
+      "category": "Marine",
+      "wix_owner": "694137b8-3b61-4856-af22-0aaded220973",
+      "imported_at": "2026-11-25T23:44:54.314+00:00",
+      "raw_wix_data": {
+        "ID": "43005130-d6a5-42c5-aeb6-4f7a043b505e",
+        "Sort": "11",
+        "Owner": "694137b8-3b61-4856-af22-0aaded220973",
+        "Category": "Marine",
+        "Created Date": "2026-02-17T01:23:08Z",
+        "Sub-Category": "Large / Complex",
+        "Updated Date": "2026-02-19T02:01:18Z",
+        "Vehicle Type": "Cabin Cruiser"
+      },
+      "sub_category": "Large / Complex",
+      "vehicle_type": "Cabin Cruiser",
+      "wix_created_date": "2026-02-17T01:23:08Z",
+      "wix_updated_date": "2026-02-19T02:01:18Z"
+    },
+    {
+      "sort": "04",
+      "wix_id": "78763b77-2769-43b1-8073-a7b769f5bed9",
+      "category": "Automotive",
+      "wix_owner": "694137b8-3b61-4856-af22-0aaded220973",
+      "imported_at": "2026-11-25T23:44:54.314+00:00",
+      "raw_wix_data": {
+        "ID": "78763b77-2769-43b1-8073-a7b769f5bed9",
+        "Sort": "04",
+        "Owner": "694137b8-3b61-4856-af22-0aaded220973",
+        "Category": "Automotive",
+        "Created Date": "2026-02-17T01:11:15Z",
+        "Sub-Category": "",
+        "Updated Date": "2026-02-19T02:01:18Z",
+        "Vehicle Type": "Large SUV"
+      },
+      "sub_category": "",
+      "vehicle_type": "Large SUV",
+      "wix_created_date": "2026-02-17T01:11:15Z",
+      "wix_updated_date": "2026-02-19T02:01:18Z"
+    },
+    {
+      "sort": "09",
+      "wix_id": "7d0e1bad-e705-47d8-aee5-db47193ac36a",
+      "category": "Marine",
+      "wix_owner": "694137b8-3b61-4856-af22-0aaded220973",
+      "imported_at": "2026-11-25T23:44:54.314+00:00",
+      "raw_wix_data": {
+        "ID": "7d0e1bad-e705-47d8-aee5-db47193ac36a",
+        "Sort": "09",
+        "Owner": "694137b8-3b61-4856-af22-0aaded220973",
+        "Category": "Marine",
+        "Created Date": "2026-02-17T01:14:25Z",
+        "Sub-Category": "Mid-Size Boat",
+        "Updated Date": "2026-02-19T02:01:18Z",
+        "Vehicle Type": "Bowrider / Runabout"
+      },
+      "sub_category": "Mid-Size Boat",
+      "vehicle_type": "Bowrider / Runabout",
+      "wix_created_date": "2026-02-17T01:14:25Z",
+      "wix_updated_date": "2026-02-19T02:01:18Z"
+    },
+    {
+      "sort": "01",
+      "wix_id": "8089353e-7683-4d5f-8e71-b517b134aa35",
+      "category": "Automotive",
+      "wix_owner": "694137b8-3b61-4856-af22-0aaded220973",
+      "imported_at": "2026-11-25T23:44:54.314+00:00",
+      "raw_wix_data": {
+        "ID": "8089353e-7683-4d5f-8e71-b517b134aa35",
+        "Sort": "01",
+        "Owner": "694137b8-3b61-4856-af22-0aaded220973",
+        "Category": "Automotive",
+        "Created Date": "2026-02-17T01:06:08Z",
+        "Sub-Category": "",
+        "Updated Date": "2026-02-19T02:01:18Z",
+        "Vehicle Type": "Coupe/Sedan"
+      },
+      "sub_category": "",
+      "vehicle_type": "Coupe/Sedan",
+      "wix_created_date": "2026-02-17T01:06:08Z",
+      "wix_updated_date": "2026-02-19T02:01:18Z"
+    },
+    {
+      "sort": "08",
+      "wix_id": "9cbe7acc-01c1-48c3-b0e1-2eacb91c3bbd",
+      "category": "Marine",
+      "wix_owner": "694137b8-3b61-4856-af22-0aaded220973",
+      "imported_at": "2026-11-25T23:44:54.314+00:00",
+      "raw_wix_data": {
+        "ID": "9cbe7acc-01c1-48c3-b0e1-2eacb91c3bbd",
+        "Sort": "08",
+        "Owner": "694137b8-3b61-4856-af22-0aaded220973",
+        "Category": "Marine",
+        "Created Date": "2026-02-17T01:14:17Z",
+        "Sub-Category": "Mid-Size Boat",
+        "Updated Date": "2026-02-19T02:01:18Z",
+        "Vehicle Type": "Center Console"
+      },
+      "sub_category": "Mid-Size Boat",
+      "vehicle_type": "Center Console",
+      "wix_created_date": "2026-02-17T01:14:17Z",
+      "wix_updated_date": "2026-02-19T02:01:18Z"
+    },
+    {
+      "sort": "10",
+      "wix_id": "ada6b7d8-bc0e-4f46-b95d-35766002b4c6",
+      "category": "Marine",
+      "wix_owner": "694137b8-3b61-4856-af22-0aaded220973",
+      "imported_at": "2026-11-25T23:44:54.314+00:00",
+      "raw_wix_data": {
+        "ID": "ada6b7d8-bc0e-4f46-b95d-35766002b4c6",
+        "Sort": "10",
+        "Owner": "694137b8-3b61-4856-af22-0aaded220973",
+        "Category": "Marine",
+        "Created Date": "2026-02-17T01:22:09Z",
+        "Sub-Category": "Mid-Size Boat",
+        "Updated Date": "2026-02-19T02:01:18Z",
+        "Vehicle Type": "Pontoon"
+      },
+      "sub_category": "Mid-Size Boat",
+      "vehicle_type": "Pontoon",
+      "wix_created_date": "2026-02-17T01:22:09Z",
+      "wix_updated_date": "2026-02-19T02:01:18Z"
+    },
+    {
+      "sort": "14",
+      "wix_id": "de4e2224-d39b-416a-a47b-8ca87711c1fc",
+      "category": "Marine",
+      "wix_owner": "694137b8-3b61-4856-af22-0aaded220973",
+      "imported_at": "2026-11-25T23:44:54.314+00:00",
+      "raw_wix_data": {
+        "ID": "de4e2224-d39b-416a-a47b-8ca87711c1fc",
+        "Sort": "14",
+        "Owner": "694137b8-3b61-4856-af22-0aaded220973",
+        "Category": "Marine",
+        "Created Date": "2026-02-17T01:23:29Z",
+        "Sub-Category": "Large / Complex",
+        "Updated Date": "2026-02-19T02:01:18Z",
+        "Vehicle Type": "Sailboat"
+      },
+      "sub_category": "Large / Complex",
+      "vehicle_type": "Sailboat",
+      "wix_created_date": "2026-02-17T01:23:29Z",
+      "wix_updated_date": "2026-02-19T02:01:18Z"
+    },
+    {
+      "sort": "06",
+      "wix_id": "e8d9f991-8847-42ae-a96d-5817056912a1",
+      "category": "Marine",
+      "wix_owner": "694137b8-3b61-4856-af22-0aaded220973",
+      "imported_at": "2026-11-25T23:44:54.314+00:00",
+      "raw_wix_data": {
+        "ID": "e8d9f991-8847-42ae-a96d-5817056912a1",
+        "Sort": "06",
+        "Owner": "694137b8-3b61-4856-af22-0aaded220973",
+        "Category": "Marine",
+        "Created Date": "2026-02-17T01:12:44Z",
+        "Sub-Category": "Small Boat/Open Hull",
+        "Updated Date": "2026-02-19T02:01:18Z",
+        "Vehicle Type": "Jon Boat / Skiff"
+      },
+      "sub_category": "Small Boat/Open Hull",
+      "vehicle_type": "Jon Boat / Skiff",
+      "wix_created_date": "2026-02-17T01:12:44Z",
+      "wix_updated_date": "2026-02-19T02:01:18Z"
+    },
+    {
+      "sort": "13",
+      "wix_id": "ebd9c790-9bd2-429e-bc82-2e5d4ffaff99",
+      "category": "Marine",
+      "wix_owner": "694137b8-3b61-4856-af22-0aaded220973",
+      "imported_at": "2026-11-25T23:44:54.314+00:00",
+      "raw_wix_data": {
+        "ID": "ebd9c790-9bd2-429e-bc82-2e5d4ffaff99",
+        "Sort": "13",
+        "Owner": "694137b8-3b61-4856-af22-0aaded220973",
+        "Category": "Marine",
+        "Created Date": "2026-02-17T01:23:28Z",
+        "Sub-Category": "Large / Complex",
+        "Updated Date": "2026-02-19T02:01:18Z",
+        "Vehicle Type": "Yacht"
+      },
+      "sub_category": "Large / Complex",
+      "vehicle_type": "Yacht",
+      "wix_created_date": "2026-02-17T01:23:28Z",
+      "wix_updated_date": "2026-02-19T02:01:18Z"
+    },
+    {
+      "sort": "12",
+      "wix_id": "fc95feca-089c-4440-9500-e2220b763707",
+      "category": "Marine",
+      "wix_owner": "694137b8-3b61-4856-af22-0aaded220973",
+      "imported_at": "2026-11-25T23:44:54.314+00:00",
+      "raw_wix_data": {
+        "ID": "fc95feca-089c-4440-9500-e2220b763707",
+        "Sort": "12",
+        "Owner": "694137b8-3b61-4856-af22-0aaded220973",
+        "Category": "Marine",
+        "Created Date": "2026-02-17T01:23:27Z",
+        "Sub-Category": "Large / Complex",
+        "Updated Date": "2026-02-19T02:01:18Z",
+        "Vehicle Type": "Multi-Tier / Flybridge"
+      },
+      "sub_category": "Large / Complex",
+      "vehicle_type": "Multi-Tier / Flybridge",
+      "wix_created_date": "2026-02-17T01:23:27Z",
+      "wix_updated_date": "2026-02-19T02:01:18Z"
+    }
+  ]
+}

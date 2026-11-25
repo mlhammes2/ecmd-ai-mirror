@@ -57,6 +57,7 @@ const RUNNER_EXCLUDED_TOP_DIRS = new Set([
   ".git",
   ".ai-mirror",
   "emerald-coast-detailing-hub",
+  "wix-cms-exports",
   "mobile-dist",
   ".wrangler",
   ".cache",
@@ -139,6 +140,22 @@ const BINARY_OR_SKIP_EXTENSIONS = new Set([
   ".bak",
 ]);
 
+// Explicit blocklist of RLS-protected private/PII Wix & CRM tables (checked FIRST!)
+const EXPLICIT_BLOCKED_TABLES = new Set([
+  "ecmd_wix_customer_profiles",
+  "ecmd_wix_customer_contacts",
+  "ecmd_wix_customer_locations",
+  "ecmd_wix_customer_vehicles",
+  "ecmd_wix_contractors",
+  "ecmd_wix_bookings",
+  "ecmd_wix_scheduled_jobs",
+  "ecmd_wix_active_subscriptions",
+  "ecmd_wix_payment_methods",
+  "ecmd_wix_temporary_data",
+  "ecmd_wix_login_security",
+  "ecmd_wix_sync_errors",
+]);
+
 // Tables STRICTLY EXCLUDED from data export (auth, PII, customer/contractor CRM, private logs/queues)
 const BLOCKED_TABLE_PATTERNS = [
   /member/i,
@@ -152,6 +169,13 @@ const BLOCKED_TABLE_PATTERNS = [
   /token/i,
   /session/i,
   /payment/i,
+  /subscription/i,
+  /booking/i,
+  /scheduled_job/i,
+  /temporary_data/i,
+  /temp_cart/i,
+  /login_security/i,
+  /sync_error/i,
   /invoice/i,
   /crm_/i,
   /conversation/i,
@@ -171,6 +195,18 @@ const EXPLICIT_SAFE_TABLES = new Set([
   "ecmd_packages",
   "ecmd_service_packages",
   "ecmd_whats_included",
+  "ecmd_wix_vehicle_categories",
+  "ecmd_wix_site_buttons",
+  "ecmd_wix_profile_buttons",
+  "ecmd_wix_availability_rules",
+  "ecmd_wix_calendar_time_slots",
+  "ecmd_wix_discounts",
+  "ecmd_wix_promo_codes",
+  "ecmd_wix_global_settings",
+  "ecmd_wix_ai_brain_master_index",
+  "ecmd_wix_ai_capabilities_rules",
+  "ecmd_wix_ai_persona_response_rules",
+  "ecmd_wix_code_and_blueprints",
   "ecmd_external_ai_cms",
   "ecmd_wix_legacy_vault",
   "ecmd_site_blueprints",
@@ -398,6 +434,7 @@ function runSupabaseSql(sql) {
 }
 
 function isSafeTableToMirror(tableName) {
+  if (EXPLICIT_BLOCKED_TABLES.has(tableName)) return false;
   if (EXPLICIT_SAFE_TABLES.has(tableName)) return true;
   if (BLOCKED_TABLE_PATTERNS.some((re) => re.test(tableName))) return false;
   return SAFE_TABLE_AUTO_PATTERN.test(tableName);
@@ -407,6 +444,13 @@ function sanitizeRowForPublicMirror(tableName, row) {
   const clean = {};
   for (const [k, v] of Object.entries(row || {})) {
     if (STRIPPED_COLUMN_PATTERN.test(k)) continue;
+    if (tableName === "ecmd_wix_code_and_blueprints") {
+      if (k === "raw_wix_data") continue;
+      if (typeof v === "string" && v.length > 3500) {
+        clean[k] = `${v.slice(0, 3500)}\n... [TRUNCATED FOR MIRROR: ${v.length} chars total — full row in Supabase public.ecmd_wix_code_and_blueprints]`;
+        continue;
+      }
+    }
     if (tableName === "ecmd_pen_turns" && k === "raw_cli_output" && typeof v === "string" && v.length > 4000) {
       clean[k] = `${v.slice(0, 4000)}\n... [TRUNCATED FOR MIRROR: ${v.length} chars total]`;
       continue;
@@ -742,10 +786,25 @@ function mirrorSupabase() {
       try {
         const cols = (columnsByTable[name] || [])
           .map((c) => c.column_name)
-          .filter((colName) => !STRIPPED_COLUMN_PATTERN.test(colName));
+          .filter((colName) => {
+            if (STRIPPED_COLUMN_PATTERN.test(colName)) return false;
+            if (name === "ecmd_wix_code_and_blueprints" && colName === "raw_wix_data") return false;
+            return true;
+          });
 
         if (!cols.length) continue;
-        const selectList = cols.map((c) => `"${c.replace(/"/g, '""')}"`).join(", ");
+        const selectList = cols
+          .map((c) => {
+            const quoted = `"${c.replace(/"/g, '""')}"`;
+            if (
+              name === "ecmd_wix_code_and_blueprints" &&
+              /(velo_source_code|live_dom|livedom|migration_output|migrationoutput)/i.test(c)
+            ) {
+              return `LEFT(COALESCE(${quoted}, ''), 3500) AS ${quoted}`;
+            }
+            return quoted;
+          })
+          .join(", ");
         const orderCol = cols.includes("sort_order")
           ? '"sort_order" ASC'
           : cols.includes("updated_at")

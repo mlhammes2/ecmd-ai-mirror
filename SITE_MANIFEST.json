@@ -3,21 +3,21 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-25T23:08:14.535Z",
-  "latestTurn": "TURN-039",
+  "generatedAt": "2026-11-25T23:46:48.125Z",
+  "latestTurn": "TURN-040",
   "counts": {
-    "totalFiles": 297,
+    "totalFiles": 310,
     "hubFiles": 167,
-    "runnerFiles": 113,
-    "supabaseMirrorFiles": 17,
+    "runnerFiles": 114,
+    "supabaseMirrorFiles": 29,
     "registeredPlasmicComponents": 13,
-    "supabasePublicTables": 33,
-    "supabaseMirroredTables": 13,
-    "secretsRedacted": 50
+    "supabasePublicTables": 57,
+    "supabaseMirroredTables": 25,
+    "secretsRedacted": 66
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-25T23:08:05.184Z",
+    "exportedAt": "2026-11-25T23:46:34.678Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -135,7 +135,7 @@
       },
       {
         "table_name": "ecmd_external_ai_cms",
-        "row_count": 36,
+        "row_count": 37,
         "rls_enabled": false,
         "mirrored": true
       },
@@ -165,7 +165,7 @@
       },
       {
         "table_name": "ecmd_pen_turns",
-        "row_count": 37,
+        "row_count": 38,
         "rls_enabled": false,
         "mirrored": true
       },
@@ -207,7 +207,97 @@
       },
       {
         "table_name": "ecmd_whats_included",
-        "row_count": 18,
+        "row_count": 30,
+        "rls_enabled": true,
+        "mirrored": true
+      },
+      {
+        "table_name": "ecmd_wix_active_subscriptions",
+        "row_count": 0,
+        "rls_enabled": true,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_wix_ai_brain_master_index",
+        "row_count": 7,
+        "rls_enabled": true,
+        "mirrored": true
+      },
+      {
+        "table_name": "ecmd_wix_ai_capabilities_rules",
+        "row_count": 15,
+        "rls_enabled": true,
+        "mirrored": true
+      },
+      {
+        "table_name": "ecmd_wix_ai_persona_response_rules",
+        "row_count": 4,
+        "rls_enabled": true,
+        "mirrored": true
+      },
+      {
+        "table_name": "ecmd_wix_availability_rules",
+        "row_count": 4,
+        "rls_enabled": true,
+        "mirrored": true
+      },
+      {
+        "table_name": "ecmd_wix_bookings",
+        "row_count": 0,
+        "rls_enabled": true,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_wix_calendar_time_slots",
+        "row_count": 3,
+        "rls_enabled": true,
+        "mirrored": true
+      },
+      {
+        "table_name": "ecmd_wix_code_and_blueprints",
+        "row_count": 80,
+        "rls_enabled": true,
+        "mirrored": true
+      },
+      {
+        "table_name": "ecmd_wix_contractors",
+        "row_count": 4,
+        "rls_enabled": true,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_wix_customer_contacts",
+        "row_count": 5,
+        "rls_enabled": true,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_wix_customer_locations",
+        "row_count": 5,
+        "rls_enabled": true,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_wix_customer_profiles",
+        "row_count": 3,
+        "rls_enabled": true,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_wix_customer_vehicles",
+        "row_count": 6,
+        "rls_enabled": true,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_wix_discounts",
+        "row_count": 1,
+        "rls_enabled": true,
+        "mirrored": true
+      },
+      {
+        "table_name": "ecmd_wix_global_settings",
+        "row_count": 1,
         "rls_enabled": true,
         "mirrored": true
       },
@@ -215,6 +305,60 @@
         "table_name": "ecmd_wix_legacy_vault",
         "row_count": 106,
         "rls_enabled": false,
+        "mirrored": true
+      },
+      {
+        "table_name": "ecmd_wix_login_security",
+        "row_count": 7,
+        "rls_enabled": true,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_wix_payment_methods",
+        "row_count": 15,
+        "rls_enabled": true,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_wix_profile_buttons",
+        "row_count": 0,
+        "rls_enabled": true,
+        "mirrored": true
+      },
+      {
+        "table_name": "ecmd_wix_promo_codes",
+        "row_count": 0,
+        "rls_enabled": true,
+        "mirrored": true
+      },
+      {
+        "table_name": "ecmd_wix_scheduled_jobs",
+        "row_count": 7,
+        "rls_enabled": true,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_wix_site_buttons",
+        "row_count": 81,
+        "rls_enabled": true,
+        "mirrored": true
+      },
+      {
+        "table_name": "ecmd_wix_sync_errors",
+        "row_count": 9,
+        "rls_enabled": true,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_wix_temporary_data",
+        "row_count": 2,
+        "rls_enabled": true,
+        "mirrored": false
+      },
+      {
+        "table_name": "ecmd_wix_vehicle_categories",
+        "row_count": 14,
+        "rls_enabled": true,
         "mirrored": true
       }
     ],
@@ -231,7 +375,19 @@
       "ecmd_site_blueprints",
       "ecmd_site_menu_buttons",
       "ecmd_whats_included",
-      "ecmd_wix_legacy_vault"
+      "ecmd_wix_ai_brain_master_index",
+      "ecmd_wix_ai_capabilities_rules",
+      "ecmd_wix_ai_persona_response_rules",
+      "ecmd_wix_availability_rules",
+      "ecmd_wix_calendar_time_slots",
+      "ecmd_wix_code_and_blueprints",
+      "ecmd_wix_discounts",
+      "ecmd_wix_global_settings",
+      "ecmd_wix_legacy_vault",
+      "ecmd_wix_profile_buttons",
+      "ecmd_wix_promo_codes",
+      "ecmd_wix_site_buttons",
+      "ecmd_wix_vehicle_categories"
     ],
     "excludedTables": [
       "ecmd_ai_inbox",
@@ -253,7 +409,19 @@
       "ecmd_members",
       "ecmd_messages",
       "ecmd_sql_logs",
-      "ecmd_telemetry"
+      "ecmd_telemetry",
+      "ecmd_wix_active_subscriptions",
+      "ecmd_wix_bookings",
+      "ecmd_wix_contractors",
+      "ecmd_wix_customer_contacts",
+      "ecmd_wix_customer_locations",
+      "ecmd_wix_customer_profiles",
+      "ecmd_wix_customer_vehicles",
+      "ecmd_wix_login_security",
+      "ecmd_wix_payment_methods",
+      "ecmd_wix_scheduled_jobs",
+      "ecmd_wix_sync_errors",
+      "ecmd_wix_temporary_data"
     ],
     "edgeFunctions": [
       {
@@ -449,6 +617,12 @@
       "purpose": "GitHub Actions / YAML workflow"
     },
     {
+      "path": "runner/scripts/import-wix-csvs.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/import-wix-csvs.mjs",
+      "sizeBytes": 30383,
+      "purpose": "exports: parseCsv"
+    },
+    {
       "path": "runner/scripts/wix-auto-publish.js",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/wix-auto-publish.js",
       "sizeBytes": 625,
@@ -527,10 +701,82 @@
       "purpose": "Supabase public.ecmd_packages table snapshot (scrubbed)"
     },
     {
+      "path": "supabase-mirror/tables/ecmd_wix_ai_brain_master_index.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_ai_brain_master_index.json",
+      "sizeBytes": 14310,
+      "purpose": "Supabase public.ecmd_wix_ai_brain_master_index table snapshot (scrubbed)"
+    },
+    {
+      "path": "supabase-mirror/tables/ecmd_wix_ai_capabilities_rules.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_ai_capabilities_rules.json",
+      "sizeBytes": 37694,
+      "purpose": "Supabase public.ecmd_wix_ai_capabilities_rules table snapshot (scrubbed)"
+    },
+    {
+      "path": "supabase-mirror/tables/ecmd_wix_ai_persona_response_rules.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_ai_persona_response_rules.json",
+      "sizeBytes": 13488,
+      "purpose": "Supabase public.ecmd_wix_ai_persona_response_rules table snapshot (scrubbed)"
+    },
+    {
+      "path": "supabase-mirror/tables/ecmd_wix_availability_rules.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_availability_rules.json",
+      "sizeBytes": 5523,
+      "purpose": "Supabase public.ecmd_wix_availability_rules table snapshot (scrubbed)"
+    },
+    {
+      "path": "supabase-mirror/tables/ecmd_wix_calendar_time_slots.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_calendar_time_slots.json",
+      "sizeBytes": 2974,
+      "purpose": "Supabase public.ecmd_wix_calendar_time_slots table snapshot (scrubbed)"
+    },
+    {
+      "path": "supabase-mirror/tables/ecmd_wix_code_and_blueprints.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_code_and_blueprints.json",
+      "sizeBytes": 663191,
+      "purpose": "Supabase public.ecmd_wix_code_and_blueprints table snapshot (scrubbed)"
+    },
+    {
+      "path": "supabase-mirror/tables/ecmd_wix_discounts.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_discounts.json",
+      "sizeBytes": 825,
+      "purpose": "Supabase public.ecmd_wix_discounts table snapshot (scrubbed)"
+    },
+    {
+      "path": "supabase-mirror/tables/ecmd_wix_global_settings.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_global_settings.json",
+      "sizeBytes": 828,
+      "purpose": "Supabase public.ecmd_wix_global_settings table snapshot (scrubbed)"
+    },
+    {
       "path": "supabase-mirror/tables/ecmd_wix_legacy_vault.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_legacy_vault.json",
       "sizeBytes": 2113046,
       "purpose": "Supabase public.ecmd_wix_legacy_vault table snapshot (scrubbed)"
+    },
+    {
+      "path": "supabase-mirror/tables/ecmd_wix_profile_buttons.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_profile_buttons.json",
+      "sizeBytes": 146,
+      "purpose": "Supabase public.ecmd_wix_profile_buttons table snapshot (scrubbed)"
+    },
+    {
+      "path": "supabase-mirror/tables/ecmd_wix_promo_codes.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_promo_codes.json",
+      "sizeBytes": 142,
+      "purpose": "Supabase public.ecmd_wix_promo_codes table snapshot (scrubbed)"
+    },
+    {
+      "path": "supabase-mirror/tables/ecmd_wix_site_buttons.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_site_buttons.json",
+      "sizeBytes": 91421,
+      "purpose": "Supabase public.ecmd_wix_site_buttons table snapshot (scrubbed)"
+    },
+    {
+      "path": "supabase-mirror/tables/ecmd_wix_vehicle_categories.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_vehicle_categories.json",
+      "sizeBytes": 10973,
+      "purpose": "Supabase public.ecmd_wix_vehicle_categories table snapshot (scrubbed)"
     }
   ],
   "files": [
@@ -559,7 +805,7 @@
       "section": "hub",
       "path": "hub/AGENTS.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/AGENTS.md",
-      "sizeBytes": 22435,
+      "sizeBytes": 22998,
       "purpose": "Markdown documentation"
     },
     {
@@ -594,7 +840,7 @@
       "section": "hub",
       "path": "hub/GEMINI.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/GEMINI.md",
-      "sizeBytes": 6106,
+      "sizeBytes": 6244,
       "purpose": "Markdown documentation"
     },
     {
@@ -608,7 +854,7 @@
       "section": "hub",
       "path": "hub/public/ai-telemetry.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json",
-      "sizeBytes": 6040,
+      "sizeBytes": 4672,
       "purpose": "ECMD PEN live turn telemetry"
     },
     {
@@ -671,7 +917,7 @@
       "section": "hub",
       "path": "hub/public/plasmic-live-dom.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/plasmic-live-dom.json",
-      "sizeBytes": 2565048,
+      "sizeBytes": 2566043,
       "purpose": "JSON data / config"
     },
     {
@@ -1301,7 +1547,7 @@
       "section": "hub",
       "path": "hub/src/lib/ecmdBootPrompt.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdBootPrompt.ts",
-      "sizeBytes": 21013,
+      "sizeBytes": 21344,
       "purpose": "exports: ECMD_SIDEBAR_BOOT_PROMPT"
     },
     {
@@ -1847,7 +2093,7 @@
       "section": "runner",
       "path": "runner/GEMINI.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/GEMINI.md",
-      "sizeBytes": 5963,
+      "sizeBytes": 6090,
       "purpose": "Doc: ECMD Autonomous Engineering Protocol (C:\\ECMD — ECMD PEN v4.2 / Antigravity"
     },
     {
@@ -1877,6 +2123,13 @@
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/fix-plasmic-css.cjs",
       "sizeBytes": 1360,
       "purpose": "ECMD automation/PEN runner script"
+    },
+    {
+      "section": "runner",
+      "path": "runner/scripts/import-wix-csvs.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/import-wix-csvs.mjs",
+      "sizeBytes": 30383,
+      "purpose": "exports: parseCsv"
     },
     {
       "section": "runner",
@@ -1910,7 +2163,7 @@
       "section": "runner",
       "path": "runner/scripts/sync-ai-mirror.mjs",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/sync-ai-mirror.mjs",
-      "sizeBytes": 44000,
+      "sizeBytes": 45952,
       "purpose": "exports: scrubSecrets, extractLocalBridgeSecret, isEnvFile, isBinaryBuffer, ensureDir"
     },
     {
@@ -2512,14 +2765,14 @@
       "section": "supabase-mirror",
       "path": "supabase-mirror/schema/schema_overview.sql",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/schema/schema_overview.sql",
-      "sizeBytes": 28231,
+      "sizeBytes": 51251,
       "purpose": "Supabase public schema DDL, RLS policies, triggers & custom functions"
     },
     {
       "section": "supabase-mirror",
       "path": "supabase-mirror/schema/tables_and_columns.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/schema/tables_and_columns.json",
-      "sizeBytes": 123063,
+      "sizeBytes": 288213,
       "purpose": "Supabase public tables, columns, constraints, policies & functions JSON"
     },
     {
@@ -2554,7 +2807,7 @@
       "section": "supabase-mirror",
       "path": "supabase-mirror/tables/ecmd_external_ai_cms.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_external_ai_cms.json",
-      "sizeBytes": 77282,
+      "sizeBytes": 80003,
       "purpose": "Supabase public.ecmd_external_ai_cms table snapshot (scrubbed)"
     },
     {
@@ -2568,7 +2821,7 @@
       "section": "supabase-mirror",
       "path": "supabase-mirror/tables/ecmd_pen_turns.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_pen_turns.json",
-      "sizeBytes": 344652,
+      "sizeBytes": 357195,
       "purpose": "Supabase public.ecmd_pen_turns table snapshot (scrubbed)"
     },
     {
@@ -2582,7 +2835,7 @@
       "section": "supabase-mirror",
       "path": "supabase-mirror/tables/ecmd_service_packages.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_service_packages.json",
-      "sizeBytes": 76602,
+      "sizeBytes": 150059,
       "purpose": "Supabase public.ecmd_service_packages table snapshot (scrubbed)"
     },
     {
@@ -2603,8 +2856,64 @@
       "section": "supabase-mirror",
       "path": "supabase-mirror/tables/ecmd_whats_included.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_whats_included.json",
-      "sizeBytes": 8946,
+      "sizeBytes": 307197,
       "purpose": "Supabase public.ecmd_whats_included table snapshot (scrubbed)"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/tables/ecmd_wix_ai_brain_master_index.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_ai_brain_master_index.json",
+      "sizeBytes": 14310,
+      "purpose": "Supabase public.ecmd_wix_ai_brain_master_index table snapshot (scrubbed)"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/tables/ecmd_wix_ai_capabilities_rules.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_ai_capabilities_rules.json",
+      "sizeBytes": 37694,
+      "purpose": "Supabase public.ecmd_wix_ai_capabilities_rules table snapshot (scrubbed)"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/tables/ecmd_wix_ai_persona_response_rules.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_ai_persona_response_rules.json",
+      "sizeBytes": 13488,
+      "purpose": "Supabase public.ecmd_wix_ai_persona_response_rules table snapshot (scrubbed)"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/tables/ecmd_wix_availability_rules.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_availability_rules.json",
+      "sizeBytes": 5523,
+      "purpose": "Supabase public.ecmd_wix_availability_rules table snapshot (scrubbed)"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/tables/ecmd_wix_calendar_time_slots.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_calendar_time_slots.json",
+      "sizeBytes": 2974,
+      "purpose": "Supabase public.ecmd_wix_calendar_time_slots table snapshot (scrubbed)"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/tables/ecmd_wix_code_and_blueprints.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_code_and_blueprints.json",
+      "sizeBytes": 663191,
+      "purpose": "Supabase public.ecmd_wix_code_and_blueprints table snapshot (scrubbed)"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/tables/ecmd_wix_discounts.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_discounts.json",
+      "sizeBytes": 825,
+      "purpose": "Supabase public.ecmd_wix_discounts table snapshot (scrubbed)"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/tables/ecmd_wix_global_settings.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_global_settings.json",
+      "sizeBytes": 828,
+      "purpose": "Supabase public.ecmd_wix_global_settings table snapshot (scrubbed)"
     },
     {
       "section": "supabase-mirror",
@@ -2612,6 +2921,34 @@
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_legacy_vault.json",
       "sizeBytes": 2113046,
       "purpose": "Supabase public.ecmd_wix_legacy_vault table snapshot (scrubbed)"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/tables/ecmd_wix_profile_buttons.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_profile_buttons.json",
+      "sizeBytes": 146,
+      "purpose": "Supabase public.ecmd_wix_profile_buttons table snapshot (scrubbed)"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/tables/ecmd_wix_promo_codes.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_promo_codes.json",
+      "sizeBytes": 142,
+      "purpose": "Supabase public.ecmd_wix_promo_codes table snapshot (scrubbed)"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/tables/ecmd_wix_site_buttons.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_site_buttons.json",
+      "sizeBytes": 91421,
+      "purpose": "Supabase public.ecmd_wix_site_buttons table snapshot (scrubbed)"
+    },
+    {
+      "section": "supabase-mirror",
+      "path": "supabase-mirror/tables/ecmd_wix_vehicle_categories.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_vehicle_categories.json",
+      "sizeBytes": 10973,
+      "purpose": "Supabase public.ecmd_wix_vehicle_categories table snapshot (scrubbed)"
     }
   ]
 }
