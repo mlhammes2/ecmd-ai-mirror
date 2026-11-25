@@ -4,14 +4,14 @@ Lead engineer for **Emerald Coast Mobile Detailing (ECMD)** in `C:\ECMD\emerald-
 
 ## 1. DUAL-AI BOUNDARY & CUSTOMER API KEY
 - **ADMIN/DEV (`agy` v1.5.15):** Personal `@gmail.com` OAuth (`$0.00/turn`, Gemini 4) for local owner/admin code, Plasmic, SQL, & ops via `epen`. **NEVER wire `agy`/OAuth to public visitors.**
-- **CUSTOMER AI (`GEMINI_API_KEY` — Owned):** Public AI runs in Supabase Edge Functions (`ecmd-carbon-bridge`/`geminiAssistant`), isolated from `agy`.
+- **CUSTOMER AI (`GEMINI_API_KEY`):** Public AI runs in Supabase Edge Functions (`ecmd-carbon-bridge`/`geminiAssistant`), isolated from `agy`.
 
 ## 2. PEN v4.2 (`-p` LAST-FLAG), AI MIRROR, LEAN ROUTES, SHELL GUARD & BOOT-SYNC
 1. **PLAN FIRST, WAIT FOR "YES"** (`#ECMD_AI!` via `epen` is pre-confirmed).
-2. **PEN v4.2:** `epen` -> `Start-EcmdPen.ps1` -> `run-pen-task.mjs` (`--dangerously-skip-permissions --output-format stream-json --add-dir C:\ECMD -p "..."`). `-p` MUST stay last w/ stdin. SHA-1 diffing tracks changed files (`ecmd_pen_turns`, `ai-telemetry.json`); auto-runs `sync-ai-mirror.mjs --push`.
-3. **SHELL GUARD:** NEVER run PowerShell `Invoke-WebRequest`/`iwr` without `-UseBasicParsing` (prefer Node `fetch()` w/ `AbortSignal.timeout(8000)` or `curl.exe -s`).
-4. **AI MIRROR (`mlhammes2/ecmd-ai-mirror`) & 26-CSV WIX IMPORTER:** Ground via `https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md` (& `.json`: `hub/`, `runner/` excl. `wix-cms-exports/`, `supabase-mirror/`; 14 safe public Wix tables mirrored, 12 RLS-private/PII tables excluded, zero `.env*`). Re-import `C:\ECMD\wix-cms-exports` via `node C:\ECMD\scripts\import-wix-csvs.mjs`.
-5. **LEAN ROUTES & 0ms `/errors`:** `AppHeader` ONLY on `/workflow` & `/errors` (+ `Live Site (/) ↗`). Customer Plasmic routes have ZERO dev header; `/plasmic-host` renders ONLY `<PlasmicCanvasHost />`. `/errors` (`#ecmd-unified-errors-json`) aggregates TSC, Plasmic 3-tier tabs (`Desktop`/`Tablet`/`Mobile`/`Critical`), & DEV Runtime JS (`/runtime-errors.json`). `__root.tsx` injects DEV `<head>` bridge + `ecmdRuntimeBoot.ts`; `POST /__ecmd-live-dom` auto-prunes resolved issues.
+2. **PEN v4.2:** `epen` -> `Start-EcmdPen.ps1` -> `run-pen-task.mjs` (`--dangerously-skip-permissions --output-format stream-json --add-dir C:\ECMD -p "..."`). `-p` stays last w/ stdin. SHA-1 diffing tracks changed files (`ecmd_pen_turns`, `ai-telemetry.json`); auto-runs `sync-ai-mirror.mjs --push`.
+3. **SHELL GUARD:** NEVER run `Invoke-WebRequest`/`iwr` without `-UseBasicParsing` (use Node `fetch()` w/ `AbortSignal.timeout(8000)` or `curl.exe -s`).
+4. **AI MIRROR (`mlhammes2/ecmd-ai-mirror`) & 26-CSV IMPORTER:** Ground via `https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md` (& `.json`: `hub/`, `runner/` excl. `wix-cms-exports/`, `supabase-mirror/`; 14 public Wix tables mirrored, 12 RLS-private/PII excluded, zero `.env*`). Re-import `C:\ECMD\wix-cms-exports` via `node C:\ECMD\scripts\import-wix-csvs.mjs`.
+5. **LEAN ROUTES & 0ms `/errors`:** `AppHeader` ONLY on `/workflow` & `/errors` (+ `Live Site (/) ↗`). Customer Plasmic routes have ZERO dev header; `/plasmic-host` renders ONLY `<PlasmicCanvasHost />`. `/errors` (`#ecmd-unified-errors-json`) aggregates TSC, Plasmic 3-tier tabs, & DEV Runtime JS (`/runtime-errors.json`). `__root.tsx` injects DEV `<head>` bridge + `ecmdRuntimeBoot.ts`; `POST /__ecmd-live-dom` auto-prunes resolved issues.
 6. **BOOT-SYNC & VERIFY:** Sync PowerShell/`C:\ECMD\scripts\*` changes in-turn to `ecmdBootPrompt.ts`, `AGENTS.md`, `GEMINI.md` (< 6 KB), & `ecmd_external_ai_cms`. Run `npx tsc --noEmit` & `npx vitest run` (never watch) until 0 errors.
 
 ## 3. SUPABASE (`lvynkeuceiqxafgpgdvs`)
