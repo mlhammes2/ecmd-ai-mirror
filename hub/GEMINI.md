@@ -1,6 +1,6 @@
 ﻿# ECMD CARBON 4 — MASTER OS (`agy` & PEN v4.2)
 
-Lead engineer for **Emerald Coast Mobile Detailing (ECMD)** in `C:\ECMD\emerald-coast-detailing-hub`.
+Lead engineer for **Emerald Coast Mobile Detailing (ECMD)** (`C:\ECMD\emerald-coast-detailing-hub`).
 
 ## 1. DUAL-AI BOUNDARY & CUSTOMER API KEY
 - **ADMIN/DEV (`agy` v1.5.15):** Personal `@gmail.com` OAuth (`$0.00/turn`, Gemini 4) for local owner/admin code, Plasmic, SQL, & ops via `epen`. **NEVER wire `agy`/OAuth to public visitors.**
@@ -18,7 +18,7 @@ Lead engineer for **Emerald Coast Mobile Detailing (ECMD)** in `C:\ECMD\emerald-
 - SQL via `node scripts/ecmd-sql.mjs "<SQL>"`. Tables: `ecmd_service_packages` (36 Wix rows, anon `SELECT`), `ecmd_whats_included` (30 Wix rows, anon `SELECT`), 24 `ecmd_wix_*` CSV tables (14 public mirrored + 12 owner-RLS private), `ecmd_packages`, `ecmd_pen_turns`, `ecmd_external_ai_cms`, `ecmd_wix_legacy_vault`, `ecmd_site_menu_buttons`, `ecmd_plasmic_hydration`.
 
 ## 4. BREAKPOINTS, `registerEcmdComponent`, ZERO-INLINE-WIDTH & LOCKED COMPONENTS
-- **`registerEcmdComponent` & Zero-Inline-Width:** All `src/plasmic-init.ts` components use `registerEcmdComponent(Component, meta)` (ZERO bare `registerComponent(`; 0 KB prod). `DevTelemetryObserver` forwards `className`/`style` via hidden sibling marker. NEVER hardcode `style={{ width: "100%" }}` on roots; use `:where(...)` CSS (`ecmdRootSizing.ts` + `styles.css`) + `defaultStyles`.
+- **`registerEcmdComponent` & Zero-Inline-Width:** All `src/plasmic-init.ts` components use `registerEcmdComponent(Component, meta)` (ZERO bare `registerComponent(`; 0 KB prod). `DevTelemetryObserver` forwards `className`/`style` via hidden sibling marker. NEVER hardcode `style={{ width: "100%" }}`; use `:where(...)` CSS (`ecmdRootSizing.ts` + `styles.css`) + `defaultStyles`.
 - **3-Tier Breakpoints (`useEcmdBreakpoint.ts`):** `useEcmdBreakpoint(768, 1024)` resolves `desktop`/`tablet`/`mobile`, stamps `data-ecmd-viewport`, & routes `data-ecmd-action-*`.
 - **Locked Components:**
   - `EcmdAuthModalController`: `#ecmd-auth-trigger-btn`, `#ecmd-auth-email-input`, `#ecmd-auth-password-input`, Remember Me, Show Password, Forgot Password, Login/Sign Up.
@@ -26,7 +26,7 @@ Lead engineer for **Emerald Coast Mobile Detailing (ECMD)** in `C:\ECMD\emerald-
   - `EcmdVehicleSelector`: 4-slot (`slot1`..`slot4`, `ecmd-vehicle-change`) + Tablet/Mobile overrides.
   - `EcmdPackagesRepeater`: `itemTemplate` (`ecmd_service_packages` 36-row matrix via `ecmdPackageMatcher.ts` + `ecmd_packages` fallback, `levelOrder`, `<DataProvider name="ecmdPkg">`, live DOM painting + steel glow sync, auto-heals scope/CTA buttons w/ CTA guard, `data-ecmd-slot-wrapper="transparent"`) + 3-tier overrides + SVG fallback.
   - `EcmdBrushedSteelButton` (`BrushedSteelButton` V7): `container-type: size`, `--button-radius`, fixed `160px` grain, `cqh`/`cqw` `.button-label`, `-4px`/`+3px` physics, `#54e9ea` glow, `buttonRole` (`auto|scope-*|whats-included|add-to-cart`), `selected`/`label`/`fontSize`/`width`/`height`/`onClick`.
-- **SSR Hydration (`mobile-413`):** `src/client.tsx` mounts `/plasmic-host` CSR-only (`createRoot` -> `#ecmd-plasmic-host-root`); `ssr: false`, `suppressHydrationWarning`, zero module-level `document.head` mutations, `readyState === "complete"` guard, SSR-deterministic state.
+- **SSR Hydration (`mobile-413`):** `src/client.tsx` mounts `/plasmic-host` CSR-only (`createRoot` -> `#ecmd-plasmic-host-root`); `ssr: false`, `suppressHydrationWarning`, no module-level `document.head` writes, `readyState === "complete"` guard, SSR-deterministic state.
 
 ## 5. PLASMIC CSS WHITELIST, `registerToken` & `/plasmic-host`
 - Stack: Vite + React + TS + Plasmic (`mrkoQykvpZZfVbEc1yjabw`, `localhost:8080`) + Supabase (`lvynkeuceiqxafgpgdvs`).
