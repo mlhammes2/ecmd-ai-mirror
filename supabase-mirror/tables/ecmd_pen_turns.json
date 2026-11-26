@@ -1,9 +1,42 @@
 {
   "table": "ecmd_pen_turns",
-  "exportedAt": "2026-11-26T01:26:49.279Z",
-  "totalRowsInDb": 42,
-  "exportedRowCount": 42,
+  "exportedAt": "2026-11-26T01:39:12.163Z",
+  "totalRowsInDb": 43,
+  "exportedRowCount": 43,
   "rows": [
+    {
+      "status": "COMPLETE_CLEAN",
+      "ref_code": "TURN-044",
+      "tsc_clean": true,
+      "created_at": "2026-11-26T01:27:06.021222+00:00",
+      "date_label": "Wednesday, November 25, 2026",
+      "time_label": "6:27:06 PM",
+      "tsc_output": "",
+      "short_title": "Completed TURN-044 via Antigravity (agy) in 8:34",
+      "task_prompt": "CRITICAL SHELL RULE: NEVER run PowerShell `Invoke-WebRequest` or `iwr` without `-UseBasicParsing` (prefer Node `fetch()` with `AbortSignal.timeout(8000)` or `curl.exe -s` for all HTTP checks).\r\n\r\nExecute **Packages Page Piece 4 (Lean / Direct-Insert Spec): Create & Register `EcmdWhatsIncludedItemPopup` (`fileWhatsIncludedG.js` Parity)**:\r\n\r\n1. CREATE `src/components/EcmdWhatsIncludedItemPopup.tsx` (Direct Spec — Avoid Broad Repo Searches):\r\n   - Export `EcmdWhatsIncludedItemPopup` and `EcmdWhatsIncludedItemPopupProps` (`isOpen?: boolean`, `onClose?: () => void`, `item?: Record<string, unknown> | null`, `items?: Array<Record<string, unknown>>`, `packageLevel?: string`, `detailType?: string`, `subCategory?: string`, `className?: string`, `style?: React.CSSProperties`).\r\n   - Follow Zero-Inline-Width Root Law (no hardcoded `style={{ width: \"100%\" }}` on root) and `exactOptionalPropertyTypes` safety (never assign explicit `undefined` to optional object properties).\r\n   - Listen to `window` event `ecmd-open-whats-included-item` (`e instanceof CustomEvent ? e.detail : undefined`) to open with `{ item, items, packageLevel, detailType, subCategory }` and close on `Escape` or backdrop click.\r\n   - Render modal dialog (`role=\"dialog\"`, `aria-modal=\"true\"`, `data-ecmd-wi-item=\"popup\"`):\r\n     * Header with item title (`data-ecmd-wi-item=\"title\"`), badge (`level` / `category` / `priceFormatted`), and close button (`data-ecmd-wi-item=\"close\"`).\r\n     * Optional preview image (`data-ecmd-wi-item=\"media\"`) only when a valid non-empty image URL exists on the item.\r\n     * Step-by-step / bullet breakdown list (`data-ecmd-wi-item=\"steps\"`) parsed cleanly from `steps` / `bullets` / `details` / `description` lines (filtering empty lines).\r\n     * Previous / Next buttons (`data-ecmd-wi-item=\"prev\"`, `data-ecmd-wi-item=\"next\"`) when `items.length > 1`, plus an Add-On toggle button (`data-ecmd-wi-item=\"toggle-addon\"`) when the item has a positive price or add-on flag that updates `localStorage(\"ecmd_addOnMemory\")` under `${level}_${scope}` and dispatches `ecmd-addons-change`.\r\n\r\n2. REGISTER & WIRE WITH `EcmdWhatsIncludedModal`:\r\n   - Register `EcmdWhatsIncludedItemPopup` in `src/plasmic-init.ts` via `registerEcmdComponent` using ONLY `ALLOWED_PLASMIC_STYLE_KEYS`.\r\n   - In `src/components/EcmdWhatsIncludedModal.tsx`, add a lightweight item-inspect trigger (`data-ecmd-wi=\"inspect-item\"`) on inclusion/add-on rows that dispatches `ecmd-open-whats-included-item` with `{ item, items, packageLevel, detailType, subCategory }` (under `exactOptionalPropertyTypes` rules).\r\n   - Add Vitest unit test `src/test/EcmdWhatsIncludedItemPopup.test.tsx` covering open via `ecmd-open-whats-included-item`, step parsing, prev/next navigation, add-on toggle persistence, and `Escape` close.\r\n\r\n3. SYNC 4 BOOT SOURCES, VERIFY & PUSH MIRROR:\r\n   - Update `src/lib/ecmdBootPrompt.ts`, `AGENTS.md`, `GEMINI.md` (< 6 KB), and `public.ecmd_external_ai_cms` via `node scripts/ecmd-sql.mjs` to record `EcmdWhatsIncludedItemPopup` (Piece 4).\r\n   - Run `npx tsc --noEmit`, `npx vitest run`, and `node C:\\ECMD\\scripts\\sync-ai-mirror.mjs --push`, then output `===ECMD_SUMMARY_START===`.",
+      "files_changed": [
+        "AGENTS.md",
+        "GEMINI.md",
+        "src/components/EcmdWhatsIncludedItemPopup.tsx",
+        "src/components/EcmdWhatsIncludedModal.tsx",
+        "src/lib/ecmdBootPrompt.ts",
+        "src/lib/ecmdRootSizing.ts",
+        "src/plasmic-init.ts",
+        "src/styles.css",
+        "src/test/EcmdWhatsIncludedItemPopup.test.tsx",
+        "src/test/plasmic-init-styles.test.ts"
+      ],
+      "human_bullets": [
+        "[7:11] #92 TOOL run_command",
+        "[7:37] #93 TOOL run_command",
+        "[7:52] #94 FINAL CHECK: npx tsc --noEmit",
+        "[8:02] #95 FINAL CHECK: npx vitest run",
+        "[8:17] #96 AUTO-SYNC: node C:\\ECMD\\scripts\\sync-ai-mirror.mjs --push",
+        "[8:34] #97 AUTO-SYNC COMPLETE: mlhammes2/ecmd-ai-mirror updated"
+      ],
+      "errors_summary": "0 final compiler errors | agy 97 steps, 0 self-heals in 8:34",
+      "raw_cli_output": "=== ANTIGRAVITY (AGY) STEP & SELF-HEAL LOG ===\n[0:00] Booting Antigravity CLI (agy.exe --output-format stream-json)...\n[0:09] #1 TOOL read_file\n[0:09] #2 TOOL read_file\n[0:09] #3 TOOL run_command\n[0:10] #4 TOOL run_command\n[0:16] #5 TOOL read_file\n[0:16] #6 TOOL read_file\n[0:19] #7 TOOL read_file\n[0:19] #8 TOOL read_file\n[0:32] #9 TOOL read_file\n[0:32] #10 TOOL read_file\n[0:32] #11 TOOL read_file\n[0:32] #12 TOOL read_file\n[0:32] #13 TOOL read_file\n[0:32] #14 TOOL read_file\n[0:32] #15 TOOL read_file\n[0:32] #16 TOOL read_file\n[0:32] #17 TOOL read_file\n[0:32] #18 TOOL read_file\n[0:32] #19 TOOL read_file\n[0:32] #20 TOOL read_file\n[0:32] #21 TOOL read_file\n[0:32] #22 TOOL read_file\n[0:32] #23 TOOL read_file\n[0:32] #24 TOOL read_file\n[0:39] #25 TOOL read_file\n[0:39] #26 TOOL read_file\n[0:39] #27 TOOL read_file\n[0:39] #28 TOOL read_file\n[0:39] #29 TOOL read_file\n[0:39] #30 TOOL read_file\n[0:39] #31 TOOL read_file\n[0:39] #32 TOOL read_file\n[0:39] #33 TOOL read_file\n[0:39] #34 TOOL read_file\n[0:44] #35 TOOL read_file\n[0:44] #36 TOOL read_file\n[0:44] #37 TOOL run_command\n[0:45] #38 TOOL run_command\n[0:49] #39 TOOL read_file\n[0:49] #40 TOOL read_file\n[0:49] #41 TOOL read_file\n[0:49] #42 TOOL read_file\n[3:15] #43 TOOL write_file\n[3:16] #44 TOOL write_file\n[3:16] #45 TOOL edit_file\n[3:17] #46 TOOL edit_file\n[3:17] #47 TOOL edit_file\n[3:18] #48 TOOL edit_file\n[3:18] #49 TOOL edit_file\n[3:19] #50 TOOL edit_file\n[3:19] #51 TOOL edit_file\n[3:20] #52 TOOL edit_file\n[3:20] #53 TOOL edit_file\n[3:21] #54 TOOL edit_file\n[3:21] #55 TOOL edit_file\n[3:22] #56 TOOL edit_file\n[3:22] #57 TOOL edit_file\n[3:23] #58 TOOL edit_file\n[3:23] #59 TOOL edit_file\n[3:24] #60 TOOL edit_file\n[3:24] #61 TOOL edit_file\n[3:25] #62 TOOL edit_file\n[3:25] #63 TOOL write_file\n[3:26] #64 TOOL write_file\n[3:26] #65 TOOL run_command\n[3:29] #66 TOOL run_command\n[3:57] #67 TOOL edit_file\n[3:58] #68 TOOL edit_file\n[3:58] #69 TOOL edit_file\n[3:59] #70 TOOL edit_file\n[3:59] #71 TOOL edit_file\n[4:00] #72 TOOL edit_file\n[4:00] #73 TOOL edit_file\n[4:01] #74 TOOL edit_file\n[4:01] #75 TOOL run_command\n[4:05] #76 TOOL run_command\n[4:11] #77 TOOL run_command\n[4:27] #78 AGY ORCHESTRATOR: root agent idle; waiting for 1 background task(s) to finish\n[4:38] #79 TOOL run_command\n[4:49] #80 TOOL run_command\n[5:18] #81 TOOL run_command\n[5:39] #82 TOOL write_file\n[5:45] #83 TOOL write_file\n[5:45] #84 TOOL write_file\n[5:51] #85 TOOL write_file\n[6:02] #86 TOOL run_command\n[6:29] #87 TOOL run_command\n[6:39] #88 TOOL write_file\n[6:44] #89 TOOL write_file\n[7:02] #90 TOOL write_file\n[7:03] #91 TOOL write_file\n[7:11] #92 TOOL run_command\n[7:37] #93 TOOL run_command\n[7:52] #94 FINAL CHECK: npx tsc --noEmit\n[8:02] #95 FINAL CHECK: npx vitest run\n[8:17] #96 AUTO-SYNC: node C:\\ECMD\\scripts\\sync-ai-mirror.mjs --push\n[8:34] #97 AUTO-SYNC COMPLETE: mlhammes2/ecmd-ai-mirror updated\n\n=== ASSISTANT SUMMARY ===\n{\"event\":\"init\",\"conversation_id\":\"a707b6ef-3cbc-4f6c-b830-d6948cb71999\",\"init\":{\"cwd\":\"C:\\\\ECMD\\\\emerald-coast-detailing-hub\",\"tools\":[\"ask_custom_permission\",\"ask_permission\",\"ask_question\",\"browser_click_element\",\"browser_drag_pixel_to_pixel\",\"browser_get_dom\",\"browser_get_network_request\",\"browser_input\",\"browser_list_network_requests\",\"browser_mouse_down\",\"browser_mouse_up\",\"browser_move_mouse\",\"browser_press_key\",\"browser_refresh_page\",\"browser_resize_window\",\"browser_scroll\",\"browser_scroll_dom\",\"browser_select_option\",\"browser_subagent\",\"call_mcp_tool\",\"capture_browser_console_logs\",\"capture_browser_screenshot\",\"click_browser_pixel\",\"command_status\",\"define_subagent\",\"delete_knowledge\",\"execute_browser_javascript\",\"find_by_name\",\"finish\",\"generate_image\",\"grep_search\",\"invoke_subagent\",\"list_browser_pages\",\"list_dir\",\"list_permissions\",\"list_plugin_accounts\",\"list_resources\",\"manage_inbox\",\"manage_subagents\",\"manage_task\",\"multi_replace_file_content\",\"notebook_edit\",\"notebook_execution\",\"open_browser_url\",\"read_browser_page\",\"read_resource\",\"read_url_content\",\"replace_file_content\",\"run_command\",\"run\n... [TRUNCATED FOR MIRROR: 10875 chars total]"
+    },
     {
       "status": "COMPLETE_CLEAN",
       "ref_code": "TURN-043",

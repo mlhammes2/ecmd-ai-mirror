@@ -812,13 +812,39 @@ export function EcmdPackagesRepeater({
             '[data-ecmd-action="add-to-cart"], [data-ecmd-pkg="add-to-cart-btn"]'
           );
           if (addToCartTrigger && typeof window !== "undefined") {
+            const rawBase =
+              Number(ctx.rawPackage?.price ?? Math.max(0, ctx.basePrice - ctx.addOnsTotal)) || 0;
+            const rawSale =
+              Number(
+                ctx.rawPackage?.sale_price ??
+                  ctx.rawPackage?.salePrice ??
+                  (ctx.hasSale ? Math.max(0, ctx.salePrice - ctx.addOnsTotal) : 0)
+              ) || 0;
+            const resolvedPackagePrice =
+              rawSale > 0 && rawSale < rawBase ? rawSale : rawBase;
+            const totalPrice = resolvedPackagePrice + ctx.addOnsTotal;
             window.dispatchEvent(
               new CustomEvent("ecmd-add-to-cart", {
                 detail: {
+                  pkg: serializedContext.pkg,
                   ecmdPkg: ctx,
                   pkgId: pkgKey,
+                  title: ctx.title,
+                  level: ctx.level,
+                  detailType: ctx.detailType,
+                  activeScope: ctx.activeScope,
+                  subCategory: ctx.subCategory,
+                  vehicleKey: activeVehicle,
                   activeVehicle,
                   activeVehicleLabel,
+                  basePrice: rawBase,
+                  salePrice: rawSale,
+                  resolvedPackagePrice,
+                  addOns: ctx.savedAddOns,
+                  addOnsTotal: ctx.addOnsTotal,
+                  totalPrice,
+                  totalPriceFormatted: ctx.priceFormatted,
+                  source: "EcmdPackagesRepeater",
                 },
               })
             );

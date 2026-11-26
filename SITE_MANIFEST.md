@@ -4,11 +4,11 @@
 > Chrome Gemini Sidebar & external architects: fetch this manifest first, then fetch any exact raw GitHub URL below on demand.
 
 ## Summary
-- **Generated At:** `2026-11-26T01:27:01.424Z`
-- **Latest Turn:** `TURN-044`
+- **Generated At:** `2026-11-26T01:39:27.171Z`
+- **Latest Turn:** `TURN-045`
 - **Manifest Raw URL:** https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md
 - **JSON Manifest Raw URL:** https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.json
-- **Mirrored Files:** **316** total (`hub/`: 173, `runner/`: 114, `supabase-mirror/`: 29)
+- **Mirrored Files:** **318** total (`hub/`: 175, `runner/`: 114, `supabase-mirror/`: 29)
 - **Secrets Scrubbed:** 66 redaction(s) applied (zero `.env*`, zero auth/PII tables exported)
 
 ## Supabase Summary (`lvynkeuceiqxafgpgdvs`)
@@ -43,7 +43,7 @@
 | `ecmd_members` | 0 | ON | Excluded (Auth/PII/Log) |
 | `ecmd_messages` | 6 | ON | Excluded (Auth/PII/Log) |
 | `ecmd_packages` | 4 | OFF | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_packages.json) |
-| `ecmd_pen_turns` | 42 | OFF | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_pen_turns.json) |
+| `ecmd_pen_turns` | 43 | OFF | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_pen_turns.json) |
 | `ecmd_plasmic_hydration` | 1 | OFF | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_plasmic_hydration.json) |
 | `ecmd_service_packages` | 36 | ON | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_service_packages.json) |
 | `ecmd_site_blueprints` | 106 | ON | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_site_blueprints.json) |
@@ -77,7 +77,7 @@
 | `ecmd_wix_temporary_data` | 2 | ON | Excluded (Auth/PII/Log) |
 | `ecmd_wix_vehicle_categories` | 14 | ON | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_vehicle_categories.json) |
 
-## Plasmic Registered Components (`ECMD_REGISTERED_COMPONENTS` — 16)
+## Plasmic Registered Components (`ECMD_REGISTERED_COMPONENTS` — 17)
 | Name | Display Name | Import Path |
 |---|---|---|
 | `HqWeeklyStrip` | HQ Weekly Strip | `./components/booking-hq/HqWeeklyStrip` |
@@ -96,6 +96,7 @@
 | `EcmdBrushedSteelButton` | Brushed Steel Button | `./components/EcmdBrushedSteelButton` |
 | `EcmdWhatsIncludedModal` | What | `./components/EcmdWhatsIncludedModal` |
 | `EcmdWhatsIncludedItemPopup` | What | `./components/EcmdWhatsIncludedItemPopup` |
+| `EcmdCartSummaryBar` | Cart & Summary Handoff Bar (ecmd_cart_draft) | `./components/EcmdCartSummaryBar` |
 
 ## Key Wix-to-Plasmic Migration Files (45)
 - `hub/scripts/archive-wix-vault.mjs` (9.9 KB) — exports: runSql, escapeSql, getCategory, getDescription, main — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/archive-wix-vault.mjs
@@ -107,7 +108,7 @@
 - `hub/src/components/booking-hq/index.ts` (151 B) — Code module — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/booking-hq/index.ts
 - `hub/src/components/EcmdAuthModalController.tsx` (36.0 KB) — exports: ECMD_AUTH_LOGO_DATA_URI, EcmdAuthModalControllerProps — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdAuthModalController.tsx
 - `hub/src/components/EcmdBrushedSteelButton.tsx` (8.0 KB) — exports: DEFAULT_STEEL_GLOW_COLOR, ParsedRgbColor, SteelButtonSizingVars, normalizeCssDimension, resolveSteelLabelSize, parseGlowColorToRgb — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdBrushedSteelButton.tsx
-- `hub/src/components/EcmdPackagesRepeater.tsx` (35.7 KB) — exports: SCOPE_BUTTON_TEXT_PATTERNS, autoHealPackageScopeButtons, PackagesOrientation, ResponsivePackagesOrientation, MobilePackagesOrientation, TabletPackagesOrientation — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdPackagesRepeater.tsx
+- `hub/src/components/EcmdPackagesRepeater.tsx` (36.9 KB) — exports: SCOPE_BUTTON_TEXT_PATTERNS, autoHealPackageScopeButtons, PackagesOrientation, ResponsivePackagesOrientation, MobilePackagesOrientation, TabletPackagesOrientation — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdPackagesRepeater.tsx
 - `hub/src/components/EcmdThemeGroupController.tsx` (72.1 KB) — exports: PresetTheme, EcmdThemeGroupControllerProps, buildFluidClampCss, wrapCssWithBreakpointMedia — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdThemeGroupController.tsx
 - `hub/src/components/EcmdVehicleSelector.tsx` (13.4 KB) — exports: VehicleSelectorResponsiveLayout, VehicleSelectorMobileLayout, EcmdVehicleSlotContext, EcmdVehicleLockedAttemptDetail, EcmdVehicleSelectorProps, EcmdVehicleSelector — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdVehicleSelector.tsx
 - `hub/src/components/EcmdWhatsIncludedItemPopup.tsx` (29.1 KB) — exports: WhatsIncludedItemRecord, EcmdOpenWhatsIncludedItemDetail, EcmdWhatsIncludedItemPopupProps, EcmdWhatsIncludedItemPopupContext, getWhatsIncludedItemId, getWhatsIncludedItemTitle — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdWhatsIncludedItemPopup.tsx
@@ -144,7 +145,7 @@
 - `supabase-mirror/tables/ecmd_wix_site_buttons.json` (89.3 KB) — Supabase public.ecmd_wix_site_buttons table snapshot (scrubbed) — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_site_buttons.json
 - `supabase-mirror/tables/ecmd_wix_vehicle_categories.json` (10.7 KB) — Supabase public.ecmd_wix_vehicle_categories table snapshot (scrubbed) — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_vehicle_categories.json
 
-## Files: `hub/` (173)
+## Files: `hub/` (175)
 | Path | Size | Exports / Purpose | Raw GitHub URL |
 |---|---:|---|---|
 | `hub/.gitignore` | 385 B | Text/config file | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/.gitignore |
@@ -157,7 +158,7 @@
 | `hub/eslint.config.js` | 1.3 KB | Code module | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/eslint.config.js |
 | `hub/GEMINI.md` | 6.0 KB | Markdown documentation | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/GEMINI.md |
 | `hub/package.json` | 3.2 KB | Package manifest & scripts | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/package.json |
-| `hub/public/ai-telemetry.json` | 4.1 KB | ECMD PEN live turn telemetry | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json |
+| `hub/public/ai-telemetry.json` | 2.2 KB | ECMD PEN live turn telemetry | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json |
 | `hub/public/Ecmd Icon Cord Black.svg` | 39.9 KB | SVG vector asset | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/Ecmd%20Icon%20Cord%20Black.svg |
 | `hub/public/ecmd-brain.html` | 962 B | HTML template / console | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ecmd-brain.html |
 | `hub/public/ecmd-dolphin-logo.svg` | 5.5 KB | SVG vector asset | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ecmd-dolphin-logo.svg |
@@ -187,10 +188,11 @@
 | `hub/src/components/EcmdAttributeProfilesModal.tsx` | 28.9 KB | exports: CoreAttributeKey, MappedGroupPropKey, CoreAttributeDef, CORE_STYLE_ATTRIBUTES, AttributeProfile, AttributeProfilesStore | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdAttributeProfilesModal.tsx |
 | `hub/src/components/EcmdAuthModalController.tsx` | 36.0 KB | exports: ECMD_AUTH_LOGO_DATA_URI, EcmdAuthModalControllerProps | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdAuthModalController.tsx |
 | `hub/src/components/EcmdBrushedSteelButton.tsx` | 8.0 KB | exports: DEFAULT_STEEL_GLOW_COLOR, ParsedRgbColor, SteelButtonSizingVars, normalizeCssDimension, resolveSteelLabelSize, parseGlowColorToRgb | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdBrushedSteelButton.tsx |
+| `hub/src/components/EcmdCartSummaryBar.tsx` | 22.1 KB | exports: CART_DRAFT_STORAGE_KEY, EcmdCartDraft, EcmdAddToCartEventDetail, EcmdCartSummaryBarContext, EcmdCartSummaryBarProps, normalizeAddToCartPayload | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdCartSummaryBar.tsx |
 | `hub/src/components/EcmdDeviceGlobalContext.tsx` | 1.9 KB | exports: EcmdDeviceGlobalContext | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdDeviceGlobalContext.tsx |
 | `hub/src/components/EcmdDynamicGroupManager.tsx` | 278.8 KB | exports: GroupStateKey, SubGroupStateKey, GROUP_STATE_TABS, GroupStateThemeValues, GroupStateOverride, ThemeGroupBreakpointTarget | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdDynamicGroupManager.tsx |
 | `hub/src/components/EcmdHoverTooltip.tsx` | 6.5 KB | exports: EcmdHoverTooltipProps, EcmdHoverTooltip | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdHoverTooltip.tsx |
-| `hub/src/components/EcmdPackagesRepeater.tsx` | 35.7 KB | exports: SCOPE_BUTTON_TEXT_PATTERNS, autoHealPackageScopeButtons, PackagesOrientation, ResponsivePackagesOrientation, MobilePackagesOrientation, TabletPackagesOrientation | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdPackagesRepeater.tsx |
+| `hub/src/components/EcmdPackagesRepeater.tsx` | 36.9 KB | exports: SCOPE_BUTTON_TEXT_PATTERNS, autoHealPackageScopeButtons, PackagesOrientation, ResponsivePackagesOrientation, MobilePackagesOrientation, TabletPackagesOrientation | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdPackagesRepeater.tsx |
 | `hub/src/components/EcmdPlasmicColorRow.tsx` | 97.7 KB | exports: PresetColorToken, GM3_COLOR_PRESETS, EcmdPlasmicColorRow | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdPlasmicColorRow.tsx |
 | `hub/src/components/EcmdSavedVehicleDropdown.tsx` | 26.2 KB | exports: DROPDOWN_INTRO_LABEL, LOCKED_TYPE_ERROR_TEXT, ERROR_DURATION_MS, BROWSE_WITHOUT_VEHICLE_LABEL, ADD_NEW_VEHICLE_LABEL, SELECTED_SUMMARY_VEHICLE_STORAGE_KEY | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdSavedVehicleDropdown.tsx |
 | `hub/src/components/EcmdSideMenuController.tsx` | 25.1 KB | exports: SiteMenuButtonItem, DEFAULT_WIX_SITE_MENU_BUTTONS, EcmdSideMenuControllerProps, EcmdSideMenuController | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdSideMenuController.tsx |
@@ -277,7 +279,7 @@
 | `hub/src/pages/Homepage.tsx` | 3.5 KB | exports: Homepage | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/Homepage.tsx |
 | `hub/src/pages/PlasmicHost.tsx` | 446 B | exports: PlasmicHostPage | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/PlasmicHost.tsx |
 | `hub/src/pages/Workflow.tsx` | 21.5 KB | exports: Workflow | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/Workflow.tsx |
-| `hub/src/plasmic-init.ts` | 83.3 KB | exports: PLASMIC | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/plasmic-init.ts |
+| `hub/src/plasmic-init.ts` | 85.6 KB | exports: PLASMIC | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/plasmic-init.ts |
 | `hub/src/router.tsx` | 631 B | exports: getRouter | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/router.tsx |
 | `hub/src/routes/__root.tsx` | 8.9 KB | exports: Route | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/__root.tsx |
 | `hub/src/routes/errors.tsx` | 169 B | exports: Route | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/errors.tsx |
@@ -293,6 +295,7 @@
 | `hub/src/telemetryData.ts` | 124 B | exports: LIVE_SNAP | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/telemetryData.ts |
 | `hub/src/test/app-routing.test.tsx` | 1.3 KB | Vitest automated test suite | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/app-routing.test.tsx |
 | `hub/src/test/brushed-steel-button.test.tsx` | 12.5 KB | exports: MobileHydrationFixture | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/brushed-steel-button.test.tsx |
+| `hub/src/test/ecmd-cart-summary-bar.test.tsx` | 6.6 KB | Vitest automated test suite | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/ecmd-cart-summary-bar.test.tsx |
 | `hub/src/test/ecmd-telemetry-breakpoint.test.tsx` | 23.2 KB | exports: setViewportWidth, BreakpointProbe | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/ecmd-telemetry-breakpoint.test.tsx |
 | `hub/src/test/EcmdWhatsIncludedItemPopup.test.tsx` | 11.3 KB | Vitest automated test suite | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/EcmdWhatsIncludedItemPopup.test.tsx |
 | `hub/src/test/errors-page.test.tsx` | 5.3 KB | Vitest automated test suite | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/errors-page.test.tsx |
@@ -452,7 +455,7 @@
 | `supabase-mirror/tables/ecmd_diagnostic_runs.json` | 662 B | Supabase public.ecmd_diagnostic_runs table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_diagnostic_runs.json |
 | `supabase-mirror/tables/ecmd_external_ai_cms.json` | 88.5 KB | Supabase public.ecmd_external_ai_cms table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_external_ai_cms.json |
 | `supabase-mirror/tables/ecmd_packages.json` | 3.1 KB | Supabase public.ecmd_packages table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_packages.json |
-| `supabase-mirror/tables/ecmd_pen_turns.json` | 385.6 KB | Supabase public.ecmd_pen_turns table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_pen_turns.json |
+| `supabase-mirror/tables/ecmd_pen_turns.json` | 394.2 KB | Supabase public.ecmd_pen_turns table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_pen_turns.json |
 | `supabase-mirror/tables/ecmd_plasmic_hydration.json` | 10.4 KB | Supabase public.ecmd_plasmic_hydration table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_plasmic_hydration.json |
 | `supabase-mirror/tables/ecmd_service_packages.json` | 146.5 KB | Supabase public.ecmd_service_packages table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_service_packages.json |
 | `supabase-mirror/tables/ecmd_site_blueprints.json` | 3.02 MB | Supabase public.ecmd_site_blueprints table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_site_blueprints.json |

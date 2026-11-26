@@ -3,21 +3,21 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-26T01:27:01.424Z",
-  "latestTurn": "TURN-044",
+  "generatedAt": "2026-11-26T01:39:27.171Z",
+  "latestTurn": "TURN-045",
   "counts": {
-    "totalFiles": 316,
-    "hubFiles": 173,
+    "totalFiles": 318,
+    "hubFiles": 175,
     "runnerFiles": 114,
     "supabaseMirrorFiles": 29,
-    "registeredPlasmicComponents": 16,
+    "registeredPlasmicComponents": 17,
     "supabasePublicTables": 57,
     "supabaseMirroredTables": 25,
     "secretsRedacted": 66
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-26T01:26:49.279Z",
+    "exportedAt": "2026-11-26T01:39:12.163Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -165,7 +165,7 @@
       },
       {
         "table_name": "ecmd_pen_turns",
-        "row_count": 42,
+        "row_count": 43,
         "rls_enabled": false,
         "mirrored": true
       },
@@ -541,6 +541,12 @@
       "name": "EcmdWhatsIncludedItemPopup",
       "displayName": "What",
       "importPath": "./components/EcmdWhatsIncludedItemPopup"
+    },
+    {
+      "symbol": "EcmdCartSummaryBar",
+      "name": "EcmdCartSummaryBar",
+      "displayName": "Cart & Summary Handoff Bar (ecmd_cart_draft)",
+      "importPath": "./components/EcmdCartSummaryBar"
     }
   ],
   "wixToPlasmicMigrationFiles": [
@@ -601,7 +607,7 @@
     {
       "path": "hub/src/components/EcmdPackagesRepeater.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdPackagesRepeater.tsx",
-      "sizeBytes": 36551,
+      "sizeBytes": 37756,
       "purpose": "exports: SCOPE_BUTTON_TEXT_PATTERNS, autoHealPackageScopeButtons, PackagesOrientation, ResponsivePackagesOrientation, MobilePackagesOrientation, TabletPackagesOrientation"
     },
     {
@@ -890,7 +896,7 @@
       "section": "hub",
       "path": "hub/public/ai-telemetry.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json",
-      "sizeBytes": 4237,
+      "sizeBytes": 2290,
       "purpose": "ECMD PEN live turn telemetry"
     },
     {
@@ -1098,6 +1104,13 @@
     },
     {
       "section": "hub",
+      "path": "hub/src/components/EcmdCartSummaryBar.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdCartSummaryBar.tsx",
+      "sizeBytes": 22591,
+      "purpose": "exports: CART_DRAFT_STORAGE_KEY, EcmdCartDraft, EcmdAddToCartEventDetail, EcmdCartSummaryBarContext, EcmdCartSummaryBarProps, normalizeAddToCartPayload"
+    },
+    {
+      "section": "hub",
       "path": "hub/src/components/EcmdDeviceGlobalContext.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdDeviceGlobalContext.tsx",
       "sizeBytes": 1950,
@@ -1121,7 +1134,7 @@
       "section": "hub",
       "path": "hub/src/components/EcmdPackagesRepeater.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdPackagesRepeater.tsx",
-      "sizeBytes": 36551,
+      "sizeBytes": 37756,
       "purpose": "exports: SCOPE_BUTTON_TEXT_PATTERNS, autoHealPackageScopeButtons, PackagesOrientation, ResponsivePackagesOrientation, MobilePackagesOrientation, TabletPackagesOrientation"
     },
     {
@@ -1625,7 +1638,7 @@
       "section": "hub",
       "path": "hub/src/lib/ecmdRootSizing.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdRootSizing.ts",
-      "sizeBytes": 3980,
+      "sizeBytes": 4017,
       "purpose": "exports: ECMD_ROOT_SIZING_STYLE_ID, ECMD_ROOT_SIZING_CSS, ensureEcmdRootSizingStyles"
     },
     {
@@ -1730,7 +1743,7 @@
       "section": "hub",
       "path": "hub/src/plasmic-init.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/plasmic-init.ts",
-      "sizeBytes": 85330,
+      "sizeBytes": 87637,
       "purpose": "exports: PLASMIC"
     },
     {
@@ -1814,7 +1827,7 @@
       "section": "hub",
       "path": "hub/src/styles.css",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/styles.css",
-      "sizeBytes": 6811,
+      "sizeBytes": 6849,
       "purpose": "Stylesheet"
     },
     {
@@ -1837,6 +1850,13 @@
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/brushed-steel-button.test.tsx",
       "sizeBytes": 12826,
       "purpose": "exports: MobileHydrationFixture"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/test/ecmd-cart-summary-bar.test.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/ecmd-cart-summary-bar.test.tsx",
+      "sizeBytes": 6727,
+      "purpose": "Vitest automated test suite"
     },
     {
       "section": "hub",
@@ -2899,7 +2919,7 @@
       "section": "supabase-mirror",
       "path": "supabase-mirror/tables/ecmd_pen_turns.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_pen_turns.json",
-      "sizeBytes": 394877,
+      "sizeBytes": 403668,
       "purpose": "Supabase public.ecmd_pen_turns table snapshot (scrubbed)"
     },
     {

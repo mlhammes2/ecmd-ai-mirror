@@ -20,6 +20,7 @@ import { EcmdVehicleSelector } from "./components/EcmdVehicleSelector";
 import { EcmdSavedVehicleDropdown } from "./components/EcmdSavedVehicleDropdown";
 import { EcmdWhatsIncludedModal } from "./components/EcmdWhatsIncludedModal";
 import { EcmdWhatsIncludedItemPopup } from "./components/EcmdWhatsIncludedItemPopup";
+import { EcmdCartSummaryBar } from "./components/EcmdCartSummaryBar";
 import { EcmdBrushedSteelButton } from "./components/EcmdBrushedSteelButton";
 import {
   EcmdPackagesRepeater,
@@ -1488,6 +1489,74 @@ registerEcmdComponent(EcmdWhatsIncludedItemPopup, {
       type: "eventHandler",
       argTypes: [],
       displayName: "On Close",
+    },
+  },
+});
+
+registerEcmdComponent(EcmdCartSummaryBar, {
+  name: "EcmdCartSummaryBar",
+  displayName: "Cart & Summary Handoff Bar (ecmd_cart_draft)",
+  description:
+    "Packages Page Piece 5 cart & summary handoff bar listening to window ecmd-add-to-cart events, persisting localStorage('ecmd_cart_draft'), displaying package/vehicle/add-ons/total readouts, dispatching ecmd-open-whats-included to edit add-ons, and dispatching ecmd-open-summary for booking handoff.",
+  importPath: "./components/EcmdCartSummaryBar",
+  providesData: true,
+  defaultStyles: { width: "100%" },
+  props: {
+    hideWhenEmpty: {
+      type: "boolean",
+      defaultValue: false,
+      displayName: "Hide Bar When Cart Is Empty",
+    },
+    stickyBottom: {
+      type: "boolean",
+      defaultValue: false,
+      displayName: "Sticky Bottom Bar",
+    },
+    showClearButton: {
+      type: "boolean",
+      defaultValue: false,
+      displayName: "Show Clear Button",
+    },
+    emptyText: {
+      type: "string",
+      defaultValue: "Select a detail package to build your booking",
+      displayName: "Empty State Prompt Text",
+    },
+    editAddOnsLabel: {
+      type: "string",
+      defaultValue: "Edit Add-Ons",
+      displayName: "Edit Add-Ons Button Label",
+    },
+    openSummaryLabel: {
+      type: "string",
+      defaultValue: "Continue to Summary",
+      displayName: "Open Summary Button Label",
+    },
+    themeGroup: {
+      type: "custom",
+      defaultValue: "ecmd-group-1",
+      control: EcmdGroupSelectControl as any,
+      displayName: "🎨 Bar Surface Theme Group",
+    },
+    buttonThemeGroup: {
+      type: "custom",
+      defaultValue: "ecmd-group-2",
+      control: EcmdGroupSelectControl as any,
+      displayName: "🎨 Primary Button Theme Group",
+    },
+    initialDraft: {
+      type: "object",
+      displayName: "Preview Initial Cart Draft (Optional Object)",
+    },
+    onOpenSummary: {
+      type: "eventHandler",
+      argTypes: [{ name: "draft", type: "object" }],
+      displayName: "On Open Summary",
+    },
+    onCartChange: {
+      type: "eventHandler",
+      argTypes: [{ name: "draft", type: "object" }],
+      displayName: "On Cart Change",
     },
   },
 });
