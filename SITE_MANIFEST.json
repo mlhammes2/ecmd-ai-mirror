@@ -3,7 +3,7 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-26T01:23:44.449Z",
+  "generatedAt": "2026-11-26T01:24:56.213Z",
   "latestTurn": "TURN-044",
   "counts": {
     "totalFiles": 316,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-26T01:23:29.687Z",
+    "exportedAt": "2026-11-26T01:24:41.423Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -876,7 +876,7 @@
       "section": "hub",
       "path": "hub/GEMINI.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/GEMINI.md",
-      "sizeBytes": 6417,
+      "sizeBytes": 6272,
       "purpose": "Markdown documentation"
     },
     {
@@ -890,7 +890,7 @@
       "section": "hub",
       "path": "hub/public/ai-telemetry.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json",
-      "sizeBytes": 3562,
+      "sizeBytes": 3772,
       "purpose": "ECMD PEN live turn telemetry"
     },
     {
@@ -2171,7 +2171,7 @@
       "section": "runner",
       "path": "runner/GEMINI.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/GEMINI.md",
-      "sizeBytes": 6169,
+      "sizeBytes": 5643,
       "purpose": "Doc: ECMD Autonomous Engineering Protocol (C:\\ECMD — PEN v4.2 / Antigravity `agy"
     },
     {
