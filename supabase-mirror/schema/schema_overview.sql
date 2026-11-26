@@ -1,6 +1,6 @@
 -- ============================================================================
 -- ECMD Supabase Schema Overview (lvynkeuceiqxafgpgdvs)
--- Generated: 2026-11-26T00:07:09.311Z
+-- Generated: 2026-11-26T01:08:13.460Z
 -- Public schema tables, columns, constraints, triggers, RLS policies & custom SQL functions
 -- ============================================================================
 
@@ -319,7 +319,7 @@ CREATE TABLE IF NOT EXISTS public.ecmd_diagnostic_runs (
 );
 --   CONSTRAINT ecmd_diagnostic_runs_pkey (PRIMARY KEY): PRIMARY KEY (id)
 
--- Table: public.ecmd_external_ai_cms (rows: 38, rls: OFF)
+-- Table: public.ecmd_external_ai_cms (rows: 40, rls: OFF)
 CREATE TABLE IF NOT EXISTS public.ecmd_external_ai_cms (
   id text NOT NULL,
   entry_type text NOT NULL,
@@ -390,7 +390,7 @@ CREATE TABLE IF NOT EXISTS public.ecmd_packages (
 --   CONSTRAINT ecmd_packages_pkey (PRIMARY KEY): PRIMARY KEY (id)
 --   CONSTRAINT ecmd_packages_slug_key (UNIQUE): UNIQUE (slug)
 
--- Table: public.ecmd_pen_turns (rows: 39, rls: OFF)
+-- Table: public.ecmd_pen_turns (rows: 41, rls: OFF)
 CREATE TABLE IF NOT EXISTS public.ecmd_pen_turns (
   ref_code text NOT NULL,
   created_at timestamp with time zone DEFAULT now(),

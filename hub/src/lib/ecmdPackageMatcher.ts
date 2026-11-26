@@ -404,6 +404,21 @@ export function loadSavedAddOnsMap(): EcmdAddOnsMemoryMap {
   }
 }
 
+export function saveAddOnsMemoryMap(map: EcmdAddOnsMemoryMap): void {
+  if (typeof window === "undefined") return;
+  try {
+    window.localStorage.setItem(
+      ADDON_MEMORY_STORAGE_KEY,
+      JSON.stringify({
+        timestamp: Date.now(),
+        map,
+      })
+    );
+  } catch {
+    // Cross-origin iframe or storage quota restriction
+  }
+}
+
 export function formatPackagePrice(amount: number): string {
   const safe = Number.isFinite(amount) ? Math.max(0, amount) : 0;
   const rounded = Math.round(safe * 100) / 100;

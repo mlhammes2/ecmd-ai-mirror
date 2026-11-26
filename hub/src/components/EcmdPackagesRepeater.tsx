@@ -482,6 +482,7 @@ export function EcmdPackagesRepeater({
 
     if (typeof window !== "undefined") {
       window.addEventListener("ecmd-vehicle-change", handleVehicleChange);
+      window.addEventListener("ecmd-addons-change", handleAddOnsUpdated);
       window.addEventListener("ecmd-addons-updated", handleAddOnsUpdated);
       window.addEventListener("storage", handleAddOnsUpdated);
     }
@@ -489,6 +490,7 @@ export function EcmdPackagesRepeater({
       cancelled = true;
       if (typeof window !== "undefined") {
         window.removeEventListener("ecmd-vehicle-change", handleVehicleChange);
+        window.removeEventListener("ecmd-addons-change", handleAddOnsUpdated);
         window.removeEventListener("ecmd-addons-updated", handleAddOnsUpdated);
         window.removeEventListener("storage", handleAddOnsUpdated);
       }
@@ -829,17 +831,34 @@ export function EcmdPackagesRepeater({
           const isWhatsIncludedAction =
             explicitAction === "open-whats-included" || Boolean(detailsTrigger);
 
+          let handledByWhatsIncludedModal = false;
           if (isWhatsIncludedAction && typeof window !== "undefined") {
-            window.dispatchEvent(
-              new CustomEvent("ecmd-open-whats-included", {
-                detail: {
-                  ecmdPkg: ctx,
-                  pkgId: pkgKey,
-                  activeVehicle,
-                  activeVehicleLabel,
-                },
-              })
-            );
+            const rawBase =
+              Number(ctx.rawPackage?.price ?? Math.max(0, ctx.basePrice - ctx.addOnsTotal)) || 0;
+            const rawSale =
+              Number(
+                ctx.rawPackage?.sale_price ??
+                  ctx.rawPackage?.salePrice ??
+                  (ctx.hasSale ? Math.max(0, ctx.salePrice - ctx.addOnsTotal) : 0)
+              ) || 0;
+            const calculatedBasePrice = rawSale > 0 && rawSale < rawBase ? rawSale : rawBase;
+            const wiEvent = new CustomEvent("ecmd-open-whats-included", {
+              cancelable: true,
+              detail: {
+                pkg: serializedContext.pkg,
+                ecmdPkg: ctx,
+                pkgId: pkgKey,
+                calculatedPrice: calculatedBasePrice,
+                totalPrice: ctx.effectivePrice,
+                level: ctx.level,
+                detailType: ctx.detailType,
+                subCategory: ctx.subCategory,
+                activeVehicle,
+                activeVehicleLabel,
+              },
+            });
+            window.dispatchEvent(wiEvent);
+            handledByWhatsIncludedModal = wiEvent.defaultPrevented;
           }
 
           const resolvedAction =
@@ -849,7 +868,7 @@ export function EcmdPackagesRepeater({
               ? mapDetailsActionToCommand(effectiveDetailsAction)
               : null;
 
-          if (resolvedAction) {
+          if (resolvedAction && !handledByWhatsIncludedModal) {
             executeBreakpointAction(resolvedAction, {
               element: (detailsTrigger as HTMLElement | null) || target,
               viewportMode,

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-25T23:51:59.632Z",
+  "updatedAt": "2026-11-26T00:10:40.004Z",
   "totalCount": 1,
   "errors": [
     {
@@ -13,8 +13,8 @@
       "url": "http://localhost:8080/plasmic-host#canvas=true&origin=https%3A%2F%2Fstudio.plasmic.app&staticBaseUrl=https%3A%2F%2Fstudio-static.plasmic.app%2Fstatic&componentName=Homepage&globalVariants=%7B%7D&interactive=false",
       "artboardTag": "mobile-430",
       "viewportMode": "mobile",
-      "timestamp": "2026-11-25T23:51:59.632Z",
-      "count": 4
+      "timestamp": "2026-11-26T00:10:40.003Z",
+      "count": 6
     }
   ]
 }

@@ -18,6 +18,7 @@ import { HqMultiStateWorkspace } from "./components/booking-hq/HqMultiStateWorks
 import { HqWeeklyStrip } from "./components/booking-hq/HqWeeklyStrip";
 import { EcmdVehicleSelector } from "./components/EcmdVehicleSelector";
 import { EcmdSavedVehicleDropdown } from "./components/EcmdSavedVehicleDropdown";
+import { EcmdWhatsIncludedModal } from "./components/EcmdWhatsIncludedModal";
 import { EcmdBrushedSteelButton } from "./components/EcmdBrushedSteelButton";
 import {
   EcmdPackagesRepeater,
@@ -1325,6 +1326,119 @@ registerEcmdComponent(EcmdBrushedSteelButton, {
       type: "eventHandler",
       argTypes: [{ name: "event", type: "object" }],
       displayName: "On Click",
+    },
+  },
+});
+
+registerEcmdComponent(EcmdWhatsIncludedModal, {
+  name: "EcmdWhatsIncludedModal",
+  displayName: "What's Included & Add-Ons Modal (#whatsIncludedLightbox)",
+  description:
+    "Wix fileWhatsIncluded.js parity modal powered by public.ecmd_whats_included & public.ecmd_service_packages with Classic/Premium/Luxury level switching, Interior/Exterior inclusion lists + notices, Bi-Weekly/Monthly/Quarterly subscription estimates, Interior/Exterior Add-On tabs persisted in localStorage('ecmd_addOnMemory'), live total (#whatsIncludedTotalPrice), and Add to Cart (#whatsIncludedAddCart).",
+  importPath: "./components/EcmdWhatsIncludedModal",
+  providesData: true,
+  defaultStyles: { width: "100%" },
+  props: {
+    isOpen: {
+      type: "boolean",
+      displayName: "Open (Controlled)",
+      description: "Controlled open state (leave unset to open via ecmd-open-whats-included event)",
+    },
+    defaultOpen: {
+      type: "boolean",
+      defaultValue: false,
+      displayName: "Default Open (Studio Preview)",
+    },
+    inlinePreviewInStudio: {
+      type: "boolean",
+      defaultValue: false,
+      displayName: "Render Inline (No Fixed Backdrop Overlay)",
+    },
+    defaultLevel: {
+      type: "choice",
+      options: ["Classic", "Premium", "Luxury"],
+      defaultValue: "Classic",
+      displayName: "Default Package Level",
+    },
+    defaultDetailType: {
+      type: "choice",
+      options: ["Full", "Interior", "Exterior"],
+      defaultValue: "Full",
+      displayName: "Default Detail Type",
+    },
+    defaultSubCategory: {
+      type: "choice",
+      options: ["Sedan", "Truck", "Sm. SUV", "Lg. SUV"],
+      defaultValue: "Sm. SUV",
+      displayName: "Default Vehicle Sub-Category",
+    },
+    levelOrder: {
+      type: "string",
+      defaultValue: "Classic,Premium,Luxury",
+      displayName: "Package Level Order (Comma-Separated)",
+    },
+    autoLoadFromSupabase: {
+      type: "boolean",
+      defaultValue: true,
+      displayName: "Auto-Load from public.ecmd_whats_included?",
+    },
+    closeOnBackdropClick: {
+      type: "boolean",
+      defaultValue: true,
+      displayName: "Close on Backdrop Click",
+    },
+    closeOnEscape: {
+      type: "boolean",
+      defaultValue: true,
+      displayName: "Close on Escape Key",
+    },
+    closeOnAddToCart: {
+      type: "boolean",
+      defaultValue: true,
+      displayName: "Close Modal After Add to Cart",
+    },
+    themeGroup: {
+      type: "custom",
+      defaultValue: "ecmd-group-3",
+      control: EcmdGroupSelectControl as any,
+      displayName: "🎨 Modal Card Theme Group",
+    },
+    buttonThemeGroup: {
+      type: "custom",
+      defaultValue: "ecmd-group-2",
+      control: EcmdGroupSelectControl as any,
+      displayName: "🎨 Primary Button Theme Group",
+    },
+    whatsIncludedItems: {
+      type: "object",
+      displayName: "Override What's Included Items (Optional Array)",
+    },
+    servicePackages: {
+      type: "object",
+      displayName: "Override Service Packages Matrix (Optional Array)",
+    },
+    onClose: {
+      type: "eventHandler",
+      argTypes: [],
+      displayName: "On Close",
+    },
+    onLevelChange: {
+      type: "eventHandler",
+      argTypes: [
+        { name: "level", type: "string" },
+        { name: "detail", type: "object" },
+      ],
+      displayName: "On Package Level Change",
+    },
+    onAddOnsChange: {
+      type: "eventHandler",
+      argTypes: [{ name: "detail", type: "object" }],
+      displayName: "On Add-Ons Change",
+    },
+    onAddToCart: {
+      type: "eventHandler",
+      argTypes: [{ name: "payload", type: "object" }],
+      displayName: "On Add to Cart",
     },
   },
 });
