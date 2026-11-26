@@ -977,6 +977,31 @@ export function EcmdWhatsIncludedModal({
     [memoryKey, activeLevel, activeDetailType, onAddOnsChange]
   );
 
+  const handleInspectItem = useCallback(
+    (item: EcmdWhatsIncludedRow, items: EcmdWhatsIncludedRow[]) => {
+      if (typeof window === "undefined") return;
+      const detail: {
+        item: Record<string, unknown>;
+        items: Array<Record<string, unknown>>;
+        packageLevel: string;
+        detailType: PackageDetailType;
+        subCategory: PackageSubCategory;
+      } = {
+        item: item as Record<string, unknown>,
+        items: items as Array<Record<string, unknown>>,
+        packageLevel: activeLevel,
+        detailType: activeDetailType,
+        subCategory: activeSubCategory,
+      };
+      window.dispatchEvent(
+        new CustomEvent("ecmd-open-whats-included-item", {
+          detail,
+        })
+      );
+    },
+    [activeLevel, activeDetailType, activeSubCategory]
+  );
+
   const handleAddToCart = useCallback(() => {
     const payload: EcmdWhatsIncludedAddToCartPayload = {
       pkg: activePackage,
@@ -1299,37 +1324,62 @@ export function EcmdWhatsIncludedModal({
               const detailCopy = String(item.description || "").trim();
               return (
                 <li key={rowId} data-ecmd-wi="interior-item">
-                  <button
-                    type="button"
-                    data-ecmd-action="toggle-wi-inclusion-info"
-                    aria-expanded={detailCopy ? isExpanded : undefined}
-                    onClick={() =>
-                      setExpandedDetailItemId((prev) => (prev === rowId ? null : rowId))
-                    }
-                    style={{
-                      width: "100%",
-                      textAlign: "left",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      gap: "8px",
-                      padding: "7px 10px",
-                      borderRadius: "8px",
-                      border: "1px solid rgba(148, 163, 184, 0.16)",
-                      backgroundColor: "rgba(15, 23, 42, 0.65)",
-                      color: "#F1F5F9",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                      cursor: "pointer",
-                    }}
-                  >
-                    <span>✓ {label}</span>
-                    {detailCopy && (
-                      <span style={{ fontSize: "11px", color: "#94A3B8" }}>
-                        {isExpanded ? "▴" : "▾"}
-                      </span>
-                    )}
-                  </button>
+                  <div style={{ display: "flex", alignItems: "stretch", gap: "6px" }}>
+                    <button
+                      type="button"
+                      data-ecmd-action="toggle-wi-inclusion-info"
+                      {...(detailCopy ? { "aria-expanded": isExpanded } : {})}
+                      onClick={() =>
+                        setExpandedDetailItemId((prev) => (prev === rowId ? null : rowId))
+                      }
+                      style={{
+                        flex: 1,
+                        textAlign: "left",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        gap: "8px",
+                        padding: "7px 10px",
+                        borderRadius: "8px",
+                        border: "1px solid rgba(148, 163, 184, 0.16)",
+                        backgroundColor: "rgba(15, 23, 42, 0.65)",
+                        color: "#F1F5F9",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                        cursor: "pointer",
+                      }}
+                    >
+                      <span>✓ {label}</span>
+                      {detailCopy && (
+                        <span style={{ fontSize: "11px", color: "#94A3B8" }}>
+                          {isExpanded ? "▴" : "▾"}
+                        </span>
+                      )}
+                    </button>
+                    <button
+                      type="button"
+                      data-ecmd-wi="inspect-item"
+                      data-ecmd-action="inspect-wi-item"
+                      aria-label={`Inspect ${label}`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleInspectItem(item, interiorItems);
+                      }}
+                      style={{
+                        padding: "0 10px",
+                        borderRadius: "8px",
+                        border: "1px solid rgba(84, 233, 234, 0.28)",
+                        backgroundColor: "rgba(15, 23, 42, 0.72)",
+                        color: "#54E9EA",
+                        fontSize: "12px",
+                        fontWeight: 700,
+                        cursor: "pointer",
+                        flexShrink: 0,
+                      }}
+                    >
+                      Details
+                    </button>
+                  </div>
                   {isExpanded && detailCopy && (
                     <div
                       style={{
@@ -1393,37 +1443,62 @@ export function EcmdWhatsIncludedModal({
               const detailCopy = String(item.description || "").trim();
               return (
                 <li key={rowId} data-ecmd-wi="exterior-item">
-                  <button
-                    type="button"
-                    data-ecmd-action="toggle-wi-inclusion-info"
-                    aria-expanded={detailCopy ? isExpanded : undefined}
-                    onClick={() =>
-                      setExpandedDetailItemId((prev) => (prev === rowId ? null : rowId))
-                    }
-                    style={{
-                      width: "100%",
-                      textAlign: "left",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      gap: "8px",
-                      padding: "7px 10px",
-                      borderRadius: "8px",
-                      border: "1px solid rgba(148, 163, 184, 0.16)",
-                      backgroundColor: "rgba(15, 23, 42, 0.65)",
-                      color: "#F1F5F9",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                      cursor: "pointer",
-                    }}
-                  >
-                    <span>✓ {label}</span>
-                    {detailCopy && (
-                      <span style={{ fontSize: "11px", color: "#94A3B8" }}>
-                        {isExpanded ? "▴" : "▾"}
-                      </span>
-                    )}
-                  </button>
+                  <div style={{ display: "flex", alignItems: "stretch", gap: "6px" }}>
+                    <button
+                      type="button"
+                      data-ecmd-action="toggle-wi-inclusion-info"
+                      {...(detailCopy ? { "aria-expanded": isExpanded } : {})}
+                      onClick={() =>
+                        setExpandedDetailItemId((prev) => (prev === rowId ? null : rowId))
+                      }
+                      style={{
+                        flex: 1,
+                        textAlign: "left",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        gap: "8px",
+                        padding: "7px 10px",
+                        borderRadius: "8px",
+                        border: "1px solid rgba(148, 163, 184, 0.16)",
+                        backgroundColor: "rgba(15, 23, 42, 0.65)",
+                        color: "#F1F5F9",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                        cursor: "pointer",
+                      }}
+                    >
+                      <span>✓ {label}</span>
+                      {detailCopy && (
+                        <span style={{ fontSize: "11px", color: "#94A3B8" }}>
+                          {isExpanded ? "▴" : "▾"}
+                        </span>
+                      )}
+                    </button>
+                    <button
+                      type="button"
+                      data-ecmd-wi="inspect-item"
+                      data-ecmd-action="inspect-wi-item"
+                      aria-label={`Inspect ${label}`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleInspectItem(item, exteriorItems);
+                      }}
+                      style={{
+                        padding: "0 10px",
+                        borderRadius: "8px",
+                        border: "1px solid rgba(84, 233, 234, 0.28)",
+                        backgroundColor: "rgba(15, 23, 42, 0.72)",
+                        color: "#54E9EA",
+                        fontSize: "12px",
+                        fontWeight: 700,
+                        cursor: "pointer",
+                        flexShrink: 0,
+                      }}
+                    >
+                      Details
+                    </button>
+                  </div>
                   {isExpanded && detailCopy && (
                     <div
                       style={{
@@ -1587,65 +1662,89 @@ export function EcmdWhatsIncludedModal({
               const addonLabel = getAddOnDisplayLabel(addon);
               const addonPrice = Number(addon.price || 0) || 0;
               return (
-                <button
-                  key={rowId}
-                  type="button"
-                  data-ecmd-wi="addon-item"
-                  data-ecmd-addon-id={rowId}
-                  data-ecmd-action="toggle-wi-addon"
-                  data-ecmd-selected={isSelected ? "true" : "false"}
-                  aria-pressed={isSelected}
-                  onClick={() => handleToggleAddOn(addon)}
-                  style={{
-                    width: "100%",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    gap: "10px",
-                    padding: "10px 12px",
-                    borderRadius: "10px",
-                    border: isSelected
-                      ? "1px solid #10B981"
-                      : "1px solid rgba(148, 163, 184, 0.22)",
-                    backgroundColor: isSelected
-                      ? "rgba(16, 185, 129, 0.16)"
-                      : "rgba(30, 41, 59, 0.65)",
-                    color: "#F8FAFC",
-                    fontSize: "13px",
-                    fontWeight: isSelected ? 700 : 500,
-                    cursor: "pointer",
-                    textAlign: "left",
-                    boxSizing: "border-box",
-                  }}
-                >
-                  <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                    <span
-                      aria-hidden="true"
-                      style={{
-                        width: "18px",
-                        height: "18px",
-                        borderRadius: "5px",
-                        display: "inline-flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        fontSize: "12px",
-                        fontWeight: 800,
-                        backgroundColor: isSelected ? "#10B981" : "transparent",
-                        border: isSelected
-                          ? "1px solid #10B981"
-                          : "1px solid rgba(148, 163, 184, 0.45)",
-                        color: "#022C22",
-                        flexShrink: 0,
-                      }}
-                    >
-                      {isSelected ? "✓" : ""}
+                <div key={rowId} style={{ display: "flex", alignItems: "stretch", gap: "6px" }}>
+                  <button
+                    type="button"
+                    data-ecmd-wi="addon-item"
+                    data-ecmd-addon-id={rowId}
+                    data-ecmd-action="toggle-wi-addon"
+                    data-ecmd-selected={isSelected ? "true" : "false"}
+                    aria-pressed={isSelected}
+                    onClick={() => handleToggleAddOn(addon)}
+                    style={{
+                      flex: 1,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      gap: "10px",
+                      padding: "10px 12px",
+                      borderRadius: "10px",
+                      border: isSelected
+                        ? "1px solid #10B981"
+                        : "1px solid rgba(148, 163, 184, 0.22)",
+                      backgroundColor: isSelected
+                        ? "rgba(16, 185, 129, 0.16)"
+                        : "rgba(30, 41, 59, 0.65)",
+                      color: "#F8FAFC",
+                      fontSize: "13px",
+                      fontWeight: isSelected ? 700 : 500,
+                      cursor: "pointer",
+                      textAlign: "left",
+                      boxSizing: "border-box",
+                    }}
+                  >
+                    <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      <span
+                        aria-hidden="true"
+                        style={{
+                          width: "18px",
+                          height: "18px",
+                          borderRadius: "5px",
+                          display: "inline-flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          fontSize: "12px",
+                          fontWeight: 800,
+                          backgroundColor: isSelected ? "#10B981" : "transparent",
+                          border: isSelected
+                            ? "1px solid #10B981"
+                            : "1px solid rgba(148, 163, 184, 0.45)",
+                          color: "#022C22",
+                          flexShrink: 0,
+                        }}
+                      >
+                        {isSelected ? "✓" : ""}
+                      </span>
+                      <span>{addonLabel}</span>
                     </span>
-                    <span>{addonLabel}</span>
-                  </span>
-                  <span style={{ fontWeight: 700, color: "#54E9EA", flexShrink: 0 }}>
-                    +${addonPrice.toFixed(2)}
-                  </span>
-                </button>
+                    <span style={{ fontWeight: 700, color: "#54E9EA", flexShrink: 0 }}>
+                      +${addonPrice.toFixed(2)}
+                    </span>
+                  </button>
+                  <button
+                    type="button"
+                    data-ecmd-wi="inspect-item"
+                    data-ecmd-action="inspect-wi-item"
+                    aria-label={`Inspect ${addonLabel}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleInspectItem(addon, availableAddOns);
+                    }}
+                    style={{
+                      padding: "0 10px",
+                      borderRadius: "10px",
+                      border: "1px solid rgba(84, 233, 234, 0.28)",
+                      backgroundColor: "rgba(15, 23, 42, 0.72)",
+                      color: "#54E9EA",
+                      fontSize: "12px",
+                      fontWeight: 700,
+                      cursor: "pointer",
+                      flexShrink: 0,
+                    }}
+                  >
+                    Details
+                  </button>
+                </div>
               );
             })}
           </div>

@@ -16,6 +16,7 @@ export const ECMD_ROOT_SIZING_CSS = `
 :where(.ecmd-vehicle-selector),
 :where(.ecmd-saved-vehicle-dropdown-root),
 :where(.ecmd-whats-included-modal-root),
+:where(.ecmd-whats-included-item-popup-root),
 :where(.ecmd-hq-weekly-strip-root),
 :where(.ecmd-hq-daily-dispatch-root),
 :where(.ecmd-hq-invoice-card-root),

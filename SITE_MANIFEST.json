@@ -3,21 +3,21 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-26T01:10:14.558Z",
-  "latestTurn": "TURN-043",
+  "generatedAt": "2026-11-26T01:23:44.449Z",
+  "latestTurn": "TURN-044",
   "counts": {
-    "totalFiles": 314,
-    "hubFiles": 171,
+    "totalFiles": 316,
+    "hubFiles": 173,
     "runnerFiles": 114,
     "supabaseMirrorFiles": 29,
-    "registeredPlasmicComponents": 15,
+    "registeredPlasmicComponents": 16,
     "supabasePublicTables": 57,
     "supabaseMirroredTables": 25,
     "secretsRedacted": 66
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-26T01:09:58.490Z",
+    "exportedAt": "2026-11-26T01:23:29.687Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -165,7 +165,7 @@
       },
       {
         "table_name": "ecmd_pen_turns",
-        "row_count": 41,
+        "row_count": 42,
         "rls_enabled": false,
         "mirrored": true
       },
@@ -535,6 +535,12 @@
       "name": "EcmdWhatsIncludedModal",
       "displayName": "What",
       "importPath": "./components/EcmdWhatsIncludedModal"
+    },
+    {
+      "symbol": "EcmdWhatsIncludedItemPopup",
+      "name": "EcmdWhatsIncludedItemPopup",
+      "displayName": "What",
+      "importPath": "./components/EcmdWhatsIncludedItemPopup"
     }
   ],
   "wixToPlasmicMigrationFiles": [
@@ -611,9 +617,15 @@
       "purpose": "exports: VehicleSelectorResponsiveLayout, VehicleSelectorMobileLayout, EcmdVehicleSlotContext, EcmdVehicleLockedAttemptDetail, EcmdVehicleSelectorProps, EcmdVehicleSelector"
     },
     {
+      "path": "hub/src/components/EcmdWhatsIncludedItemPopup.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdWhatsIncludedItemPopup.tsx",
+      "sizeBytes": 29830,
+      "purpose": "exports: WhatsIncludedItemRecord, EcmdOpenWhatsIncludedItemDetail, EcmdWhatsIncludedItemPopupProps, EcmdWhatsIncludedItemPopupContext, getWhatsIncludedItemId, getWhatsIncludedItemTitle"
+    },
+    {
       "path": "hub/src/components/EcmdWhatsIncludedModal.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdWhatsIncludedModal.tsx",
-      "sizeBytes": 57717,
+      "sizeBytes": 61940,
       "purpose": "exports: WhatsIncludedAddOnTab, EcmdWhatsIncludedRow, EcmdSubscriptionEstimate, EcmdWhatsIncludedOpenDetail, EcmdWhatsIncludedAddToCartPayload, EcmdWhatsIncludedContext"
     },
     {
@@ -621,6 +633,12 @@
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdPackageMatcher.ts",
       "sizeBytes": 19047,
       "purpose": "exports: PackageLevelName, PackageDetailType, PackageScopeKey, PackageSubCategory, EcmdVehicleKey, EcmdServicePackageRow"
+    },
+    {
+      "path": "hub/src/test/EcmdWhatsIncludedItemPopup.test.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/EcmdWhatsIncludedItemPopup.test.tsx",
+      "sizeBytes": 11572,
+      "purpose": "Vitest automated test suite"
     },
     {
       "path": "hub/src/test/wix-vault.test.ts",
@@ -823,7 +841,7 @@
       "section": "hub",
       "path": "hub/AGENTS.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/AGENTS.md",
-      "sizeBytes": 26793,
+      "sizeBytes": 27814,
       "purpose": "Markdown documentation"
     },
     {
@@ -858,7 +876,7 @@
       "section": "hub",
       "path": "hub/GEMINI.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/GEMINI.md",
-      "sizeBytes": 6118,
+      "sizeBytes": 6417,
       "purpose": "Markdown documentation"
     },
     {
@@ -872,7 +890,7 @@
       "section": "hub",
       "path": "hub/public/ai-telemetry.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json",
-      "sizeBytes": 4255,
+      "sizeBytes": 3562,
       "purpose": "ECMD PEN live turn telemetry"
     },
     {
@@ -1192,9 +1210,16 @@
     },
     {
       "section": "hub",
+      "path": "hub/src/components/EcmdWhatsIncludedItemPopup.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdWhatsIncludedItemPopup.tsx",
+      "sizeBytes": 29830,
+      "purpose": "exports: WhatsIncludedItemRecord, EcmdOpenWhatsIncludedItemDetail, EcmdWhatsIncludedItemPopupProps, EcmdWhatsIncludedItemPopupContext, getWhatsIncludedItemId, getWhatsIncludedItemTitle"
+    },
+    {
+      "section": "hub",
       "path": "hub/src/components/EcmdWhatsIncludedModal.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdWhatsIncludedModal.tsx",
-      "sizeBytes": 57717,
+      "sizeBytes": 61940,
       "purpose": "exports: WhatsIncludedAddOnTab, EcmdWhatsIncludedRow, EcmdSubscriptionEstimate, EcmdWhatsIncludedOpenDetail, EcmdWhatsIncludedAddToCartPayload, EcmdWhatsIncludedContext"
     },
     {
@@ -1579,7 +1604,7 @@
       "section": "hub",
       "path": "hub/src/lib/ecmdBootPrompt.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdBootPrompt.ts",
-      "sizeBytes": 25441,
+      "sizeBytes": 26692,
       "purpose": "exports: ECMD_SIDEBAR_BOOT_PROMPT"
     },
     {
@@ -1600,7 +1625,7 @@
       "section": "hub",
       "path": "hub/src/lib/ecmdRootSizing.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdRootSizing.ts",
-      "sizeBytes": 3934,
+      "sizeBytes": 3980,
       "purpose": "exports: ECMD_ROOT_SIZING_STYLE_ID, ECMD_ROOT_SIZING_CSS, ensureEcmdRootSizingStyles"
     },
     {
@@ -1705,7 +1730,7 @@
       "section": "hub",
       "path": "hub/src/plasmic-init.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/plasmic-init.ts",
-      "sizeBytes": 83591,
+      "sizeBytes": 85330,
       "purpose": "exports: PLASMIC"
     },
     {
@@ -1789,7 +1814,7 @@
       "section": "hub",
       "path": "hub/src/styles.css",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/styles.css",
-      "sizeBytes": 6764,
+      "sizeBytes": 6811,
       "purpose": "Stylesheet"
     },
     {
@@ -1819,6 +1844,13 @@
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/ecmd-telemetry-breakpoint.test.tsx",
       "sizeBytes": 23724,
       "purpose": "exports: setViewportWidth, BreakpointProbe"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/test/EcmdWhatsIncludedItemPopup.test.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/EcmdWhatsIncludedItemPopup.test.tsx",
+      "sizeBytes": 11572,
+      "purpose": "Vitest automated test suite"
     },
     {
       "section": "hub",
@@ -1866,7 +1898,7 @@
       "section": "hub",
       "path": "hub/src/test/plasmic-init-styles.test.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/plasmic-init-styles.test.ts",
-      "sizeBytes": 9601,
+      "sizeBytes": 9637,
       "purpose": "exports: ALLOWED_PLASMIC_STYLE_KEYS"
     },
     {
@@ -2139,7 +2171,7 @@
       "section": "runner",
       "path": "runner/GEMINI.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/GEMINI.md",
-      "sizeBytes": 5940,
+      "sizeBytes": 6169,
       "purpose": "Doc: ECMD Autonomous Engineering Protocol (C:\\ECMD — PEN v4.2 / Antigravity `agy"
     },
     {
@@ -2867,7 +2899,7 @@
       "section": "supabase-mirror",
       "path": "supabase-mirror/tables/ecmd_pen_turns.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_pen_turns.json",
-      "sizeBytes": 387426,
+      "sizeBytes": 394877,
       "purpose": "Supabase public.ecmd_pen_turns table snapshot (scrubbed)"
     },
     {

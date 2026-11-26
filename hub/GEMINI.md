@@ -26,7 +26,8 @@ Lead engineer for **ECMD** (`C:\ECMD\emerald-coast-detailing-hub`).
   - `EcmdVehicleSelector`: 4-slot (`ecmdVehicle`, `ecmd-vehicle-change`, lock/unlock->`ecmd-vehicle-locked-attempt`) + Tablet/Mobile.
   - `EcmdSavedVehicleDropdown`: Wix `packagesEngine.js` (`#vehicleSelectDropButton`/`Box`/`Rep`/`#vehicleTypeError`, `ecmd_selected_summary_vehicle_id`, lock/unlock, `ecmd-open-add-vehicle-modal`, `3200ms` error+pulse).
   - `EcmdPackagesRepeater`: `itemTemplate` (`ecmd_service_packages`, `levelOrder`, `ecmdPkg`, `ecmd-addons-change`, `ecmd-open-whats-included`, DOM paint+glow, auto-heal, transparent slot) + 3-tier + SVG fallback.
-  - `EcmdWhatsIncludedModal`: Wix `fileWhatsIncluded.js` (`ecmd_whats_included`, `ecmdWhatsIncluded`, `ecmd-open-whats-included`, `level-btn`, `interior-list`/`exterior-list`+`notice`, `20/15/10%` subs, `tab-interior`/`exterior`+`addon-item`->`ecmd_addOnMemory`, `#whatsIncludedTotalPrice`, `#whatsIncludedAddCart`->`ecmd-add-to-cart`).
+  - `EcmdWhatsIncludedModal`: Wix `fileWhatsIncluded.js` (`ecmd_whats_included`, `ecmdWhatsIncluded`, `ecmd-open-whats-included`, `level-btn`, `interior-list`/`exterior-list`+`notice`, `20/15/10%` subs, `tab-interior`/`exterior`+`addon-item`->`ecmd_addOnMemory`, `inspect-item`->`ecmd-open-whats-included-item`, `#whatsIncludedTotalPrice`, `#whatsIncludedAddCart`->`ecmd-add-to-cart`).
+  - `EcmdWhatsIncludedItemPopup` (Piece 4): Wix `fileWhatsIncludedG.js` (`ecmd-open-whats-included-item`, `data-ecmd-wi-item="popup|title|media|steps|prev|next|toggle-addon|close"`, `ecmd_addOnMemory`->`ecmd-addons-change`, `Escape`/backdrop close).
   - `EcmdBrushedSteelButton` (V7): `container-type: size`, `--button-radius`, `160px` grain, `cqh`/`cqw`, `-4px`/`+3px`, `#54e9ea` glow, `buttonRole`.
 - **SSR Hydration (`mobile-413`):** `src/client.tsx` CSR `createRoot` on `/plasmic-host`; `ssr: false`, `suppressHydrationWarning`, 0 module-level `document.head` writes, `readyState === "complete"`.
 

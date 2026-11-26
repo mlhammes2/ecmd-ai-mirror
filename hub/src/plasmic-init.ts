@@ -19,6 +19,7 @@ import { HqWeeklyStrip } from "./components/booking-hq/HqWeeklyStrip";
 import { EcmdVehicleSelector } from "./components/EcmdVehicleSelector";
 import { EcmdSavedVehicleDropdown } from "./components/EcmdSavedVehicleDropdown";
 import { EcmdWhatsIncludedModal } from "./components/EcmdWhatsIncludedModal";
+import { EcmdWhatsIncludedItemPopup } from "./components/EcmdWhatsIncludedItemPopup";
 import { EcmdBrushedSteelButton } from "./components/EcmdBrushedSteelButton";
 import {
   EcmdPackagesRepeater,
@@ -1439,6 +1440,54 @@ registerEcmdComponent(EcmdWhatsIncludedModal, {
       type: "eventHandler",
       argTypes: [{ name: "payload", type: "object" }],
       displayName: "On Add to Cart",
+    },
+  },
+});
+
+registerEcmdComponent(EcmdWhatsIncludedItemPopup, {
+  name: "EcmdWhatsIncludedItemPopup",
+  displayName: "What's Included Item Detail Popup (fileWhatsIncludedG.js)",
+  description:
+    "Wix fileWhatsIncludedG.js parity item inspection dialog triggered by window event ecmd-open-whats-included-item with step-by-step bullet breakdown, optional preview media, Prev/Next item cycling, Escape/backdrop dismissal, and live localStorage('ecmd_addOnMemory') add-on toggle.",
+  importPath: "./components/EcmdWhatsIncludedItemPopup",
+  providesData: true,
+  defaultStyles: { width: "100%" },
+  props: {
+    isOpen: {
+      type: "boolean",
+      displayName: "Open (Controlled)",
+      description: "Controlled open state (leave unset to open via ecmd-open-whats-included-item event)",
+    },
+    item: {
+      type: "object",
+      displayName: "Active Item Object (Optional)",
+    },
+    items: {
+      type: "object",
+      displayName: "Items List for Prev/Next Cycling (Optional Array)",
+    },
+    packageLevel: {
+      type: "choice",
+      options: ["Classic", "Premium", "Luxury"],
+      defaultValue: "Classic",
+      displayName: "Package Level",
+    },
+    detailType: {
+      type: "choice",
+      options: ["Full", "Interior", "Exterior"],
+      defaultValue: "Full",
+      displayName: "Detail Type",
+    },
+    subCategory: {
+      type: "choice",
+      options: ["Sedan", "Truck", "Sm. SUV", "Lg. SUV"],
+      defaultValue: "Sm. SUV",
+      displayName: "Vehicle Sub-Category",
+    },
+    onClose: {
+      type: "eventHandler",
+      argTypes: [],
+      displayName: "On Close",
     },
   },
 });
