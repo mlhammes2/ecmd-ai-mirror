@@ -163,6 +163,7 @@ describe("Plasmic Component Registrations — Strict CSS Whitelist", () => {
       "EcmdThemeGroupController",
       "EcmdSideMenuController",
       "EcmdVehicleSelector",
+      "EcmdSavedVehicleDropdown",
       "EcmdPackagesRepeater",
       "EcmdBrushedSteelButton",
     ]) {

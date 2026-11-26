@@ -9,6 +9,7 @@ export type PackageLevelName = "Classic" | "Premium" | "Luxury" | (string & {});
 export type PackageDetailType = "Full" | "Interior" | "Exterior";
 export type PackageScopeKey = "full" | "interior" | "exterior";
 export type PackageSubCategory = "Sedan" | "Truck" | "Sm. SUV" | "Lg. SUV";
+export type EcmdVehicleKey = "coupe" | "truck" | "sm-suv" | "lg-suv";
 
 export interface EcmdServicePackageRow {
   id?: number | string;
@@ -198,6 +199,33 @@ export function mapVehicleKeyToSubCategory(vehicleKey?: string | null): PackageS
   if (normalized === "Sm. SUV") return "Sm. SUV";
   if (normalized === "Lg. SUV") return "Lg. SUV";
   return "Sedan";
+}
+
+/**
+ * Maps any Wix subCategory or vehicleType ("Sedan" | "Truck" | "Sm. SUV" | "Lg. SUV",
+ * "Car", "coupe", "Pickup", etc.) into one of the 4 canonical ECMD UI vehicle keys:
+ * "coupe" | "truck" | "sm-suv" | "lg-suv".
+ * Returns null when the input is blank/missing.
+ */
+export function mapSubCategoryToVehicleKey(rawVehicleType?: string | null): EcmdVehicleKey | null {
+  const raw = String(rawVehicleType || "").trim();
+  if (!raw) return null;
+  const normalized = normalizeToPackageSubCategory(raw);
+  if (normalized === "Truck") return "truck";
+  if (normalized === "Sm. SUV") return "sm-suv";
+  if (normalized === "Lg. SUV") return "lg-suv";
+  return "coupe";
+}
+
+/**
+ * Human-readable UI label for each canonical EcmdVehicleKey.
+ */
+export function getVehicleKeyDisplayLabel(vehicleKey?: string | null): string {
+  const key = mapSubCategoryToVehicleKey(vehicleKey) || "coupe";
+  if (key === "truck") return "Truck";
+  if (key === "sm-suv") return "Sm. SUV";
+  if (key === "lg-suv") return "Lg. SUV/Van";
+  return "Car";
 }
 
 export function scopeToDetailType(scope?: string | null): PackageDetailType {

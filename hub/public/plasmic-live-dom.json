@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-25T23:33:31.740Z",
+  "updatedAt": "2026-11-25T23:52:02.628Z",
   "entries": {
     "EcmdBrandIcon::desktop-1440": {
       "componentName": "EcmdBrandIcon",
@@ -445,12 +445,12 @@
       "artboardTag": "desktop-1440",
       "viewportMode": "desktop",
       "viewportWidthPx": 1440,
-      "updatedAt": "2026-11-25T23:33:31.734Z",
+      "updatedAt": "2026-11-25T23:52:02.521Z",
       "snapshot": {
         "tag": "div",
         "id": "packagesRep",
         "className": "ecmd-packages-repeater-root ecmd-packages-repeater-container __wab_instance uid-3004985",
-        "textPreview": "{\"pkg\":{\"id\":1,\"slug\":\"premium-plus-ceramic\",\"title\":\"Premium Plus - Ceramic Coating\",\"enabled\":true,\"sort_order\":1,\"upd",
+        "textPreview": "{\"pkg\":{\"id\":6,\"price\":179,\"title\":\"Full Classic Detail\",\"wix_id\":\"4ee03295-33f9-4141-a3b3-008615f83374\",\"enabled\":true,",
         "ecmdAttrs": {
           "data-ecmd-orientation": "vertical",
           "data-ecmd-viewport": "desktop",
@@ -461,17 +461,17 @@
         "matchedThemeGroups": [],
         "rect": {
           "width": 980,
-          "height": 1921,
+          "height": 1416,
           "x": 230,
           "y": 144
         },
         "scrollWidth": 980,
         "clientWidth": 980,
-        "scrollHeight": 1921,
-        "clientHeight": 1921,
+        "scrollHeight": 1416,
+        "clientHeight": 1416,
         "boxModel": {
           "width": "980px",
-          "height": "1920.57px",
+          "height": "1416.17px",
           "minWidth": "auto",
           "maxWidth": "none",
           "minHeight": "auto",
@@ -518,10 +518,10 @@
             "tag": "div",
             "id": null,
             "className": "ecmd-package-card",
-            "textPreview": "{\"pkg\":{\"id\":1,\"slug\":\"premium-plus-ceramic\",\"title\":\"Premium Plus - Ceramic Coating\",\"enabled\":true,\"sort_order\":1,\"upd",
+            "textPreview": "{\"pkg\":{\"id\":6,\"price\":179,\"title\":\"Full Classic Detail\",\"wix_id\":\"4ee03295-33f9-4141-a3b3-008615f83374\",\"enabled\":true,",
             "ecmdAttrs": {
-              "data-ecmd-card-key": "legacy:1",
-              "data-ecmd-package-level": "Premium Plus - Ceramic Coating",
+              "data-ecmd-card-key": "level:Classic",
+              "data-ecmd-package-level": "Classic",
               "data-ecmd-active-scope": "full",
               "data-ecmd-slot-wrapper": "transparent"
             },
@@ -530,17 +530,17 @@
             "matchedThemeGroups": [],
             "rect": {
               "width": 980,
-              "height": 407,
+              "height": 404,
               "x": 230,
               "y": 144
             },
             "scrollWidth": 980,
             "clientWidth": 980,
-            "scrollHeight": 407,
-            "clientHeight": 407,
+            "scrollHeight": 404,
+            "clientHeight": 404,
             "boxModel": {
               "width": "980px",
-              "height": "407.383px",
+              "height": "404.395px",
               "minWidth": "0px",
               "maxWidth": "100%",
               "minHeight": "auto",
@@ -594,17 +594,17 @@
                 "matchedThemeGroups": [],
                 "rect": {
                   "width": 980,
-                  "height": 407,
+                  "height": 404,
                   "x": 230,
                   "y": 144
                 },
                 "scrollWidth": 980,
                 "clientWidth": 980,
-                "scrollHeight": 407,
-                "clientHeight": 407,
+                "scrollHeight": 404,
+                "clientHeight": 404,
                 "boxModel": {
                   "width": "980px",
-                  "height": "407.383px",
+                  "height": "404.395px",
                   "minWidth": "0px",
                   "maxWidth": "100%",
                   "minHeight": "auto",
@@ -2691,17 +2691,17 @@
                     "matchedThemeGroups": [],
                     "rect": {
                       "width": 960,
-                      "height": 342,
+                      "height": 339,
                       "x": 240,
                       "y": 199
                     },
                     "scrollWidth": 960,
                     "clientWidth": 960,
-                    "scrollHeight": 342,
-                    "clientHeight": 342,
+                    "scrollHeight": 339,
+                    "clientHeight": 339,
                     "boxModel": {
                       "width": "960px",
-                      "height": "341.895px",
+                      "height": "338.906px",
                       "minWidth": "0px",
                       "maxWidth": "100%",
                       "minHeight": "auto",
@@ -2755,17 +2755,17 @@
                         "matchedThemeGroups": [],
                         "rect": {
                           "width": 514,
-                          "height": 326,
+                          "height": 323,
                           "x": 248,
                           "y": 207
                         },
                         "scrollWidth": 514,
                         "clientWidth": 514,
-                        "scrollHeight": 326,
-                        "clientHeight": 326,
+                        "scrollHeight": 323,
+                        "clientHeight": 323,
                         "boxModel": {
                           "width": "513.789px",
-                          "height": "325.918px",
+                          "height": "322.93px",
                           "minWidth": "auto",
                           "maxWidth": "none",
                           "minHeight": "auto",
@@ -3337,7 +3337,7 @@
                                   {
                                     "tag": "span",
                                     "id": null,
-                                    "className": "ecmd-steel-button-root button-mount __wab_instance uid-3005429",
+                                    "className": "ecmd-steel-button-root button-mount __wab_instance uid-3005428",
                                     "textPreview": "Exterior",
                                     "ecmdAttrs": {
                                       "data-ecmd-selected": "false",
@@ -4818,17 +4818,17 @@
                             "matchedThemeGroups": [],
                             "rect": {
                               "width": 498,
-                              "height": 60,
+                              "height": 57,
                               "x": 256,
                               "y": 405
                             },
                             "scrollWidth": 498,
                             "clientWidth": 498,
-                            "scrollHeight": 60,
-                            "clientHeight": 60,
+                            "scrollHeight": 57,
+                            "clientHeight": 57,
                             "boxModel": {
                               "width": "497.812px",
-                              "height": "59.9805px",
+                              "height": "56.9922px",
                               "minWidth": "0px",
                               "maxWidth": "100%",
                               "minHeight": "auto",
@@ -4882,17 +4882,17 @@
                                 "matchedThemeGroups": [],
                                 "rect": {
                                   "width": 124,
-                                  "height": 60,
+                                  "height": 57,
                                   "x": 256,
                                   "y": 405
                                 },
                                 "scrollWidth": 124,
                                 "clientWidth": 124,
-                                "scrollHeight": 60,
-                                "clientHeight": 60,
+                                "scrollHeight": 57,
+                                "clientHeight": 57,
                                 "boxModel": {
                                   "width": "124.453px",
-                                  "height": "59.9805px",
+                                  "height": "56.9922px",
                                   "minWidth": "0px",
                                   "maxWidth": "100%",
                                   "minHeight": "auto",
@@ -4950,7 +4950,7 @@
                                       "width": 41,
                                       "height": 21,
                                       "x": 298,
-                                      "y": 408
+                                      "y": 405
                                     },
                                     "scrollWidth": 41,
                                     "clientWidth": 41,
@@ -5014,7 +5014,7 @@
                                           "width": 41,
                                           "height": 21,
                                           "x": 298,
-                                          "y": 408
+                                          "y": 405
                                         },
                                         "scrollWidth": 41,
                                         "clientWidth": 41,
@@ -5078,7 +5078,7 @@
                                               "width": 41,
                                               "height": 18,
                                               "x": 298,
-                                              "y": 410
+                                              "y": 407
                                             },
                                             "scrollWidth": 0,
                                             "clientWidth": 0,
@@ -5149,7 +5149,7 @@
                                       "width": 100,
                                       "height": 36,
                                       "x": 268,
-                                      "y": 429
+                                      "y": 426
                                     },
                                     "scrollWidth": 100,
                                     "clientWidth": 100,
@@ -5213,7 +5213,7 @@
                                           "width": 100,
                                           "height": 36,
                                           "x": 268,
-                                          "y": 429
+                                          "y": 426
                                         },
                                         "scrollWidth": 100,
                                         "clientWidth": 100,
@@ -5277,7 +5277,7 @@
                                               "width": 100,
                                               "height": 30,
                                               "x": 268,
-                                              "y": 432
+                                              "y": 429
                                             },
                                             "scrollWidth": 0,
                                             "clientWidth": 0,
@@ -5346,17 +5346,17 @@
                                 "matchedThemeGroups": [],
                                 "rect": {
                                   "width": 124,
-                                  "height": 60,
+                                  "height": 57,
                                   "x": 380,
                                   "y": 405
                                 },
                                 "scrollWidth": 124,
                                 "clientWidth": 124,
-                                "scrollHeight": 60,
-                                "clientHeight": 60,
+                                "scrollHeight": 57,
+                                "clientHeight": 57,
                                 "boxModel": {
                                   "width": "124.453px",
-                                  "height": "59.9805px",
+                                  "height": "56.9922px",
                                   "minWidth": "0px",
                                   "maxWidth": "100%",
                                   "minHeight": "auto",
@@ -5414,7 +5414,7 @@
                                       "width": 64,
                                       "height": 21,
                                       "x": 411,
-                                      "y": 408
+                                      "y": 405
                                     },
                                     "scrollWidth": 64,
                                     "clientWidth": 64,
@@ -5478,7 +5478,7 @@
                                           "width": 64,
                                           "height": 21,
                                           "x": 411,
-                                          "y": 408
+                                          "y": 405
                                         },
                                         "scrollWidth": 64,
                                         "clientWidth": 64,
@@ -5542,7 +5542,7 @@
                                               "width": 64,
                                               "height": 18,
                                               "x": 411,
-                                              "y": 410
+                                              "y": 407
                                             },
                                             "scrollWidth": 0,
                                             "clientWidth": 0,
@@ -5613,7 +5613,7 @@
                                       "width": 55,
                                       "height": 36,
                                       "x": 415,
-                                      "y": 429
+                                      "y": 426
                                     },
                                     "scrollWidth": 55,
                                     "clientWidth": 55,
@@ -5677,7 +5677,7 @@
                                           "width": 55,
                                           "height": 36,
                                           "x": 415,
-                                          "y": 429
+                                          "y": 426
                                         },
                                         "scrollWidth": 55,
                                         "clientWidth": 55,
@@ -5741,7 +5741,7 @@
                                               "width": 55,
                                               "height": 30,
                                               "x": 415,
-                                              "y": 432
+                                              "y": 429
                                             },
                                             "scrollWidth": 0,
                                             "clientWidth": 0,
@@ -5810,17 +5810,17 @@
                                 "matchedThemeGroups": [],
                                 "rect": {
                                   "width": 124,
-                                  "height": 60,
+                                  "height": 57,
                                   "x": 505,
                                   "y": 405
                                 },
                                 "scrollWidth": 124,
                                 "clientWidth": 124,
-                                "scrollHeight": 60,
-                                "clientHeight": 60,
+                                "scrollHeight": 57,
+                                "clientHeight": 57,
                                 "boxModel": {
                                   "width": "124.453px",
-                                  "height": "59.9805px",
+                                  "height": "56.9922px",
                                   "minWidth": "0px",
                                   "maxWidth": "100%",
                                   "minHeight": "auto",
@@ -5875,21 +5875,21 @@
                                     "disabled": false,
                                     "matchedThemeGroups": [],
                                     "rect": {
-                                      "width": 45,
-                                      "height": 24,
-                                      "x": 545,
-                                      "y": 405
+                                      "width": 0,
+                                      "height": 0,
+                                      "x": 0,
+                                      "y": 0
                                     },
-                                    "scrollWidth": 45,
-                                    "clientWidth": 45,
-                                    "scrollHeight": 24,
-                                    "clientHeight": 24,
+                                    "scrollWidth": 0,
+                                    "clientWidth": 0,
+                                    "scrollHeight": 0,
+                                    "clientHeight": 0,
                                     "boxModel": {
-                                      "width": "44.5898px",
-                                      "height": "23.9844px",
-                                      "minWidth": "auto",
+                                      "width": "auto",
+                                      "height": "auto",
+                                      "minWidth": "0px",
                                       "maxWidth": "100%",
-                                      "minHeight": "auto",
+                                      "minHeight": "0px",
                                       "maxHeight": "none",
                                       "boxSizing": "border-box",
                                       "aspectRatio": "auto",
@@ -5904,7 +5904,7 @@
                                       "gap": "0px",
                                       "rowGap": "0px",
                                       "columnGap": "0px",
-                                      "display": "block",
+                                      "display": "none",
                                       "flexDirection": "row",
                                       "flexWrap": "nowrap",
                                       "flexGrow": "0",
@@ -5939,18 +5939,18 @@
                                         "disabled": false,
                                         "matchedThemeGroups": [],
                                         "rect": {
-                                          "width": 45,
-                                          "height": 24,
-                                          "x": 545,
-                                          "y": 405
+                                          "width": 0,
+                                          "height": 0,
+                                          "x": 0,
+                                          "y": 0
                                         },
-                                        "scrollWidth": 45,
-                                        "clientWidth": 45,
-                                        "scrollHeight": 24,
-                                        "clientHeight": 24,
+                                        "scrollWidth": 0,
+                                        "clientWidth": 0,
+                                        "scrollHeight": 0,
+                                        "clientHeight": 0,
                                         "boxModel": {
-                                          "width": "44.5898px",
-                                          "height": "23.9844px",
+                                          "width": "auto",
+                                          "height": "auto",
                                           "minWidth": "0px",
                                           "maxWidth": "none",
                                           "minHeight": "0px",
@@ -6003,10 +6003,10 @@
                                             "disabled": false,
                                             "matchedThemeGroups": [],
                                             "rect": {
-                                              "width": 45,
-                                              "height": 19,
-                                              "x": 545,
-                                              "y": 408
+                                              "width": 0,
+                                              "height": 0,
+                                              "x": 0,
+                                              "y": 0
                                             },
                                             "scrollWidth": 0,
                                             "clientWidth": 0,
@@ -6074,21 +6074,21 @@
                                     "disabled": false,
                                     "matchedThemeGroups": [],
                                     "rect": {
-                                      "width": 61,
-                                      "height": 36,
-                                      "x": 537,
-                                      "y": 429
+                                      "width": 0,
+                                      "height": 0,
+                                      "x": 0,
+                                      "y": 0
                                     },
-                                    "scrollWidth": 61,
-                                    "clientWidth": 61,
-                                    "scrollHeight": 36,
-                                    "clientHeight": 36,
+                                    "scrollWidth": 0,
+                                    "clientWidth": 0,
+                                    "scrollHeight": 0,
+                                    "clientHeight": 0,
                                     "boxModel": {
-                                      "width": "60.625px",
-                                      "height": "35.9961px",
-                                      "minWidth": "auto",
+                                      "width": "auto",
+                                      "height": "auto",
+                                      "minWidth": "0px",
                                       "maxWidth": "100%",
-                                      "minHeight": "auto",
+                                      "minHeight": "0px",
                                       "maxHeight": "none",
                                       "boxSizing": "border-box",
                                       "aspectRatio": "auto",
@@ -6103,7 +6103,7 @@
                                       "gap": "0px",
                                       "rowGap": "0px",
                                       "columnGap": "0px",
-                                      "display": "block",
+                                      "display": "none",
                                       "flexDirection": "row",
                                       "flexWrap": "nowrap",
                                       "flexGrow": "0",
@@ -6138,18 +6138,18 @@
                                         "disabled": false,
                                         "matchedThemeGroups": [],
                                         "rect": {
-                                          "width": 61,
-                                          "height": 36,
-                                          "x": 537,
-                                          "y": 429
+                                          "width": 0,
+                                          "height": 0,
+                                          "x": 0,
+                                          "y": 0
                                         },
-                                        "scrollWidth": 61,
-                                        "clientWidth": 61,
-                                        "scrollHeight": 36,
-                                        "clientHeight": 36,
+                                        "scrollWidth": 0,
+                                        "clientWidth": 0,
+                                        "scrollHeight": 0,
+                                        "clientHeight": 0,
                                         "boxModel": {
-                                          "width": "60.625px",
-                                          "height": "35.9961px",
+                                          "width": "auto",
+                                          "height": "auto",
                                           "minWidth": "0px",
                                           "maxWidth": "none",
                                           "minHeight": "0px",
@@ -6202,10 +6202,10 @@
                                             "disabled": false,
                                             "matchedThemeGroups": [],
                                             "rect": {
-                                              "width": 61,
-                                              "height": 30,
-                                              "x": 537,
-                                              "y": 432
+                                              "width": 0,
+                                              "height": 0,
+                                              "x": 0,
+                                              "y": 0
                                             },
                                             "scrollWidth": 0,
                                             "clientWidth": 0,
@@ -6274,17 +6274,17 @@
                                 "matchedThemeGroups": [],
                                 "rect": {
                                   "width": 124,
-                                  "height": 60,
+                                  "height": 57,
                                   "x": 629,
                                   "y": 405
                                 },
                                 "scrollWidth": 124,
                                 "clientWidth": 124,
-                                "scrollHeight": 60,
-                                "clientHeight": 60,
+                                "scrollHeight": 57,
+                                "clientHeight": 57,
                                 "boxModel": {
                                   "width": "124.453px",
-                                  "height": "59.9805px",
+                                  "height": "56.9922px",
                                   "minWidth": "0px",
                                   "maxWidth": "100%",
                                   "minHeight": "auto",
@@ -6342,7 +6342,7 @@
                                       "width": 42,
                                       "height": 21,
                                       "x": 671,
-                                      "y": 408
+                                      "y": 405
                                     },
                                     "scrollWidth": 42,
                                     "clientWidth": 42,
@@ -6406,7 +6406,7 @@
                                           "width": 42,
                                           "height": 21,
                                           "x": 671,
-                                          "y": 408
+                                          "y": 405
                                         },
                                         "scrollWidth": 42,
                                         "clientWidth": 42,
@@ -6470,7 +6470,7 @@
                                               "width": 42,
                                               "height": 18,
                                               "x": 671,
-                                              "y": 410
+                                              "y": 407
                                             },
                                             "scrollWidth": 0,
                                             "clientWidth": 0,
@@ -6541,7 +6541,7 @@
                                       "width": 60,
                                       "height": 36,
                                       "x": 662,
-                                      "y": 429
+                                      "y": 426
                                     },
                                     "scrollWidth": 60,
                                     "clientWidth": 60,
@@ -6605,7 +6605,7 @@
                                           "width": 60,
                                           "height": 36,
                                           "x": 662,
-                                          "y": 429
+                                          "y": 426
                                         },
                                         "scrollWidth": 60,
                                         "clientWidth": 60,
@@ -6669,7 +6669,7 @@
                                               "width": 60,
                                               "height": 30,
                                               "x": 662,
-                                              "y": 432
+                                              "y": 429
                                             },
                                             "scrollWidth": 0,
                                             "clientWidth": 0,
@@ -6742,7 +6742,7 @@
                               "width": 498,
                               "height": 15,
                               "x": 256,
-                              "y": 467
+                              "y": 464
                             },
                             "scrollWidth": 498,
                             "clientWidth": 498,
@@ -6808,7 +6808,7 @@
                                   "width": 65,
                                   "height": 15,
                                   "x": 689,
-                                  "y": 467
+                                  "y": 464
                                 },
                                 "scrollWidth": 65,
                                 "clientWidth": 65,
@@ -6872,7 +6872,7 @@
                                       "width": 65,
                                       "height": 15,
                                       "x": 689,
-                                      "y": 467
+                                      "y": 464
                                     },
                                     "scrollWidth": 65,
                                     "clientWidth": 65,
@@ -6936,7 +6936,7 @@
                                           "width": 65,
                                           "height": 13,
                                           "x": 689,
-                                          "y": 469
+                                          "y": 466
                                         },
                                         "scrollWidth": 0,
                                         "clientWidth": 0,
@@ -7007,7 +7007,7 @@
                               "width": 498,
                               "height": 35,
                               "x": 256,
-                              "y": 490
+                              "y": 487
                             },
                             "scrollWidth": 498,
                             "clientWidth": 498,
@@ -7071,7 +7071,7 @@
                                   "width": 239,
                                   "height": 35,
                                   "x": 256,
-                                  "y": 490
+                                  "y": 487
                                 },
                                 "scrollWidth": 239,
                                 "clientWidth": 239,
@@ -7138,7 +7138,7 @@
                                       "width": 239,
                                       "height": 35,
                                       "x": 256,
-                                      "y": 490
+                                      "y": 487
                                     },
                                     "scrollWidth": 239,
                                     "clientWidth": 239,
@@ -7202,7 +7202,7 @@
                                           "width": 239,
                                           "height": 24,
                                           "x": 256,
-                                          "y": 496
+                                          "y": 493
                                         },
                                         "scrollWidth": 239,
                                         "clientWidth": 239,
@@ -7266,7 +7266,7 @@
                                               "width": 86,
                                               "height": 19,
                                               "x": 332,
-                                              "y": 498
+                                              "y": 495
                                             },
                                             "scrollWidth": 0,
                                             "clientWidth": 0,
@@ -7337,7 +7337,7 @@
                                   "width": 239,
                                   "height": 35,
                                   "x": 515,
-                                  "y": 490
+                                  "y": 487
                                 },
                                 "scrollWidth": 239,
                                 "clientWidth": 239,
@@ -7401,7 +7401,7 @@
                                       "width": 239,
                                       "height": 35,
                                       "x": 515,
-                                      "y": 490
+                                      "y": 487
                                     },
                                     "scrollWidth": 239,
                                     "clientWidth": 239,
@@ -7465,7 +7465,7 @@
                                           "width": 59,
                                           "height": 24,
                                           "x": 605,
-                                          "y": 496
+                                          "y": 493
                                         },
                                         "scrollWidth": 59,
                                         "clientWidth": 59,
@@ -7529,7 +7529,7 @@
                                               "width": 59,
                                               "height": 24,
                                               "x": 605,
-                                              "y": 496
+                                              "y": 493
                                             },
                                             "scrollWidth": 59,
                                             "clientWidth": 59,
@@ -7593,7 +7593,7 @@
                                                   "width": 59,
                                                   "height": 19,
                                                   "x": 605,
-                                                  "y": 498
+                                                  "y": 495
                                                 },
                                                 "scrollWidth": 0,
                                                 "clientWidth": 0,
@@ -7662,7 +7662,7 @@
                                           "width": 239,
                                           "height": 35,
                                           "x": 515,
-                                          "y": 490
+                                          "y": 487
                                         },
                                         "scrollWidth": 239,
                                         "clientWidth": 239,
@@ -7728,7 +7728,7 @@
                                               "width": 239,
                                               "height": 35,
                                               "x": 515,
-                                              "y": 490
+                                              "y": 487
                                             },
                                             "scrollWidth": 239,
                                             "clientWidth": 239,
@@ -7857,7 +7857,7 @@
                                                   "width": 239,
                                                   "height": 35,
                                                   "x": 515,
-                                                  "y": 490
+                                                  "y": 487
                                                 },
                                                 "scrollWidth": 239,
                                                 "clientWidth": 239,
@@ -7932,17 +7932,17 @@
                         "matchedThemeGroups": [],
                         "rect": {
                           "width": 420,
-                          "height": 326,
+                          "height": 323,
                           "x": 772,
                           "y": 207
                         },
                         "scrollWidth": 420,
                         "clientWidth": 420,
-                        "scrollHeight": 326,
-                        "clientHeight": 326,
+                        "scrollHeight": 323,
+                        "clientHeight": 323,
                         "boxModel": {
                           "width": "420.234px",
-                          "height": "325.918px",
+                          "height": "322.93px",
                           "minWidth": "auto",
                           "maxWidth": "none",
                           "minHeight": "0px",
@@ -9381,7 +9381,7 @@
             ]
           }
         ],
-        "repeatedCount": 4
+        "repeatedCount": 3
       },
       "diagnostics": [],
       "key": "EcmdPackagesRepeater::desktop-1440"
@@ -9392,11 +9392,11 @@
       "artboardTag": "desktop-1440",
       "viewportMode": "desktop",
       "viewportWidthPx": 1440,
-      "updatedAt": "2026-11-25T22:31:21.288Z",
+      "updatedAt": "2026-11-25T23:52:00.295Z",
       "snapshot": {
         "tag": "div",
-        "id": "_r_1_",
-        "className": "__wab_instance Homepage__sideMenuModal__zQwZf",
+        "id": "_r_5_",
+        "className": "__wab_instance uid-3004872",
         "textPreview": ".side-menu-card { box-sizing: border-box; border-radius: 12px; padding: 6px; box-shadow: 0 16px 36px rgba(0, 0, 0, 0.32)",
         "ecmdAttrs": {
           "data-ecmd-viewport": "desktop",
@@ -9408,7 +9408,7 @@
         "rect": {
           "width": 34,
           "height": 34,
-          "x": 1363,
+          "x": 1382,
           "y": 34
         },
         "scrollWidth": 34,
@@ -9448,7 +9448,7 @@
           "overflowX": "visible",
           "overflowY": "visible",
           "backgroundColor": "rgba(0, 0, 0, 0)",
-          "color": "rgb(227, 227, 227)",
+          "color": "rgb(31, 31, 31)",
           "borderColor": "oklch(1 0 0 / 0.09)",
           "borderWidth": "0px",
           "borderRadius": "0px",
@@ -9474,7 +9474,7 @@
             "rect": {
               "width": 34,
               "height": 34,
-              "x": 1363,
+              "x": 1382,
               "y": 34
             },
             "scrollWidth": 34,
@@ -9514,7 +9514,7 @@
               "overflowX": "visible",
               "overflowY": "visible",
               "backgroundColor": "rgba(0, 0, 0, 0)",
-              "color": "rgb(227, 227, 227)",
+              "color": "rgb(31, 31, 31)",
               "borderColor": "oklch(1 0 0 / 0.09)",
               "borderWidth": "0px",
               "borderRadius": "0px",
@@ -9529,7 +9529,7 @@
               {
                 "tag": "button",
                 "id": null,
-                "className": "plasmic_default__all plasmic_default__button plasmic_default__button__mrkoQ root_reset_mrkoQykvpZZfVbEc1yjabw plasmic_default_styles plasmic_mixins plasmic_tokens_override_mrkoQykvpZZfVbEc1yjabw plasmic_tokens_mrkoQykvpZZfVbEc1yjabw plasmic_tokens_ohDidvG9XsCeFumugENU3J HeaderButton__root__l2A7N __wab_instance Homepage__headerButton__ventk",
+                "className": "__wab_defaults__all __wab_defaults__button __wab_defaults__button__canva uid-3003035 __wab_instance uid-3003061 __wab_val_root plasmic-tokens root_reset_3002957 __wab_tag",
                 "textPreview": "",
                 "ecmdAttrs": {},
                 "ariaAttrs": {},
@@ -9538,7 +9538,7 @@
                 "rect": {
                   "width": 34,
                   "height": 34,
-                  "x": 1363,
+                  "x": 1382,
                   "y": 34
                 },
                 "scrollWidth": 34,
@@ -9578,7 +9578,7 @@
                   "overflowX": "visible",
                   "overflowY": "visible",
                   "backgroundColor": "rgba(248, 145, 145, 0)",
-                  "color": "rgb(227, 227, 227)",
+                  "color": "rgb(0, 0, 0)",
                   "borderColor": "rgb(211, 211, 211)",
                   "borderWidth": "0px",
                   "borderRadius": "0px",
@@ -9586,10 +9586,76 @@
                   "fontSize": "16px",
                   "fontWeight": "400",
                   "lineHeight": "24px",
-                  "textAlign": "center",
+                  "textAlign": "left",
                   "opacity": "1"
                 },
-                "children": []
+                "children": [
+                  {
+                    "tag": "div",
+                    "id": null,
+                    "className": "__wab_defaults__all uid-3004881 __wab_tag __wab_svg gm-icon-btn svg-icon-wrapper",
+                    "textPreview": "",
+                    "ecmdAttrs": {},
+                    "ariaAttrs": {},
+                    "disabled": false,
+                    "matchedThemeGroups": [],
+                    "rect": {
+                      "width": 30,
+                      "height": 30,
+                      "x": 1384,
+                      "y": 36
+                    },
+                    "scrollWidth": 30,
+                    "clientWidth": 30,
+                    "scrollHeight": 30,
+                    "clientHeight": 30,
+                    "boxModel": {
+                      "width": "30px",
+                      "height": "30px",
+                      "minWidth": "0px",
+                      "maxWidth": "100%",
+                      "minHeight": "0px",
+                      "maxHeight": "none",
+                      "boxSizing": "border-box",
+                      "aspectRatio": "auto",
+                      "paddingTop": "0px",
+                      "paddingRight": "0px",
+                      "paddingBottom": "0px",
+                      "paddingLeft": "0px",
+                      "marginTop": "0px",
+                      "marginRight": "0px",
+                      "marginBottom": "0px",
+                      "marginLeft": "0px",
+                      "gap": "0px",
+                      "rowGap": "0px",
+                      "columnGap": "0px",
+                      "display": "block",
+                      "flexDirection": "row",
+                      "flexWrap": "nowrap",
+                      "flexGrow": "0",
+                      "flexShrink": "1",
+                      "flexBasis": "auto",
+                      "alignItems": "normal",
+                      "justifyContent": "normal",
+                      "gridTemplateColumns": "none",
+                      "position": "relative",
+                      "overflowX": "visible",
+                      "overflowY": "visible",
+                      "backgroundColor": "rgba(0, 0, 0, 0)",
+                      "color": "rgb(68, 71, 70)",
+                      "borderColor": "rgba(0, 0, 0, 0)",
+                      "borderWidth": "0px",
+                      "borderRadius": "0px",
+                      "boxShadow": "none",
+                      "fontSize": "16px",
+                      "fontWeight": "500",
+                      "lineHeight": "24px",
+                      "textAlign": "left",
+                      "opacity": "1"
+                    },
+                    "children": []
+                  }
+                ]
               }
             ]
           }
@@ -9604,11 +9670,11 @@
       "artboardTag": "desktop-1440",
       "viewportMode": "desktop",
       "viewportWidthPx": 1440,
-      "updatedAt": "2026-11-25T22:31:21.447Z",
+      "updatedAt": "2026-11-25T23:52:00.297Z",
       "snapshot": {
         "tag": "div",
         "id": null,
-        "className": "__wab_instance root_reset_mrkoQykvpZZfVbEc1yjabw plasmic_default_styles plasmic_mixins plasmic_tokens_override_mrkoQykvpZZfVbEc1yjabw plasmic_tokens_mrkoQykvpZZfVbEc1yjabw plasmic_tokens_ohDidvG9XsCeFumugENU3J AuthModel__ecmdAuthModalController__ttddO __wab_instance Homepage__authModel__ef0T",
+        "className": "__wab_instance uid-3003460 plasmic-tokens root_reset_3002957 __wab_instance uid-3003460 uid-3003469",
         "textPreview": "@keyframes ecmdAuthShake { 0%, 100% { transform: translateX(0); } 20%, 60% { transform: translateX(-7px); } 40%, 80% { t",
         "ecmdAttrs": {
           "data-ecmd-viewport": "desktop",
@@ -9620,7 +9686,7 @@
         "rect": {
           "width": 182,
           "height": 38,
-          "x": 1229,
+          "x": 1248,
           "y": 76
         },
         "scrollWidth": 182,
@@ -9684,7 +9750,7 @@
             "rect": {
               "width": 182,
               "height": 38,
-              "x": 1229,
+              "x": 1248,
               "y": 76
             },
             "scrollWidth": 182,
@@ -9739,7 +9805,7 @@
               {
                 "tag": "div",
                 "id": "ecmd-auth-trigger-row",
-                "className": "plasmic_default__all AuthModel__freeBox__zzPkw",
+                "className": "__wab_defaults__all uid-3003503 __wab_tag",
                 "textPreview": "Member LoginSign Up",
                 "ecmdAttrs": {},
                 "ariaAttrs": {},
@@ -9748,7 +9814,7 @@
                 "rect": {
                   "width": 182,
                   "height": 38,
-                  "x": 1229,
+                  "x": 1248,
                   "y": 76
                 },
                 "scrollWidth": 182,
@@ -9803,7 +9869,7 @@
                   {
                     "tag": "button",
                     "id": "ecmd-auth-trigger-btn",
-                    "className": "plasmic_default__all plasmic_default__button plasmic_default__button__mrkoQ __wab_text AuthModel__button__kuv7L textdb",
+                    "className": "__wab_defaults__all __wab_defaults__button __wab_defaults__button__canva uid-3003529 __wab_tag textdb",
                     "textPreview": "Member Login",
                     "ecmdAttrs": {},
                     "ariaAttrs": {},
@@ -9812,7 +9878,7 @@
                     "rect": {
                       "width": 110,
                       "height": 20,
-                      "x": 1229,
+                      "x": 1248,
                       "y": 85
                     },
                     "scrollWidth": 110,
@@ -9851,7 +9917,7 @@
                       "position": "relative",
                       "overflowX": "visible",
                       "overflowY": "visible",
-                      "backgroundColor": "rgb(30, 41, 59)",
+                      "backgroundColor": "rgba(0, 0, 0, 0)",
                       "color": "rgb(255, 255, 255)",
                       "borderColor": "rgb(211, 211, 211)",
                       "borderWidth": "0px",
@@ -9868,7 +9934,7 @@
                   {
                     "tag": "button",
                     "id": "ecmd-auth-signup-trigger-btn",
-                    "className": "plasmic_default__all plasmic_default__button plasmic_default__button__mrkoQ __wab_text AuthModel__button__kJwGi textdb",
+                    "className": "__wab_defaults__all __wab_defaults__button __wab_defaults__button__canva uid-3003531 __wab_tag textdb",
                     "textPreview": "Sign Up",
                     "ecmdAttrs": {},
                     "ariaAttrs": {},
@@ -9877,7 +9943,7 @@
                     "rect": {
                       "width": 71,
                       "height": 22,
-                      "x": 1340,
+                      "x": 1359,
                       "y": 84
                     },
                     "scrollWidth": 69,
@@ -9917,7 +9983,7 @@
                       "overflowX": "visible",
                       "overflowY": "visible",
                       "backgroundColor": "rgba(0, 0, 0, 0)",
-                      "color": "rgba(16, 185, 129, 0)",
+                      "color": "rgb(255, 255, 255)",
                       "borderColor": "rgba(16, 185, 129, 0)",
                       "borderWidth": "1.25px",
                       "borderRadius": "8px",
@@ -9945,7 +10011,7 @@
       "artboardTag": "desktop-1440",
       "viewportMode": "desktop",
       "viewportWidthPx": 1440,
-      "updatedAt": "2026-11-25T22:49:42.384Z",
+      "updatedAt": "2026-11-25T23:52:00.420Z",
       "snapshot": {
         "tag": "div",
         "id": "ecmd-tg-r6",
@@ -38715,11 +38781,11 @@
       "artboardTag": "desktop-1440",
       "viewportMode": "desktop",
       "viewportWidthPx": 1440,
-      "updatedAt": "2026-11-25T23:06:29.542Z",
+      "updatedAt": "2026-11-25T23:52:02.531Z",
       "snapshot": {
         "tag": "span",
         "id": null,
-        "className": "ecmd-steel-button-root button-mount __wab_instance uid-3005429",
+        "className": "ecmd-steel-button-root button-mount __wab_instance uid-3005428",
         "textPreview": "Exterior",
         "ecmdAttrs": {
           "data-ecmd-selected": "false",
@@ -39279,7 +39345,7 @@
       "artboardTag": "mobile-430",
       "viewportMode": "mobile",
       "viewportWidthPx": 430,
-      "updatedAt": "2026-11-25T22:03:19.657Z",
+      "updatedAt": "2026-11-25T23:52:01.068Z",
       "snapshot": {
         "tag": "div",
         "id": "_r_5_",
@@ -39335,7 +39401,7 @@
           "overflowX": "visible",
           "overflowY": "visible",
           "backgroundColor": "rgba(0, 0, 0, 0)",
-          "color": "rgb(227, 227, 227)",
+          "color": "rgb(31, 31, 31)",
           "borderColor": "oklch(1 0 0 / 0.09)",
           "borderWidth": "0px",
           "borderRadius": "0px",
@@ -39401,7 +39467,7 @@
               "overflowX": "visible",
               "overflowY": "visible",
               "backgroundColor": "rgba(0, 0, 0, 0)",
-              "color": "rgb(227, 227, 227)",
+              "color": "rgb(31, 31, 31)",
               "borderColor": "oklch(1 0 0 / 0.09)",
               "borderWidth": "0px",
               "borderRadius": "0px",
@@ -39529,7 +39595,7 @@
                       "overflowX": "visible",
                       "overflowY": "visible",
                       "backgroundColor": "rgba(0, 0, 0, 0)",
-                      "color": "rgb(227, 227, 227)",
+                      "color": "rgb(68, 71, 70)",
                       "borderColor": "rgba(0, 0, 0, 0)",
                       "borderWidth": "0px",
                       "borderRadius": "0px",
@@ -39557,7 +39623,7 @@
       "artboardTag": "mobile-430",
       "viewportMode": "mobile",
       "viewportWidthPx": 430,
-      "updatedAt": "2026-11-25T22:03:19.812Z",
+      "updatedAt": "2026-11-25T23:52:01.071Z",
       "snapshot": {
         "tag": "div",
         "id": "ecmd-tg-r6",
@@ -39681,8 +39747,8 @@
               "overflowX": "visible",
               "overflowY": "visible",
               "backgroundColor": "rgba(0, 0, 0, 0)",
-              "color": "rgb(255, 255, 255)",
-              "borderColor": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)",
+              "borderColor": "oklch(1 0 0 / 0.09)",
               "borderWidth": "0px",
               "borderRadius": "0px",
               "boxShadow": "none",
@@ -39745,7 +39811,7 @@
                   "overflowX": "visible",
                   "overflowY": "visible",
                   "backgroundColor": "rgba(248, 145, 145, 0)",
-                  "color": "rgb(255, 255, 255)",
+                  "color": "rgb(0, 0, 0)",
                   "borderColor": "rgba(248, 145, 145, 0)",
                   "borderWidth": "1.25px",
                   "borderRadius": "999px",
@@ -39809,7 +39875,7 @@
                       "overflowX": "visible",
                       "overflowY": "visible",
                       "backgroundColor": "rgb(83, 235, 235)",
-                      "color": "rgb(255, 255, 255)",
+                      "color": "rgb(0, 0, 0)",
                       "borderColor": "oklch(1 0 0 / 0.09)",
                       "borderWidth": "0px",
                       "borderRadius": "50%",
@@ -39873,7 +39939,7 @@
                           "overflowX": "visible",
                           "overflowY": "visible",
                           "backgroundColor": "rgba(0, 0, 0, 0)",
-                          "color": "rgb(255, 255, 255)",
+                          "color": "rgb(0, 0, 0)",
                           "borderColor": "oklch(1 0 0 / 0.09)",
                           "borderWidth": "0px",
                           "borderRadius": "0px",
@@ -39938,8 +40004,8 @@
                               "position": "static",
                               "overflowX": "visible",
                               "overflowY": "visible",
-                              "backgroundColor": "rgb(20, 184, 166)",
-                              "color": "rgb(255, 255, 255)",
+                              "backgroundColor": "rgb(14, 165, 233)",
+                              "color": "rgb(0, 0, 0)",
                               "borderColor": "oklch(1 0 0 / 0.09)",
                               "borderWidth": "0px",
                               "borderRadius": "999px",
@@ -40069,7 +40135,7 @@
                               "overflowX": "visible",
                               "overflowY": "visible",
                               "backgroundColor": "rgba(0, 0, 0, 0)",
-                              "color": "rgb(255, 255, 255)",
+                              "color": "rgb(0, 0, 0)",
                               "borderColor": "rgba(0, 0, 0, 0.5)",
                               "borderWidth": "1.25px",
                               "borderRadius": "0px",
@@ -40133,7 +40199,7 @@
                                   "overflowX": "visible",
                                   "overflowY": "visible",
                                   "backgroundColor": "rgba(0, 0, 0, 0)",
-                                  "color": "rgb(255, 255, 255)",
+                                  "color": "rgb(0, 0, 0)",
                                   "borderColor": "rgba(255, 255, 255, 0.5)",
                                   "borderWidth": "1.25px",
                                   "borderRadius": "0px",
@@ -40204,7 +40270,7 @@
                       "overflowX": "visible",
                       "overflowY": "visible",
                       "backgroundColor": "rgba(0, 0, 0, 0)",
-                      "color": "rgb(248, 250, 252)",
+                      "color": "rgb(255, 255, 255)",
                       "borderColor": "oklch(1 0 0 / 0.09)",
                       "borderWidth": "0px",
                       "borderRadius": "0px",
@@ -40268,7 +40334,7 @@
                           "overflowX": "visible",
                           "overflowY": "visible",
                           "backgroundColor": "rgba(0, 0, 0, 0)",
-                          "color": "rgb(248, 250, 252)",
+                          "color": "rgb(255, 255, 255)",
                           "borderColor": "oklch(1 0 0 / 0.09)",
                           "borderWidth": "0px",
                           "borderRadius": "0px",
@@ -40332,7 +40398,7 @@
                               "overflowX": "visible",
                               "overflowY": "visible",
                               "backgroundColor": "rgba(0, 0, 0, 0)",
-                              "color": "rgb(248, 250, 252)",
+                              "color": "rgb(255, 255, 255)",
                               "borderColor": "oklch(1 0 0 / 0.09)",
                               "borderWidth": "0px",
                               "borderRadius": "0px",
@@ -40364,7 +40430,7 @@
       "artboardTag": "mobile-430",
       "viewportMode": "mobile",
       "viewportWidthPx": 430,
-      "updatedAt": "2026-11-25T22:03:19.658Z",
+      "updatedAt": "2026-11-25T23:52:01.068Z",
       "snapshot": {
         "tag": "div",
         "id": null,
@@ -40611,7 +40677,7 @@
                       "position": "relative",
                       "overflowX": "visible",
                       "overflowY": "visible",
-                      "backgroundColor": "rgb(30, 41, 59)",
+                      "backgroundColor": "rgba(0, 0, 0, 0)",
                       "color": "rgb(255, 255, 255)",
                       "borderColor": "rgb(211, 211, 211)",
                       "borderWidth": "0px",
@@ -40677,7 +40743,7 @@
                       "overflowX": "visible",
                       "overflowY": "visible",
                       "backgroundColor": "rgba(0, 0, 0, 0)",
-                      "color": "rgba(16, 185, 129, 0)",
+                      "color": "rgb(255, 255, 255)",
                       "borderColor": "rgba(16, 185, 129, 0)",
                       "borderWidth": "1.25px",
                       "borderRadius": "8px",
@@ -40705,11 +40771,11 @@
       "artboardTag": "mobile-430",
       "viewportMode": "mobile",
       "viewportWidthPx": 430,
-      "updatedAt": "2026-11-25T23:06:29.520Z",
+      "updatedAt": "2026-11-25T23:52:02.555Z",
       "snapshot": {
         "tag": "span",
         "id": null,
-        "className": "ecmd-steel-button-root button-mount __wab_instance uid-3005429",
+        "className": "ecmd-steel-button-root button-mount __wab_instance uid-3005428",
         "textPreview": "Exterior",
         "ecmdAttrs": {
           "data-ecmd-selected": "false",
@@ -40724,7 +40790,7 @@
           "width": 149,
           "height": 35,
           "x": -239,
-          "y": 1621
+          "y": 1202
         },
         "scrollWidth": 149,
         "clientWidth": 149,
@@ -40763,7 +40829,7 @@
           "overflowX": "visible",
           "overflowY": "visible",
           "backgroundColor": "rgba(0, 0, 0, 0)",
-          "color": "rgb(227, 227, 227)",
+          "color": "rgb(31, 31, 31)",
           "borderColor": "oklch(1 0 0 / 0.09)",
           "borderWidth": "0px",
           "borderRadius": "0px",
@@ -40793,7 +40859,7 @@
               "width": 149,
               "height": 27,
               "x": -239,
-              "y": 1625
+              "y": 1206
             },
             "scrollWidth": 147,
             "clientWidth": 147,
@@ -40832,7 +40898,7 @@
               "overflowX": "visible",
               "overflowY": "visible",
               "backgroundColor": "rgba(0, 0, 0, 0)",
-              "color": "rgb(227, 227, 227)",
+              "color": "rgb(31, 31, 31)",
               "borderColor": "rgba(0, 0, 0, 0)",
               "borderWidth": "1.25px",
               "borderRadius": "4px",
@@ -40857,7 +40923,7 @@
                   "width": 145,
                   "height": 23,
                   "x": -237,
-                  "y": 1627
+                  "y": 1208
                 },
                 "scrollWidth": 145,
                 "clientWidth": 145,
@@ -40896,7 +40962,7 @@
                   "overflowX": "hidden",
                   "overflowY": "hidden",
                   "backgroundColor": "rgba(0, 0, 0, 0)",
-                  "color": "rgb(227, 227, 227)",
+                  "color": "rgb(31, 31, 31)",
                   "borderColor": "oklch(1 0 0 / 0.09)",
                   "borderWidth": "0px",
                   "borderRadius": "2px",
@@ -40921,7 +40987,7 @@
                       "width": 66,
                       "height": 18,
                       "x": -197,
-                      "y": 1629
+                      "y": 1211
                     },
                     "scrollWidth": 66,
                     "clientWidth": 66,
@@ -40988,12 +41054,12 @@
       "artboardTag": "mobile-430",
       "viewportMode": "mobile",
       "viewportWidthPx": 430,
-      "updatedAt": "2026-11-25T23:00:29.526Z",
+      "updatedAt": "2026-11-25T23:52:02.549Z",
       "snapshot": {
         "tag": "div",
         "id": "packagesRep",
         "className": "ecmd-packages-repeater-root ecmd-packages-repeater-container __wab_instance uid-3004985",
-        "textPreview": "{\"pkg\":{\"id\":1,\"slug\":\"premium-plus-ceramic\",\"title\":\"Premium Plus - Ceramic Coating\",\"enabled\":true,\"sort_order\":1,\"upd",
+        "textPreview": "{\"pkg\":{\"id\":6,\"price\":179,\"title\":\"Full Classic Detail\",\"wix_id\":\"4ee03295-33f9-4141-a3b3-008615f83374\",\"enabled\":true,",
         "ecmdAttrs": {
           "data-ecmd-orientation": "vertical",
           "data-ecmd-viewport": "mobile",
@@ -41004,17 +41070,17 @@
         "matchedThemeGroups": [],
         "rect": {
           "width": 980,
-          "height": 1671,
+          "height": 1244,
           "x": -275,
           "y": 144
         },
         "scrollWidth": 980,
         "clientWidth": 980,
-        "scrollHeight": 1671,
-        "clientHeight": 1671,
+        "scrollHeight": 1244,
+        "clientHeight": 1244,
         "boxModel": {
           "width": "980px",
-          "height": "1671.48px",
+          "height": "1244.14px",
           "minWidth": "auto",
           "maxWidth": "none",
           "minHeight": "auto",
@@ -41061,8 +41127,11 @@
             "tag": "div",
             "id": null,
             "className": "ecmd-package-card",
-            "textPreview": "{\"pkg\":{\"id\":1,\"slug\":\"premium-plus-ceramic\",\"title\":\"Premium Plus - Ceramic Coating\",\"enabled\":true,\"sort_order\":1,\"upd",
+            "textPreview": "{\"pkg\":{\"id\":6,\"price\":179,\"title\":\"Full Classic Detail\",\"wix_id\":\"4ee03295-33f9-4141-a3b3-008615f83374\",\"enabled\":true,",
             "ecmdAttrs": {
+              "data-ecmd-card-key": "level:Classic",
+              "data-ecmd-package-level": "Classic",
+              "data-ecmd-active-scope": "full",
               "data-ecmd-slot-wrapper": "transparent"
             },
             "ariaAttrs": {},
@@ -41070,17 +41139,17 @@
             "matchedThemeGroups": [],
             "rect": {
               "width": 980,
-              "height": 407,
+              "height": 404,
               "x": -275,
               "y": 144
             },
             "scrollWidth": 980,
             "clientWidth": 980,
-            "scrollHeight": 407,
-            "clientHeight": 407,
+            "scrollHeight": 404,
+            "clientHeight": 404,
             "boxModel": {
               "width": "980px",
-              "height": "407.383px",
+              "height": "404.395px",
               "minWidth": "0px",
               "maxWidth": "100%",
               "minHeight": "auto",
@@ -41134,17 +41203,17 @@
                 "matchedThemeGroups": [],
                 "rect": {
                   "width": 980,
-                  "height": 407,
+                  "height": 404,
                   "x": -275,
                   "y": 144
                 },
                 "scrollWidth": 980,
                 "clientWidth": 980,
-                "scrollHeight": 407,
-                "clientHeight": 407,
+                "scrollHeight": 404,
+                "clientHeight": 404,
                 "boxModel": {
                   "width": "980px",
-                  "height": "407.383px",
+                  "height": "404.395px",
                   "minWidth": "0px",
                   "maxWidth": "100%",
                   "minHeight": "auto",
@@ -41174,12 +41243,12 @@
                   "position": "relative",
                   "overflowX": "visible",
                   "overflowY": "visible",
-                  "backgroundColor": "rgb(40, 41, 42)",
-                  "color": "rgb(227, 227, 227)",
+                  "backgroundColor": "rgb(248, 250, 253)",
+                  "color": "rgb(31, 31, 31)",
                   "borderColor": "rgba(0, 0, 0, 0)",
                   "borderWidth": "0px",
                   "borderRadius": "0px",
-                  "boxShadow": "rgba(0, 0, 0, 0.35) 0px 1px 3px 0px",
+                  "boxShadow": "rgba(0, 0, 0, 0.05) 0px 1px 2px 0px",
                   "fontSize": "16px",
                   "fontWeight": "400",
                   "lineHeight": "24px",
@@ -43231,17 +43300,17 @@
                     "matchedThemeGroups": [],
                     "rect": {
                       "width": 960,
-                      "height": 342,
+                      "height": 339,
                       "x": -265,
                       "y": 199
                     },
                     "scrollWidth": 960,
                     "clientWidth": 960,
-                    "scrollHeight": 342,
-                    "clientHeight": 342,
+                    "scrollHeight": 339,
+                    "clientHeight": 339,
                     "boxModel": {
                       "width": "960px",
-                      "height": "341.895px",
+                      "height": "338.906px",
                       "minWidth": "0px",
                       "maxWidth": "100%",
                       "minHeight": "auto",
@@ -43272,7 +43341,7 @@
                       "overflowX": "visible",
                       "overflowY": "visible",
                       "backgroundColor": "rgb(20, 96, 109)",
-                      "color": "rgb(227, 227, 227)",
+                      "color": "rgb(31, 31, 31)",
                       "borderColor": "oklch(1 0 0 / 0.09)",
                       "borderWidth": "0px",
                       "borderRadius": "0px",
@@ -43295,17 +43364,17 @@
                         "matchedThemeGroups": [],
                         "rect": {
                           "width": 514,
-                          "height": 326,
+                          "height": 323,
                           "x": -257,
                           "y": 207
                         },
                         "scrollWidth": 514,
                         "clientWidth": 514,
-                        "scrollHeight": 326,
-                        "clientHeight": 326,
+                        "scrollHeight": 323,
+                        "clientHeight": 323,
                         "boxModel": {
                           "width": "513.789px",
-                          "height": "325.918px",
+                          "height": "322.93px",
                           "minWidth": "auto",
                           "maxWidth": "none",
                           "minHeight": "auto",
@@ -43335,12 +43404,12 @@
                           "position": "relative",
                           "overflowX": "visible",
                           "overflowY": "visible",
-                          "backgroundColor": "rgb(40, 41, 42)",
-                          "color": "rgb(227, 227, 227)",
+                          "backgroundColor": "rgb(244, 244, 244)",
+                          "color": "rgb(31, 31, 31)",
                           "borderColor": "rgba(0, 0, 0, 0)",
                           "borderWidth": "0px",
                           "borderRadius": "0px",
-                          "boxShadow": "rgba(0, 0, 0, 0.35) 0px 1px 3px 0px",
+                          "boxShadow": "rgba(0, 0, 0, 0.08) 0px 1px 3px 0px",
                           "fontSize": "16px",
                           "fontWeight": "400",
                           "lineHeight": "24px",
@@ -43402,7 +43471,7 @@
                               "overflowX": "visible",
                               "overflowY": "visible",
                               "backgroundColor": "rgba(0, 0, 0, 0)",
-                              "color": "rgb(83, 235, 235)",
+                              "color": "rgb(0, 0, 0)",
                               "borderColor": "oklch(1 0 0 / 0.09)",
                               "borderWidth": "0px",
                               "borderRadius": "0px",
@@ -43466,7 +43535,7 @@
                                   "overflowX": "visible",
                                   "overflowY": "visible",
                                   "backgroundColor": "rgba(0, 0, 0, 0)",
-                                  "color": "rgb(83, 235, 235)",
+                                  "color": "rgb(0, 0, 0)",
                                   "borderColor": "oklch(1 0 0 / 0.09)",
                                   "borderWidth": "0px",
                                   "borderRadius": "0px",
@@ -43530,7 +43599,7 @@
                                       "overflowX": "visible",
                                       "overflowY": "visible",
                                       "backgroundColor": "rgba(0, 0, 0, 0)",
-                                      "color": "rgb(83, 235, 235)",
+                                      "color": "rgb(0, 0, 0)",
                                       "borderColor": "oklch(1 0 0 / 0.09)",
                                       "borderWidth": "0px",
                                       "borderRadius": "0px",
@@ -43601,7 +43670,7 @@
                               "overflowX": "visible",
                               "overflowY": "visible",
                               "backgroundColor": "rgba(0, 0, 0, 0)",
-                              "color": "rgb(227, 227, 227)",
+                              "color": "rgb(31, 31, 31)",
                               "borderColor": "oklch(1 0 0 / 0.09)",
                               "borderWidth": "0px",
                               "borderRadius": "0px",
@@ -43665,7 +43734,7 @@
                                   "overflowX": "visible",
                                   "overflowY": "visible",
                                   "backgroundColor": "rgba(0, 0, 0, 0)",
-                                  "color": "rgb(227, 227, 227)",
+                                  "color": "rgb(31, 31, 31)",
                                   "borderColor": "oklch(1 0 0 / 0.09)",
                                   "borderWidth": "0px",
                                   "borderRadius": "0px",
@@ -43729,7 +43798,7 @@
                                       "overflowX": "visible",
                                       "overflowY": "visible",
                                       "backgroundColor": "rgba(0, 0, 0, 0)",
-                                      "color": "rgb(227, 227, 227)",
+                                      "color": "rgb(31, 31, 31)",
                                       "borderColor": "oklch(1 0 0 / 0.09)",
                                       "borderWidth": "0px",
                                       "borderRadius": "0px",
@@ -43798,7 +43867,7 @@
                               "overflowX": "visible",
                               "overflowY": "visible",
                               "backgroundColor": "rgba(0, 0, 0, 0)",
-                              "color": "rgb(227, 227, 227)",
+                              "color": "rgb(31, 31, 31)",
                               "borderColor": "oklch(1 0 0 / 0.09)",
                               "borderWidth": "0px",
                               "borderRadius": "0px",
@@ -43862,7 +43931,7 @@
                                   "overflowX": "visible",
                                   "overflowY": "visible",
                                   "backgroundColor": "rgba(0, 0, 0, 0)",
-                                  "color": "rgb(227, 227, 227)",
+                                  "color": "rgb(31, 31, 31)",
                                   "borderColor": "oklch(1 0 0 / 0.09)",
                                   "borderWidth": "0px",
                                   "borderRadius": "0px",
@@ -43877,10 +43946,13 @@
                                   {
                                     "tag": "span",
                                     "id": null,
-                                    "className": "ecmd-steel-button-root button-mount __wab_instance uid-3005429",
+                                    "className": "ecmd-steel-button-root button-mount __wab_instance uid-3005428",
                                     "textPreview": "Exterior",
                                     "ecmdAttrs": {
-                                      "data-ecmd-selected": "false"
+                                      "data-ecmd-selected": "false",
+                                      "data-ecmd-scope-btn": "exterior",
+                                      "data-ecmd-viewport": "mobile",
+                                      "data-ecmd-component": "EcmdBrushedSteelButton"
                                     },
                                     "ariaAttrs": {},
                                     "disabled": false,
@@ -43928,7 +44000,7 @@
                                       "overflowX": "visible",
                                       "overflowY": "visible",
                                       "backgroundColor": "rgba(0, 0, 0, 0)",
-                                      "color": "rgb(227, 227, 227)",
+                                      "color": "rgb(31, 31, 31)",
                                       "borderColor": "oklch(1 0 0 / 0.09)",
                                       "borderWidth": "0px",
                                       "borderRadius": "0px",
@@ -43946,7 +44018,8 @@
                                         "className": "ecmd-steel-button steel-button",
                                         "textPreview": "Exterior",
                                         "ecmdAttrs": {
-                                          "data-ecmd-selected": "false"
+                                          "data-ecmd-selected": "false",
+                                          "data-ecmd-scope-btn": "exterior"
                                         },
                                         "ariaAttrs": {
                                           "aria-pressed": "false"
@@ -43996,7 +44069,7 @@
                                           "overflowX": "visible",
                                           "overflowY": "visible",
                                           "backgroundColor": "rgba(0, 0, 0, 0)",
-                                          "color": "rgb(227, 227, 227)",
+                                          "color": "rgb(31, 31, 31)",
                                           "borderColor": "rgba(0, 0, 0, 0)",
                                           "borderWidth": "1.25px",
                                           "borderRadius": "4px",
@@ -44060,7 +44133,7 @@
                                               "overflowX": "hidden",
                                               "overflowY": "hidden",
                                               "backgroundColor": "rgba(0, 0, 0, 0)",
-                                              "color": "rgb(227, 227, 227)",
+                                              "color": "rgb(31, 31, 31)",
                                               "borderColor": "oklch(1 0 0 / 0.09)",
                                               "borderWidth": "0px",
                                               "borderRadius": "2px",
@@ -44197,7 +44270,7 @@
                                   "overflowX": "visible",
                                   "overflowY": "visible",
                                   "backgroundColor": "rgba(0, 0, 0, 0)",
-                                  "color": "rgb(227, 227, 227)",
+                                  "color": "rgb(31, 31, 31)",
                                   "borderColor": "oklch(1 0 0 / 0.09)",
                                   "borderWidth": "0px",
                                   "borderRadius": "0px",
@@ -44215,9 +44288,12 @@
                                     "className": "__wab_defaults__all __wab_defaults__button __wab_defaults__button__canva uid-3005343 __wab_tag",
                                     "textPreview": "Full Detail",
                                     "ecmdAttrs": {
-                                      "data-ecmd-scope-btn": "full"
+                                      "data-ecmd-scope-btn": "full",
+                                      "data-ecmd-selected": "true"
                                     },
-                                    "ariaAttrs": {},
+                                    "ariaAttrs": {
+                                      "aria-pressed": "true"
+                                    },
                                     "disabled": false,
                                     "matchedThemeGroups": [],
                                     "rect": {
@@ -44263,7 +44339,7 @@
                                       "overflowX": "visible",
                                       "overflowY": "visible",
                                       "backgroundColor": "rgba(0, 0, 0, 0)",
-                                      "color": "rgb(227, 227, 227)",
+                                      "color": "rgb(31, 31, 31)",
                                       "borderColor": "rgb(211, 211, 211)",
                                       "borderWidth": "0px",
                                       "borderRadius": "0px",
@@ -44524,7 +44600,7 @@
                                           "overflowX": "hidden",
                                           "overflowY": "hidden",
                                           "backgroundColor": "rgba(0, 0, 0, 0)",
-                                          "color": "rgb(227, 227, 227)",
+                                          "color": "rgb(31, 31, 31)",
                                           "borderColor": "oklch(1 0 0 / 0.09)",
                                           "borderWidth": "0px",
                                           "borderRadius": "0px",
@@ -44590,8 +44666,8 @@
                                               "overflowX": "clip",
                                               "overflowY": "clip",
                                               "backgroundColor": "rgba(0, 0, 0, 0)",
-                                              "color": "rgb(227, 227, 227)",
-                                              "borderColor": "rgb(227, 227, 227)",
+                                              "color": "rgb(31, 31, 31)",
+                                              "borderColor": "rgb(31, 31, 31)",
                                               "borderWidth": "0px",
                                               "borderRadius": "0px",
                                               "boxShadow": "none",
@@ -44655,7 +44731,7 @@
                                               "overflowX": "visible",
                                               "overflowY": "visible",
                                               "backgroundColor": "rgba(0, 0, 0, 0)",
-                                              "color": "rgb(227, 227, 227)",
+                                              "color": "rgb(31, 31, 31)",
                                               "borderColor": "oklch(1 0 0 / 0.09)",
                                               "borderWidth": "0px",
                                               "borderRadius": "0px",
@@ -44719,8 +44795,8 @@
                                                   "overflowX": "clip",
                                                   "overflowY": "clip",
                                                   "backgroundColor": "rgba(0, 0, 0, 0)",
-                                                  "color": "rgb(227, 227, 227)",
-                                                  "borderColor": "rgb(227, 227, 227)",
+                                                  "color": "rgb(31, 31, 31)",
+                                                  "borderColor": "rgb(31, 31, 31)",
                                                   "borderWidth": "0px",
                                                   "borderRadius": "0px",
                                                   "boxShadow": "none",
@@ -44792,7 +44868,7 @@
                                   "overflowX": "visible",
                                   "overflowY": "visible",
                                   "backgroundColor": "rgba(0, 0, 0, 0)",
-                                  "color": "rgb(227, 227, 227)",
+                                  "color": "rgb(31, 31, 31)",
                                   "borderColor": "oklch(1 0 0 / 0.09)",
                                   "borderWidth": "0px",
                                   "borderRadius": "0px",
@@ -44809,8 +44885,13 @@
                                     "id": null,
                                     "className": "__wab_defaults__all __wab_defaults__button __wab_defaults__button__canva uid-3005356 __wab_tag",
                                     "textPreview": "Exterior",
-                                    "ecmdAttrs": {},
-                                    "ariaAttrs": {},
+                                    "ecmdAttrs": {
+                                      "data-ecmd-scope-btn": "exterior",
+                                      "data-ecmd-selected": "false"
+                                    },
+                                    "ariaAttrs": {
+                                      "aria-pressed": "false"
+                                    },
                                     "disabled": false,
                                     "matchedThemeGroups": [],
                                     "rect": {
@@ -44856,7 +44937,7 @@
                                       "overflowX": "visible",
                                       "overflowY": "visible",
                                       "backgroundColor": "rgba(0, 0, 0, 0)",
-                                      "color": "rgb(227, 227, 227)",
+                                      "color": "rgb(31, 31, 31)",
                                       "borderColor": "rgb(211, 211, 211)",
                                       "borderWidth": "0px",
                                       "borderRadius": "0px",
@@ -45117,7 +45198,7 @@
                                           "overflowX": "hidden",
                                           "overflowY": "hidden",
                                           "backgroundColor": "rgba(0, 0, 0, 0)",
-                                          "color": "rgb(227, 227, 227)",
+                                          "color": "rgb(31, 31, 31)",
                                           "borderColor": "oklch(1 0 0 / 0.09)",
                                           "borderWidth": "0px",
                                           "borderRadius": "0px",
@@ -45183,8 +45264,8 @@
                                               "overflowX": "clip",
                                               "overflowY": "clip",
                                               "backgroundColor": "rgba(0, 0, 0, 0)",
-                                              "color": "rgb(227, 227, 227)",
-                                              "borderColor": "rgb(227, 227, 227)",
+                                              "color": "rgb(31, 31, 31)",
+                                              "borderColor": "rgb(31, 31, 31)",
                                               "borderWidth": "0px",
                                               "borderRadius": "0px",
                                               "boxShadow": "none",
@@ -45248,7 +45329,7 @@
                                               "overflowX": "visible",
                                               "overflowY": "visible",
                                               "backgroundColor": "rgba(0, 0, 0, 0)",
-                                              "color": "rgb(227, 227, 227)",
+                                              "color": "rgb(31, 31, 31)",
                                               "borderColor": "oklch(1 0 0 / 0.09)",
                                               "borderWidth": "0px",
                                               "borderRadius": "0px",
@@ -45312,8 +45393,8 @@
                                                   "overflowX": "clip",
                                                   "overflowY": "clip",
                                                   "backgroundColor": "rgba(0, 0, 0, 0)",
-                                                  "color": "rgb(227, 227, 227)",
-                                                  "borderColor": "rgb(227, 227, 227)",
+                                                  "color": "rgb(31, 31, 31)",
+                                                  "borderColor": "rgb(31, 31, 31)",
                                                   "borderWidth": "0px",
                                                   "borderRadius": "0px",
                                                   "boxShadow": "none",
@@ -45346,17 +45427,17 @@
                             "matchedThemeGroups": [],
                             "rect": {
                               "width": 498,
-                              "height": 60,
+                              "height": 57,
                               "x": -249,
                               "y": 405
                             },
                             "scrollWidth": 498,
                             "clientWidth": 498,
-                            "scrollHeight": 60,
-                            "clientHeight": 60,
+                            "scrollHeight": 57,
+                            "clientHeight": 57,
                             "boxModel": {
                               "width": "497.812px",
-                              "height": "59.9805px",
+                              "height": "56.9922px",
                               "minWidth": "0px",
                               "maxWidth": "100%",
                               "minHeight": "auto",
@@ -45387,7 +45468,7 @@
                               "overflowX": "visible",
                               "overflowY": "visible",
                               "backgroundColor": "rgba(0, 0, 0, 0)",
-                              "color": "rgb(227, 227, 227)",
+                              "color": "rgb(31, 31, 31)",
                               "borderColor": "oklch(1 0 0 / 0.09)",
                               "borderWidth": "0px",
                               "borderRadius": "0px",
@@ -45410,17 +45491,17 @@
                                 "matchedThemeGroups": [],
                                 "rect": {
                                   "width": 124,
-                                  "height": 60,
+                                  "height": 57,
                                   "x": -249,
                                   "y": 405
                                 },
                                 "scrollWidth": 124,
                                 "clientWidth": 124,
-                                "scrollHeight": 60,
-                                "clientHeight": 60,
+                                "scrollHeight": 57,
+                                "clientHeight": 57,
                                 "boxModel": {
                                   "width": "124.453px",
-                                  "height": "59.9805px",
+                                  "height": "56.9922px",
                                   "minWidth": "0px",
                                   "maxWidth": "100%",
                                   "minHeight": "auto",
@@ -45451,7 +45532,7 @@
                                   "overflowX": "visible",
                                   "overflowY": "visible",
                                   "backgroundColor": "rgba(0, 0, 0, 0)",
-                                  "color": "rgb(227, 227, 227)",
+                                  "color": "rgb(31, 31, 31)",
                                   "borderColor": "oklch(1 0 0 / 0.09)",
                                   "borderWidth": "0px",
                                   "borderRadius": "0px",
@@ -45478,7 +45559,7 @@
                                       "width": 41,
                                       "height": 21,
                                       "x": -207,
-                                      "y": 408
+                                      "y": 405
                                     },
                                     "scrollWidth": 41,
                                     "clientWidth": 41,
@@ -45517,7 +45598,7 @@
                                       "overflowX": "visible",
                                       "overflowY": "visible",
                                       "backgroundColor": "rgba(0, 0, 0, 0)",
-                                      "color": "rgb(227, 227, 227)",
+                                      "color": "rgb(31, 31, 31)",
                                       "borderColor": "oklch(1 0 0 / 0.09)",
                                       "borderWidth": "0px",
                                       "borderRadius": "0px",
@@ -45542,7 +45623,7 @@
                                           "width": 41,
                                           "height": 21,
                                           "x": -207,
-                                          "y": 408
+                                          "y": 405
                                         },
                                         "scrollWidth": 41,
                                         "clientWidth": 41,
@@ -45581,7 +45662,7 @@
                                           "overflowX": "visible",
                                           "overflowY": "visible",
                                           "backgroundColor": "rgba(0, 0, 0, 0)",
-                                          "color": "rgb(227, 227, 227)",
+                                          "color": "rgb(31, 31, 31)",
                                           "borderColor": "oklch(1 0 0 / 0.09)",
                                           "borderWidth": "0px",
                                           "borderRadius": "0px",
@@ -45606,7 +45687,7 @@
                                               "width": 41,
                                               "height": 18,
                                               "x": -207,
-                                              "y": 410
+                                              "y": 407
                                             },
                                             "scrollWidth": 0,
                                             "clientWidth": 0,
@@ -45645,7 +45726,7 @@
                                               "overflowX": "visible",
                                               "overflowY": "visible",
                                               "backgroundColor": "rgba(0, 0, 0, 0)",
-                                              "color": "rgb(227, 227, 227)",
+                                              "color": "rgb(31, 31, 31)",
                                               "borderColor": "oklch(1 0 0 / 0.09)",
                                               "borderWidth": "0px",
                                               "borderRadius": "0px",
@@ -45677,7 +45758,7 @@
                                       "width": 100,
                                       "height": 36,
                                       "x": -237,
-                                      "y": 429
+                                      "y": 426
                                     },
                                     "scrollWidth": 100,
                                     "clientWidth": 100,
@@ -45716,7 +45797,7 @@
                                       "overflowX": "visible",
                                       "overflowY": "visible",
                                       "backgroundColor": "rgba(0, 0, 0, 0)",
-                                      "color": "rgb(227, 227, 227)",
+                                      "color": "rgb(31, 31, 31)",
                                       "borderColor": "oklch(1 0 0 / 0.09)",
                                       "borderWidth": "0px",
                                       "borderRadius": "0px",
@@ -45741,7 +45822,7 @@
                                           "width": 100,
                                           "height": 36,
                                           "x": -237,
-                                          "y": 429
+                                          "y": 426
                                         },
                                         "scrollWidth": 100,
                                         "clientWidth": 100,
@@ -45780,7 +45861,7 @@
                                           "overflowX": "visible",
                                           "overflowY": "visible",
                                           "backgroundColor": "rgba(0, 0, 0, 0)",
-                                          "color": "rgb(227, 227, 227)",
+                                          "color": "rgb(31, 31, 31)",
                                           "borderColor": "oklch(1 0 0 / 0.09)",
                                           "borderWidth": "0px",
                                           "borderRadius": "0px",
@@ -45805,7 +45886,7 @@
                                               "width": 100,
                                               "height": 30,
                                               "x": -237,
-                                              "y": 432
+                                              "y": 429
                                             },
                                             "scrollWidth": 0,
                                             "clientWidth": 0,
@@ -45844,7 +45925,7 @@
                                               "overflowX": "visible",
                                               "overflowY": "visible",
                                               "backgroundColor": "rgba(0, 0, 0, 0)",
-                                              "color": "rgb(227, 227, 227)",
+                                              "color": "rgb(31, 31, 31)",
                                               "borderColor": "oklch(1 0 0 / 0.09)",
                                               "borderWidth": "0px",
                                               "borderRadius": "0px",
@@ -45874,17 +45955,17 @@
                                 "matchedThemeGroups": [],
                                 "rect": {
                                   "width": 124,
-                                  "height": 60,
+                                  "height": 57,
                                   "x": -125,
                                   "y": 405
                                 },
                                 "scrollWidth": 124,
                                 "clientWidth": 124,
-                                "scrollHeight": 60,
-                                "clientHeight": 60,
+                                "scrollHeight": 57,
+                                "clientHeight": 57,
                                 "boxModel": {
                                   "width": "124.453px",
-                                  "height": "59.9805px",
+                                  "height": "56.9922px",
                                   "minWidth": "0px",
                                   "maxWidth": "100%",
                                   "minHeight": "auto",
@@ -45915,7 +45996,7 @@
                                   "overflowX": "visible",
                                   "overflowY": "visible",
                                   "backgroundColor": "rgba(0, 0, 0, 0)",
-                                  "color": "rgb(227, 227, 227)",
+                                  "color": "rgb(31, 31, 31)",
                                   "borderColor": "oklch(1 0 0 / 0.09)",
                                   "borderWidth": "0px",
                                   "borderRadius": "0px",
@@ -45942,7 +46023,7 @@
                                       "width": 64,
                                       "height": 21,
                                       "x": -94,
-                                      "y": 408
+                                      "y": 405
                                     },
                                     "scrollWidth": 64,
                                     "clientWidth": 64,
@@ -45981,7 +46062,7 @@
                                       "overflowX": "visible",
                                       "overflowY": "visible",
                                       "backgroundColor": "rgba(0, 0, 0, 0)",
-                                      "color": "rgb(227, 227, 227)",
+                                      "color": "rgb(31, 31, 31)",
                                       "borderColor": "oklch(1 0 0 / 0.09)",
                                       "borderWidth": "0px",
                                       "borderRadius": "0px",
@@ -46006,7 +46087,7 @@
                                           "width": 64,
                                           "height": 21,
                                           "x": -94,
-                                          "y": 408
+                                          "y": 405
                                         },
                                         "scrollWidth": 64,
                                         "clientWidth": 64,
@@ -46045,7 +46126,7 @@
                                           "overflowX": "visible",
                                           "overflowY": "visible",
                                           "backgroundColor": "rgba(0, 0, 0, 0)",
-                                          "color": "rgb(227, 227, 227)",
+                                          "color": "rgb(31, 31, 31)",
                                           "borderColor": "oklch(1 0 0 / 0.09)",
                                           "borderWidth": "0px",
                                           "borderRadius": "0px",
@@ -46070,7 +46151,7 @@
                                               "width": 64,
                                               "height": 18,
                                               "x": -94,
-                                              "y": 410
+                                              "y": 407
                                             },
                                             "scrollWidth": 0,
                                             "clientWidth": 0,
@@ -46109,7 +46190,7 @@
                                               "overflowX": "visible",
                                               "overflowY": "visible",
                                               "backgroundColor": "rgba(0, 0, 0, 0)",
-                                              "color": "rgb(227, 227, 227)",
+                                              "color": "rgb(31, 31, 31)",
                                               "borderColor": "oklch(1 0 0 / 0.09)",
                                               "borderWidth": "0px",
                                               "borderRadius": "0px",
@@ -46141,7 +46222,7 @@
                                       "width": 55,
                                       "height": 36,
                                       "x": -90,
-                                      "y": 429
+                                      "y": 426
                                     },
                                     "scrollWidth": 55,
                                     "clientWidth": 55,
@@ -46180,7 +46261,7 @@
                                       "overflowX": "visible",
                                       "overflowY": "visible",
                                       "backgroundColor": "rgba(0, 0, 0, 0)",
-                                      "color": "rgb(227, 227, 227)",
+                                      "color": "rgb(31, 31, 31)",
                                       "borderColor": "oklch(1 0 0 / 0.09)",
                                       "borderWidth": "0px",
                                       "borderRadius": "0px",
@@ -46205,7 +46286,7 @@
                                           "width": 55,
                                           "height": 36,
                                           "x": -90,
-                                          "y": 429
+                                          "y": 426
                                         },
                                         "scrollWidth": 55,
                                         "clientWidth": 55,
@@ -46244,7 +46325,7 @@
                                           "overflowX": "visible",
                                           "overflowY": "visible",
                                           "backgroundColor": "rgba(0, 0, 0, 0)",
-                                          "color": "rgb(227, 227, 227)",
+                                          "color": "rgb(31, 31, 31)",
                                           "borderColor": "oklch(1 0 0 / 0.09)",
                                           "borderWidth": "0px",
                                           "borderRadius": "0px",
@@ -46269,7 +46350,7 @@
                                               "width": 55,
                                               "height": 30,
                                               "x": -90,
-                                              "y": 432
+                                              "y": 429
                                             },
                                             "scrollWidth": 0,
                                             "clientWidth": 0,
@@ -46308,7 +46389,7 @@
                                               "overflowX": "visible",
                                               "overflowY": "visible",
                                               "backgroundColor": "rgba(0, 0, 0, 0)",
-                                              "color": "rgb(227, 227, 227)",
+                                              "color": "rgb(31, 31, 31)",
                                               "borderColor": "oklch(1 0 0 / 0.09)",
                                               "borderWidth": "0px",
                                               "borderRadius": "0px",
@@ -46338,17 +46419,17 @@
                                 "matchedThemeGroups": [],
                                 "rect": {
                                   "width": 124,
-                                  "height": 60,
+                                  "height": 57,
                                   "x": 0,
                                   "y": 405
                                 },
                                 "scrollWidth": 124,
                                 "clientWidth": 124,
-                                "scrollHeight": 60,
-                                "clientHeight": 60,
+                                "scrollHeight": 57,
+                                "clientHeight": 57,
                                 "boxModel": {
                                   "width": "124.453px",
-                                  "height": "59.9805px",
+                                  "height": "56.9922px",
                                   "minWidth": "0px",
                                   "maxWidth": "100%",
                                   "minHeight": "auto",
@@ -46379,7 +46460,7 @@
                                   "overflowX": "visible",
                                   "overflowY": "visible",
                                   "backgroundColor": "rgba(0, 0, 0, 0)",
-                                  "color": "rgb(227, 227, 227)",
+                                  "color": "rgb(31, 31, 31)",
                                   "borderColor": "oklch(1 0 0 / 0.09)",
                                   "borderWidth": "0px",
                                   "borderRadius": "0px",
@@ -46403,21 +46484,21 @@
                                     "disabled": false,
                                     "matchedThemeGroups": [],
                                     "rect": {
-                                      "width": 45,
-                                      "height": 24,
-                                      "x": 40,
-                                      "y": 405
+                                      "width": 0,
+                                      "height": 0,
+                                      "x": 0,
+                                      "y": 0
                                     },
-                                    "scrollWidth": 45,
-                                    "clientWidth": 45,
-                                    "scrollHeight": 24,
-                                    "clientHeight": 24,
+                                    "scrollWidth": 0,
+                                    "clientWidth": 0,
+                                    "scrollHeight": 0,
+                                    "clientHeight": 0,
                                     "boxModel": {
-                                      "width": "44.5898px",
-                                      "height": "23.9844px",
-                                      "minWidth": "auto",
+                                      "width": "auto",
+                                      "height": "auto",
+                                      "minWidth": "0px",
                                       "maxWidth": "100%",
-                                      "minHeight": "auto",
+                                      "minHeight": "0px",
                                       "maxHeight": "none",
                                       "boxSizing": "border-box",
                                       "aspectRatio": "auto",
@@ -46432,7 +46513,7 @@
                                       "gap": "0px",
                                       "rowGap": "0px",
                                       "columnGap": "0px",
-                                      "display": "block",
+                                      "display": "none",
                                       "flexDirection": "row",
                                       "flexWrap": "nowrap",
                                       "flexGrow": "0",
@@ -46467,18 +46548,18 @@
                                         "disabled": false,
                                         "matchedThemeGroups": [],
                                         "rect": {
-                                          "width": 45,
-                                          "height": 24,
-                                          "x": 40,
-                                          "y": 405
+                                          "width": 0,
+                                          "height": 0,
+                                          "x": 0,
+                                          "y": 0
                                         },
-                                        "scrollWidth": 45,
-                                        "clientWidth": 45,
-                                        "scrollHeight": 24,
-                                        "clientHeight": 24,
+                                        "scrollWidth": 0,
+                                        "clientWidth": 0,
+                                        "scrollHeight": 0,
+                                        "clientHeight": 0,
                                         "boxModel": {
-                                          "width": "44.5898px",
-                                          "height": "23.9844px",
+                                          "width": "auto",
+                                          "height": "auto",
                                           "minWidth": "0px",
                                           "maxWidth": "none",
                                           "minHeight": "0px",
@@ -46531,10 +46612,10 @@
                                             "disabled": false,
                                             "matchedThemeGroups": [],
                                             "rect": {
-                                              "width": 45,
-                                              "height": 19,
-                                              "x": 40,
-                                              "y": 408
+                                              "width": 0,
+                                              "height": 0,
+                                              "x": 0,
+                                              "y": 0
                                             },
                                             "scrollWidth": 0,
                                             "clientWidth": 0,
@@ -46602,21 +46683,21 @@
                                     "disabled": false,
                                     "matchedThemeGroups": [],
                                     "rect": {
-                                      "width": 61,
-                                      "height": 36,
-                                      "x": 32,
-                                      "y": 429
+                                      "width": 0,
+                                      "height": 0,
+                                      "x": 0,
+                                      "y": 0
                                     },
-                                    "scrollWidth": 61,
-                                    "clientWidth": 61,
-                                    "scrollHeight": 36,
-                                    "clientHeight": 36,
+                                    "scrollWidth": 0,
+                                    "clientWidth": 0,
+                                    "scrollHeight": 0,
+                                    "clientHeight": 0,
                                     "boxModel": {
-                                      "width": "60.625px",
-                                      "height": "35.9961px",
-                                      "minWidth": "auto",
+                                      "width": "auto",
+                                      "height": "auto",
+                                      "minWidth": "0px",
                                       "maxWidth": "100%",
-                                      "minHeight": "auto",
+                                      "minHeight": "0px",
                                       "maxHeight": "none",
                                       "boxSizing": "border-box",
                                       "aspectRatio": "auto",
@@ -46631,7 +46712,7 @@
                                       "gap": "0px",
                                       "rowGap": "0px",
                                       "columnGap": "0px",
-                                      "display": "block",
+                                      "display": "none",
                                       "flexDirection": "row",
                                       "flexWrap": "nowrap",
                                       "flexGrow": "0",
@@ -46666,18 +46747,18 @@
                                         "disabled": false,
                                         "matchedThemeGroups": [],
                                         "rect": {
-                                          "width": 61,
-                                          "height": 36,
-                                          "x": 32,
-                                          "y": 429
+                                          "width": 0,
+                                          "height": 0,
+                                          "x": 0,
+                                          "y": 0
                                         },
-                                        "scrollWidth": 61,
-                                        "clientWidth": 61,
-                                        "scrollHeight": 36,
-                                        "clientHeight": 36,
+                                        "scrollWidth": 0,
+                                        "clientWidth": 0,
+                                        "scrollHeight": 0,
+                                        "clientHeight": 0,
                                         "boxModel": {
-                                          "width": "60.625px",
-                                          "height": "35.9961px",
+                                          "width": "auto",
+                                          "height": "auto",
                                           "minWidth": "0px",
                                           "maxWidth": "none",
                                           "minHeight": "0px",
@@ -46730,10 +46811,10 @@
                                             "disabled": false,
                                             "matchedThemeGroups": [],
                                             "rect": {
-                                              "width": 61,
-                                              "height": 30,
-                                              "x": 32,
-                                              "y": 432
+                                              "width": 0,
+                                              "height": 0,
+                                              "x": 0,
+                                              "y": 0
                                             },
                                             "scrollWidth": 0,
                                             "clientWidth": 0,
@@ -46802,17 +46883,17 @@
                                 "matchedThemeGroups": [],
                                 "rect": {
                                   "width": 124,
-                                  "height": 60,
+                                  "height": 57,
                                   "x": 124,
                                   "y": 405
                                 },
                                 "scrollWidth": 124,
                                 "clientWidth": 124,
-                                "scrollHeight": 60,
-                                "clientHeight": 60,
+                                "scrollHeight": 57,
+                                "clientHeight": 57,
                                 "boxModel": {
                                   "width": "124.453px",
-                                  "height": "59.9805px",
+                                  "height": "56.9922px",
                                   "minWidth": "0px",
                                   "maxWidth": "100%",
                                   "minHeight": "auto",
@@ -46843,7 +46924,7 @@
                                   "overflowX": "visible",
                                   "overflowY": "visible",
                                   "backgroundColor": "rgba(0, 0, 0, 0)",
-                                  "color": "rgb(227, 227, 227)",
+                                  "color": "rgb(31, 31, 31)",
                                   "borderColor": "oklch(1 0 0 / 0.09)",
                                   "borderWidth": "0px",
                                   "borderRadius": "0px",
@@ -46870,7 +46951,7 @@
                                       "width": 42,
                                       "height": 21,
                                       "x": 166,
-                                      "y": 408
+                                      "y": 405
                                     },
                                     "scrollWidth": 42,
                                     "clientWidth": 42,
@@ -46909,7 +46990,7 @@
                                       "overflowX": "visible",
                                       "overflowY": "visible",
                                       "backgroundColor": "rgba(0, 0, 0, 0)",
-                                      "color": "rgb(227, 227, 227)",
+                                      "color": "rgb(31, 31, 31)",
                                       "borderColor": "oklch(1 0 0 / 0.09)",
                                       "borderWidth": "0px",
                                       "borderRadius": "0px",
@@ -46934,7 +47015,7 @@
                                           "width": 42,
                                           "height": 21,
                                           "x": 166,
-                                          "y": 408
+                                          "y": 405
                                         },
                                         "scrollWidth": 42,
                                         "clientWidth": 42,
@@ -46973,7 +47054,7 @@
                                           "overflowX": "visible",
                                           "overflowY": "visible",
                                           "backgroundColor": "rgba(0, 0, 0, 0)",
-                                          "color": "rgb(227, 227, 227)",
+                                          "color": "rgb(31, 31, 31)",
                                           "borderColor": "oklch(1 0 0 / 0.09)",
                                           "borderWidth": "0px",
                                           "borderRadius": "0px",
@@ -46998,7 +47079,7 @@
                                               "width": 42,
                                               "height": 18,
                                               "x": 166,
-                                              "y": 410
+                                              "y": 407
                                             },
                                             "scrollWidth": 0,
                                             "clientWidth": 0,
@@ -47037,7 +47118,7 @@
                                               "overflowX": "visible",
                                               "overflowY": "visible",
                                               "backgroundColor": "rgba(0, 0, 0, 0)",
-                                              "color": "rgb(227, 227, 227)",
+                                              "color": "rgb(31, 31, 31)",
                                               "borderColor": "oklch(1 0 0 / 0.09)",
                                               "borderWidth": "0px",
                                               "borderRadius": "0px",
@@ -47069,7 +47150,7 @@
                                       "width": 60,
                                       "height": 36,
                                       "x": 157,
-                                      "y": 429
+                                      "y": 426
                                     },
                                     "scrollWidth": 60,
                                     "clientWidth": 60,
@@ -47108,7 +47189,7 @@
                                       "overflowX": "visible",
                                       "overflowY": "visible",
                                       "backgroundColor": "rgba(0, 0, 0, 0)",
-                                      "color": "rgb(227, 227, 227)",
+                                      "color": "rgb(31, 31, 31)",
                                       "borderColor": "oklch(1 0 0 / 0.09)",
                                       "borderWidth": "0px",
                                       "borderRadius": "0px",
@@ -47133,7 +47214,7 @@
                                           "width": 60,
                                           "height": 36,
                                           "x": 157,
-                                          "y": 429
+                                          "y": 426
                                         },
                                         "scrollWidth": 60,
                                         "clientWidth": 60,
@@ -47172,7 +47253,7 @@
                                           "overflowX": "visible",
                                           "overflowY": "visible",
                                           "backgroundColor": "rgba(0, 0, 0, 0)",
-                                          "color": "rgb(227, 227, 227)",
+                                          "color": "rgb(31, 31, 31)",
                                           "borderColor": "oklch(1 0 0 / 0.09)",
                                           "borderWidth": "0px",
                                           "borderRadius": "0px",
@@ -47197,7 +47278,7 @@
                                               "width": 60,
                                               "height": 30,
                                               "x": 157,
-                                              "y": 432
+                                              "y": 429
                                             },
                                             "scrollWidth": 0,
                                             "clientWidth": 0,
@@ -47236,7 +47317,7 @@
                                               "overflowX": "visible",
                                               "overflowY": "visible",
                                               "backgroundColor": "rgba(0, 0, 0, 0)",
-                                              "color": "rgb(227, 227, 227)",
+                                              "color": "rgb(31, 31, 31)",
                                               "borderColor": "oklch(1 0 0 / 0.09)",
                                               "borderWidth": "0px",
                                               "borderRadius": "0px",
@@ -47270,7 +47351,7 @@
                               "width": 498,
                               "height": 15,
                               "x": -249,
-                              "y": 467
+                              "y": 464
                             },
                             "scrollWidth": 498,
                             "clientWidth": 498,
@@ -47309,7 +47390,7 @@
                               "overflowX": "visible",
                               "overflowY": "visible",
                               "backgroundColor": "rgba(0, 0, 0, 0)",
-                              "color": "rgb(227, 227, 227)",
+                              "color": "rgb(31, 31, 31)",
                               "borderColor": "oklch(1 0 0 / 0.09)",
                               "borderWidth": "0px",
                               "borderRadius": "0px",
@@ -47336,7 +47417,7 @@
                                   "width": 65,
                                   "height": 15,
                                   "x": 184,
-                                  "y": 467
+                                  "y": 464
                                 },
                                 "scrollWidth": 65,
                                 "clientWidth": 65,
@@ -47375,7 +47456,7 @@
                                   "overflowX": "visible",
                                   "overflowY": "visible",
                                   "backgroundColor": "rgba(0, 0, 0, 0)",
-                                  "color": "rgb(227, 227, 227)",
+                                  "color": "rgb(31, 31, 31)",
                                   "borderColor": "oklch(1 0 0 / 0.09)",
                                   "borderWidth": "0px",
                                   "borderRadius": "0px",
@@ -47400,7 +47481,7 @@
                                       "width": 65,
                                       "height": 15,
                                       "x": 184,
-                                      "y": 467
+                                      "y": 464
                                     },
                                     "scrollWidth": 65,
                                     "clientWidth": 65,
@@ -47439,7 +47520,7 @@
                                       "overflowX": "visible",
                                       "overflowY": "visible",
                                       "backgroundColor": "rgba(0, 0, 0, 0)",
-                                      "color": "rgb(227, 227, 227)",
+                                      "color": "rgb(31, 31, 31)",
                                       "borderColor": "oklch(1 0 0 / 0.09)",
                                       "borderWidth": "0px",
                                       "borderRadius": "0px",
@@ -47464,7 +47545,7 @@
                                           "width": 65,
                                           "height": 13,
                                           "x": 184,
-                                          "y": 469
+                                          "y": 466
                                         },
                                         "scrollWidth": 0,
                                         "clientWidth": 0,
@@ -47503,7 +47584,7 @@
                                           "overflowX": "visible",
                                           "overflowY": "visible",
                                           "backgroundColor": "rgba(0, 0, 0, 0)",
-                                          "color": "rgb(227, 227, 227)",
+                                          "color": "rgb(31, 31, 31)",
                                           "borderColor": "oklch(1 0 0 / 0.09)",
                                           "borderWidth": "0px",
                                           "borderRadius": "0px",
@@ -47535,7 +47616,7 @@
                               "width": 498,
                               "height": 35,
                               "x": -249,
-                              "y": 490
+                              "y": 487
                             },
                             "scrollWidth": 498,
                             "clientWidth": 498,
@@ -47574,7 +47655,7 @@
                               "overflowX": "visible",
                               "overflowY": "visible",
                               "backgroundColor": "rgba(0, 0, 0, 0)",
-                              "color": "rgb(227, 227, 227)",
+                              "color": "rgb(31, 31, 31)",
                               "borderColor": "oklch(1 0 0 / 0.09)",
                               "borderWidth": "0px",
                               "borderRadius": "0px",
@@ -47599,7 +47680,7 @@
                                   "width": 239,
                                   "height": 35,
                                   "x": -249,
-                                  "y": 490
+                                  "y": 487
                                 },
                                 "scrollWidth": 239,
                                 "clientWidth": 239,
@@ -47638,7 +47719,7 @@
                                   "overflowX": "visible",
                                   "overflowY": "visible",
                                   "backgroundColor": "rgba(0, 0, 0, 0)",
-                                  "color": "rgb(227, 227, 227)",
+                                  "color": "rgb(31, 31, 31)",
                                   "borderColor": "oklch(1 0 0 / 0.09)",
                                   "borderWidth": "0px",
                                   "borderRadius": "0px",
@@ -47656,7 +47737,8 @@
                                     "className": "__wab_defaults__all __wab_defaults__button __wab_defaults__button__canva uid-3005087 __wab_tag __wab_text __wab_editor",
                                     "textPreview": "Add to Cart",
                                     "ecmdAttrs": {
-                                      "data-ecmd-pkg": "add-to-cart-btn"
+                                      "data-ecmd-pkg": "add-to-cart-btn",
+                                      "data-ecmd-action": "add-to-cart"
                                     },
                                     "ariaAttrs": {},
                                     "disabled": false,
@@ -47665,7 +47747,7 @@
                                       "width": 239,
                                       "height": 35,
                                       "x": -249,
-                                      "y": 490
+                                      "y": 487
                                     },
                                     "scrollWidth": 239,
                                     "clientWidth": 239,
@@ -47729,7 +47811,7 @@
                                           "width": 239,
                                           "height": 24,
                                           "x": -249,
-                                          "y": 496
+                                          "y": 493
                                         },
                                         "scrollWidth": 239,
                                         "clientWidth": 239,
@@ -47793,7 +47875,7 @@
                                               "width": 86,
                                               "height": 19,
                                               "x": -173,
-                                              "y": 498
+                                              "y": 495
                                             },
                                             "scrollWidth": 0,
                                             "clientWidth": 0,
@@ -47864,7 +47946,7 @@
                                   "width": 239,
                                   "height": 35,
                                   "x": 10,
-                                  "y": 490
+                                  "y": 487
                                 },
                                 "scrollWidth": 239,
                                 "clientWidth": 239,
@@ -47903,7 +47985,7 @@
                                   "overflowX": "visible",
                                   "overflowY": "visible",
                                   "backgroundColor": "rgba(0, 0, 0, 0)",
-                                  "color": "rgb(227, 227, 227)",
+                                  "color": "rgb(31, 31, 31)",
                                   "borderColor": "oklch(1 0 0 / 0.09)",
                                   "borderWidth": "0px",
                                   "borderRadius": "0px",
@@ -47928,7 +48010,7 @@
                                       "width": 239,
                                       "height": 35,
                                       "x": 10,
-                                      "y": 490
+                                      "y": 487
                                     },
                                     "scrollWidth": 239,
                                     "clientWidth": 239,
@@ -47967,7 +48049,7 @@
                                       "overflowX": "visible",
                                       "overflowY": "visible",
                                       "backgroundColor": "rgba(0, 0, 0, 0)",
-                                      "color": "rgb(227, 227, 227)",
+                                      "color": "rgb(31, 31, 31)",
                                       "borderColor": "rgb(211, 211, 211)",
                                       "borderWidth": "0px",
                                       "borderRadius": "0px",
@@ -47992,7 +48074,7 @@
                                           "width": 59,
                                           "height": 24,
                                           "x": 100,
-                                          "y": 496
+                                          "y": 493
                                         },
                                         "scrollWidth": 59,
                                         "clientWidth": 59,
@@ -48056,7 +48138,7 @@
                                               "width": 59,
                                               "height": 24,
                                               "x": 100,
-                                              "y": 496
+                                              "y": 493
                                             },
                                             "scrollWidth": 59,
                                             "clientWidth": 59,
@@ -48120,7 +48202,7 @@
                                                   "width": 59,
                                                   "height": 19,
                                                   "x": 100,
-                                                  "y": 498
+                                                  "y": 495
                                                 },
                                                 "scrollWidth": 0,
                                                 "clientWidth": 0,
@@ -48189,7 +48271,7 @@
                                           "width": 239,
                                           "height": 35,
                                           "x": 10,
-                                          "y": 490
+                                          "y": 487
                                         },
                                         "scrollWidth": 239,
                                         "clientWidth": 239,
@@ -48228,7 +48310,7 @@
                                           "overflowX": "hidden",
                                           "overflowY": "hidden",
                                           "backgroundColor": "rgba(0, 0, 0, 0)",
-                                          "color": "rgb(227, 227, 227)",
+                                          "color": "rgb(31, 31, 31)",
                                           "borderColor": "oklch(1 0 0 / 0.09)",
                                           "borderWidth": "0px",
                                           "borderRadius": "0px",
@@ -48255,7 +48337,7 @@
                                               "width": 239,
                                               "height": 35,
                                               "x": 10,
-                                              "y": 490
+                                              "y": 487
                                             },
                                             "scrollWidth": 239,
                                             "clientWidth": 239,
@@ -48294,8 +48376,8 @@
                                               "overflowX": "clip",
                                               "overflowY": "clip",
                                               "backgroundColor": "rgba(0, 0, 0, 0)",
-                                              "color": "rgb(227, 227, 227)",
-                                              "borderColor": "rgb(227, 227, 227)",
+                                              "color": "rgb(31, 31, 31)",
+                                              "borderColor": "rgb(31, 31, 31)",
                                               "borderWidth": "0px",
                                               "borderRadius": "0px",
                                               "boxShadow": "none",
@@ -48359,7 +48441,7 @@
                                               "overflowX": "visible",
                                               "overflowY": "visible",
                                               "backgroundColor": "rgba(0, 0, 0, 0)",
-                                              "color": "rgb(227, 227, 227)",
+                                              "color": "rgb(31, 31, 31)",
                                               "borderColor": "oklch(1 0 0 / 0.09)",
                                               "borderWidth": "0px",
                                               "borderRadius": "0px",
@@ -48384,7 +48466,7 @@
                                                   "width": 239,
                                                   "height": 35,
                                                   "x": 10,
-                                                  "y": 490
+                                                  "y": 487
                                                 },
                                                 "scrollWidth": 239,
                                                 "clientWidth": 239,
@@ -48423,8 +48505,8 @@
                                                   "overflowX": "clip",
                                                   "overflowY": "clip",
                                                   "backgroundColor": "rgba(0, 0, 0, 0)",
-                                                  "color": "rgb(227, 227, 227)",
-                                                  "borderColor": "rgb(227, 227, 227)",
+                                                  "color": "rgb(31, 31, 31)",
+                                                  "borderColor": "rgb(31, 31, 31)",
                                                   "borderWidth": "0px",
                                                   "borderRadius": "0px",
                                                   "boxShadow": "none",
@@ -48459,17 +48541,17 @@
                         "matchedThemeGroups": [],
                         "rect": {
                           "width": 420,
-                          "height": 326,
+                          "height": 323,
                           "x": 267,
                           "y": 207
                         },
                         "scrollWidth": 420,
                         "clientWidth": 420,
-                        "scrollHeight": 326,
-                        "clientHeight": 326,
+                        "scrollHeight": 323,
+                        "clientHeight": 323,
                         "boxModel": {
                           "width": "420.234px",
-                          "height": "325.918px",
+                          "height": "322.93px",
                           "minWidth": "auto",
                           "maxWidth": "none",
                           "minHeight": "0px",
@@ -48500,7 +48582,7 @@
                           "overflowX": "visible",
                           "overflowY": "visible",
                           "backgroundColor": "rgba(0, 0, 0, 0)",
-                          "color": "rgb(227, 227, 227)",
+                          "color": "rgb(31, 31, 31)",
                           "borderColor": "oklch(1 0 0 / 0.09)",
                           "borderWidth": "0px",
                           "borderRadius": "0px",
@@ -48563,12 +48645,12 @@
                               "position": "relative",
                               "overflowX": "visible",
                               "overflowY": "visible",
-                              "backgroundColor": "rgb(40, 41, 42)",
-                              "color": "rgb(227, 227, 227)",
+                              "backgroundColor": "rgb(255, 255, 255)",
+                              "color": "rgb(31, 31, 31)",
                               "borderColor": "rgba(0, 0, 0, 0)",
                               "borderWidth": "0px",
                               "borderRadius": "0px",
-                              "boxShadow": "rgba(0, 0, 0, 0.35) 0px 1px 3px 0px",
+                              "boxShadow": "rgba(0, 0, 0, 0.08) 0px 1px 3px 0px",
                               "fontSize": "16px",
                               "fontWeight": "400",
                               "lineHeight": "24px",
@@ -48628,7 +48710,7 @@
                                   "overflowX": "hidden",
                                   "overflowY": "hidden",
                                   "backgroundColor": "rgba(0, 0, 0, 0)",
-                                  "color": "rgb(227, 227, 227)",
+                                  "color": "rgb(31, 31, 31)",
                                   "borderColor": "oklch(1 0 0 / 0.09)",
                                   "borderWidth": "0px",
                                   "borderRadius": "8px",
@@ -48694,8 +48776,8 @@
                                       "overflowX": "clip",
                                       "overflowY": "clip",
                                       "backgroundColor": "rgba(0, 0, 0, 0)",
-                                      "color": "rgb(227, 227, 227)",
-                                      "borderColor": "rgb(227, 227, 227)",
+                                      "color": "rgb(31, 31, 31)",
+                                      "borderColor": "rgb(31, 31, 31)",
                                       "borderWidth": "0px",
                                       "borderRadius": "0px",
                                       "boxShadow": "none",
@@ -48759,7 +48841,7 @@
                                       "overflowX": "visible",
                                       "overflowY": "visible",
                                       "backgroundColor": "rgba(0, 0, 0, 0)",
-                                      "color": "rgb(227, 227, 227)",
+                                      "color": "rgb(31, 31, 31)",
                                       "borderColor": "oklch(1 0 0 / 0.09)",
                                       "borderWidth": "0px",
                                       "borderRadius": "0px",
@@ -48825,8 +48907,8 @@
                                           "overflowX": "clip",
                                           "overflowY": "clip",
                                           "backgroundColor": "rgba(0, 0, 0, 0)",
-                                          "color": "rgb(227, 227, 227)",
-                                          "borderColor": "rgb(227, 227, 227)",
+                                          "color": "rgb(31, 31, 31)",
+                                          "borderColor": "rgb(31, 31, 31)",
                                           "borderWidth": "0px",
                                           "borderRadius": "0px",
                                           "boxShadow": "none",
@@ -48898,7 +48980,7 @@
                               "overflowX": "visible",
                               "overflowY": "visible",
                               "backgroundColor": "rgba(0, 0, 0, 0)",
-                              "color": "rgb(227, 227, 227)",
+                              "color": "rgb(31, 31, 31)",
                               "borderColor": "oklch(1 0 0 / 0.09)",
                               "borderWidth": "0px",
                               "borderRadius": "0px",
@@ -48962,7 +49044,7 @@
                                   "overflowX": "hidden",
                                   "overflowY": "hidden",
                                   "backgroundColor": "rgba(0, 0, 0, 0)",
-                                  "color": "rgb(227, 227, 227)",
+                                  "color": "rgb(31, 31, 31)",
                                   "borderColor": "oklch(1 0 0 / 0.09)",
                                   "borderWidth": "0px",
                                   "borderRadius": "0px",
@@ -49028,8 +49110,8 @@
                                       "overflowX": "clip",
                                       "overflowY": "clip",
                                       "backgroundColor": "rgba(0, 0, 0, 0)",
-                                      "color": "rgb(227, 227, 227)",
-                                      "borderColor": "rgb(227, 227, 227)",
+                                      "color": "rgb(31, 31, 31)",
+                                      "borderColor": "rgb(31, 31, 31)",
                                       "borderWidth": "0px",
                                       "borderRadius": "0px",
                                       "boxShadow": "none",
@@ -49093,7 +49175,7 @@
                                       "overflowX": "visible",
                                       "overflowY": "visible",
                                       "backgroundColor": "rgba(0, 0, 0, 0)",
-                                      "color": "rgb(227, 227, 227)",
+                                      "color": "rgb(31, 31, 31)",
                                       "borderColor": "oklch(1 0 0 / 0.09)",
                                       "borderWidth": "0px",
                                       "borderRadius": "0px",
@@ -49157,8 +49239,8 @@
                                           "overflowX": "clip",
                                           "overflowY": "clip",
                                           "backgroundColor": "rgba(0, 0, 0, 0)",
-                                          "color": "rgb(227, 227, 227)",
-                                          "borderColor": "rgb(227, 227, 227)",
+                                          "color": "rgb(31, 31, 31)",
+                                          "borderColor": "rgb(31, 31, 31)",
                                           "borderWidth": "0px",
                                           "borderRadius": "0px",
                                           "boxShadow": "none",
@@ -49553,7 +49635,7 @@
                                   "overflowX": "visible",
                                   "overflowY": "visible",
                                   "backgroundColor": "rgba(0, 0, 0, 0)",
-                                  "color": "rgb(227, 227, 227)",
+                                  "color": "rgb(255, 255, 255)",
                                   "borderColor": "oklch(1 0 0 / 0.09)",
                                   "borderWidth": "0px",
                                   "borderRadius": "0px",
@@ -49617,7 +49699,7 @@
                                       "overflowX": "visible",
                                       "overflowY": "visible",
                                       "backgroundColor": "rgba(0, 0, 0, 0)",
-                                      "color": "rgb(227, 227, 227)",
+                                      "color": "rgb(255, 255, 255)",
                                       "borderColor": "oklch(1 0 0 / 0.09)",
                                       "borderWidth": "0px",
                                       "borderRadius": "0px",
@@ -49681,7 +49763,7 @@
                                           "overflowX": "visible",
                                           "overflowY": "visible",
                                           "backgroundColor": "rgba(0, 0, 0, 0)",
-                                          "color": "rgb(227, 227, 227)",
+                                          "color": "rgb(255, 255, 255)",
                                           "borderColor": "oklch(1 0 0 / 0.09)",
                                           "borderWidth": "0px",
                                           "borderRadius": "0px",
@@ -49752,7 +49834,7 @@
                                   "overflowX": "visible",
                                   "overflowY": "visible",
                                   "backgroundColor": "rgba(0, 0, 0, 0)",
-                                  "color": "rgb(100, 116, 139)",
+                                  "color": "rgb(255, 255, 255)",
                                   "borderColor": "oklch(1 0 0 / 0.09)",
                                   "borderWidth": "0px",
                                   "borderRadius": "0px",
@@ -49816,7 +49898,7 @@
                                       "overflowX": "visible",
                                       "overflowY": "visible",
                                       "backgroundColor": "rgba(0, 0, 0, 0)",
-                                      "color": "rgb(100, 116, 139)",
+                                      "color": "rgb(255, 255, 255)",
                                       "borderColor": "oklch(1 0 0 / 0.09)",
                                       "borderWidth": "0px",
                                       "borderRadius": "0px",
@@ -49880,7 +49962,7 @@
                                           "overflowX": "visible",
                                           "overflowY": "visible",
                                           "backgroundColor": "rgba(0, 0, 0, 0)",
-                                          "color": "rgb(100, 116, 139)",
+                                          "color": "rgb(255, 255, 255)",
                                           "borderColor": "oklch(1 0 0 / 0.09)",
                                           "borderWidth": "0px",
                                           "borderRadius": "0px",
@@ -49908,7 +49990,7 @@
             ]
           }
         ],
-        "repeatedCount": 4
+        "repeatedCount": 3
       },
       "diagnostics": [],
       "key": "EcmdPackagesRepeater::mobile-430"

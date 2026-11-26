@@ -154,12 +154,33 @@
 :where(.ecmd-packages-repeater-container),
 :where(.ecmd-vehicle-selector-root),
 :where(.ecmd-vehicle-selector),
+:where(.ecmd-saved-vehicle-dropdown-root),
 :where(.ecmd-hq-weekly-strip-root),
 :where(.ecmd-hq-daily-dispatch-root),
 :where(.ecmd-hq-invoice-card-root),
 :where(.ecmd-hq-workspace-root) {
   width: 100%;
   box-sizing: border-box;
+}
+
+@keyframes ecmd-vehicle-drop-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+.ecmd-vehicle-drop-pulse {
+  animation: ecmd-vehicle-drop-pulse 520ms ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ecmd-vehicle-drop-pulse {
+    animation: none !important;
+    transform: none !important;
+  }
 }
 
 :where(.ecmd-packages-repeater-root[data-ecmd-orientation="vertical"] > .ecmd-package-card),

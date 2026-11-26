@@ -17,6 +17,7 @@ import { HqInvoiceCard } from "./components/booking-hq/HqInvoiceCard";
 import { HqMultiStateWorkspace } from "./components/booking-hq/HqMultiStateWorkspace";
 import { HqWeeklyStrip } from "./components/booking-hq/HqWeeklyStrip";
 import { EcmdVehicleSelector } from "./components/EcmdVehicleSelector";
+import { EcmdSavedVehicleDropdown } from "./components/EcmdSavedVehicleDropdown";
 import { EcmdBrushedSteelButton } from "./components/EcmdBrushedSteelButton";
 import {
   EcmdPackagesRepeater,
@@ -830,10 +831,13 @@ registerEcmdComponent(EcmdVehicleSelector, {
   name: "EcmdVehicleSelector",
   displayName: "Vehicle Size Selector (4-Slot)",
   importPath: "./components/EcmdVehicleSelector",
+  providesData: true,
   defaultStyles: { width: "100%" },
   props: {
     selectedVehicle: { type: "string", displayName: "Controlled Active Vehicle (Optional)" },
     defaultVehicle: { type: "choice", options: ["coupe", "truck", "sm-suv", "lg-suv"], defaultValue: "sm-suv", displayName: "Default Vehicle" },
+    lockedVehicleKey: { type: "choice", options: ["", "coupe", "truck", "sm-suv", "lg-suv"], defaultValue: "", displayName: "🔒 Locked Vehicle Key (Optional)" },
+    lockedSubCategory: { type: "choice", options: ["", "Sedan", "Truck", "Sm. SUV", "Lg. SUV"], defaultValue: "", displayName: "🔒 Locked SubCategory (Optional)" },
     persistChoice: { type: "boolean", defaultValue: true, displayName: "Persist to localStorage?" },
     themeGroup: { type: "custom", defaultValue: "ecmd-group-1", control: EcmdGroupSelectControl as any, displayName: "🎨 Wrapper Theme Group" },
     itemThemeGroup: { type: "custom", defaultValue: "ecmd-group-4", control: EcmdGroupSelectControl as any, displayName: "🎨 Slot Item Theme Group" },
@@ -863,6 +867,19 @@ registerEcmdComponent(EcmdVehicleSelector, {
       displayName: "📲 Mobile Layout"
     },
     mobileGap: { type: "number", defaultValue: 8, displayName: "📲 Mobile Gap (px)" },
+    onVehicleChange: {
+      type: "eventHandler",
+      argTypes: [
+        { name: "vehicleKey", type: "string" },
+        { name: "meta", type: "object" }
+      ],
+      displayName: "On Vehicle Change"
+    },
+    onLockedAttempt: {
+      type: "eventHandler",
+      argTypes: [{ name: "detail", type: "object" }],
+      displayName: "On Locked Vehicle Attempt"
+    },
     slot1: {
       type: "slot",
       displayName: "Coupe / Car Slot",
@@ -904,6 +921,107 @@ registerEcmdComponent(EcmdVehicleSelector, {
       ]
     }
   }
+});
+
+registerEcmdComponent(EcmdSavedVehicleDropdown, {
+  name: "EcmdSavedVehicleDropdown",
+  displayName: "Saved Vehicle Dropdown (#vehicleSelectDropButton)",
+  description:
+    "Wix packagesEngine.js parity saved-vehicle dropdown (#vehicleSelectDropButton / #vehicleSelectBox / #vehicleSelectRep / #vehicleTypeError) with vehicle tier locking, 3200ms locked-type error banner + pulse feedback, Browse Without a Vehicle reset, and + Add New Vehicle trigger.",
+  importPath: "./components/EcmdSavedVehicleDropdown",
+  providesData: true,
+  defaultStyles: { width: "100%" },
+  props: {
+    vehicles: {
+      type: "object",
+      displayName: "Saved Vehicles List (Array)",
+      description: "Array of customer vehicle objects ({ _id/id, year, make, model, color, vehicleType/subCategory })",
+    },
+    selectedVehicleId: {
+      type: "string",
+      displayName: "Controlled Selected Vehicle ID (Optional)",
+    },
+    defaultOpen: {
+      type: "boolean",
+      defaultValue: false,
+      displayName: "Open Dropdown by Default (Studio Preview)",
+    },
+    previewLockedError: {
+      type: "boolean",
+      defaultValue: false,
+      displayName: "Preview Locked Type Error (Studio Preview)",
+    },
+    introLabel: {
+      type: "string",
+      defaultValue: "Select Your Vehicle...",
+      displayName: "Intro Button Label",
+    },
+    browseWithoutLabel: {
+      type: "string",
+      defaultValue: "Browse Without a Vehicle",
+      displayName: "Browse Without Vehicle Option Label",
+    },
+    addNewLabel: {
+      type: "string",
+      defaultValue: "+ Add New Vehicle",
+      displayName: "Add New Vehicle Option Label",
+    },
+    lockedErrorText: {
+      type: "string",
+      defaultValue: "Clear your selected vehicle to browse other vehicle types.",
+      displayName: "Locked Vehicle Error Message",
+    },
+    errorDurationMs: {
+      type: "number",
+      defaultValue: 3200,
+      displayName: "Error Auto-Hide Duration (ms)",
+    },
+    autoLoadFromSupabase: {
+      type: "boolean",
+      defaultValue: false,
+      displayName: "Auto-Load Saved Vehicles from Supabase?",
+    },
+    userId: {
+      type: "string",
+      displayName: "Customer User ID (for Supabase Auto-Load)",
+      hidden: (ps: any) => !ps.autoLoadFromSupabase,
+    },
+    themeGroup: {
+      type: "custom",
+      defaultValue: "ecmd-group-4",
+      control: EcmdGroupSelectControl as any,
+      displayName: "🎨 Trigger Button Theme Group",
+    },
+    menuThemeGroup: {
+      type: "custom",
+      defaultValue: "ecmd-group-3",
+      control: EcmdGroupSelectControl as any,
+      displayName: "🎨 Dropdown Menu Theme Group",
+    },
+    onVehicleSelect: {
+      type: "eventHandler",
+      argTypes: [
+        { name: "vehicle", type: "object" },
+        { name: "meta", type: "object" },
+      ],
+      displayName: "On Vehicle Select",
+    },
+    onClearVehicle: {
+      type: "eventHandler",
+      argTypes: [],
+      displayName: "On Clear Vehicle",
+    },
+    onAddNewVehicle: {
+      type: "eventHandler",
+      argTypes: [],
+      displayName: "On Add New Vehicle",
+    },
+    onLockedFeedback: {
+      type: "eventHandler",
+      argTypes: [{ name: "message", type: "string" }],
+      displayName: "On Locked Error Triggered",
+    },
+  },
 });
 
 registerEcmdComponent(EcmdPackagesRepeater, {
