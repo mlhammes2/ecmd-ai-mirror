@@ -3,7 +3,7 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-26T01:08:24.054Z",
+  "generatedAt": "2026-11-26T01:09:08.535Z",
   "latestTurn": "TURN-043",
   "counts": {
     "totalFiles": 314,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-26T01:08:09.489Z",
+    "exportedAt": "2026-11-26T01:08:54.966Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -858,7 +858,7 @@
       "section": "hub",
       "path": "hub/GEMINI.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/GEMINI.md",
-      "sizeBytes": 6211,
+      "sizeBytes": 6118,
       "purpose": "Markdown documentation"
     },
     {
@@ -872,7 +872,7 @@
       "section": "hub",
       "path": "hub/public/ai-telemetry.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json",
-      "sizeBytes": 3667,
+      "sizeBytes": 3864,
       "purpose": "ECMD PEN live turn telemetry"
     },
     {
