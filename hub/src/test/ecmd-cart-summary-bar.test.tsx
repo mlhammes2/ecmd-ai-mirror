@@ -80,7 +80,14 @@ describe("EcmdCartSummaryBar (Packages Page Piece 5)", () => {
     expect(stored.level).toBe("Premium");
     expect(stored.detailType).toBe("Full");
     expect(stored.subCategory).toBe("Sm. SUV");
+    expect(stored.vehicleKey).toBe("sm-suv");
+    expect(stored.basePrice).toBe(299);
+    expect(stored.salePrice).toBe(249);
+    expect(stored.addOnsCount).toBe(1);
+    expect(stored.addOnsTotal).toBe(30);
     expect(stored.totalPrice).toBe(279);
+    expect(typeof stored.updatedAt).toBe("string");
+    expect(stored.updatedAt.length).toBeGreaterThan(0);
   });
 
   it("hydrates from localStorage('ecmd_cart_draft') and dispatches edit-addons and open-summary events", () => {
@@ -178,6 +185,7 @@ describe("EcmdCartSummaryBar (Packages Page Piece 5)", () => {
       subCategory: "Sm. SUV",
       basePrice: 299,
       salePrice: 249,
+      addOnsCount: 1,
       addOnsTotal: 30,
       totalPrice: 279,
     });
@@ -189,5 +197,47 @@ describe("EcmdCartSummaryBar (Packages Page Piece 5)", () => {
     );
 
     window.removeEventListener("ecmd-add-to-cart", addToCartSpy);
+  });
+
+  it("also dispatches ecmd-add-to-cart when clicking [data-ecmd-action='add-to-cart'] on EcmdPackagesRepeater", async () => {
+    saveAddOnsMemoryMap({
+      Premium_Full: [
+        { id: "ao-1", title: "Odor Removal", price: 30 },
+        { id: "ao-2", title: "Headlight Restoration", price: 40 },
+      ],
+    });
+
+    const { container } = render(
+      <>
+        <EcmdPackagesRepeater
+          levelOrder="Premium"
+          itemTemplate={
+            <div>
+              <button type="button" data-ecmd-action="add-to-cart">
+                Select Package
+              </button>
+            </div>
+          }
+        />
+        <EcmdCartSummaryBar />
+      </>
+    );
+
+    await waitFor(() => {
+      expect(container.querySelector('[data-ecmd-action="add-to-cart"]')).toBeTruthy();
+    });
+
+    fireEvent.click(container.querySelector('[data-ecmd-action="add-to-cart"]')!);
+
+    expect(container.querySelector('[data-ecmd-cart="total"]')?.textContent).toBe("$319");
+    expect(container.querySelector('[data-ecmd-cart="addons-count"]')?.textContent).toContain(
+      "2 Add-Ons"
+    );
+    const stored = JSON.parse(
+      window.localStorage.getItem(CART_DRAFT_STORAGE_KEY) || "{}"
+    ) as EcmdCartDraft;
+    expect(stored.addOnsCount).toBe(2);
+    expect(stored.addOnsTotal).toBe(70);
+    expect(stored.totalPrice).toBe(319);
   });
 });

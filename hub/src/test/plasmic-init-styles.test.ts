@@ -167,6 +167,7 @@ describe("Plasmic Component Registrations — Strict CSS Whitelist", () => {
       "EcmdPackagesRepeater",
       "EcmdWhatsIncludedModal",
       "EcmdWhatsIncludedItemPopup",
+      "EcmdCartSummaryBar",
       "EcmdBrushedSteelButton",
     ]) {
       expect(names).toContain(expected);

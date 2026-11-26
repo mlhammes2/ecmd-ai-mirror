@@ -3,8 +3,8 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-26T01:40:20.232Z",
-  "latestTurn": "TURN-045",
+  "generatedAt": "2026-11-26T02:14:25.253Z",
+  "latestTurn": "TURN-046",
   "counts": {
     "totalFiles": 318,
     "hubFiles": 175,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-26T01:40:07.719Z",
+    "exportedAt": "2026-11-26T02:14:07.842Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -165,7 +165,7 @@
       },
       {
         "table_name": "ecmd_pen_turns",
-        "row_count": 43,
+        "row_count": 44,
         "rls_enabled": false,
         "mirrored": true
       },
@@ -607,7 +607,7 @@
     {
       "path": "hub/src/components/EcmdPackagesRepeater.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdPackagesRepeater.tsx",
-      "sizeBytes": 37756,
+      "sizeBytes": 37804,
       "purpose": "exports: SCOPE_BUTTON_TEXT_PATTERNS, autoHealPackageScopeButtons, PackagesOrientation, ResponsivePackagesOrientation, MobilePackagesOrientation, TabletPackagesOrientation"
     },
     {
@@ -896,7 +896,7 @@
       "section": "hub",
       "path": "hub/public/ai-telemetry.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json",
-      "sizeBytes": 2618,
+      "sizeBytes": 3277,
       "purpose": "ECMD PEN live turn telemetry"
     },
     {
@@ -1106,7 +1106,7 @@
       "section": "hub",
       "path": "hub/src/components/EcmdCartSummaryBar.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdCartSummaryBar.tsx",
-      "sizeBytes": 22591,
+      "sizeBytes": 22849,
       "purpose": "exports: CART_DRAFT_STORAGE_KEY, EcmdCartDraft, EcmdAddToCartEventDetail, EcmdCartSummaryBarContext, EcmdCartSummaryBarProps, normalizeAddToCartPayload"
     },
     {
@@ -1134,7 +1134,7 @@
       "section": "hub",
       "path": "hub/src/components/EcmdPackagesRepeater.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdPackagesRepeater.tsx",
-      "sizeBytes": 37756,
+      "sizeBytes": 37804,
       "purpose": "exports: SCOPE_BUTTON_TEXT_PATTERNS, autoHealPackageScopeButtons, PackagesOrientation, ResponsivePackagesOrientation, MobilePackagesOrientation, TabletPackagesOrientation"
     },
     {
@@ -1855,7 +1855,7 @@
       "section": "hub",
       "path": "hub/src/test/ecmd-cart-summary-bar.test.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/ecmd-cart-summary-bar.test.tsx",
-      "sizeBytes": 6727,
+      "sizeBytes": 8410,
       "purpose": "Vitest automated test suite"
     },
     {
@@ -1918,7 +1918,7 @@
       "section": "hub",
       "path": "hub/src/test/plasmic-init-styles.test.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/plasmic-init-styles.test.ts",
-      "sizeBytes": 9637,
+      "sizeBytes": 9665,
       "purpose": "exports: ALLOWED_PLASMIC_STYLE_KEYS"
     },
     {
@@ -2919,7 +2919,7 @@
       "section": "supabase-mirror",
       "path": "supabase-mirror/tables/ecmd_pen_turns.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_pen_turns.json",
-      "sizeBytes": 403668,
+      "sizeBytes": 411228,
       "purpose": "Supabase public.ecmd_pen_turns table snapshot (scrubbed)"
     },
     {

@@ -841,6 +841,7 @@ export function EcmdPackagesRepeater({
                   salePrice: rawSale,
                   resolvedPackagePrice,
                   addOns: ctx.savedAddOns,
+                  addOnsCount: ctx.addOnsCount,
                   addOnsTotal: ctx.addOnsTotal,
                   totalPrice,
                   totalPriceFormatted: ctx.priceFormatted,

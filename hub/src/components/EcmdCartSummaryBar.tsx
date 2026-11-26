@@ -37,6 +37,7 @@ export interface EcmdCartDraft {
   salePrice: number;
   resolvedPackagePrice: number;
   addOns: EcmdSavedAddOnItem[];
+  addOnsCount: number;
   addOnsTotal: number;
   totalPrice: number;
   totalPriceFormatted: string;
@@ -61,6 +62,7 @@ export interface EcmdAddToCartEventDetail {
   salePrice?: number;
   resolvedPackagePrice?: number;
   addOns?: EcmdSavedAddOnItem[];
+  addOnsCount?: number;
   addOnsTotal?: number;
   totalPrice?: number;
   totalPriceFormatted?: string;
@@ -214,6 +216,10 @@ export function normalizeAddToCartPayload(raw: unknown): EcmdCartDraft | null {
       : `${resolvedLevel} ${detailType} Detail`);
 
   const addOns = sanitizeAddOnsList(detail.addOns ?? ecmdPkg?.savedAddOns);
+  const addOnsCount =
+    addOns.length > 0
+      ? addOns.length
+      : Math.round(toFiniteNonNegative(detail.addOnsCount ?? ecmdPkg?.addOnsCount) ?? 0);
   const computedAddOnsTotal = addOns.reduce((sum, a) => sum + (Number(a.price) || 0), 0);
   const addOnsTotal = toFiniteNonNegative(detail.addOnsTotal) ?? computedAddOnsTotal;
 
@@ -251,6 +257,7 @@ export function normalizeAddToCartPayload(raw: unknown): EcmdCartDraft | null {
     salePrice: rawSalePrice,
     resolvedPackagePrice,
     addOns,
+    addOnsCount,
     addOnsTotal,
     totalPrice,
     totalPriceFormatted: formatPackagePrice(totalPrice),
@@ -369,6 +376,7 @@ export function EcmdCartSummaryBar({
         const updated: EcmdCartDraft = {
           ...prev,
           addOns: nextAddOns,
+          addOnsCount: nextAddOns.length,
           addOnsTotal: nextAddOnsTotal,
           totalPrice: nextTotal,
           totalPriceFormatted: formatPackagePrice(nextTotal),
@@ -462,14 +470,14 @@ export function EcmdCartSummaryBar({
     detailType: draft ? draft.detailType : "",
     subCategory: draft ? draft.subCategory : "",
     vehicleLabel: draft ? draft.vehicleLabel : "",
-    addOnsCount: draft ? draft.addOns.length : 0,
+    addOnsCount: draft ? draft.addOnsCount : 0,
     addOnsTotal: draft ? draft.addOnsTotal : 0,
     totalPrice: draft ? draft.totalPrice : 0,
     totalPriceFormatted: draft ? draft.totalPriceFormatted : "$0",
   };
 
   const addOnsCountText = draft
-    ? `${draft.addOns.length} ${draft.addOns.length === 1 ? "Add-On" : "Add-Ons"}${
+    ? `${draft.addOnsCount} ${draft.addOnsCount === 1 ? "Add-On" : "Add-Ons"}${
         draft.addOnsTotal > 0 ? ` (+${formatPackagePrice(draft.addOnsTotal)})` : ""
       }`
     : "0 Add-Ons";
@@ -611,7 +619,7 @@ export function EcmdCartSummaryBar({
                 style={{
                   fontSize: "14px",
                   fontWeight: 700,
-                  color: draft && draft.addOns.length > 0 ? "#54E9EA" : "#CBD5E1",
+                  color: draft && draft.addOnsCount > 0 ? "#54E9EA" : "#CBD5E1",
                 }}
               >
                 {addOnsCountText}
@@ -683,7 +691,7 @@ export function EcmdCartSummaryBar({
               disabled={!draft}
               onClick={handleEditAddOns}
               style={{
-                flex: isMobile ? 1 : undefined,
+                ...(isMobile ? { flex: 1 } : {}),
                 padding: "10px 14px",
                 borderRadius: "8px",
                 border: "1px solid rgba(84, 233, 234, 0.4)",
@@ -706,7 +714,7 @@ export function EcmdCartSummaryBar({
               disabled={!draft}
               onClick={handleOpenSummary}
               style={{
-                flex: isMobile ? 1 : undefined,
+                ...(isMobile ? { flex: 1 } : {}),
                 padding: "10px 18px",
                 borderRadius: "8px",
                 border: "1px solid rgba(84, 233, 234, 0.6)",
