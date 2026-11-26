@@ -1,8 +1,8 @@
 {
   "table": "ecmd_external_ai_cms",
-  "exportedAt": "2026-11-26T01:24:41.423Z",
-  "totalRowsInDb": 40,
-  "exportedRowCount": 40,
+  "exportedAt": "2026-11-26T01:25:49.863Z",
+  "totalRowsInDb": 41,
+  "exportedRowCount": 41,
   "rows": [
     {
       "id": "loc_chrome_sidebar",
@@ -73,33 +73,6 @@
       "system_prompt_directive": "You are operating on a Mobile or Tablet Browser. Prioritize 1-tap buttons in the Mobile Body Console (?ui=1) and direct <<<SAVE_TO_CMS:...>>> or smart_converse actions inside #geminiBox on ecmdutah.com."
     },
     {
-      "id": "loc_gemini_cli",
-      "title": "Gemini CLI Terminal Agent (10 MCP Tools)",
-      "metadata": {
-        "protocol": "Model Context Protocol (MCP)",
-        "environment": "Gemini CLI / Terminal",
-        "mcpToolCount": 10
-      },
-      "entry_type": "location_profile",
-      "is_enabled": true,
-      "sort_order": 5,
-      "updated_at": "2026-11-15T23:26:25.32527+00:00",
-      "chat_location": "GEMINI_CLI",
-      "capabilities_list": [
-        "1. ecmd_get_bootloader (Live CMS State, Modes & Guardrails)",
-        "2. ecmd_read_file (<10ms Supabase Codebase Reads)",
-        "3. ecmd_run_sql (Autonomous Postgres Migrations & Queries)",
-        "4. ecmd_carbon_patch (Deterministic GitHub Patch & Wix Publish)",
-        "5. ecmd_cms_query (Live Wix CMS Collection Queries)",
-        "6. ecmd_cms_save (Live Wix CMS Record Upsert & Supabase Mirror)",
-        "7. ecmd_deploy_edge_function (Live Supabase Edge Function Deployment)",
-        "8. ecmd_log_advanced_suggestion (Vault Architecture Proposals)",
-        "9. ecmd_toggle_ai_mode (Dynamic Bootloader AI Flag Toggles)",
-        "10. ecmd_sync_everything (Full GitHub, Blueprint & Wix CRM Sync)"
-      ],
-      "system_prompt_directive": "You are operating directly inside Gemini CLI (@google/gemini-cli) connected via the native ecmd-brain MCP server. You have full autonomous terminal execution and all 10 native ECMD MCP tools: (1) ecmd_get_bootloader - reads live CMS toggles, capabilities, and suggestions; (2) ecmd_read_file - reads source files from Supabase public.ecmd_codebase in <10ms; (3) ecmd_run_sql - executes autonomous SQL queries and migrations via public.exec_sql; (4) ecmd_carbon_patch - deterministically patches GitHub codebase files, syncs to Supabase, triggers Wix publish, and logs capabilities; (5) ecmd_cms_query - queries live Wix CMS collections; (6) ecmd_cms_save - saves live Wix CMS records and mirrors them to Supabase ecmd_crm_*; (7) ecmd_deploy_edge_function - commits and deploys Supabase Edge Functions live; (8) ecmd_log_advanced_suggestion - stores Super Advanced Suggestion Mode items into public.ecmd_advanced_suggestions; (9) ecmd_toggle_ai_mode - toggles bootloader CMS flags in real-time; (10) ecmd_sync_everything - synchronizes GitHub files, blueprints, and Wix CRM into Supabase. Execute commands autonomously without manual copy-pasting."
-    },
-    {
       "id": "cap_ecmd_pen_v4_antigravity_dual_ai",
       "title": "ECMD PEN v4 (Antigravity agy), Dual-AI Boundary & Strict Guardrails",
       "metadata": {
@@ -132,16 +105,31 @@
       "system_prompt_directive": "ECMD PEN v4 (ANTIGRAVITY CLI agy.exe v1.5.15): Active via epen -> C:\\ECMD\\scripts\\Start-EcmdPen.ps1 -> C:\\ECMD\\scripts\\run-pen-task.mjs (--dangerously-skip-permissions --output-format stream-json --add-dir C:\\ECMD). Legacy @google/gemini-cli is retired.\n\nSTRICT DUAL-AI BOUNDARY & EXISTING CUSTOMER API KEY: (1) Admin/Dev engine uses Antigravity agy via owner personal @gmail.com Google OAuth ($0.00/turn, Gemini 4) strictly for local code, Plasmic components, SQL migrations, and internal ops — NEVER expose agy or personal OAuth to public website visitors (Google ToS account-ban & security boundary). (2) Public Customer-Facing Site AI (quotes, package helpers, customer chat) uses the owner's ALREADY OWNED & CONFIGURED dedicated GEMINI_API_KEY inside serverless Supabase Edge Functions (ecmd-carbon-bridge / geminiAssistant), 100% isolated from agy — never recommend buying a duplicate key without checking Supabase Edge secrets first.\n\nLOCKED COMPONENT & TRIGGER ISOLATION CONTRACTS: EcmdAuthModalController (#ecmd-auth-trigger-btn, #ecmd-auth-email-input, #ecmd-auth-password-input, Remember Me, Show Password, Forgot Password, Login/Sign Up toggle) and EcmdThemeGroupController (#ecmd-theme-trigger-btn with theme-synced left circle dot & #ecmd-theme-dropdown-card) are strictly isolated with 150ms double-toggle deduplication. Preserve unlocked 4-Slot EcmdVehicleSelector (slot1..slot4, CustomEvent ecmd-vehicle-change + localStorage ecmd_selected_vehicle) and EcmdPackagesRepeater (#packagesRep itemTemplate synced with public.ecmd_packages, ecmd-vehicle-change, and interior/full/exterior scope toggles).\n\nSTRICT PLASMIC CSS WHITELIST: src/plasmic-init.ts styles & defaultStyles may ONLY contain ALLOWED_PLASMIC_STYLE_KEYS with single-token atomic spacing values, enforced by src/test/plasmic-init-styles.test.ts (npx vitest run)."
     },
     {
-      "id": "cap_learned_3agent_velo_gatekeeper",
-      "title": "3-Agent Velo Gatekeeper, Self-Healing Rollback & Live AI Cost Meter",
-      "metadata": {},
-      "entry_type": "learned_capability",
+      "id": "loc_gemini_cli",
+      "title": "Gemini CLI Terminal Agent (10 MCP Tools)",
+      "metadata": {
+        "protocol": "Model Context Protocol (MCP)",
+        "environment": "Gemini CLI / Terminal",
+        "mcpToolCount": 10
+      },
+      "entry_type": "location_profile",
       "is_enabled": true,
-      "sort_order": 10,
-      "updated_at": "2026-11-16T02:26:08.028775+00:00",
-      "chat_location": "ALL",
-      "capabilities_list": [],
-      "system_prompt_directive": "Every local CLI build and console update is automatically verified by Start-EcmdCliBridge.ps1 (node --check & AST balance), self-healed or rolled back on error, and logged with token cost in public.ecmd_diagnostic_runs."
+      "sort_order": 5,
+      "updated_at": "2026-11-15T23:26:25.32527+00:00",
+      "chat_location": "GEMINI_CLI",
+      "capabilities_list": [
+        "1. ecmd_get_bootloader (Live CMS State, Modes & Guardrails)",
+        "2. ecmd_read_file (<10ms Supabase Codebase Reads)",
+        "3. ecmd_run_sql (Autonomous Postgres Migrations & Queries)",
+        "4. ecmd_carbon_patch (Deterministic GitHub Patch & Wix Publish)",
+        "5. ecmd_cms_query (Live Wix CMS Collection Queries)",
+        "6. ecmd_cms_save (Live Wix CMS Record Upsert & Supabase Mirror)",
+        "7. ecmd_deploy_edge_function (Live Supabase Edge Function Deployment)",
+        "8. ecmd_log_advanced_suggestion (Vault Architecture Proposals)",
+        "9. ecmd_toggle_ai_mode (Dynamic Bootloader AI Flag Toggles)",
+        "10. ecmd_sync_everything (Full GitHub, Blueprint & Wix CRM Sync)"
+      ],
+      "system_prompt_directive": "You are operating directly inside Gemini CLI (@google/gemini-cli) connected via the native ecmd-brain MCP server. You have full autonomous terminal execution and all 10 native ECMD MCP tools: (1) ecmd_get_bootloader - reads live CMS toggles, capabilities, and suggestions; (2) ecmd_read_file - reads source files from Supabase public.ecmd_codebase in <10ms; (3) ecmd_run_sql - executes autonomous SQL queries and migrations via public.exec_sql; (4) ecmd_carbon_patch - deterministically patches GitHub codebase files, syncs to Supabase, triggers Wix publish, and logs capabilities; (5) ecmd_cms_query - queries live Wix CMS collections; (6) ecmd_cms_save - saves live Wix CMS records and mirrors them to Supabase ecmd_crm_*; (7) ecmd_deploy_edge_function - commits and deploys Supabase Edge Functions live; (8) ecmd_log_advanced_suggestion - stores Super Advanced Suggestion Mode items into public.ecmd_advanced_suggestions; (9) ecmd_toggle_ai_mode - toggles bootloader CMS flags in real-time; (10) ecmd_sync_everything - synchronizes GitHub files, blueprints, and Wix CRM into Supabase. Execute commands autonomously without manual copy-pasting."
     },
     {
       "id": "cap_wix_csv_26_importer_and_mirror_rls",
@@ -183,6 +171,18 @@
       "chat_location": "MOBILE_AND_DESKTOP",
       "capabilities_list": [],
       "system_prompt_directive": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<title>ECMD Carbon 4 - Autonomous Console v7.7 (3-Agent Gatekeeper + Priority Vault)</title>\n<style>\n  :root { color-scheme: dark; }\n  body { margin: 0; padding: 12px; background: #090d16; color: #e2e8f0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; }\n  h1 { font-size: 16px; margin: 0 0 8px 0; color: #38bdf8; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; }\n  .panel { background: #111827; border: 1px solid #1f2937; border-radius: 8px; padding: 10px; margin-bottom: 10px; }\n  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }\n  button { background: #1e293b; color: #f8fafc; border: 1px solid #334155; border-radius: 6px; padding: 6px 10px; font-family: inherit; font-size: 12px; cursor: pointer; }\n  button:hover { background: #334155; }\n  button.primary { background: #0284c7; border-color: #38bdf8; font-weight: bold; }\n  button.warn { background: #059669; border-color: #34d399; font-weight: bold; }\n  button.purple { background: #7c3aed; border-color: #a78bfa; font-weight: bold; }\n  button.amber { background: #d97706; border-color: #fbbf24; font-weight: bold; }\n  button.pink { background: #db2777; border-color: #f472b6; font-weight: bold; }\n  button.slate { background: #334155; color: #cbd5e1; border-color: #475569; }\n  input, textarea { width: 100%; box-sizing: border-box; background: #0b0f19; color: #f8fafc; border: 1px solid #334155; border-radius: 6px; padding: 8px; font-family: inherit; font-size: 12px; margin-top: 6px; }\n  #statusBanner { padding: 8px; border-radius: 6px; background: #1e293b; color: #38bdf8; margin-bottom: 10px; font-weight: bold; word-break: break-all; }\n  #viewer { white-space: pre-wrap; word-break: break-word; background: #050811; border: 1px solid #1e293b; border-radius: 8px; padding: 10px; font-size: 11.5px; line-height: 1.45; min-height: 240px; }\n  .row { display: flex; gap: 6px; align-items: center; margin-top: 6px; flex-wrap: wrap; }\n  .card { background: #0b1324; border: 1px solid #334155; border-radius: 6px; padding: 10px; margin-top: 8px; }\n  .badge { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 11px; background: #1e293b; color: #38bdf8; margin-right: 4px; }\n</style>\n</head>\n<body>\n  <h1>\n    <span>? ECMD Carbon 4 Autonomous Console v7.7 (3-Agent Gatekeeper + Priority Vault)</span>\n    <div class=\"row\" style=\"margin:0;\">\n      <button class=\"primary\" onclick=\"loadBootloaderPanel()\">?? AI Bootloader & Toggles</button>\n      <button class=\"pink\" onclick=\"loadSuggestionsVault()\">?? Advanced Suggestions Vault</button>\n      <button class=\"primary\" onclick=\"loadCliQueuePanel(false)\">?? Local CLI Queue</button>\n      <button class=\"warn\" onclick=\"loadDiagnosticsPanel()\">??? Diagnostics & Cost Meter</button>\n      <button class=\"amber\" onclick=\"loadAiInbox()\">?? AI Un\n... [TRUNCATED HTML BUNDLE: 36083 chars total]"
+    },
+    {
+      "id": "cap_learned_3agent_velo_gatekeeper",
+      "title": "3-Agent Velo Gatekeeper, Self-Healing Rollback & Live AI Cost Meter",
+      "metadata": {},
+      "entry_type": "learned_capability",
+      "is_enabled": true,
+      "sort_order": 10,
+      "updated_at": "2026-11-16T02:26:08.028775+00:00",
+      "chat_location": "ALL",
+      "capabilities_list": [],
+      "system_prompt_directive": "Every local CLI build and console update is automatically verified by Start-EcmdCliBridge.ps1 (node --check & AST balance), self-healed or rolled back on error, and logged with token cost in public.ecmd_diagnostic_runs."
     },
     {
       "id": "cap_site_themes_outer_inner_shadow",
@@ -712,21 +712,6 @@
       "system_prompt_directive": "ARCHITECT-HERE / FAST-INSERT-IN-AGY WORKFLOW & CLI MODEL/ACCOUNT NOTES: Use the Chrome sidebar to design exact schemas, data rows, and targeted code edits upfront, then have agy (agy.exe via epen) apply the exact edits/inserts, run node scripts/ecmd-sql.mjs, and run verification (npx tsc --noEmit & npx vitest run)—keeping turns tightly scoped to conserve agy quota (--effort medium / gemini-3.8-flash when appropriate). Users can check available models with agy models, set --effort (low|medium|high|xhigh|max), or use interactive /usage and /logout when managing CLI auth/session state."
     },
     {
-      "id": "cap_auto_gh_edge_deploy",
-      "title": "GitHub Actions Zero-Touch Edge Function Auto-Deploy (.github/workflows/supabase-deploy.yml)",
-      "metadata": {},
-      "entry_type": "learned_capability",
-      "is_enabled": true,
-      "sort_order": 100,
-      "updated_at": "2026-11-16T00:16:14.930442+00:00",
-      "chat_location": "ALL",
-      "capabilities_list": [
-        "GitHub Actions Edge Auto-Deploy",
-        "public.ecmd_cli_queue Local Gemini CLI Bridge"
-      ],
-      "system_prompt_directive": "CAPABILITY ACTIVE: Pushing changes to supabase/functions/** on main automatically triggers .github/workflows/supabase-deploy.yml, which deploys the Edge Function via ECMD_SB_ACCESS_TOKEN. Also public.ecmd_cli_queue bridges remote prompts to local Gemini CLI."
-    },
-    {
       "id": "cap_auto_1794791441418",
       "title": "Exposed get_ecmdConsole HTTP endpoint in src/backend/http-functions.js enabling mobile phone browser access to ECMD Carb",
       "metadata": {
@@ -743,6 +728,21 @@
         "Exposed get_ecmdConsole HTTP endpoint in src/backend/http-functions.js enabling mobile phone browser access to ECMD Carbon 4 Console via https://www.ecmdutah.com/_functions/ecmdConsole?key=[REDACTED_SECRET]"
       ],
       "system_prompt_directive": "Patched src/backend/http-functions.js (2 patch(es)) — Exposed get_ecmdConsole HTTP endpoint in src/backend/http-functions.js enabling mobile phone browser access to ECMD Carbon 4 Console via https://www.ecmdutah.com/_functions/ecmdConsole?key=[REDACTED_SECRET]"
+    },
+    {
+      "id": "cap_auto_gh_edge_deploy",
+      "title": "GitHub Actions Zero-Touch Edge Function Auto-Deploy (.github/workflows/supabase-deploy.yml)",
+      "metadata": {},
+      "entry_type": "learned_capability",
+      "is_enabled": true,
+      "sort_order": 100,
+      "updated_at": "2026-11-16T00:16:14.930442+00:00",
+      "chat_location": "ALL",
+      "capabilities_list": [
+        "GitHub Actions Edge Auto-Deploy",
+        "public.ecmd_cli_queue Local Gemini CLI Bridge"
+      ],
+      "system_prompt_directive": "CAPABILITY ACTIVE: Pushing changes to supabase/functions/** on main automatically triggers .github/workflows/supabase-deploy.yml, which deploys the Edge Function via ECMD_SB_ACCESS_TOKEN. Also public.ecmd_cli_queue bridges remote prompts to local Gemini CLI."
     },
     {
       "id": "cap_learned_realtime_crm_hooks",
@@ -824,6 +824,33 @@
         "Database-Driven Trigger & Cron Execution"
       ],
       "system_prompt_directive": "CAPABILITY ACTIVE: Postgres function public.call_ecmd_bridge_from_db(payload jsonb) reads ECMD_BRIDGE_KEY securely from Supabase Vault (vault.decrypted_secrets) and dispatches asynchronous HTTP POST requests to ecmd-carbon-bridge via pg_net."
+    },
+    {
+      "id": "cap_packages_piece4_whats_included_item_popup",
+      "title": "Packages Page Piece 4: EcmdWhatsIncludedItemPopup (Wix fileWhatsIncludedG.js Parity)",
+      "metadata": {
+        "files": [
+          "src/components/EcmdWhatsIncludedItemPopup.tsx",
+          "src/components/EcmdWhatsIncludedModal.tsx",
+          "src/plasmic-init.ts",
+          "src/test/EcmdWhatsIncludedItemPopup.test.tsx"
+        ],
+        "piece": 4,
+        "component": "EcmdWhatsIncludedItemPopup"
+      },
+      "entry_type": "learned_capability",
+      "is_enabled": true,
+      "sort_order": 125,
+      "updated_at": "2026-11-26T01:25:48.839517+00:00",
+      "chat_location": "ALL",
+      "capabilities_list": [
+        "EcmdWhatsIncludedItemPopup (fileWhatsIncludedG.js Parity)",
+        "ecmd-open-whats-included-item Event Bridge",
+        "EcmdWhatsIncludedModal inspect-item Triggers",
+        "Step Parsing + Optional Media + Prev/Next Cycling",
+        "localStorage ecmd_addOnMemory Add-On Toggle Sync"
+      ],
+      "system_prompt_directive": "EcmdWhatsIncludedItemPopup (src/components/EcmdWhatsIncludedItemPopup.tsx) is registered in src/plasmic-init.ts via registerEcmdComponent (Zero-Inline-Width Root Law + DataProvider ecmdWhatsIncludedItem). Listens to window event ecmd-open-whats-included-item ({ item, items, packageLevel, detailType, subCategory }) dispatched from EcmdWhatsIncludedModal inspect-item triggers on inclusion and add-on rows, renders modal dialog (data-ecmd-wi-item popup/title/badge/media/steps/prev/next/toggle-addon/close), parses step-by-step bullet lines, navigates prev/next when items.length > 1, toggles add-ons in localStorage ecmd_addOnMemory under ${level}_${scope} with ecmd-addons-change dispatch, and closes on Escape or backdrop click."
     },
     {
       "id": "cap_pen_v41_bootsync_themes_repeater",

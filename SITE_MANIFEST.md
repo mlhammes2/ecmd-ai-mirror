@@ -4,7 +4,7 @@
 > Chrome Gemini Sidebar & external architects: fetch this manifest first, then fetch any exact raw GitHub URL below on demand.
 
 ## Summary
-- **Generated At:** `2026-11-26T01:24:56.213Z`
+- **Generated At:** `2026-11-26T01:26:03.578Z`
 - **Latest Turn:** `TURN-044`
 - **Manifest Raw URL:** https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md
 - **JSON Manifest Raw URL:** https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.json
@@ -38,7 +38,7 @@
 | `ecmd_crm_vehicles` | 6 | ON | Excluded (Auth/PII/Log) |
 | `ecmd_dev_jobs` | 0 | OFF | Excluded (Auth/PII/Log) |
 | `ecmd_diagnostic_runs` | 1 | OFF | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_diagnostic_runs.json) |
-| `ecmd_external_ai_cms` | 40 | OFF | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_external_ai_cms.json) |
+| `ecmd_external_ai_cms` | 41 | OFF | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_external_ai_cms.json) |
 | `ecmd_files_mirror` | 99 | OFF | Excluded (Auth/PII/Log) |
 | `ecmd_members` | 0 | ON | Excluded (Auth/PII/Log) |
 | `ecmd_messages` | 6 | ON | Excluded (Auth/PII/Log) |
@@ -155,9 +155,9 @@
 | `hub/bunfig.toml` | 414 B | Text/config file | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/bunfig.toml |
 | `hub/components.json` | 465 B | JSON data / config | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/components.json |
 | `hub/eslint.config.js` | 1.3 KB | Code module | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/eslint.config.js |
-| `hub/GEMINI.md` | 6.1 KB | Markdown documentation | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/GEMINI.md |
+| `hub/GEMINI.md` | 6.0 KB | Markdown documentation | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/GEMINI.md |
 | `hub/package.json` | 3.2 KB | Package manifest & scripts | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/package.json |
-| `hub/public/ai-telemetry.json` | 3.7 KB | ECMD PEN live turn telemetry | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json |
+| `hub/public/ai-telemetry.json` | 3.8 KB | ECMD PEN live turn telemetry | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json |
 | `hub/public/Ecmd Icon Cord Black.svg` | 39.9 KB | SVG vector asset | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/Ecmd%20Icon%20Cord%20Black.svg |
 | `hub/public/ecmd-brain.html` | 962 B | HTML template / console | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ecmd-brain.html |
 | `hub/public/ecmd-dolphin-logo.svg` | 5.5 KB | SVG vector asset | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ecmd-dolphin-logo.svg |
@@ -450,7 +450,7 @@
 | `supabase-mirror/tables/ecmd_ai_registry.json` | 37.6 KB | Supabase public.ecmd_ai_registry table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_ai_registry.json |
 | `supabase-mirror/tables/ecmd_brain.json` | 674.8 KB | Supabase public.ecmd_brain table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_brain.json |
 | `supabase-mirror/tables/ecmd_diagnostic_runs.json` | 662 B | Supabase public.ecmd_diagnostic_runs table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_diagnostic_runs.json |
-| `supabase-mirror/tables/ecmd_external_ai_cms.json` | 86.8 KB | Supabase public.ecmd_external_ai_cms table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_external_ai_cms.json |
+| `supabase-mirror/tables/ecmd_external_ai_cms.json` | 88.5 KB | Supabase public.ecmd_external_ai_cms table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_external_ai_cms.json |
 | `supabase-mirror/tables/ecmd_packages.json` | 3.1 KB | Supabase public.ecmd_packages table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_packages.json |
 | `supabase-mirror/tables/ecmd_pen_turns.json` | 385.6 KB | Supabase public.ecmd_pen_turns table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_pen_turns.json |
 | `supabase-mirror/tables/ecmd_plasmic_hydration.json` | 10.4 KB | Supabase public.ecmd_plasmic_hydration table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_plasmic_hydration.json |

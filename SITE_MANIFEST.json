@@ -3,7 +3,7 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-26T01:24:56.213Z",
+  "generatedAt": "2026-11-26T01:26:03.578Z",
   "latestTurn": "TURN-044",
   "counts": {
     "totalFiles": 316,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-26T01:24:41.423Z",
+    "exportedAt": "2026-11-26T01:25:49.863Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -135,7 +135,7 @@
       },
       {
         "table_name": "ecmd_external_ai_cms",
-        "row_count": 40,
+        "row_count": 41,
         "rls_enabled": false,
         "mirrored": true
       },
@@ -876,7 +876,7 @@
       "section": "hub",
       "path": "hub/GEMINI.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/GEMINI.md",
-      "sizeBytes": 6272,
+      "sizeBytes": 6099,
       "purpose": "Markdown documentation"
     },
     {
@@ -890,7 +890,7 @@
       "section": "hub",
       "path": "hub/public/ai-telemetry.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json",
-      "sizeBytes": 3772,
+      "sizeBytes": 3914,
       "purpose": "ECMD PEN live turn telemetry"
     },
     {
@@ -2885,7 +2885,7 @@
       "section": "supabase-mirror",
       "path": "supabase-mirror/tables/ecmd_external_ai_cms.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_external_ai_cms.json",
-      "sizeBytes": 88832,
+      "sizeBytes": 90625,
       "purpose": "Supabase public.ecmd_external_ai_cms table snapshot (scrubbed)"
     },
     {
