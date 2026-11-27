@@ -3,11 +3,11 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-27T23:10:34.231Z",
+  "generatedAt": "2026-11-27T23:14:33.625Z",
   "latestTurn": "TURN-051",
   "counts": {
-    "totalFiles": 328,
-    "hubFiles": 183,
+    "totalFiles": 329,
+    "hubFiles": 184,
     "runnerFiles": 116,
     "supabaseMirrorFiles": 29,
     "registeredPlasmicComponents": 17,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-27T23:10:22.024Z",
+    "exportedAt": "2026-11-27T23:14:19.634Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -847,7 +847,7 @@
       "section": "hub",
       "path": "hub/AGENTS.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/AGENTS.md",
-      "sizeBytes": 28901,
+      "sizeBytes": 29072,
       "purpose": "Markdown documentation"
     },
     {
@@ -882,7 +882,7 @@
       "section": "hub",
       "path": "hub/GEMINI.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/GEMINI.md",
-      "sizeBytes": 5828,
+      "sizeBytes": 5999,
       "purpose": "Markdown documentation"
     },
     {
@@ -989,6 +989,13 @@
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/README.md",
       "sizeBytes": 1079,
       "purpose": "Doc: Emerald Coast Detailing Hub"
+    },
+    {
+      "section": "hub",
+      "path": "hub/scripts/_add_done_rule.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_add_done_rule.mjs",
+      "sizeBytes": 1594,
+      "purpose": "exports: ECMD_SIDEBAR_BOOT_PROMPT"
     },
     {
       "section": "hub",
@@ -1673,7 +1680,7 @@
       "section": "hub",
       "path": "hub/src/lib/ecmdBootPrompt.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdBootPrompt.ts",
-      "sizeBytes": 2192,
+      "sizeBytes": 2366,
       "purpose": "exports: ECMD_SIDEBAR_BOOT_PROMPT"
     },
     {
@@ -2975,7 +2982,7 @@
       "section": "supabase-mirror",
       "path": "supabase-mirror/tables/ecmd_external_ai_cms.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_external_ai_cms.json",
-      "sizeBytes": 91444,
+      "sizeBytes": 91617,
       "purpose": "Supabase public.ecmd_external_ai_cms table snapshot (scrubbed)"
     },
     {

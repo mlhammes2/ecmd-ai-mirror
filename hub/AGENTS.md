@@ -71,3 +71,4 @@ use the editor.
 - **Optional `agy` Path:** Use `epen` (`agy.exe` with `-p` as the LAST argument) only when interactive/agentic CLI execution is specifically desired; keep prompts tightly scoped (< 10 turns).
 - **4-Target Sync Rule:** Any workflow/runner/script update syncs `src/lib/ecmdBootPrompt.ts` (`/workflow`), `AGENTS.md`, `GEMINI.md` (< 6 KB), and `public.ecmd_external_ai_cms` in the same turn.
 - **Plain-English Explanations (Smart High-School Level):** Owner is a hands-on small business owner (not a coder) building on a tight budget with big goals. Explain architecture, bugs, SQL, and fixes in clear, everyday plain English—no unnecessary jargon.
+- PowerShell Paste Rule: Every PowerShell script ends with Write-Host "DONE" (and a trailing blank line) so it runs all the way through without asking for an extra Enter.
