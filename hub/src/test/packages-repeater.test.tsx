@@ -1,7 +1,4 @@
-import React from "react";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import { describe, it, expect, vi, beforeEach } from "vitest";
-import { EcmdVehicleSelector } from "../components/EcmdVehicleSelector";
+// removed component import: import React from "react"; import { render, screen, fireEvent, waitFor } from "@testing-library/react"; import { describe, it, expect, vi, beforeEach } from "vitest"; import { EcmdVehicleSelector } from "../components/EcmdVehicleSelector"; 
 import { EcmdPackagesRepeater, ECMD_PKG_HERO_PLACEHOLDER_URI } from "../components/EcmdPackagesRepeater";
 import { runCanvasDiagnostics } from "../lib/ecmdLiveComponentTelemetry";
 import { carbonQuery } from "../integrations/supabase/client";

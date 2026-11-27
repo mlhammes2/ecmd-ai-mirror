@@ -3,21 +3,21 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-27T23:57:28.709Z",
+  "generatedAt": "2026-11-27T23:58:41.917Z",
   "latestTurn": "TURN-051",
   "counts": {
-    "totalFiles": 319,
-    "hubFiles": 174,
+    "totalFiles": 320,
+    "hubFiles": 175,
     "runnerFiles": 116,
     "supabaseMirrorFiles": 29,
-    "registeredPlasmicComponents": 17,
+    "registeredPlasmicComponents": 6,
     "supabasePublicTables": 57,
     "supabaseMirroredTables": 25,
     "secretsRedacted": 76
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-27T23:57:14.420Z",
+    "exportedAt": "2026-11-27T23:58:29.699Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -447,30 +447,6 @@
   },
   "registeredComponents": [
     {
-      "symbol": "HqWeeklyStrip",
-      "name": "HqWeeklyStrip",
-      "displayName": "HQ Weekly Strip",
-      "importPath": "./components/booking-hq/HqWeeklyStrip"
-    },
-    {
-      "symbol": "HqDailyDispatchBoard",
-      "name": "HqDailyDispatchBoard",
-      "displayName": "HQ Daily Dispatch Board",
-      "importPath": "./components/booking-hq/HqDailyDispatchBoard"
-    },
-    {
-      "symbol": "HqInvoiceCard",
-      "name": "HqInvoiceCard",
-      "displayName": "HQ Invoice Card",
-      "importPath": "./components/booking-hq/HqInvoiceCard"
-    },
-    {
-      "symbol": "HqMultiStateWorkspace",
-      "name": "HqMultiStateWorkspace",
-      "displayName": "HQ Multi-State Workspace",
-      "importPath": "./components/booking-hq/HqMultiStateWorkspace"
-    },
-    {
       "symbol": "EcmdAuthModalController",
       "name": "EcmdAuthModalController",
       "displayName": "Auth Model (ECMD Engine)",
@@ -489,12 +465,6 @@
       "importPath": "./src/components/EcmdThemeImage"
     },
     {
-      "symbol": "EcmdThemeLogo",
-      "name": "EcmdThemeLogo",
-      "displayName": "Theme Logo (SVG Switcher)",
-      "importPath": "./src/components/EcmdThemeLogo"
-    },
-    {
       "symbol": "EcmdThemeGroupController",
       "name": "EcmdThemeGroupController",
       "displayName": "Site Themes",
@@ -507,46 +477,10 @@
       "importPath": "./components/EcmdSideMenuController"
     },
     {
-      "symbol": "EcmdVehicleSelector",
-      "name": "EcmdVehicleSelector",
-      "displayName": "Vehicle Size Selector (4-Slot)",
-      "importPath": "./components/EcmdVehicleSelector"
-    },
-    {
-      "symbol": "EcmdSavedVehicleDropdown",
-      "name": "EcmdSavedVehicleDropdown",
-      "displayName": "Saved Vehicle Dropdown (#vehicleSelectDropButton)",
-      "importPath": "./components/EcmdSavedVehicleDropdown"
-    },
-    {
       "symbol": "EcmdPackagesRepeater",
       "name": "EcmdPackagesRepeater",
       "displayName": "Packages Repeater (#packagesRep)",
       "importPath": "./components/EcmdPackagesRepeater"
-    },
-    {
-      "symbol": "EcmdBrushedSteelButton",
-      "name": "EcmdBrushedSteelButton",
-      "displayName": "Brushed Steel Button",
-      "importPath": "./components/EcmdBrushedSteelButton"
-    },
-    {
-      "symbol": "EcmdWhatsIncludedModal",
-      "name": "EcmdWhatsIncludedModal",
-      "displayName": "What",
-      "importPath": "./components/EcmdWhatsIncludedModal"
-    },
-    {
-      "symbol": "EcmdWhatsIncludedItemPopup",
-      "name": "EcmdWhatsIncludedItemPopup",
-      "displayName": "What",
-      "importPath": "./components/EcmdWhatsIncludedItemPopup"
-    },
-    {
-      "symbol": "EcmdCartSummaryBar",
-      "name": "EcmdCartSummaryBar",
-      "displayName": "Cart & Summary Handoff Bar (ecmd_cart_draft)",
-      "importPath": "./components/EcmdCartSummaryBar"
     }
   ],
   "wixToPlasmicMigrationFiles": [
@@ -565,7 +499,7 @@
     {
       "path": "hub/src/components/booking-hq/index.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/booking-hq/index.ts",
-      "sizeBytes": 151,
+      "sizeBytes": 1,
       "purpose": "Code module"
     },
     {
@@ -912,7 +846,7 @@
       "section": "hub",
       "path": "hub/public/powershell-results.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/powershell-results.json",
-      "sizeBytes": 237,
+      "sizeBytes": 231,
       "purpose": "JSON data / config"
     },
     {
@@ -955,6 +889,13 @@
       "path": "hub/scripts/_clean_boot_prompt_tail.mjs",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_clean_boot_prompt_tail.mjs",
       "sizeBytes": 2509,
+      "purpose": "Code module"
+    },
+    {
+      "section": "hub",
+      "path": "hub/scripts/_clean_removed_component_refs.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_clean_removed_component_refs.mjs",
+      "sizeBytes": 3720,
       "purpose": "Code module"
     },
     {
@@ -1087,7 +1028,7 @@
       "section": "hub",
       "path": "hub/src/components/booking-hq/index.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/booking-hq/index.ts",
-      "sizeBytes": 151,
+      "sizeBytes": 1,
       "purpose": "Code module"
     },
     {
@@ -1724,7 +1665,7 @@
       "section": "hub",
       "path": "hub/src/plasmic-init.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/plasmic-init.ts",
-      "sizeBytes": 85359,
+      "sizeBytes": 65033,
       "purpose": "exports: PLASMIC"
     },
     {
@@ -1822,7 +1763,7 @@
       "section": "hub",
       "path": "hub/src/test/ecmd-telemetry-breakpoint.test.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/ecmd-telemetry-breakpoint.test.tsx",
-      "sizeBytes": 23724,
+      "sizeBytes": 23754,
       "purpose": "exports: setViewportWidth, BreakpointProbe"
     },
     {
@@ -1843,21 +1784,21 @@
       "section": "hub",
       "path": "hub/src/test/packages-matrix-engine.test.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/packages-matrix-engine.test.tsx",
-      "sizeBytes": 16993,
+      "sizeBytes": 17023,
       "purpose": "exports: StudioCardTemplate"
     },
     {
       "section": "hub",
       "path": "hub/src/test/packages-repeater.test.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/packages-repeater.test.tsx",
-      "sizeBytes": 12095,
+      "sizeBytes": 12121,
       "purpose": "Vitest automated test suite"
     },
     {
       "section": "hub",
       "path": "hub/src/test/plasmic-controllers.test.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/plasmic-controllers.test.tsx",
-      "sizeBytes": 54708,
+      "sizeBytes": 54722,
       "purpose": "Vitest automated test suite"
     },
     {
