@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export interface PowerShellResultsPayload {
+export interface PowerShellResultsRecord {
   updatedAt?: string;
   source?: string;
   exitCode?: number;
@@ -9,47 +9,47 @@ export interface PowerShellResultsPayload {
 }
 
 export function EcmdPowerShellResultsCard() {
-  const [payload, setPayload] = useState<PowerShellResultsPayload | null>(null);
+  const [info, setInfo] = useState<PowerShellResultsRecord | null>(null);
   const [copied, setCopied] = useState(false);
 
-  async function refresh() {
+  async function pullResults() {
     try {
-      const res = await fetch("/powershell-results.json?_=" + Date.now(), { cache: "no-store" });
-      if (!res.ok) return;
-      const json = await res.json();
-      setPayload(json);
+      const r = await fetch("/powershell-results.json?_=" + Date.now(), { cache: "no-store" });
+      if (!r.ok) return;
+      const data = await r.json();
+      setInfo(data);
     } catch {
-      // Ignore transient fetch errors during reloads
+      // Ignore transient dev server hiccups
     }
   }
 
   useEffect(() => {
-    refresh();
-    const timer = window.setInterval(refresh, 3000);
-    return () => window.clearInterval(timer);
+    pullResults();
+    const t = window.setInterval(pullResults, 3000);
+    return () => window.clearInterval(t);
   }, []);
 
-  const formattedText = payload
+  const copyPayload = info
     ? [
-        "Source: " + (payload.source || "PowerShell"),
-        "Updated: " + (payload.updatedAt || ""),
-        "Exit Code: " + (typeof payload.exitCode === "number" ? payload.exitCode : 0),
-        "Summary: " + (payload.summary || ""),
+        "Source: " + (info.source || "PowerShell"),
+        "Updated: " + (info.updatedAt || ""),
+        "Exit Code: " + (typeof info.exitCode === "number" ? info.exitCode : 0),
+        "Summary: " + (info.summary || ""),
         "",
-        payload.output || ""
+        info.output || ""
       ].join("\n")
     : "";
 
-  async function handleCopy() {
-    if (!formattedText) return;
+  async function copyNow() {
+    if (!copyPayload) return;
     try {
-      await navigator.clipboard.writeText(formattedText);
+      await navigator.clipboard.writeText(copyPayload);
       setCopied(true);
       window.setTimeout(() => setCopied(false), 1800);
     } catch {
-      const ta = document.getElementById("ecmd-ps-results-copy-box") as HTMLTextAreaElement | null;
-      if (ta) {
-        ta.select();
+      const area = document.getElementById("ecmd-powershell-copy-textarea") as HTMLTextAreaElement | null;
+      if (area) {
+        area.select();
         document.execCommand("copy");
         setCopied(true);
         window.setTimeout(() => setCopied(false), 1800);
@@ -62,6 +62,7 @@ export function EcmdPowerShellResultsCard() {
       aria-label="PowerShell Results"
       style={{
         marginTop: 16,
+        marginBottom: 16,
         padding: 16,
         borderRadius: 12,
         border: "1px solid rgba(148, 163, 184, 0.3)",
@@ -73,13 +74,13 @@ export function EcmdPowerShellResultsCard() {
         <div>
           <div style={{ fontWeight: 700, fontSize: 15 }}>PowerShell Results</div>
           <div style={{ fontSize: 12, opacity: 0.8 }}>
-            {payload?.updatedAt ? "Updated: " + payload.updatedAt : "Waiting for PowerShell output"}
+            {info?.updatedAt ? "Updated: " + info.updatedAt : "Waiting for /powershell-results.json"}
           </div>
         </div>
         <div style={{ display: "flex", gap: 8 }}>
           <button
             type="button"
-            onClick={refresh}
+            onClick={pullResults}
             style={{
               padding: "6px 12px",
               borderRadius: 8,
@@ -93,8 +94,8 @@ export function EcmdPowerShellResultsCard() {
           </button>
           <button
             type="button"
-            onClick={handleCopy}
-            disabled={!formattedText}
+            onClick={copyNow}
+            disabled={!copyPayload}
             style={{
               padding: "6px 14px",
               borderRadius: 8,
@@ -102,21 +103,21 @@ export function EcmdPowerShellResultsCard() {
               background: copied ? "#10b981" : "#38bdf8",
               color: "#041019",
               fontWeight: 700,
-              cursor: formattedText ? "pointer" : "not-allowed"
+              cursor: copyPayload ? "pointer" : "not-allowed"
             }}
           >
             {copied ? "Copied!" : "Copy Results"}
           </button>
         </div>
       </div>
-      {payload?.summary && (
-        <div style={{ marginTop: 10, fontSize: 13, fontWeight: 600 }}>{payload.summary}</div>
+      {info?.summary && (
+        <div style={{ marginTop: 10, fontSize: 13, fontWeight: 600 }}>{info.summary}</div>
       )}
       <textarea
-        id="ecmd-ps-results-copy-box"
+        id="ecmd-powershell-copy-textarea"
         readOnly
         rows={8}
-        value={formattedText || "No PowerShell output captured yet."}
+        value={copyPayload || "No PowerShell results captured yet."}
         style={{
           width: "100%",
           boxSizing: "border-box",

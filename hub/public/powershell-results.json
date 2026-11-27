@@ -1,7 +1,7 @@
 ﻿{
-    "updatedAt":  "2026-11-27T16:10:02.4942323-07:00",
+    "updatedAt":  "2026-11-27T16:16:35.8366674-07:00",
     "exitCode":  0,
-    "summary":  "Guarded routesById, wired PowerShell Results card on /workflow \u0026 /errors, tsc: 0 errors, all 24 vitest suites passed.",
-    "source":  "PowerShell Fix \u0026 Copy Card",
+    "summary":  "Guarded handleRouteUpdate, added PowerShell Results card on /workflow \u0026 /errors, tsc: 0 errors, all 24 vitest suites passed.",
+    "source":  "PowerShell Routes + Copy Card",
     "output":  "tsc exit: 0 | vitest exit: 0"
 }
