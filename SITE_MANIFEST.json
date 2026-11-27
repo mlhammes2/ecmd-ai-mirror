@@ -3,11 +3,11 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-27T22:57:18.680Z",
+  "generatedAt": "2026-11-27T22:59:53.304Z",
   "latestTurn": "TURN-051",
   "counts": {
-    "totalFiles": 321,
-    "hubFiles": 176,
+    "totalFiles": 323,
+    "hubFiles": 178,
     "runnerFiles": 116,
     "supabaseMirrorFiles": 29,
     "registeredPlasmicComponents": 17,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-27T22:57:02.133Z",
+    "exportedAt": "2026-11-27T22:59:38.804Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -847,7 +847,7 @@
       "section": "hub",
       "path": "hub/AGENTS.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/AGENTS.md",
-      "sizeBytes": 27814,
+      "sizeBytes": 28901,
       "purpose": "Markdown documentation"
     },
     {
@@ -882,7 +882,7 @@
       "section": "hub",
       "path": "hub/GEMINI.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/GEMINI.md",
-      "sizeBytes": 6099,
+      "sizeBytes": 5828,
       "purpose": "Markdown documentation"
     },
     {
@@ -966,7 +966,7 @@
       "section": "hub",
       "path": "hub/public/powershell-results.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/powershell-results.json",
-      "sizeBytes": 282,
+      "sizeBytes": 251,
       "purpose": "JSON data / config"
     },
     {
@@ -980,7 +980,7 @@
       "section": "hub",
       "path": "hub/public/runtime-errors.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/runtime-errors.json",
-      "sizeBytes": 80,
+      "sizeBytes": 9164,
       "purpose": "DEV browser runtime errors store"
     },
     {
@@ -989,6 +989,13 @@
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/README.md",
       "sizeBytes": 1079,
       "purpose": "Doc: Emerald Coast Detailing Hub"
+    },
+    {
+      "section": "hub",
+      "path": "hub/scripts/_apply_workflow_and_copy_ui.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_apply_workflow_and_copy_ui.mjs",
+      "sizeBytes": 8004,
+      "purpose": "exports: PowerShellResultsData, EcmdPowerShellResultsCard"
     },
     {
       "section": "hub",
@@ -1150,6 +1157,13 @@
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdPlasmicColorRow.tsx",
       "sizeBytes": 100066,
       "purpose": "exports: PresetColorToken, GM3_COLOR_PRESETS, EcmdPlasmicColorRow"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/EcmdPowerShellResultsCard.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdPowerShellResultsCard.tsx",
+      "sizeBytes": 3990,
+      "purpose": "exports: PowerShellResultsData, EcmdPowerShellResultsCard"
     },
     {
       "section": "hub",
@@ -1624,7 +1638,7 @@
       "section": "hub",
       "path": "hub/src/lib/ecmdBootPrompt.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdBootPrompt.ts",
-      "sizeBytes": 26692,
+      "sizeBytes": 27781,
       "purpose": "exports: ECMD_SIDEBAR_BOOT_PROMPT"
     },
     {
@@ -1771,7 +1785,7 @@
       "section": "hub",
       "path": "hub/src/routes/errors.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/errors.tsx",
-      "sizeBytes": 169,
+      "sizeBytes": 285,
       "purpose": "exports: Route"
     },
     {
@@ -1799,7 +1813,7 @@
       "section": "hub",
       "path": "hub/src/routes/workflow.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/workflow.tsx",
-      "sizeBytes": 186,
+      "sizeBytes": 302,
       "purpose": "exports: Route"
     },
     {

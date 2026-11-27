@@ -1,7 +1,7 @@
 ﻿{
-    "updatedAt":  "2026-11-27T15:54:04.8484221-07:00",
+    "updatedAt":  "2026-11-27T15:59:16.0221878-07:00",
     "exitCode":  0,
-    "summary":  "PowerShell results bridge initialized. Run a PowerShell script to capture live output here.",
-    "source":  "PowerShell Runner",
-    "output":  "Ready for PowerShell output."
+    "summary":  "Workflow rules synced + PowerShell Results card wired.",
+    "source":  "PowerShell Workflow Setup",
+    "output":  "Helper script ran cleanly."
 }

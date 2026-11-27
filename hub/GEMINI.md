@@ -1,15 +1,3 @@
-﻿# ECMD CARBON 4 — MASTER OS (`agy` & PEN v4.2)
-Lead engineer for **ECMD** (`C:\ECMD\emerald-coast-detailing-hub`).
-
-## 1. DUAL-AI BOUNDARY & CUSTOMER API KEY
-- **ADMIN/DEV (`agy` v1.5.15):** Personal `@gmail.com` OAuth (`$0.00/turn`, Gemini 4) for local code/Plasmic/SQL/ops via `epen`. **NEVER wire to public visitors.**
-- **CUSTOMER AI (`GEMINI_API_KEY`):** Supabase Edge Functions (`ecmd-carbon-bridge`/`geminiAssistant`), isolated from `agy`.
-
-## 2. PEN v4.2, ARCHITECT-HERE, AI MIRROR & BOOT-SYNC
-1. **PLAN FIRST, WAIT FOR "YES"** (`#ECMD_AI!` via `epen` is pre-confirmed).
-2. **ARCHITECT-HERE / FAST-INSERT-IN-`agy`:** Design schemas/rows/edits in Chrome sidebar; let `agy` (`epen`) apply edits/SQL (`node scripts/ecmd-sql.mjs`) & verify (`npx tsc --noEmit` & `npx vitest run`) to conserve quota (`--effort medium`/`gemini-3.8-flash`). CLI: `agy models`, `--effort`, `/usage`, `/logout`.
-3. **PEN v4.2 (`-p` LAST-FLAG):** `epen`->`Start-EcmdPen.ps1`->`run-pen-task.mjs` (`--dangerously-skip-permissions --output-format stream-json --add-dir C:\ECMD -p "..."`; `-p` last w/ stdin). SHA-1 diffing logs `filesChanged` (`ecmd_pen_turns`, `ai-telemetry.json`); auto-runs `sync-ai-mirror.mjs --push`.
-4. **SHELL GUARD:** NEVER run `Invoke-WebRequest`/`iwr` without `-UseBasicParsing` (use Node `fetch()` w/ `AbortSignal.timeout(8000)` or `curl.exe -s`).
 5. **AI MIRROR (`mlhammes2/ecmd-ai-mirror`) & 26-CSV:** Ground via `https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md` (`hub/`, `runner/`, `supabase-mirror/`; 14 public Wix tables, 12 RLS-private excluded, 0 `.env*`). CSVs: `node C:\ECMD\scripts\import-wix-csvs.mjs`.
 6. **LEAN ROUTES & `/errors`:** `AppHeader` ONLY on `/workflow` & `/errors` (+ `Live Site (/) ↗`). Customer routes have 0 dev header; `/plasmic-host` renders ONLY `<PlasmicCanvasHost />`. `/errors` (`#ecmd-unified-errors-json`) aggregates TSC, 3-tier Plasmic tabs, & Runtime JS (`/runtime-errors.json`); `POST /__ecmd-live-dom` auto-prunes.
 7. **BOOT-SYNC & VERIFY:** Sync PowerShell/`C:\ECMD\scripts\*` in-turn to `ecmdBootPrompt.ts`, `AGENTS.md`, `GEMINI.md` (< 6 KB), & `ecmd_external_ai_cms`. Run `npx tsc --noEmit` & `npx vitest run` until 0 errors.
@@ -35,3 +23,9 @@ Lead engineer for **ECMD** (`C:\ECMD\emerald-coast-detailing-hub`).
 - Stack: Vite+React+TS+Plasmic (`mrkoQykvpZZfVbEc1yjabw`, `:8080`)+Supabase (`lvynkeuceiqxafgpgdvs`).
 - `plasmic-init.ts`: ONLY `ALLOWED_PLASMIC_STYLE_KEYS` (no `border*`/`background`/`cursor`/`flexGrow`/`display`/`fontFamily`/`textDecoration`/`whiteSpace`/`flexWrap`/`objectFit`/shorthand `padding`/`margin`).
 - **NEVER pass `type: "string"` to `PLASMIC.registerToken`** (ONLY `color|spacing|opacity|line-height|font-size|font-family`) or call `registerDataToken`; expose `ecmdImgClass_*` via `DataProvider` & `[Copy Class]`. `PlasmicHost.tsx` renders ONLY `<PlasmicCanvasHost />` (`ssr: false`+DEV `<head>` bridge). Tests: `plasmic-init-styles.test.ts`, `plasmic-host-boot.test.tsx`.
+
+## Deterministic PowerShell + GitHub/Supabase Eyes Workflow (Low-Turn Default)
+- **Role Split:** Chrome Side Panel acts as Architect & Eyes (0ms /errors + GitHub AI Mirror `mlhammes2/ecmd-ai-mirror`); PowerShell executes deterministic scripts writing files, running `node scripts/ecmd-sql.mjs` on `lvynkeuceiqxafgpgdvs`, running `npx tsc --noEmit` & `npx vitest run`, and syncing GitHub/mirror without 50-90 turn agentic exploration loops.
+- **Optional `agy` Path:** Use `epen` (`agy.exe` with `-p` as the LAST argument) only when interactive/agentic CLI execution is specifically desired; keep prompts tightly scoped (< 10 turns).
+- **4-Target Sync Rule:** Any workflow/runner/script update syncs `src/lib/ecmdBootPrompt.ts` (`/workflow`), `AGENTS.md`, `GEMINI.md` (< 6 KB), and `public.ecmd_external_ai_cms` in the same turn.
+- **Plain-English Explanations (Smart High-School Level):** Owner is a hands-on small business owner (not a coder) building on a tight budget with big goals. Explain architecture, bugs, SQL, and fixes in clear, everyday plain English—no unnecessary jargon.
