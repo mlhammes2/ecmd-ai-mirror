@@ -1,0 +1,10 @@
+﻿#ECMD_AI!
+Task: Inspect and report (without making broad unrelated edits) on:
+1) Current agy CLI model/effort/credits & quota status (available models, /credits or /config/settings guidance, and how to increase capacity/turns on a personal Google account);
+2) EcmdBrushedSteelButton (src/components/EcmdBrushedSteelButton.tsx, src/styles/brushedSteelButton.css, src/plasmic-init.ts, src/test/brushed-steel-button.test.tsx) after TURN-048—confirming 220x35 base, 0.25px rim/bevel/border refinements, fixed-scale 160x160 grain, laser-engraved centered label, #54e9ea glow, and editable label prop;
+3) Root causes and exact fixes needed for the 2 runtime errors (ResizeObserver loop on desktop-1440; hydration mismatch on mobile-430) and the 95 tablet-1020 COLLAPSED_ZERO_SIZE layout diagnostics on Homepage / EcmdPackagesRepeater / EcmdBrushedSteelButton.
+Rules:
+- Read and analyze first; only apply small, tightly scoped fixes if clearly safe and directly requested, and keep / and /plasmic-host free of dev UI.
+- Follow registerEcmdComponent, Zero-Inline-Width Root Law, exactOptionalPropertyTypes, and the Plasmic CSS whitelist.
+- Run npx tsc --noEmit and npx vitest run (do not modify the 4 boot docs unless workflows/runners change).
+- End with a structured report: Quota & Plan Findings, Brushed Steel Button Status, Runtime & Tablet-1020 Root Causes, Recommended Next Steps, and Logic Gaps.

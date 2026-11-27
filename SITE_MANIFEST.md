@@ -4,12 +4,12 @@
 > Chrome Gemini Sidebar & external architects: fetch this manifest first, then fetch any exact raw GitHub URL below on demand.
 
 ## Summary
-- **Generated At:** `2026-11-27T21:16:09.147Z`
-- **Latest Turn:** `TURN-048`
+- **Generated At:** `2026-11-27T22:12:35.280Z`
+- **Latest Turn:** `TURN-049`
 - **Manifest Raw URL:** https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md
 - **JSON Manifest Raw URL:** https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.json
-- **Mirrored Files:** **318** total (`hub/`: 175, `runner/`: 114, `supabase-mirror/`: 29)
-- **Secrets Scrubbed:** 66 redaction(s) applied (zero `.env*`, zero auth/PII tables exported)
+- **Mirrored Files:** **320** total (`hub/`: 175, `runner/`: 116, `supabase-mirror/`: 29)
+- **Secrets Scrubbed:** 76 redaction(s) applied (zero `.env*`, zero auth/PII tables exported)
 
 ## Supabase Summary (`lvynkeuceiqxafgpgdvs`)
 - **Public Tables:** 57 total · **25** safe config/CMS/package/Wix tables mirrored · **32** auth/PII/log tables strictly excluded
@@ -43,7 +43,7 @@
 | `ecmd_members` | 0 | ON | Excluded (Auth/PII/Log) |
 | `ecmd_messages` | 6 | ON | Excluded (Auth/PII/Log) |
 | `ecmd_packages` | 4 | OFF | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_packages.json) |
-| `ecmd_pen_turns` | 46 | OFF | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_pen_turns.json) |
+| `ecmd_pen_turns` | 47 | OFF | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_pen_turns.json) |
 | `ecmd_plasmic_hydration` | 1 | OFF | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_plasmic_hydration.json) |
 | `ecmd_service_packages` | 36 | ON | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_service_packages.json) |
 | `ecmd_site_blueprints` | 106 | ON | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_site_blueprints.json) |
@@ -158,7 +158,7 @@
 | `hub/eslint.config.js` | 1.3 KB | Code module | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/eslint.config.js |
 | `hub/GEMINI.md` | 6.0 KB | Markdown documentation | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/GEMINI.md |
 | `hub/package.json` | 3.2 KB | Package manifest & scripts | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/package.json |
-| `hub/public/ai-telemetry.json` | 4.1 KB | ECMD PEN live turn telemetry | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json |
+| `hub/public/ai-telemetry.json` | 3.9 KB | ECMD PEN live turn telemetry | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json |
 | `hub/public/Ecmd Icon Cord Black.svg` | 39.9 KB | SVG vector asset | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/Ecmd%20Icon%20Cord%20Black.svg |
 | `hub/public/ecmd-brain.html` | 962 B | HTML template / console | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ecmd-brain.html |
 | `hub/public/ecmd-dolphin-logo.svg` | 5.5 KB | SVG vector asset | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ecmd-dolphin-logo.svg |
@@ -167,7 +167,7 @@
 | `hub/public/logo.svg` | 39.9 KB | SVG vector asset | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/logo.svg |
 | `hub/public/plasmic-diagnostics.json` | 144.6 KB | Plasmic Canvas live diagnostics store | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/plasmic-diagnostics.json |
 | `hub/public/plasmic-layout-hydration.json` | 3.5 KB | JSON data / config | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/plasmic-layout-hydration.json |
-| `hub/public/plasmic-live-dom.json` | 3.01 MB | JSON data / config | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/plasmic-live-dom.json |
+| `hub/public/plasmic-live-dom.json` | 2.99 MB | JSON data / config | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/plasmic-live-dom.json |
 | `hub/public/robots.txt` | 174 B | Text/config file | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/robots.txt |
 | `hub/public/runtime-errors.json` | 2.6 KB | DEV browser runtime errors store | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/runtime-errors.json |
 | `hub/README.md` | 1.1 KB | Doc: Emerald Coast Detailing Hub | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/README.md |
@@ -324,7 +324,7 @@
 | `hub/vite.config.ts` | 16.9 KB | exports: LIVE_SNAP | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/vite.config.ts |
 | `hub/vitest.config.ts` | 412 B | Code module | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/vitest.config.ts |
 
-## Files: `runner/` (114)
+## Files: `runner/` (116)
 | Path | Size | Exports / Purpose | Raw GitHub URL |
 |---|---:|---|---|
 | `runner/.eslintrc.json` | 50 B | JSON data / config | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/.eslintrc.json |
@@ -333,6 +333,7 @@
 | `runner/.github/workflows/sync-brain.yml` | 156 B | GitHub Actions / YAML workflow | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/.github/workflows/sync-brain.yml |
 | `runner/.github/workflows/wix-publish.yml` | 1.1 KB | GitHub Actions / YAML workflow | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/.github/workflows/wix-publish.yml |
 | `runner/.gitignore` | 71 B | Text/config file | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/.gitignore |
+| `runner/agy-snapshot.txt` | 825.2 KB | Text/config file | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/agy-snapshot.txt |
 | `runner/BRAIN_SNAPSHOT.md` | 215 B | Markdown documentation | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/BRAIN_SNAPSHOT.md |
 | `runner/bridge_ui.html` | 18.3 KB | HTML template / console | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/bridge_ui.html |
 | `runner/carbon4-hydration-manifest.json` | 655 B | JSON data / config | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/carbon4-hydration-manifest.json |
@@ -350,6 +351,7 @@
 | `runner/GEMINI.md` | 5.5 KB | Doc: ECMD Autonomous Engineering Protocol (C:\ECMD — PEN v4.2 / Antigravity `agy | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/GEMINI.md |
 | `runner/Invoke-EcmdProtocol.ps1` | 405 B | PowerShell automation script | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/Invoke-EcmdProtocol.ps1 |
 | `runner/package.json` | 400 B | Package manifest & scripts | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/package.json |
+| `runner/prompt-inspect-all.txt` | 1.4 KB | Text/config file | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/prompt-inspect-all.txt |
 | `runner/README.md` | 4.0 KB | Doc: Git Integration & Wix CLI <img align="left" src="https://user-images.github | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/README.md |
 | `runner/scripts/fix-plasmic-css.cjs` | 1.3 KB | ECMD automation/PEN runner script | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/fix-plasmic-css.cjs |
 | `runner/scripts/import-wix-csvs.mjs` | 29.7 KB | exports: parseCsv | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/scripts/import-wix-csvs.mjs |
@@ -455,7 +457,7 @@
 | `supabase-mirror/tables/ecmd_diagnostic_runs.json` | 662 B | Supabase public.ecmd_diagnostic_runs table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_diagnostic_runs.json |
 | `supabase-mirror/tables/ecmd_external_ai_cms.json` | 88.5 KB | Supabase public.ecmd_external_ai_cms table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_external_ai_cms.json |
 | `supabase-mirror/tables/ecmd_packages.json` | 3.1 KB | Supabase public.ecmd_packages table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_packages.json |
-| `supabase-mirror/tables/ecmd_pen_turns.json` | 415.2 KB | Supabase public.ecmd_pen_turns table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_pen_turns.json |
+| `supabase-mirror/tables/ecmd_pen_turns.json` | 421.4 KB | Supabase public.ecmd_pen_turns table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_pen_turns.json |
 | `supabase-mirror/tables/ecmd_plasmic_hydration.json` | 10.4 KB | Supabase public.ecmd_plasmic_hydration table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_plasmic_hydration.json |
 | `supabase-mirror/tables/ecmd_service_packages.json` | 146.5 KB | Supabase public.ecmd_service_packages table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_service_packages.json |
 | `supabase-mirror/tables/ecmd_site_blueprints.json` | 3.02 MB | Supabase public.ecmd_site_blueprints table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_site_blueprints.json |
