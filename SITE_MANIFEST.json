@@ -3,11 +3,11 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-27T22:49:27.472Z",
+  "generatedAt": "2026-11-27T22:57:18.680Z",
   "latestTurn": "TURN-051",
   "counts": {
-    "totalFiles": 320,
-    "hubFiles": 175,
+    "totalFiles": 321,
+    "hubFiles": 176,
     "runnerFiles": 116,
     "supabaseMirrorFiles": 29,
     "registeredPlasmicComponents": 17,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-27T22:49:12.081Z",
+    "exportedAt": "2026-11-27T22:57:02.133Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -960,6 +960,13 @@
       "path": "hub/public/plasmic-live-dom.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/plasmic-live-dom.json",
       "sizeBytes": 3130979,
+      "purpose": "JSON data / config"
+    },
+    {
+      "section": "hub",
+      "path": "hub/public/powershell-results.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/powershell-results.json",
+      "sizeBytes": 282,
       "purpose": "JSON data / config"
     },
     {
