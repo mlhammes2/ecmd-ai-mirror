@@ -3,7 +3,7 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-27T20:58:56.124Z",
+  "generatedAt": "2026-11-27T21:00:01.977Z",
   "latestTurn": "TURN-047",
   "counts": {
     "totalFiles": 318,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-27T20:58:39.342Z",
+    "exportedAt": "2026-11-27T20:59:47.519Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -896,7 +896,7 @@
       "section": "hub",
       "path": "hub/public/ai-telemetry.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json",
-      "sizeBytes": 2570,
+      "sizeBytes": 2898,
       "purpose": "ECMD PEN live turn telemetry"
     },
     {
@@ -945,7 +945,7 @@
       "section": "hub",
       "path": "hub/public/plasmic-diagnostics.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/plasmic-diagnostics.json",
-      "sizeBytes": 461088,
+      "sizeBytes": 148115,
       "purpose": "Plasmic Canvas live diagnostics store"
     },
     {
@@ -959,7 +959,7 @@
       "section": "hub",
       "path": "hub/public/plasmic-live-dom.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/plasmic-live-dom.json",
-      "sizeBytes": 3318899,
+      "sizeBytes": 3155849,
       "purpose": "JSON data / config"
     },
     {
