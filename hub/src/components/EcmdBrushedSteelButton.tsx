@@ -92,14 +92,23 @@ export function buildSteelGlowVars(
   sizing?: SteelButtonSizingVars
 ): React.CSSProperties {
   const resolved = String(glowColor || "").trim() || DEFAULT_STEEL_GLOW_COLOR;
+  const isCssVarToken = /^var\(/i.test(resolved);
   const { r, g, b } = parseGlowColorToRgb(resolved);
   const vars: Record<string, string> = {
     "--glow-color": resolved,
     "--ecmd-steel-glow-color": resolved,
-    "--ecmd-steel-glow-1": `rgba(${r}, ${g}, ${b}, 0.8)`,
-    "--ecmd-steel-glow-2": `rgba(${r}, ${g}, ${b}, 0.6)`,
-    "--ecmd-steel-glow-3": `rgba(${r}, ${g}, ${b}, 0.33)`,
-    "--ecmd-steel-glow-4": `rgba(${r}, ${g}, ${b}, 0.15)`,
+    "--ecmd-steel-glow-1": isCssVarToken
+      ? `color-mix(in srgb, ${resolved} 80%, transparent)`
+      : `rgba(${r}, ${g}, ${b}, 0.8)`,
+    "--ecmd-steel-glow-2": isCssVarToken
+      ? `color-mix(in srgb, ${resolved} 60%, transparent)`
+      : `rgba(${r}, ${g}, ${b}, 0.6)`,
+    "--ecmd-steel-glow-3": isCssVarToken
+      ? `color-mix(in srgb, ${resolved} 33%, transparent)`
+      : `rgba(${r}, ${g}, ${b}, 0.33)`,
+    "--ecmd-steel-glow-4": isCssVarToken
+      ? `color-mix(in srgb, ${resolved} 15%, transparent)`
+      : `rgba(${r}, ${g}, ${b}, 0.15)`,
   };
   if (sizing?.width) {
     vars["--button-width"] = sizing.width;
@@ -235,6 +244,8 @@ export function EcmdBrushedSteelButton({
     }
   };
 
+  const displayLabel = label ?? "Exterior";
+
   return (
     <span
       className={`ecmd-steel-button-root button-mount ${className}`.trim()}
@@ -255,7 +266,7 @@ export function EcmdBrushedSteelButton({
         onClick={handleClick}
       >
         <span className="steel-face">
-          <span className="button-label">{label}</span>
+          <span className="button-label">{displayLabel}</span>
         </span>
       </button>
     </span>

@@ -164,6 +164,12 @@ describe("EcmdBrushedSteelButton ('Brushed Steel Button') & mobile-413 SSR Hydra
     expect(vars["--button-width"]).toBe("220px");
     expect(vars["--button-height"]).toBe("48px");
     expect(vars["--ecmd-steel-glow-2"]).toBe("rgba(84, 233, 234, 0.6)");
+
+    // Plasmic Studio color tokens (var(--token-...)) use color-mix() for all 4 glow layers
+    const tokenVars = buildSteelGlowVars("var(--token-ecmd-cyan)") as Record<string, string>;
+    expect(tokenVars["--glow-color"]).toBe("var(--token-ecmd-cyan)");
+    expect(tokenVars["--ecmd-steel-glow-1"]).toBe("color-mix(in srgb, var(--token-ecmd-cyan) 80%, transparent)");
+    expect(tokenVars["--ecmd-steel-glow-4"]).toBe("color-mix(in srgb, var(--token-ecmd-cyan) 15%, transparent)");
   });
 
   it("preserves 220x35 base dimensions, 0.25px rim/bevel/border refinements, container-type: size, fixed 160px repeating grain, laser-engraved centered label, lift/press physics, and prefers-reduced-motion in brushedSteelButton.css", () => {
@@ -177,6 +183,8 @@ describe("EcmdBrushedSteelButton ('Brushed Steel Button') & mobile-413 SSR Hydra
     expect(css).toContain("container-type: size;");
     expect(css).toContain("--button-radius: clamp(4px, calc(var(--button-height, 35px) * 0.11), 11px);");
     expect(css).toContain("border: 0.25px solid transparent;");
+    expect(css).toContain("background-origin: border-box;");
+    expect(css).toContain("background-clip: border-box;");
     expect(css).toContain("inset: 0.25px;");
     expect(css).toContain("inset 0 0.25px 0.5px #fff;");
     expect(css).toContain("inset 0.25px 0 0.5px #fff6,");
@@ -201,6 +209,7 @@ describe("EcmdBrushedSteelButton ('Brushed Steel Button') & mobile-413 SSR Hydra
     expect(css).toContain("--glow-color");
     expect(css).toContain("--label-size");
     expect(css).toContain("line-height: 1;");
+    expect(css).toContain("padding-block: 0.12em;");
     expect(css).toContain("white-space: nowrap;");
     expect(css).toContain("overflow: hidden;");
   });

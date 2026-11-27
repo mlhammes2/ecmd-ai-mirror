@@ -3,8 +3,8 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-27T21:00:01.977Z",
-  "latestTurn": "TURN-047",
+  "generatedAt": "2026-11-27T21:15:06.215Z",
+  "latestTurn": "TURN-048",
   "counts": {
     "totalFiles": 318,
     "hubFiles": 175,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-27T20:59:47.519Z",
+    "exportedAt": "2026-11-27T21:14:49.505Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -165,7 +165,7 @@
       },
       {
         "table_name": "ecmd_pen_turns",
-        "row_count": 45,
+        "row_count": 46,
         "rls_enabled": false,
         "mirrored": true
       },
@@ -601,7 +601,7 @@
     {
       "path": "hub/src/components/EcmdBrushedSteelButton.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdBrushedSteelButton.tsx",
-      "sizeBytes": 8377,
+      "sizeBytes": 8803,
       "purpose": "exports: DEFAULT_STEEL_GLOW_COLOR, DEFAULT_STEEL_BUTTON_WIDTH, DEFAULT_STEEL_BUTTON_HEIGHT, ParsedRgbColor, SteelButtonSizingVars, normalizeCssDimension"
     },
     {
@@ -896,7 +896,7 @@
       "section": "hub",
       "path": "hub/public/ai-telemetry.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json",
-      "sizeBytes": 2898,
+      "sizeBytes": 3927,
       "purpose": "ECMD PEN live turn telemetry"
     },
     {
@@ -959,7 +959,7 @@
       "section": "hub",
       "path": "hub/public/plasmic-live-dom.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/plasmic-live-dom.json",
-      "sizeBytes": 3155849,
+      "sizeBytes": 3155709,
       "purpose": "JSON data / config"
     },
     {
@@ -1099,7 +1099,7 @@
       "section": "hub",
       "path": "hub/src/components/EcmdBrushedSteelButton.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdBrushedSteelButton.tsx",
-      "sizeBytes": 8377,
+      "sizeBytes": 8803,
       "purpose": "exports: DEFAULT_STEEL_GLOW_COLOR, DEFAULT_STEEL_BUTTON_WIDTH, DEFAULT_STEEL_BUTTON_HEIGHT, ParsedRgbColor, SteelButtonSizingVars, normalizeCssDimension"
     },
     {
@@ -1820,7 +1820,7 @@
       "section": "hub",
       "path": "hub/src/styles/brushedSteelButton.css",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/styles/brushedSteelButton.css",
-      "sizeBytes": 5775,
+      "sizeBytes": 5831,
       "purpose": "Stylesheet"
     },
     {
@@ -1848,8 +1848,8 @@
       "section": "hub",
       "path": "hub/src/test/brushed-steel-button.test.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/brushed-steel-button.test.tsx",
-      "sizeBytes": 13798,
-      "purpose": "exports: MobileHydrationFixture"
+      "sizeBytes": 14456,
+      "purpose": "Vitest automated test suite"
     },
     {
       "section": "hub",
@@ -2919,7 +2919,7 @@
       "section": "supabase-mirror",
       "path": "supabase-mirror/tables/ecmd_pen_turns.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_pen_turns.json",
-      "sizeBytes": 418951,
+      "sizeBytes": 425172,
       "purpose": "Supabase public.ecmd_pen_turns table snapshot (scrubbed)"
     },
     {

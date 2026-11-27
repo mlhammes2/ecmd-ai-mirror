@@ -51,6 +51,7 @@
     #fafafa 360deg
   );
   background-origin: border-box;
+  background-clip: border-box;
   box-shadow:
     0 2px 0 #626262,
     0 3px 0 #333333,
@@ -178,6 +179,7 @@
   );
   font-weight: 700;
   line-height: 1;
+  padding-block: 0.12em;
   letter-spacing: -0.022em;
   white-space: nowrap;
   overflow: hidden;
