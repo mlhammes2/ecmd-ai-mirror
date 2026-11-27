@@ -2,6 +2,16 @@ import { EcmdPowerShellResultsCard } from "../components/EcmdPowerShellResultsCa
 import { createFileRoute } from "@tanstack/react-router";
 import Workflow from "../pages/Workflow";
 
+async function handleHeaderCopyErrors() {
+  try {
+    const el = document.getElementById("ecmd-unified-errors-json");
+    const text = el?.textContent?.trim() || JSON.stringify({ totalErrors: 0, runtimeErrors: [], criticalCanvasIssues: [] }, null, 2);
+    await navigator.clipboard.writeText(text);
+  } catch {
+    // Fallback if clipboard API is unavailable
+  }
+}
+
 export const Route = createFileRoute("/workflow")({
   component: Workflow,
 });
