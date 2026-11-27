@@ -2,6 +2,8 @@ import React, { useEffect, useMemo, useState } from "react";
 import "../styles/brushedSteelButton.css";
 
 export const DEFAULT_STEEL_GLOW_COLOR = "#54e9ea";
+export const DEFAULT_STEEL_BUTTON_WIDTH = "220px";
+export const DEFAULT_STEEL_BUTTON_HEIGHT = "35px";
 
 export interface ParsedRgbColor {
   r: number;
@@ -148,17 +150,17 @@ export function resolveSteelButtonRoleAttrs(
 
 export interface EcmdBrushedSteelButtonProps
   extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "onClick"> {
-  className?: string;
-  style?: React.CSSProperties;
-  label?: string;
-  selected?: boolean;
-  buttonRole?: EcmdSteelButtonRole;
-  glowColor?: string;
-  fontSize?: number | string;
-  width?: number | string;
-  height?: number | string;
-  disabled?: boolean;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  className?: string | undefined;
+  style?: React.CSSProperties | undefined;
+  label?: string | undefined;
+  selected?: boolean | undefined;
+  buttonRole?: EcmdSteelButtonRole | undefined;
+  glowColor?: string | undefined;
+  fontSize?: number | string | undefined;
+  width?: number | string | undefined;
+  height?: number | string | undefined;
+  disabled?: boolean | undefined;
+  onClick?: ((event: React.MouseEvent<HTMLButtonElement>) => void) | undefined;
 }
 
 export function EcmdBrushedSteelButton({

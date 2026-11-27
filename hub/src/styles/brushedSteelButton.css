@@ -1,19 +1,20 @@
 /*
- * ECMD Brushed Steel Button ("Brushed Steel Button" — Version 7)
- * Independent button sizing with container-type: size on .steel-button,
- * height-responsive --button-radius & .steel-face calc(var(--button-radius) - 2px),
+ * ECMD Brushed Steel Button ("Brushed Steel Button")
+ * 220x35 base dimensions with zero-specificity :where(...) root sizing,
+ * 0.25px rim/bevel/border refinements, container-type: size on .steel-button,
+ * height-responsive --button-radius & concentric .steel-face radius,
  * fixed-scale 160px x 160px repeating metallic noise texture on .steel-face::before,
- * container-query-aware .button-label sizing (55cqh / 18cqw), straight -4px hover lift,
- * +3px active press depression, and configurable #54E9EA rear LED glow.
+ * laser-engraved centered .button-label with container-query scaling (55cqh / 18cqw),
+ * straight -4px hover lift, +3px active press depression, and #54E9EA rear LED glow.
  */
 
 :where(.ecmd-steel-button-root) {
   display: inline-block;
   width: 220px;
-  height: 64px;
+  height: 35px;
   max-width: 100%;
   box-sizing: border-box;
-  padding: 4px 0;
+  padding: 0;
   vertical-align: middle;
 }
 
@@ -26,8 +27,8 @@
   padding: 0;
   margin: 0;
   container-type: size;
-  --button-radius: clamp(4px, calc(var(--button-height, 100px) * 0.11), 11px);
-  border: 1px solid transparent;
+  --button-radius: clamp(4px, calc(var(--button-height, 35px) * 0.11), 11px);
+  border: 0.25px solid transparent;
   border-radius: var(--button-radius);
   cursor: pointer;
   user-select: none;
@@ -49,12 +50,13 @@
     #d2d2d2 322deg,
     #fafafa 360deg
   );
+  background-origin: border-box;
   box-shadow:
     0 2px 0 #626262,
     0 3px 0 #333333,
     0 14px 22px -8px #000c,
     0 4px 6px #0008,
-    inset 0 1px 1px #fff;
+    inset 0 0.25px 0.5px #fff;
   transition:
     transform 220ms ease-out,
     box-shadow 220ms ease-out;
@@ -78,6 +80,7 @@
   transition: opacity 280ms ease-out;
 }
 
+.ecmd-steel-button-root[data-ecmd-selected="true"] .ecmd-steel-button::before,
 .ecmd-steel-button[aria-pressed="true"]::before,
 .ecmd-steel-button[data-ecmd-selected="true"]::before {
   opacity: 1;
@@ -100,17 +103,17 @@
       0 3px 0 #333333,
       0 20px 28px -8px #000b,
       0 7px 10px #0007,
-      inset 0 1px 1px #fff;
+      inset 0 0.25px 0.5px #fff;
   }
 }
 
 .ecmd-steel-button .steel-face {
   position: absolute;
-  inset: 1px;
+  inset: 0.25px;
   display: grid;
   place-items: center;
   padding: 0 clamp(8px, 6cqw, 16px);
-  border-radius: calc(var(--button-radius) - 2px);
+  border-radius: max(0px, calc(var(--button-radius) - 0.5px));
   overflow: hidden;
   background:
     repeating-radial-gradient(
@@ -143,10 +146,10 @@
       #a1a1a1 360deg
     );
   box-shadow:
-    inset 1px 0 1px #fff6,
-    inset -1px 0 1px #fff6,
-    inset 0 1px 1px #fff9,
-    inset 0 -1px 1px #ffffff80;
+    inset 0.25px 0 0.5px #fff6,
+    inset -0.25px 0 0.5px #fff6,
+    inset 0 0.25px 0.5px #fff9,
+    inset 0 -0.25px 0.5px #ffffff80;
 }
 
 /* Fixed-scale 160px x 160px repeating grain tile so metal texture never stretches when resized */
@@ -166,6 +169,8 @@
 .ecmd-steel-button .button-label {
   position: relative;
   z-index: 1;
+  display: block;
+  text-align: center;
   font-family: "DM Sans", var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: var(
     --label-size,
@@ -190,7 +195,7 @@
   box-shadow:
     0 1px 0 #626262,
     0 2px 0 #333333,
-    inset 0 1px 1px #fff;
+    inset 0 0.25px 0.5px #fff;
 }
 
 @media (prefers-reduced-motion: reduce) {

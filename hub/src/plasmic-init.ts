@@ -1275,14 +1275,15 @@ registerEcmdComponent(EcmdBrushedSteelButton, {
   name: "EcmdBrushedSteelButton",
   displayName: "Brushed Steel Button",
   description:
-    "Version 7 props-driven Brushed Steel Button — independent sizing with container-type: size, height-responsive --button-radius, fixed-scale 160px x 160px repeating metal grain, container-query label scaling (55cqh / 18cqw), lift/press physics, and configurable #54E9EA Cyan / Emerald rear LED backlight glow.",
+    "Props-driven Brushed Steel Button (220x35 base) — 0.25px rim/bevel/border refinements, independent container-type: size scaling, height-responsive --button-radius, fixed-scale 160px x 160px repeating metal grain, laser-engraved centered label (55cqh / 18cqw), lift/press physics, and configurable #54E9EA Cyan rear LED backlight glow.",
   importPath: "./components/EcmdBrushedSteelButton",
-  defaultStyles: { width: "220px", height: "64px" },
+  defaultStyles: { width: "220px", height: "35px" },
   props: {
     label: {
       type: "string",
       defaultValue: "Exterior",
       displayName: "Button Label",
+      description: "Editable laser-engraved centered label displayed on the brushed steel face",
     },
     selected: {
       type: "boolean",
@@ -1309,15 +1310,15 @@ registerEcmdComponent(EcmdBrushedSteelButton, {
     },
     fontSize: {
       type: "string",
-      displayName: "Font Size Override (Optional, e.g. 18px; auto-scales via 55cqh / 18cqw)",
+      displayName: "Font Size Override (Optional, e.g. 16px; auto-scales via 55cqh / 18cqw)",
     },
     width: {
       type: "string",
-      displayName: "Width Override (Optional, e.g. 100%, 352px)",
+      displayName: "Width Override (Optional, e.g. 220px, 100%)",
     },
     height: {
       type: "string",
-      displayName: "Height Override (Optional, e.g. 44px, 64px)",
+      displayName: "Height Override (Optional, e.g. 35px, 44px)",
     },
     disabled: {
       type: "boolean",

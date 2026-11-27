@@ -9,6 +9,8 @@ import {
   EcmdBrushedSteelButton,
   BrushedSteelButton,
   DEFAULT_STEEL_GLOW_COLOR,
+  DEFAULT_STEEL_BUTTON_WIDTH,
+  DEFAULT_STEEL_BUTTON_HEIGHT,
   normalizeCssDimension,
   resolveSteelLabelSize,
   parseGlowColorToRgb,
@@ -164,15 +166,29 @@ describe("EcmdBrushedSteelButton ('Brushed Steel Button') & mobile-413 SSR Hydra
     expect(vars["--ecmd-steel-glow-2"]).toBe("rgba(84, 233, 234, 0.6)");
   });
 
-  it("preserves Version 7 container-type: size, --button-radius, calc(var(--button-radius) - 2px), fixed 160px repeating grain, container-query label sizing, lift/press physics, and prefers-reduced-motion in brushedSteelButton.css", () => {
+  it("preserves 220x35 base dimensions, 0.25px rim/bevel/border refinements, container-type: size, fixed 160px repeating grain, laser-engraved centered label, lift/press physics, and prefers-reduced-motion in brushedSteelButton.css", () => {
+    expect(DEFAULT_STEEL_BUTTON_WIDTH).toBe("220px");
+    expect(DEFAULT_STEEL_BUTTON_HEIGHT).toBe("35px");
+
     const cssPath = path.join(__dirname, "../styles/brushedSteelButton.css");
     const css = fs.readFileSync(cssPath, "utf-8");
+    expect(css).toContain("width: 220px;");
+    expect(css).toContain("height: 35px;");
     expect(css).toContain("container-type: size;");
-    expect(css).toContain("--button-radius: clamp(4px, calc(var(--button-height, 100px) * 0.11), 11px);");
+    expect(css).toContain("--button-radius: clamp(4px, calc(var(--button-height, 35px) * 0.11), 11px);");
+    expect(css).toContain("border: 0.25px solid transparent;");
+    expect(css).toContain("inset: 0.25px;");
+    expect(css).toContain("inset 0 0.25px 0.5px #fff;");
+    expect(css).toContain("inset 0.25px 0 0.5px #fff6,");
+    expect(css).toContain("inset -0.25px 0 0.5px #fff6,");
+    expect(css).toContain("inset 0 0.25px 0.5px #fff9,");
+    expect(css).toContain("inset 0 -0.25px 0.5px #ffffff80;");
     expect(css).toContain("border-radius: var(--button-radius);");
-    expect(css).toContain("border-radius: calc(var(--button-radius) - 2px);");
+    expect(css).toContain("border-radius: max(0px, calc(var(--button-radius) - 0.5px));");
     expect(css).toContain("background-repeat: repeat;");
     expect(css).toContain("background-size: 160px 160px;");
+    expect(css).toContain("place-items: center;");
+    expect(css).toContain("text-align: center;");
     expect(css).toContain("clamp(14px, min(var(--label-max, 32.2px), 55cqh, 18cqw), var(--label-max, 32.2px))");
     expect(css).toContain("conic-gradient");
     expect(css).toContain("repeating-radial-gradient");
@@ -181,6 +197,7 @@ describe("EcmdBrushedSteelButton ('Brushed Steel Button') & mobile-413 SSR Hydra
     expect(css).toContain("@media (hover: hover) and (pointer: fine)");
     expect(css).toContain("@media (prefers-reduced-motion: reduce)");
     expect(css).toContain("#39393c");
+    expect(css).toContain("-webkit-text-stroke: 0.25px #25252780;");
     expect(css).toContain("--glow-color");
     expect(css).toContain("--label-size");
     expect(css).toContain("line-height: 1;");
@@ -188,7 +205,7 @@ describe("EcmdBrushedSteelButton ('Brushed Steel Button') & mobile-413 SSR Hydra
     expect(css).toContain("overflow: hidden;");
   });
 
-  it("registers EcmdBrushedSteelButton ('Brushed Steel Button') in src/plasmic-init.ts with fontSize and #54e9ea default", async () => {
+  it("registers EcmdBrushedSteelButton ('Brushed Steel Button') in src/plasmic-init.ts with 220x35 defaultStyles, editable label prop, fontSize, and #54e9ea default", async () => {
     await import("../plasmic-init");
     const { ECMD_REGISTERED_COMPONENTS } = await import("../lib/ecmdLiveComponentTelemetry");
     const entry = ECMD_REGISTERED_COMPONENTS.find((c) => c.name === "EcmdBrushedSteelButton");
@@ -207,6 +224,7 @@ describe("EcmdBrushedSteelButton ('Brushed Steel Button') & mobile-413 SSR Hydra
     );
 
     const initSrc = fs.readFileSync(path.join(__dirname, "../plasmic-init.ts"), "utf-8");
+    expect(initSrc).toContain('defaultStyles: { width: "220px", height: "35px" }');
     expect(initSrc).toContain('defaultValue: "#54e9ea"');
   });
 
