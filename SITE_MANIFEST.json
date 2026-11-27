@@ -3,11 +3,11 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-27T23:32:28.867Z",
+  "generatedAt": "2026-11-27T23:33:45.973Z",
   "latestTurn": "TURN-051",
   "counts": {
-    "totalFiles": 332,
-    "hubFiles": 187,
+    "totalFiles": 333,
+    "hubFiles": 188,
     "runnerFiles": 116,
     "supabaseMirrorFiles": 29,
     "registeredPlasmicComponents": 17,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-27T23:32:13.188Z",
+    "exportedAt": "2026-11-27T23:33:31.626Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -966,7 +966,7 @@
       "section": "hub",
       "path": "hub/public/powershell-results.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/powershell-results.json",
-      "sizeBytes": 237,
+      "sizeBytes": 228,
       "purpose": "JSON data / config"
     },
     {
@@ -1024,6 +1024,13 @@
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_finish_routes_and_results_card.mjs",
       "sizeBytes": 6139,
       "purpose": "exports: PowerShellResultsRecord, EcmdPowerShellResultsCard"
+    },
+    {
+      "section": "hub",
+      "path": "hub/scripts/_fix_adjacent_jsx_routes.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_fix_adjacent_jsx_routes.mjs",
+      "sizeBytes": 1450,
+      "purpose": "Code module"
     },
     {
       "section": "hub",
@@ -1848,7 +1855,7 @@
       "section": "hub",
       "path": "hub/src/routes/errors.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/errors.tsx",
-      "sizeBytes": 598,
+      "sizeBytes": 615,
       "purpose": "exports: Route"
     },
     {
@@ -1876,7 +1883,7 @@
       "section": "hub",
       "path": "hub/src/routes/workflow.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/workflow.tsx",
-      "sizeBytes": 615,
+      "sizeBytes": 626,
       "purpose": "exports: Route"
     },
     {

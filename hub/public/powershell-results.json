@@ -1,7 +1,7 @@
 ﻿{
-    "updatedAt":  "2026-11-27T16:32:12.5214293-07:00",
+    "updatedAt":  "2026-11-27T16:33:30.9667142-07:00",
     "exitCode":  1,
     "summary":  "tsc exit: 2 | vitest exit: 1",
-    "source":  "PowerShell Header Copy + Auto-Clean",
+    "source":  "PowerShell JSX Wrapper Fix",
     "output":  "tsc exit: 2 | vitest exit: 1"
 }
