@@ -247,4 +247,119 @@ describe("/plasmic-host Boot & Cross-Origin Studio Iframe Handshake", () => {
       consoleErrorSpy.mockRestore();
     }
   });
+
+  it("renders a deterministic #ecmd-plasmic-host-root container on /plasmic-host and keeps suppressHydrationWarning in __root.tsx for mobile-430", async () => {
+    const routeSource = fs.readFileSync(
+      path.join(__dirname, "../routes/plasmic-host.tsx"),
+      "utf-8"
+    );
+    expect(routeSource).toMatch(/\bssr\s*:\s*false\b/);
+    expect(routeSource).toContain("ecmd-plasmic-host-root");
+    expect(routeSource).toContain("pendingComponent");
+
+    const rootSource = fs.readFileSync(
+      path.join(__dirname, "../routes/__root.tsx"),
+      "utf-8"
+    );
+    expect(rootSource).toMatch(/<html[^>]*suppressHydrationWarning/);
+    expect(rootSource).toMatch(/<head[^>]*suppressHydrationWarning/);
+    expect(rootSource).toMatch(/<body[^>]*suppressHydrationWarning/);
+
+    // Pre-populate #ecmd-plasmic-host-root as SSR pendingComponent does on mobile-430
+    const ssrContainer = document.createElement("div");
+    ssrContainer.id = "ecmd-plasmic-host-root";
+    ssrContainer.style.display = "contents";
+    document.body.appendChild(ssrContainer);
+
+    const { mountPlasmicHostClientOnly, ECMD_PLASMIC_HOST_ROOT_ID } = await import("../client");
+    window.location.hash = "#canvas=true&componentName=Homepage";
+
+    const consoleErrorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+    let mountedRoot: Awaited<ReturnType<typeof mountPlasmicHostClientOnly>> | null = null;
+    try {
+      await act(async () => {
+        mountedRoot = await mountPlasmicHostClientOnly(document);
+      });
+      await waitFor(() => {
+        expect(document.getElementById(ECMD_PLASMIC_HOST_ROOT_ID)).toBe(ssrContainer);
+        expect(document.getElementById("plasmic-app")).not.toBeNull();
+      });
+      expect(consoleErrorSpy).not.toHaveBeenCalled();
+    } finally {
+      if (mountedRoot) {
+        await act(async () => {
+          mountedRoot!.unmount();
+        });
+      }
+      ssrContainer.remove();
+      consoleErrorSpy.mockRestore();
+    }
+  });
+
+  it("suppresses benign ResizeObserver loop error notifications in DEV bridges without blocking real runtime errors", async () => {
+    const fetchSpy = vi
+      .spyOn(globalThis, "fetch")
+      .mockResolvedValue(new Response(JSON.stringify({ ok: true }), { status: 200 }));
+
+    const {
+      isBenignResizeObserverError,
+      installBenignResizeObserverErrorGuard,
+    } = await import("../client");
+    const {
+      ECMD_DEV_EARLY_ERROR_BRIDGE_SCRIPT,
+      isBenignResizeObserverError: isBenignRootRoError,
+    } = await import("../routes/__root");
+
+    expect(
+      isBenignResizeObserverError("ResizeObserver loop completed with undelivered notifications.")
+    ).toBe(true);
+    expect(isBenignResizeObserverError("ResizeObserver loop limit exceeded")).toBe(true);
+    expect(isBenignResizeObserverError("ResizeObserver loop loop limit exceeded")).toBe(true);
+    expect(isBenignRootRoError("ResizeObserver loop completed with undelivered notifications.")).toBe(
+      true
+    );
+    expect(isBenignResizeObserverError("TypeError: Cannot read properties of undefined")).toBe(
+      false
+    );
+    expect(ECMD_DEV_EARLY_ERROR_BRIDGE_SCRIPT).toContain("ResizeObserver loop");
+
+    // Reset guard flag and verify capture-phase listener suppresses ResizeObserver errors
+    // before any downstream bubble listener forwards to /__ecmd-runtime-error
+    delete (window as any).__ecmdResizeObserverGuardInstalled;
+    installBenignResizeObserverErrorGuard(window);
+
+    let downstreamCalled = false;
+    const downstreamListener = (ev: ErrorEvent) => {
+      if (String(ev.message || "").includes("ResizeObserver")) {
+        downstreamCalled = true;
+      }
+    };
+    window.addEventListener("error", downstreamListener);
+
+    try {
+      window.dispatchEvent(
+        new ErrorEvent("error", {
+          message: "ResizeObserver loop completed with undelivered notifications.",
+          cancelable: true,
+        })
+      );
+      window.dispatchEvent(
+        new ErrorEvent("error", {
+          message: "ResizeObserver loop limit exceeded",
+          cancelable: true,
+        })
+      );
+
+      expect(downstreamCalled).toBe(false);
+      const roFetchCalls = fetchSpy.mock.calls.filter(([url, init]) => {
+        if (!String(url).includes("/__ecmd-runtime-error")) return false;
+        const body = String((init as RequestInit)?.body || "");
+        return body.includes("ResizeObserver");
+      });
+      expect(roFetchCalls).toHaveLength(0);
+    } finally {
+      window.removeEventListener("error", downstreamListener);
+      fetchSpy.mockRestore();
+    }
+  });
 });

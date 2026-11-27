@@ -20,19 +20,40 @@ import {
   reportEcmdRuntimeError,
 } from "../lib/ecmdLiveComponentTelemetry";
 
+export const BENIGN_RESIZE_OBSERVER_ERROR_RE =
+  /ResizeObserver loop (?:completed with undelivered notifications|(?:loop )?limit exceeded)/i;
+
+export function isBenignResizeObserverError(input: unknown): boolean {
+  if (!input) return false;
+  const msg =
+    typeof input === "string"
+      ? input
+      : input instanceof Error
+      ? input.message || input.name
+      : typeof input === "object" && "message" in input
+      ? String((input as { message?: unknown }).message || "")
+      : String(input);
+  return BENIGN_RESIZE_OBSERVER_ERROR_RE.test(msg);
+}
+
 /**
  * Inline DEV-only early error capture script injected in <head> BEFORE module scripts.
  * Catches ESM static linking SyntaxErrors and synchronous /plasmic-host iframe boot crashes
  * before any ES module body executes, forwarding them via relative fetch("/__ecmd-runtime-error").
+ * Suppresses benign browser ResizeObserver loop notifications before any bubble listener sees them.
  */
-const ECMD_DEV_EARLY_ERROR_BRIDGE_SCRIPT = `(function(){
+export const ECMD_DEV_EARLY_ERROR_BRIDGE_SCRIPT = `(function(){
   if (typeof window === "undefined" || window.__ecmdEarlyErrorBridgeInstalled) return;
   window.__ecmdEarlyErrorBridgeInstalled = true;
   var sent = {};
+  var BENIGN_RO_RE = /ResizeObserver loop (?:completed with undelivered notifications|(?:loop )?limit exceeded)/i;
+  function isBenignRo(msg) {
+    return BENIGN_RO_RE.test(String(msg || ""));
+  }
   function sendErr(kind, message, source, line, col, stack) {
     try {
       var msg = String(message || "").trim().slice(0, 400);
-      if (!msg) return;
+      if (!msg || isBenignRo(msg)) return;
       var src = String(source || (window.location && window.location.pathname) || "unknown").slice(0, 260);
       var key = (msg + "::" + src).toLowerCase();
       var now = Date.now();
@@ -61,20 +82,30 @@ const ECMD_DEV_EARLY_ERROR_BRIDGE_SCRIPT = `(function(){
     } catch (e) {}
   }
   window.addEventListener("error", function(ev) {
-    if (window.__ecmdRuntimeErrorBridgeInstalled) return;
     var err = ev && ev.error;
     var msg = (ev && ev.message) || (err && err.message) || "Uncaught runtime error";
+    if (isBenignRo(msg)) {
+      if (ev && typeof ev.stopImmediatePropagation === "function") ev.stopImmediatePropagation();
+      if (ev && typeof ev.preventDefault === "function") ev.preventDefault();
+      return;
+    }
+    if (window.__ecmdRuntimeErrorBridgeInstalled) return;
     var file = (ev && ev.filename) || (window.location && window.location.pathname) || "unknown";
     var src = ev && ev.lineno ? file + ":" + ev.lineno + (ev.colno ? ":" + ev.colno : "") : file;
     sendErr("error", msg, src, ev && ev.lineno, ev && ev.colno, err && err.stack);
-  });
+  }, true);
   window.addEventListener("unhandledrejection", function(ev) {
-    if (window.__ecmdRuntimeErrorBridgeInstalled) return;
     var r = ev && ev.reason;
     var msg = r && typeof r === "object" && r.message ? r.message : String(r || "Unhandled promise rejection");
+    if (isBenignRo(msg)) {
+      if (ev && typeof ev.stopImmediatePropagation === "function") ev.stopImmediatePropagation();
+      if (ev && typeof ev.preventDefault === "function") ev.preventDefault();
+      return;
+    }
+    if (window.__ecmdRuntimeErrorBridgeInstalled) return;
     var stack = r && typeof r === "object" && r.stack ? r.stack : msg;
     sendErr("unhandledrejection", msg, "unhandledrejection@" + ((window.location && window.location.pathname) || "/"), null, null, stack);
-  });
+  }, true);
 })();`;
 
 function NotFoundComponent() {
@@ -104,7 +135,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
   const router = useRouter();
   useEffect(() => {
     reportLovableError(error, { boundary: "tanstack_root_error_component" });
-    if (import.meta.env.DEV) {
+    if (import.meta.env.DEV && !isBenignResizeObserverError(error)) {
       reportEcmdRuntimeError(error, "tanstack-root-error-boundary");
     }
   }, [error]);
@@ -179,7 +210,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
-      <head>
+      <head suppressHydrationWarning>
         <HeadContent />
         {import.meta.env.DEV && (
           <script

@@ -3,8 +3,8 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-27T22:18:21.983Z",
-  "latestTurn": "TURN-050",
+  "generatedAt": "2026-11-27T22:37:02.683Z",
+  "latestTurn": "TURN-051",
   "counts": {
     "totalFiles": 320,
     "hubFiles": 175,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-27T22:18:08.799Z",
+    "exportedAt": "2026-11-27T22:36:47.195Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -165,7 +165,7 @@
       },
       {
         "table_name": "ecmd_pen_turns",
-        "row_count": 48,
+        "row_count": 49,
         "rls_enabled": false,
         "mirrored": true
       },
@@ -896,7 +896,7 @@
       "section": "hub",
       "path": "hub/public/ai-telemetry.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json",
-      "sizeBytes": 4061,
+      "sizeBytes": 2424,
       "purpose": "ECMD PEN live turn telemetry"
     },
     {
@@ -973,7 +973,7 @@
       "section": "hub",
       "path": "hub/public/runtime-errors.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/runtime-errors.json",
-      "sizeBytes": 2680,
+      "sizeBytes": 80,
       "purpose": "DEV browser runtime errors store"
     },
     {
@@ -1029,8 +1029,8 @@
       "section": "hub",
       "path": "hub/src/client.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/client.tsx",
-      "sizeBytes": 2288,
-      "purpose": "exports: ECMD_PLASMIC_HOST_ROOT_ID, isPlasmicHostPathname, mountPlasmicHostClientOnly, bootstrapEcmdClient"
+      "sizeBytes": 4107,
+      "purpose": "exports: ECMD_PLASMIC_HOST_ROOT_ID, BENIGN_RESIZE_OBSERVER_ERROR_RE, isBenignResizeObserverError, installBenignResizeObserverErrorGuard, isPlasmicHostPathname, mountPlasmicHostClientOnly"
     },
     {
       "section": "hub",
@@ -1757,8 +1757,8 @@
       "section": "hub",
       "path": "hub/src/routes/__root.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/__root.tsx",
-      "sizeBytes": 9078,
-      "purpose": "exports: Route"
+      "sizeBytes": 10520,
+      "purpose": "exports: BENIGN_RESIZE_OBSERVER_ERROR_RE, isBenignResizeObserverError, ECMD_DEV_EARLY_ERROR_BRIDGE_SCRIPT, Route"
     },
     {
       "section": "hub",
@@ -1778,8 +1778,8 @@
       "section": "hub",
       "path": "hub/src/routes/plasmic-host.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/plasmic-host.tsx",
-      "sizeBytes": 434,
-      "purpose": "exports: Route"
+      "sizeBytes": 1050,
+      "purpose": "exports: ECMD_PLASMIC_HOST_ROOT_ID, Route"
     },
     {
       "section": "hub",
@@ -1911,7 +1911,7 @@
       "section": "hub",
       "path": "hub/src/test/plasmic-host-boot.test.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/plasmic-host-boot.test.tsx",
-      "sizeBytes": 10509,
+      "sizeBytes": 15066,
       "purpose": "Vitest automated test suite"
     },
     {
@@ -2933,7 +2933,7 @@
       "section": "supabase-mirror",
       "path": "supabase-mirror/tables/ecmd_pen_turns.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_pen_turns.json",
-      "sizeBytes": 438030,
+      "sizeBytes": 444602,
       "purpose": "Supabase public.ecmd_pen_turns table snapshot (scrubbed)"
     },
     {
