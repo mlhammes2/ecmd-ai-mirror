@@ -3,11 +3,11 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-27T23:07:32.328Z",
+  "generatedAt": "2026-11-27T23:10:34.231Z",
   "latestTurn": "TURN-051",
   "counts": {
-    "totalFiles": 327,
-    "hubFiles": 182,
+    "totalFiles": 328,
+    "hubFiles": 183,
     "runnerFiles": 116,
     "supabaseMirrorFiles": 29,
     "registeredPlasmicComponents": 17,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-27T23:07:17.775Z",
+    "exportedAt": "2026-11-27T23:10:22.024Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -966,7 +966,7 @@
       "section": "hub",
       "path": "hub/public/powershell-results.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/powershell-results.json",
-      "sizeBytes": 269,
+      "sizeBytes": 327,
       "purpose": "JSON data / config"
     },
     {
@@ -980,7 +980,7 @@
       "section": "hub",
       "path": "hub/public/runtime-errors.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/runtime-errors.json",
-      "sizeBytes": 11102,
+      "sizeBytes": 20282,
       "purpose": "DEV browser runtime errors store"
     },
     {
@@ -1010,6 +1010,13 @@
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_fix_boot_prompt.mjs",
       "sizeBytes": 2019,
       "purpose": "Code module"
+    },
+    {
+      "section": "hub",
+      "path": "hub/scripts/_fix_routes_and_copy_card.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_fix_routes_and_copy_card.mjs",
+      "sizeBytes": 5762,
+      "purpose": "exports: PowerShellResultsPayload, EcmdPowerShellResultsCard"
     },
     {
       "section": "hub",
@@ -1190,8 +1197,8 @@
       "section": "hub",
       "path": "hub/src/components/EcmdPowerShellResultsCard.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdPowerShellResultsCard.tsx",
-      "sizeBytes": 3990,
-      "purpose": "exports: PowerShellResultsData, EcmdPowerShellResultsCard"
+      "sizeBytes": 4026,
+      "purpose": "exports: PowerShellResultsPayload, EcmdPowerShellResultsCard"
     },
     {
       "section": "hub",
