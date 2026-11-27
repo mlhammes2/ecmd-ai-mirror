@@ -3,11 +3,11 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-27T23:16:49.373Z",
+  "generatedAt": "2026-11-27T23:24:13.477Z",
   "latestTurn": "TURN-051",
   "counts": {
-    "totalFiles": 330,
-    "hubFiles": 185,
+    "totalFiles": 331,
+    "hubFiles": 186,
     "runnerFiles": 116,
     "supabaseMirrorFiles": 29,
     "registeredPlasmicComponents": 17,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-27T23:16:36.499Z",
+    "exportedAt": "2026-11-27T23:23:59.613Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -959,14 +959,14 @@
       "section": "hub",
       "path": "hub/public/plasmic-live-dom.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/plasmic-live-dom.json",
-      "sizeBytes": 3130979,
+      "sizeBytes": 3155526,
       "purpose": "JSON data / config"
     },
     {
       "section": "hub",
       "path": "hub/public/powershell-results.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/powershell-results.json",
-      "sizeBytes": 332,
+      "sizeBytes": 287,
       "purpose": "JSON data / config"
     },
     {
@@ -980,7 +980,7 @@
       "section": "hub",
       "path": "hub/public/runtime-errors.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/runtime-errors.json",
-      "sizeBytes": 29462,
+      "sizeBytes": 3,
       "purpose": "DEV browser runtime errors store"
     },
     {
@@ -1009,6 +1009,13 @@
       "path": "hub/scripts/_clean_boot_prompt_tail.mjs",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_clean_boot_prompt_tail.mjs",
       "sizeBytes": 2509,
+      "purpose": "Code module"
+    },
+    {
+      "section": "hub",
+      "path": "hub/scripts/_clear_stale_runtime_errors.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_clear_stale_runtime_errors.mjs",
+      "sizeBytes": 468,
       "purpose": "Code module"
     },
     {
