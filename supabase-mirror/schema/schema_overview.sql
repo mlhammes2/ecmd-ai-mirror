@@ -1,6 +1,6 @@
 -- ============================================================================
 -- ECMD Supabase Schema Overview (lvynkeuceiqxafgpgdvs)
--- Generated: 2026-11-27T23:34:40.346Z
+-- Generated: 2026-11-27T23:55:14.346Z
 -- Public schema tables, columns, constraints, triggers, RLS policies & custom SQL functions
 -- ============================================================================
 

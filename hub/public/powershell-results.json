@@ -1,7 +1,7 @@
 ﻿{
-    "updatedAt":  "2026-11-27T16:34:37.5156770-07:00",
-    "exitCode":  0,
-    "summary":  "Defined handleHeaderCopyErrors; tsc: 0 errors, all 24 vitest suites passed.",
-    "source":  "PowerShell Define handleHeaderCopyErrors",
-    "output":  "tsc exit: 0 | vitest exit: 0"
+    "updatedAt":  "2026-11-27T16:55:09.7598051-07:00",
+    "exitCode":  1,
+    "summary":  "tsc exit: 2 | vitest exit: 1 (expected if another file/test still imports a removed component)",
+    "source":  "PowerShell Remove 11 Components",
+    "output":  "tsc exit: 2 | vitest exit: 1"
 }
