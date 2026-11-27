@@ -1,7 +1,7 @@
 ﻿{
-    "updatedAt":  "2026-11-27T16:55:09.7598051-07:00",
+    "updatedAt":  "2026-11-27T16:57:13.8239540-07:00",
     "exitCode":  1,
-    "summary":  "tsc exit: 2 | vitest exit: 1 (expected if another file/test still imports a removed component)",
-    "source":  "PowerShell Remove 11 Components",
+    "summary":  "tsc exit: 2 | vitest exit: 1",
+    "source":  "PowerShell Prune Removed Components",
     "output":  "tsc exit: 2 | vitest exit: 1"
 }
