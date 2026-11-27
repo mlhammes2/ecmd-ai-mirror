@@ -1,6 +1,6 @@
 -- ============================================================================
 -- ECMD Supabase Schema Overview (lvynkeuceiqxafgpgdvs)
--- Generated: 2026-11-27T22:37:47.298Z
+-- Generated: 2026-11-27T22:49:15.223Z
 -- Public schema tables, columns, constraints, triggers, RLS policies & custom SQL functions
 -- ============================================================================
 
@@ -390,7 +390,7 @@ CREATE TABLE IF NOT EXISTS public.ecmd_packages (
 --   CONSTRAINT ecmd_packages_pkey (PRIMARY KEY): PRIMARY KEY (id)
 --   CONSTRAINT ecmd_packages_slug_key (UNIQUE): UNIQUE (slug)
 
--- Table: public.ecmd_pen_turns (rows: 49, rls: OFF)
+-- Table: public.ecmd_pen_turns (rows: 50, rls: OFF)
 CREATE TABLE IF NOT EXISTS public.ecmd_pen_turns (
   ref_code text NOT NULL,
   created_at timestamp with time zone DEFAULT now(),
