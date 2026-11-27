@@ -1,7 +1,35 @@
 {
-  "updatedAt": "2026-11-27T22:59:17.324Z",
-  "totalCount": 2,
+  "updatedAt": "2026-11-27T23:06:36.507Z",
+  "totalCount": 4,
   "errors": [
+    {
+      "id": "rt::21f62e69",
+      "kind": "error",
+      "message": "Failed to fetch dynamically imported module: http://localhost:8080/src/routes/workflow.tsx?t=1795820729755&tsr-split=component",
+      "source": "tanstack-root-error-boundary",
+      "line": null,
+      "column": null,
+      "stackPreview": "TypeError: Failed to fetch dynamically imported module: http://localhost:8080/src/routes/workflow.tsx?t=1795820729755&tsr-split=component",
+      "url": "http://localhost:8080/workflow",
+      "artboardTag": "desktop-1313",
+      "viewportMode": "desktop",
+      "timestamp": "2026-11-27T23:06:36.504Z",
+      "count": 1
+    },
+    {
+      "id": "rt::f5fa3713",
+      "kind": "error",
+      "message": "Uncaught Error: Switched to client rendering because the server rendering errored:\n\nTransform failed with 1 error:\n\n\u001b[31m[PARSE_ERROR] \u001b[0mUnterminated string\n    \u001b[38;5;246m╭\u001b[0m\u001b[38;5;246m─\u001b[0m\u001b[38;5;246m[\u001b[0m src/lib/ecmdBootPrompt.ts:1:41 \u001b[38;5;246m]\u001b[0m\n    \u001b[38;5;246m│\u001b[0m\n \u001b[38;5;246m 1 │\u001b[0m ╭─▶ \u001b[38;5;249me\u001b[0m\u001b[38;5;249mx\u001b[0m\u001b[38;5;249mp\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mt\u001b[",
+      "source": "http://localhost:8080/node_modules/.vite/deps/client-Bra8Y0a0.js?v=dd239da2:5468:4",
+      "line": 5468,
+      "column": 4,
+      "stackPreview": "Switched to client rendering because the server rendering errored:\n\nError: Transform failed with 1 error:\n\n\u001b[31m[PARSE_ERROR] \u001b[0mUnterminated string\n    \u001b[38;5;246m╭\u001b[0m\u001b[38;5;246m─\u001b[0m\u001b[38;5;246m[\u001b[0m src/lib/ecmdBootPrompt.ts:1:41 \u001b[38;5;246m]\u001b[0m",
+      "url": "http://localhost:8080/workflow",
+      "artboardTag": "desktop-1313",
+      "viewportMode": "desktop",
+      "timestamp": "2026-11-27T23:06:36.376Z",
+      "count": 1
+    },
     {
       "id": "rt::3a33cb9a",
       "kind": "unhandledrejection",

@@ -3,11 +3,11 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-27T23:06:02.864Z",
+  "generatedAt": "2026-11-27T23:07:32.328Z",
   "latestTurn": "TURN-051",
   "counts": {
-    "totalFiles": 326,
-    "hubFiles": 181,
+    "totalFiles": 327,
+    "hubFiles": 182,
     "runnerFiles": 116,
     "supabaseMirrorFiles": 29,
     "registeredPlasmicComponents": 17,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-27T23:05:48.423Z",
+    "exportedAt": "2026-11-27T23:07:17.775Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -966,7 +966,7 @@
       "section": "hub",
       "path": "hub/public/powershell-results.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/powershell-results.json",
-      "sizeBytes": 225,
+      "sizeBytes": 269,
       "purpose": "JSON data / config"
     },
     {
@@ -980,7 +980,7 @@
       "section": "hub",
       "path": "hub/public/runtime-errors.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/runtime-errors.json",
-      "sizeBytes": 9164,
+      "sizeBytes": 11102,
       "purpose": "DEV browser runtime errors store"
     },
     {
@@ -1017,6 +1017,13 @@
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_repair_boot_prompt_clean.mjs",
       "sizeBytes": 3074,
       "purpose": "Code module"
+    },
+    {
+      "section": "hub",
+      "path": "hub/scripts/_write_clean_boot_prompt.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_write_clean_boot_prompt.mjs",
+      "sizeBytes": 2607,
+      "purpose": "exports: ECMD_SIDEBAR_BOOT_PROMPT"
     },
     {
       "section": "hub",
@@ -1659,7 +1666,7 @@
       "section": "hub",
       "path": "hub/src/lib/ecmdBootPrompt.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdBootPrompt.ts",
-      "sizeBytes": 27681,
+      "sizeBytes": 2192,
       "purpose": "exports: ECMD_SIDEBAR_BOOT_PROMPT"
     },
     {

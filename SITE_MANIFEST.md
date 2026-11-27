@@ -4,11 +4,11 @@
 > Chrome Gemini Sidebar & external architects: fetch this manifest first, then fetch any exact raw GitHub URL below on demand.
 
 ## Summary
-- **Generated At:** `2026-11-27T23:06:02.864Z`
+- **Generated At:** `2026-11-27T23:07:32.328Z`
 - **Latest Turn:** `TURN-051`
 - **Manifest Raw URL:** https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md
 - **JSON Manifest Raw URL:** https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.json
-- **Mirrored Files:** **326** total (`hub/`: 181, `runner/`: 116, `supabase-mirror/`: 29)
+- **Mirrored Files:** **327** total (`hub/`: 182, `runner/`: 116, `supabase-mirror/`: 29)
 - **Secrets Scrubbed:** 76 redaction(s) applied (zero `.env*`, zero auth/PII tables exported)
 
 ## Supabase Summary (`lvynkeuceiqxafgpgdvs`)
@@ -145,7 +145,7 @@
 - `supabase-mirror/tables/ecmd_wix_site_buttons.json` (89.3 KB) — Supabase public.ecmd_wix_site_buttons table snapshot (scrubbed) — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_site_buttons.json
 - `supabase-mirror/tables/ecmd_wix_vehicle_categories.json` (10.7 KB) — Supabase public.ecmd_wix_vehicle_categories table snapshot (scrubbed) — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_vehicle_categories.json
 
-## Files: `hub/` (181)
+## Files: `hub/` (182)
 | Path | Size | Exports / Purpose | Raw GitHub URL |
 |---|---:|---|---|
 | `hub/.gitignore` | 385 B | Text/config file | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/.gitignore |
@@ -168,14 +168,15 @@
 | `hub/public/plasmic-diagnostics.json` | 144.6 KB | Plasmic Canvas live diagnostics store | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/plasmic-diagnostics.json |
 | `hub/public/plasmic-layout-hydration.json` | 3.5 KB | JSON data / config | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/plasmic-layout-hydration.json |
 | `hub/public/plasmic-live-dom.json` | 2.99 MB | JSON data / config | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/plasmic-live-dom.json |
-| `hub/public/powershell-results.json` | 225 B | JSON data / config | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/powershell-results.json |
+| `hub/public/powershell-results.json` | 269 B | JSON data / config | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/powershell-results.json |
 | `hub/public/robots.txt` | 174 B | Text/config file | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/robots.txt |
-| `hub/public/runtime-errors.json` | 8.9 KB | DEV browser runtime errors store | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/runtime-errors.json |
+| `hub/public/runtime-errors.json` | 10.8 KB | DEV browser runtime errors store | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/runtime-errors.json |
 | `hub/README.md` | 1.1 KB | Doc: Emerald Coast Detailing Hub | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/README.md |
 | `hub/scripts/_apply_workflow_and_copy_ui.mjs` | 7.8 KB | exports: PowerShellResultsData, EcmdPowerShellResultsCard | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_apply_workflow_and_copy_ui.mjs |
 | `hub/scripts/_clean_boot_prompt_tail.mjs` | 2.5 KB | Code module | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_clean_boot_prompt_tail.mjs |
 | `hub/scripts/_fix_boot_prompt.mjs` | 2.0 KB | Code module | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_fix_boot_prompt.mjs |
 | `hub/scripts/_repair_boot_prompt_clean.mjs` | 3.0 KB | Code module | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_repair_boot_prompt_clean.mjs |
+| `hub/scripts/_write_clean_boot_prompt.mjs` | 2.5 KB | exports: ECMD_SIDEBAR_BOOT_PROMPT | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_write_clean_boot_prompt.mjs |
 | `hub/scripts/archive-wix-vault.mjs` | 9.9 KB | exports: runSql, escapeSql, getCategory, getDescription, main | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/archive-wix-vault.mjs |
 | `hub/scripts/ecmd-sql.mjs` | 440 B | Code module | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/ecmd-sql.mjs |
 | `hub/scripts/fix-plasmic-shorthands.mjs` | 2.1 KB | Code module | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/fix-plasmic-shorthands.mjs |
@@ -267,7 +268,7 @@
 | `hub/src/engines/stateManager.ts` | 1.8 KB | exports: BookingDraftState, stateManager | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/engines/stateManager.ts |
 | `hub/src/hooks/use-mobile.tsx` | 595 B | exports: useIsMobile | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/hooks/use-mobile.tsx |
 | `hub/src/integrations/supabase/client.ts` | 2.3 KB | exports: SUPABASE_URL, BRIDGE_URL, BRIDGE_KEY, carbonBridge, carbonQuery, carbonInsert | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/integrations/supabase/client.ts |
-| `hub/src/lib/ecmdBootPrompt.ts` | 27.0 KB | exports: ECMD_SIDEBAR_BOOT_PROMPT | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdBootPrompt.ts |
+| `hub/src/lib/ecmdBootPrompt.ts` | 2.1 KB | exports: ECMD_SIDEBAR_BOOT_PROMPT | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdBootPrompt.ts |
 | `hub/src/lib/ecmdLiveComponentTelemetry.ts` | 35.0 KB | exports: ALLOWED_PLASMIC_TOKEN_TYPES, AllowedPlasmicTokenType, RuntimeErrorEntry, RuntimeErrorsStore, EcmdRegisteredComponentMeta, ECMD_REGISTERED_COMPONENTS | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdLiveComponentTelemetry.ts |
 | `hub/src/lib/ecmdPackageMatcher.ts` | 18.6 KB | exports: PackageLevelName, PackageDetailType, PackageScopeKey, PackageSubCategory, EcmdVehicleKey, EcmdServicePackageRow | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdPackageMatcher.ts |
 | `hub/src/lib/ecmdRootSizing.ts` | 3.9 KB | exports: ECMD_ROOT_SIZING_STYLE_ID, ECMD_ROOT_SIZING_CSS, ensureEcmdRootSizingStyles | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdRootSizing.ts |

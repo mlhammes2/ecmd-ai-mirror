@@ -1,7 +1,7 @@
 ﻿{
-    "updatedAt":  "2026-11-27T16:05:45.4982246-07:00",
-    "exitCode":  1,
-    "summary":  "tsc exit: 2 | vitest exit: 1",
-    "source":  "PowerShell Clean Repair",
-    "output":  "tsc exit: 2 | vitest exit: 1"
+    "updatedAt":  "2026-11-27T16:07:15.0720304-07:00",
+    "exitCode":  0,
+    "summary":  "Success! tsc: 0 errors and all 24 vitest test files passed.",
+    "source":  "PowerShell Boot Prompt Clean Rebuild",
+    "output":  "tsc exit: 0 | vitest exit: 0"
 }
