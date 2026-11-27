@@ -3,11 +3,11 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-27T23:04:33.483Z",
+  "generatedAt": "2026-11-27T23:06:02.864Z",
   "latestTurn": "TURN-051",
   "counts": {
-    "totalFiles": 325,
-    "hubFiles": 180,
+    "totalFiles": 326,
+    "hubFiles": 181,
     "runnerFiles": 116,
     "supabaseMirrorFiles": 29,
     "registeredPlasmicComponents": 17,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-27T23:04:17.607Z",
+    "exportedAt": "2026-11-27T23:05:48.423Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -966,7 +966,7 @@
       "section": "hub",
       "path": "hub/public/powershell-results.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/powershell-results.json",
-      "sizeBytes": 231,
+      "sizeBytes": 225,
       "purpose": "JSON data / config"
     },
     {
@@ -1009,6 +1009,13 @@
       "path": "hub/scripts/_fix_boot_prompt.mjs",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_fix_boot_prompt.mjs",
       "sizeBytes": 2019,
+      "purpose": "Code module"
+    },
+    {
+      "section": "hub",
+      "path": "hub/scripts/_repair_boot_prompt_clean.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_repair_boot_prompt_clean.mjs",
+      "sizeBytes": 3074,
       "purpose": "Code module"
     },
     {
@@ -1652,7 +1659,7 @@
       "section": "hub",
       "path": "hub/src/lib/ecmdBootPrompt.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdBootPrompt.ts",
-      "sizeBytes": 27782,
+      "sizeBytes": 27681,
       "purpose": "exports: ECMD_SIDEBAR_BOOT_PROMPT"
     },
     {

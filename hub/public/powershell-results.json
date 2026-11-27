@@ -1,7 +1,7 @@
 ﻿{
-    "updatedAt":  "2026-11-27T16:04:14.6341307-07:00",
+    "updatedAt":  "2026-11-27T16:05:45.4982246-07:00",
     "exitCode":  1,
-    "summary":  "Check tsc (2) or vitest (1).",
-    "source":  "PowerShell Boot Prompt Repair",
+    "summary":  "tsc exit: 2 | vitest exit: 1",
+    "source":  "PowerShell Clean Repair",
     "output":  "tsc exit: 2 | vitest exit: 1"
 }
