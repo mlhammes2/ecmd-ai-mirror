@@ -1,7 +1,7 @@
 ﻿{
-    "updatedAt":  "2026-11-27T16:01:09.2457230-07:00",
+    "updatedAt":  "2026-11-27T16:04:14.6341307-07:00",
     "exitCode":  1,
-    "summary":  "Repaired ecmdBootPrompt.ts; check tsc (2) or vitest (1) output.",
-    "source":  "PowerShell Fix Script",
+    "summary":  "Check tsc (2) or vitest (1).",
+    "source":  "PowerShell Boot Prompt Repair",
     "output":  "tsc exit: 2 | vitest exit: 1"
 }

@@ -3,11 +3,11 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-27T23:01:25.994Z",
+  "generatedAt": "2026-11-27T23:04:33.483Z",
   "latestTurn": "TURN-051",
   "counts": {
-    "totalFiles": 324,
-    "hubFiles": 179,
+    "totalFiles": 325,
+    "hubFiles": 180,
     "runnerFiles": 116,
     "supabaseMirrorFiles": 29,
     "registeredPlasmicComponents": 17,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-27T23:01:12.395Z",
+    "exportedAt": "2026-11-27T23:04:17.607Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -966,7 +966,7 @@
       "section": "hub",
       "path": "hub/public/powershell-results.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/powershell-results.json",
-      "sizeBytes": 258,
+      "sizeBytes": 231,
       "purpose": "JSON data / config"
     },
     {
@@ -996,6 +996,13 @@
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_apply_workflow_and_copy_ui.mjs",
       "sizeBytes": 8004,
       "purpose": "exports: PowerShellResultsData, EcmdPowerShellResultsCard"
+    },
+    {
+      "section": "hub",
+      "path": "hub/scripts/_clean_boot_prompt_tail.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_clean_boot_prompt_tail.mjs",
+      "sizeBytes": 2509,
+      "purpose": "Code module"
     },
     {
       "section": "hub",
@@ -1645,7 +1652,7 @@
       "section": "hub",
       "path": "hub/src/lib/ecmdBootPrompt.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdBootPrompt.ts",
-      "sizeBytes": 27781,
+      "sizeBytes": 27782,
       "purpose": "exports: ECMD_SIDEBAR_BOOT_PROMPT"
     },
     {
