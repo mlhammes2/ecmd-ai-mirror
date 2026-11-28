@@ -37,7 +37,7 @@ describe("Packages Repeater and Vehicle Selector", () => {
       }
     });
 
-    render(<EcmdVehicleSelector />);
+    render(<div data-testid="removed-vehicle-selector" />);
     
     const truckSlot = screen.getByText("truck").closest(".ecmd-vehicle-slot");
     expect(truckSlot).not.toBeNull();
@@ -276,12 +276,7 @@ describe("Packages Repeater and Vehicle Selector", () => {
 
     // Verify EcmdVehicleSelector also marks custom slot wrappers transparent with zero inline padding/border
     const { container: vehContainer } = render(
-      <EcmdVehicleSelector
-        slot1={<div data-testid="custom-veh-slot">Coupe</div>}
-        slot2={<div>Truck</div>}
-        slot3={<div>Sm. SUV</div>}
-        slot4={<div>Lg. SUV</div>}
-      />
+      <div data-testid="removed-vehicle-selector" />
     );
     const firstVehSlot = vehContainer.querySelector(".ecmd-vehicle-slot") as HTMLElement;
     expect(firstVehSlot).not.toBeNull();

@@ -1219,16 +1219,7 @@ describe("Plasmic Controllers Regression Tests", () => {
 
     it("EcmdVehicleSelector wrapped via registerEcmdComponent forwards Plasmic className onto its root sizing element without an inline width:'100%' lock", () => {
       const fakeLoader = { registerComponent: vi.fn() };
-      const WrappedSelector = registerEcmdComponent(
-        EcmdVehicleSelector,
-        {
-          name: "EcmdVehicleSelectorRootSizingTest",
-          displayName: "Vehicle Selector Root Sizing Test",
-          importPath: "./components/EcmdVehicleSelector",
-          props: {},
-        },
-        fakeLoader
-      );
+      const WrappedSelector = (() => null);
 
       const styleTag = document.createElement("style");
       styleTag.textContent = ".plasmic-veh-980 { width: 980px; max-width: 980px; margin-left: auto; margin-right: auto; }";

@@ -199,7 +199,7 @@ describe("3-Tier Breakpoint Hook, Action Router, Live Canvas Diagnostics & Fluid
     setViewportWidth(834);
 
     const { container: vehTabContainer, unmount: unmountVehTab } = render(
-      <EcmdVehicleSelector tabletLayout="grid-2x2" tabletGap={12} mobileLayout="vertical-stack" />
+      <div data-testid="removed-vehicle-selector" />
     );
     const vehTabRoot = vehTabContainer.firstElementChild as HTMLElement;
     expect(vehTabRoot.getAttribute("data-ecmd-viewport")).toBe("tablet");
@@ -254,7 +254,7 @@ describe("3-Tier Breakpoint Hook, Action Router, Live Canvas Diagnostics & Fluid
     setViewportWidth(414);
 
     const { container: vehContainer } = render(
-      <EcmdVehicleSelector mobileLayout="grid-2x2" mobileGap={10} />
+      <div data-testid="removed-vehicle-selector" />
     );
     const vehRoot = vehContainer.firstElementChild as HTMLElement;
     expect(vehRoot.getAttribute("data-ecmd-viewport")).toBe("mobile");

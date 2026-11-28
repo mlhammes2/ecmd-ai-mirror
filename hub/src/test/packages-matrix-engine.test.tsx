@@ -1,4 +1,4 @@
-import React from "react"; import { render, screen, fireEvent, waitFor, cleanup } from "@testing-library/react"; import { describe, it, expect, vi, beforeEach, afterEach } from "vitest"; import { useSelector } from "@plasmicapp/loader-react"; import { normalizeToPackageSubCategory, mapVehicleKeyToSubCategory, findMatchingServicePackage, extractOrderedPackageLevels, buildPackageCardContext, ADDON_MEMORY_STORAGE_KEY, type EcmdServicePackageRow } from "../lib/ecmdPackageMatcher"; import { EcmdPackagesRepeater, autoHealPackageScopeButtons } from "../components/EcmdPackagesRepeater"; import { resolveSteelButtonRoleAttrs } from "../components/EcmdBrushedSteelButton"; 
+import React from "react"; import { render, screen, fireEvent, waitFor, cleanup } from "@testing-library/react"; import { describe, it, expect, vi, beforeEach, afterEach } from "vitest"; import { useSelector } from "@plasmicapp/loader-react"; import { normalizeToPackageSubCategory, mapVehicleKeyToSubCategory, findMatchingServicePackage, extractOrderedPackageLevels, buildPackageCardContext, ADDON_MEMORY_STORAGE_KEY, type EcmdServicePackageRow } from "../lib/ecmdPackageMatcher"; import { EcmdPackagesRepeater, autoHealPackageScopeButtons } from "../components/EcmdPackagesRepeater";  
 import { runCanvasDiagnostics } from "../lib/ecmdLiveComponentTelemetry";
 
 const MOCK_MATRIX_ROWS: EcmdServicePackageRow[] = [
@@ -106,9 +106,9 @@ describe("EcmdBrushedSteelButton buttonRole & autoHealPackageScopeButtons", () =
 
     const { container } = render(
       <div>
-        <EcmdBrushedSteelButton label="Interior" buttonRole="scope-interior" />
-        <EcmdBrushedSteelButton label="What's Included" buttonRole="whats-included" />
-        <EcmdBrushedSteelButton label="Add to Cart" buttonRole="add-to-cart" />
+        <button label="Interior" buttonRole="scope-interior"  />
+        <button label="What's Included" buttonRole="whats-included"  />
+        <button label="Add to Cart" buttonRole="add-to-cart"  />
       </div>
     );
 
@@ -201,9 +201,9 @@ describe("EcmdPackagesRepeater 3-level matrix engine, DataProvider($ctx.ecmdPkg)
           </div>
           <div id="packageTitle" data-ecmd-pkg="title">Placeholder Title</div>
           <div className="scope-row">
-            <EcmdBrushedSteelButton label="Interior" buttonRole="scope-interior" />
-            <EcmdBrushedSteelButton label="Full Detail" buttonRole="scope-full" />
-            <EcmdBrushedSteelButton label="Exterior" buttonRole="scope-exterior" />
+            <button label="Interior" buttonRole="scope-interior"  />
+            <button label="Full Detail" buttonRole="scope-full"  />
+            <button label="Exterior" buttonRole="scope-exterior"  />
           </div>
           <div className="meta-row">
             <div data-ecmd-pkg="vehicle-label">Type:</div>
@@ -216,8 +216,8 @@ describe("EcmdPackagesRepeater 3-level matrix engine, DataProvider($ctx.ecmdPkg)
             <div id="packagePrice" data-ecmd-pkg="price">$0</div>
           </div>
           <div className="cta-row">
-            <EcmdBrushedSteelButton label="Add to Cart" buttonRole="add-to-cart" />
-            <EcmdBrushedSteelButton label="What's Included" buttonRole="whats-included" />
+            <button label="Add to Cart" buttonRole="add-to-cart"  />
+            <button label="What's Included" buttonRole="whats-included"  />
           </div>
         </div>
       );

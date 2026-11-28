@@ -3,11 +3,11 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-28T00:02:50.386Z",
+  "generatedAt": "2026-11-28T00:04:56.346Z",
   "latestTurn": "TURN-051",
   "counts": {
-    "totalFiles": 321,
-    "hubFiles": 176,
+    "totalFiles": 323,
+    "hubFiles": 178,
     "runnerFiles": 116,
     "supabaseMirrorFiles": 29,
     "registeredPlasmicComponents": 6,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-28T00:02:34.923Z",
+    "exportedAt": "2026-11-28T00:04:41.173Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -846,7 +846,7 @@
       "section": "hub",
       "path": "hub/public/powershell-results.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/powershell-results.json",
-      "sizeBytes": 229,
+      "sizeBytes": 248,
       "purpose": "JSON data / config"
     },
     {
@@ -860,7 +860,7 @@
       "section": "hub",
       "path": "hub/public/runtime-errors.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/runtime-errors.json",
-      "sizeBytes": 3,
+      "sizeBytes": 31625,
       "purpose": "DEV browser runtime errors store"
     },
     {
@@ -963,6 +963,13 @@
     },
     {
       "section": "hub",
+      "path": "hub/scripts/_ps_output_box_and_tests.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_ps_output_box_and_tests.mjs",
+      "sizeBytes": 6677,
+      "purpose": "exports: EcmdDedicatedPsOutputBox, loadPs, copyPs"
+    },
+    {
+      "section": "hub",
       "path": "hub/scripts/_remove_11_components.mjs",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_remove_11_components.mjs",
       "sizeBytes": 3194,
@@ -1002,6 +1009,13 @@
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/fix-plasmic-shorthands.mjs",
       "sizeBytes": 2113,
       "purpose": "Code module"
+    },
+    {
+      "section": "hub",
+      "path": "hub/scripts/run-ps-logged.ps1",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/run-ps-logged.ps1",
+      "sizeBytes": 1328,
+      "purpose": "PowerShell automation script"
     },
     {
       "section": "hub",
@@ -1693,7 +1707,7 @@
       "section": "hub",
       "path": "hub/src/routes/errors.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/errors.tsx",
-      "sizeBytes": 981,
+      "sizeBytes": 4662,
       "purpose": "exports: Route"
     },
     {
@@ -1721,7 +1735,7 @@
       "section": "hub",
       "path": "hub/src/routes/workflow.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/workflow.tsx",
-      "sizeBytes": 992,
+      "sizeBytes": 4673,
       "purpose": "exports: Route"
     },
     {
@@ -1770,7 +1784,7 @@
       "section": "hub",
       "path": "hub/src/test/ecmd-telemetry-breakpoint.test.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/ecmd-telemetry-breakpoint.test.tsx",
-      "sizeBytes": 23621,
+      "sizeBytes": 23559,
       "purpose": "exports: setViewportWidth, BreakpointProbe"
     },
     {
@@ -1791,35 +1805,35 @@
       "section": "hub",
       "path": "hub/src/test/packages-matrix-engine.test.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/packages-matrix-engine.test.tsx",
-      "sizeBytes": 16945,
+      "sizeBytes": 16742,
       "purpose": "exports: StudioCardTemplate"
     },
     {
       "section": "hub",
       "path": "hub/src/test/packages-repeater.test.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/packages-repeater.test.tsx",
-      "sizeBytes": 12020,
+      "sizeBytes": 11889,
       "purpose": "Vitest automated test suite"
     },
     {
       "section": "hub",
       "path": "hub/src/test/plasmic-controllers.test.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/plasmic-controllers.test.tsx",
-      "sizeBytes": 54610,
+      "sizeBytes": 54322,
       "purpose": "Vitest automated test suite"
     },
     {
       "section": "hub",
       "path": "hub/src/test/plasmic-host-boot.test.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/plasmic-host-boot.test.tsx",
-      "sizeBytes": 15066,
+      "sizeBytes": 15065,
       "purpose": "Vitest automated test suite"
     },
     {
       "section": "hub",
       "path": "hub/src/test/plasmic-init-styles.test.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/plasmic-init-styles.test.ts",
-      "sizeBytes": 9665,
+      "sizeBytes": 9664,
       "purpose": "exports: ALLOWED_PLASMIC_STYLE_KEYS"
     },
     {
