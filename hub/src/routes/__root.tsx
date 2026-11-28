@@ -45,6 +45,16 @@ export function isBenignResizeObserverError(input: unknown): boolean {
 export const ECMD_DEV_EARLY_ERROR_BRIDGE_SCRIPT = `(function(){
   if (typeof window === "undefined" || window.__ecmdEarlyErrorBridgeInstalled) return;
   window.__ecmdEarlyErrorBridgeInstalled = true;
+  try {
+    var p = String((window.location && window.location.pathname) || "").trim().toLowerCase().replace(/\/+$/, "");
+    if (p === "/plasmic-host") {
+      if (!window.__TSR_ROUTER__) {
+        window.__TSR_ROUTER__ = { routesById: {} };
+      } else if (!window.__TSR_ROUTER__.routesById) {
+        window.__TSR_ROUTER__.routesById = {};
+      }
+    }
+  } catch (e) {}
   var sent = {};
   var BENIGN_RO_RE = /ResizeObserver loop (?:completed with undelivered notifications|(?:loop )?limit exceeded)/i;
   function isBenignRo(msg) {
@@ -152,7 +162,9 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
             onClick={() => {
-              router.invalidate();
+              if (router && typeof router.invalidate === "function") {
+                router.invalidate();
+              }
               reset();
             }}
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"

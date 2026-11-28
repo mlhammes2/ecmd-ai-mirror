@@ -1,4 +1,4 @@
-import "./lib/ecmdRuntimeBoot";
+import { installPlasmicHostTsrRouterGuard } from "./lib/ecmdRuntimeBoot";
 import { StrictMode, startTransition } from "react";
 import { createRoot, hydrateRoot } from "react-dom/client";
 import { StartClient } from "@tanstack/react-start/client";
@@ -64,7 +64,9 @@ export function isPlasmicHostPathname(pathname?: string | null): boolean {
 export async function mountPlasmicHostClientOnly(
   doc: Document = document
 ): Promise<ReturnType<typeof createRoot>> {
-  installBenignResizeObserverErrorGuard(doc.defaultView || (typeof window !== "undefined" ? window : undefined));
+  const win = doc.defaultView || (typeof window !== "undefined" ? window : undefined);
+  installBenignResizeObserverErrorGuard(win);
+  installPlasmicHostTsrRouterGuard(win as any);
   const { PlasmicHostPage } = await import("./pages/PlasmicHost");
   let container = doc.getElementById(ECMD_PLASMIC_HOST_ROOT_ID);
   if (!container) {

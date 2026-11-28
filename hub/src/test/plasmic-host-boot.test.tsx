@@ -362,6 +362,41 @@ describe("/plasmic-host Boot & Cross-Origin Studio Iframe Handshake", () => {
       fetchSpy.mockRestore();
     }
   });
+
+  it("guards window.__TSR_ROUTER__.routesById on /plasmic-host and guards TanStack HMR handleRouteUpdate in vite.config.ts", async () => {
+    const viteSource = fs.readFileSync(
+      path.join(__dirname, "../../vite.config.ts"),
+      "utf-8"
+    );
+    expect(viteSource).toContain("ecmd-guard-tsr-hmr");
+    expect(viteSource).toContain("if (!router || !router.routesById) return;");
+
+    const { installPlasmicHostTsrRouterGuard } = await import("../lib/ecmdRuntimeBoot");
+
+    // Simulate /plasmic-host window where TanStack Router never mounted
+    const fakePlasmicWin: any = {
+      location: { pathname: "/plasmic-host" },
+      __TSR_ROUTER__: undefined,
+    };
+    installPlasmicHostTsrRouterGuard(fakePlasmicWin);
+    expect(fakePlasmicWin.__TSR_ROUTER__).toBeDefined();
+    expect(fakePlasmicWin.__TSR_ROUTER__.routesById).toEqual({});
+
+    // Simulate TanStack HMR handleRouteUpdate checking router.routesById[routeId]
+    expect(() => {
+      const router = fakePlasmicWin.__TSR_ROUTER__;
+      const oldRoute = router.routesById["__root__"];
+      if (!oldRoute) return;
+    }).not.toThrow();
+
+    // Non-/plasmic-host paths must NOT receive a fake router stub
+    const fakeHomeWin: any = {
+      location: { pathname: "/" },
+      __TSR_ROUTER__: undefined,
+    };
+    installPlasmicHostTsrRouterGuard(fakeHomeWin);
+    expect(fakeHomeWin.__TSR_ROUTER__).toBeUndefined();
+  });
 });
 
 

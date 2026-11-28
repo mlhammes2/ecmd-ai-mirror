@@ -8,7 +8,61 @@ const M_TOK = "[REDACTED_SECRET]";
 const LIVE_DOM_FILE = path.resolve(process.cwd(), "public/plasmic-live-dom.json");
 const DIAGNOSTICS_FILE = path.resolve(process.cwd(), "public/plasmic-diagnostics.json");
 const RUNTIME_ERRORS_FILE = path.resolve(process.cwd(), "public/runtime-errors.json");
+const PLASMIC_INIT_FILE = path.resolve(process.cwd(), "src/plasmic-init.ts");
 const MAX_RUNTIME_ERRORS = 50;
+
+/**
+ * Reads component names currently registered via registerEcmdComponent(...) in src/plasmic-init.ts.
+ * Returns null if unreadable or empty so callers fail open without wiping live entries.
+ */
+function getRegisteredPlasmicComponentNames(): Set<string> | null {
+  try {
+    if (!fs.existsSync(PLASMIC_INIT_FILE)) return null;
+    const src = fs.readFileSync(PLASMIC_INIT_FILE, "utf8");
+    const names = new Set<string>();
+    const re = /registerEcmdComponent\s*\([\s\S]*?\bname\s*:\s*["']([^"']+)["']/g;
+    let m: RegExpExecArray | null;
+    while ((m = re.exec(src)) !== null) {
+      if (m[1]) names.add(m[1]);
+    }
+    return names.size > 0 ? names : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Removes stale persisted entries whose componentName is no longer registered in src/plasmic-init.ts
+ * (e.g., previously removed EcmdVehicleSelector snapshots containing broken fakeimg.pl sources).
+ */
+function pruneUnregisteredLiveDomEntries(entries: Record<string, any>): boolean {
+  const registered = getRegisteredPlasmicComponentNames();
+  if (!registered) return false;
+  let removedAny = false;
+  for (const [key, entry] of Object.entries(entries)) {
+    const compName = String((entry as any)?.componentName || key.split("::")[0] || "").trim();
+    if (compName && !registered.has(compName)) {
+      delete entries[key];
+      removedAny = true;
+    }
+  }
+  return removedAny;
+}
+
+/**
+ * Guards TanStack Router's Vite HMR-injected handleRouteUpdate helper so routes updated while
+ * /plasmic-host (CSR without <StartClient />) is open never throw
+ * `TypeError: Cannot read properties of undefined (reading 'routesById')`.
+ */
+function guardTanStackHmrRouteUpdate(code: string): string {
+  if (!code.includes("handleRouteUpdate") || !code.includes("routesById")) {
+    return code;
+  }
+  return code.replace(
+    /const\s+oldRoute\s*=\s*router\.routesById\[routeId\];?/g,
+    "if (!router || !router.routesById) return;\n  const oldRoute = router.routesById[routeId];"
+  );
+}
 
 function readJsonSafe(filePath: string, fallback: any) {
   try {
@@ -113,6 +167,15 @@ export default defineConfig({
   vite: {
     plugins: [
       {
+        name: "ecmd-guard-tsr-hmr",
+        apply: "serve",
+        enforce: "post",
+        transform(code: string) {
+          const guarded = guardTanStackHmrRouteUpdate(code);
+          return guarded !== code ? { code: guarded, map: null } : null;
+        },
+      },
+      {
         name: "ecmd-ws-bridge",
         configureServer(server: any) {
           const initialLiveDom = readJsonSafe(LIVE_DOM_FILE, {
@@ -136,6 +199,9 @@ export default defineConfig({
           const dismissedIds = new Set<string>(
             Array.isArray(initialDiagnostics?.dismissedIds) ? initialDiagnostics.dismissedIds : []
           );
+          if (pruneUnregisteredLiveDomEntries(liveDomEntries)) {
+            rebuildAndPersistTelemetry(liveDomEntries, dismissedIds);
+          }
           const initialRuntimeErrors = readJsonSafe(RUNTIME_ERRORS_FILE, {
             updatedAt: null,
             totalCount: 0,
@@ -204,6 +270,7 @@ export default defineConfig({
               }
 
               if (body.clearResolved) {
+                pruneUnregisteredLiveDomEntries(liveDomEntries);
                 const currentIds = new Set<string>();
                 for (const entry of Object.values(liveDomEntries)) {
                   const list = Array.isArray((entry as any)?.diagnostics)
