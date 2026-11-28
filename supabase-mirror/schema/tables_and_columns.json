@@ -1,6 +1,6 @@
 {
   "projectRef": "lvynkeuceiqxafgpgdvs",
-  "exportedAt": "2026-11-28T01:10:04.248Z",
+  "exportedAt": "2026-11-28T01:28:44.788Z",
   "tableCount": 57,
   "tables": [
     {
@@ -2795,7 +2795,7 @@
     },
     {
       "table_name": "ecmd_pen_turns",
-      "row_count": 50,
+      "row_count": 51,
       "rls_enabled": false,
       "mirrored": true,
       "columns": [

@@ -3,7 +3,7 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-28T01:10:22.926Z",
+  "generatedAt": "2026-11-28T01:29:00.701Z",
   "latestTurn": "TURN-052",
   "counts": {
     "totalFiles": 338,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-28T01:10:04.248Z",
+    "exportedAt": "2026-11-28T01:28:44.788Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -165,7 +165,7 @@
       },
       {
         "table_name": "ecmd_pen_turns",
-        "row_count": 50,
+        "row_count": 51,
         "rls_enabled": false,
         "mirrored": true
       },
@@ -776,7 +776,7 @@
       "section": "hub",
       "path": "hub/public/ai-telemetry.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json",
-      "sizeBytes": 3540,
+      "sizeBytes": 2399,
       "purpose": "ECMD PEN live turn telemetry"
     },
     {
@@ -846,7 +846,7 @@
       "section": "hub",
       "path": "hub/public/powershell-results.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/powershell-results.json",
-      "sizeBytes": 233,
+      "sizeBytes": 526,
       "purpose": "JSON data / config"
     },
     {
@@ -2939,7 +2939,7 @@
       "section": "supabase-mirror",
       "path": "supabase-mirror/tables/ecmd_pen_turns.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_pen_turns.json",
-      "sizeBytes": 452031,
+      "sizeBytes": 458142,
       "purpose": "Supabase public.ecmd_pen_turns table snapshot (scrubbed)"
     },
     {

@@ -1,9 +1,38 @@
 {
   "table": "ecmd_pen_turns",
-  "exportedAt": "2026-11-28T01:10:04.248Z",
-  "totalRowsInDb": 50,
-  "exportedRowCount": 50,
+  "exportedAt": "2026-11-28T01:28:44.788Z",
+  "totalRowsInDb": 51,
+  "exportedRowCount": 51,
   "rows": [
+    {
+      "status": "COMPLETE_CLEAN",
+      "ref_code": "TURN-052",
+      "tsc_clean": true,
+      "created_at": "2026-11-28T01:10:27.673307+00:00",
+      "date_label": "Friday, November 27, 2026",
+      "time_label": "6:10:28 PM",
+      "tsc_output": "",
+      "short_title": "Completed TURN-052 via Antigravity (agy) in 3:32",
+      "task_prompt": "task: mount-ps-errors-box-and-top-copy\r\ncwd: C:\\ECMD\\emerald-coast-detailing-hub\r\ninstructions:\r\n1. Inspect src/routes/errors.tsx and src/routes/__root.tsx (and any layout/panel components they render) to see how http://localhost:8080/errors renders its header tabs and main panels.\r\n2. Add a dedicated PowerShell Errors & Terminal Output display box and a \"Copy PS Errors\" button (reading /powershell-results.json separately from #ecmd-unified-errors-json) so they visibly render on /errors (and in the top bar/header where appropriate).\r\n3. Run `npx tsc --noEmit` and confirm 0 compiler errors.",
+      "files_changed": [
+        "src/components/PsOnlyOutputPanel.tsx",
+        "src/components/layout/AppHeader.tsx",
+        "src/pages/Errors.tsx",
+        "src/routes/__root.tsx",
+        "src/routes/errors.tsx",
+        "src/test/errors-page.test.tsx"
+      ],
+      "human_bullets": [
+        "[2:23] #70 AGY ORCHESTRATOR: root agent idle; waiting for 1 background task(s) to finish",
+        "[2:32] #71 TOOL run_command",
+        "[2:45] #72 FINAL CHECK: npx tsc --noEmit",
+        "[2:54] #73 FINAL CHECK: npx vitest run",
+        "[3:08] #74 AUTO-SYNC: node C:\\ECMD\\scripts\\sync-ai-mirror.mjs --push",
+        "[3:32] #75 AUTO-SYNC COMPLETE: mlhammes2/ecmd-ai-mirror updated"
+      ],
+      "errors_summary": "0 final compiler errors | agy 75 steps, 0 self-heals in 3:32",
+      "raw_cli_output": "=== ANTIGRAVITY (AGY) STEP & SELF-HEAL LOG ===\n[0:00] Booting Antigravity CLI (agy.exe --output-format stream-json)...\n[0:10] #1 TOOL read_file\n[0:10] #2 TOOL read_file\n[0:10] #3 TOOL read_file\n[0:10] #4 TOOL read_file\n[0:10] #5 TOOL run_command\n[0:12] #6 TOOL run_command\n[0:15] #7 TOOL read_file\n[0:15] #8 TOOL read_file\n[0:23] #9 TOOL read_file\n[0:23] #10 TOOL read_file\n[0:23] #11 TOOL read_file\n[0:23] #12 TOOL read_file\n[0:23] #13 TOOL read_file\n[0:23] #14 TOOL read_file\n[0:23] #15 TOOL read_file\n[0:23] #16 TOOL read_file\n[0:23] #17 TOOL read_file\n[0:23] #18 TOOL read_file\n[0:23] #19 TOOL read_file\n[0:23] #20 TOOL read_file\n[0:23] #21 TOOL read_file\n[0:23] #22 TOOL read_file\n[0:31] #23 TOOL read_file\n[0:31] #24 TOOL read_file\n[0:31] #25 TOOL read_file\n[0:31] #26 TOOL read_file\n[0:31] #27 TOOL read_file\n[0:31] #28 TOOL read_file\n[0:31] #29 TOOL read_file\n[0:31] #30 TOOL read_file\n[0:31] #31 TOOL run_command\n[0:33] #32 TOOL run_command\n[0:37] #33 TOOL read_file\n[0:37] #34 TOOL read_file\n[0:37] #35 TOOL read_file\n[0:37] #36 TOOL read_file\n[1:26] #37 TOOL edit_file\n[1:27] #38 TOOL edit_file\n[1:27] #39 TOOL edit_file\n[1:28] #40 TOOL edit_file\n[1:28] #41 TOOL write_file\n[1:29] #42 TOOL write_file\n[1:29] #43 TOOL write_file\n[1:30] #44 TOOL write_file\n[1:30] #45 TOOL edit_file\n[1:31] #46 TOOL edit_file\n[1:31] #47 TOOL edit_file\n[1:32] #48 TOOL edit_file\n[1:32] #49 TOOL edit_file\n[1:33] #50 TOOL edit_file\n[1:33] #51 TOOL edit_file\n[1:34] #52 TOOL edit_file\n[1:34] #53 TOOL edit_file\n[1:36] #54 TOOL edit_file\n[1:36] #55 TOOL edit_file\n[1:37] #56 TOOL edit_file\n[1:37] #57 TOOL edit_file\n[1:38] #58 TOOL edit_file\n[1:38] #59 TOOL edit_file\n[1:39] #60 TOOL edit_file\n[1:53] #61 TOOL read_file\n[1:53] #62 TOOL read_file\n[1:53] #63 TOOL edit_file\n[1:54] #64 TOOL edit_file\n[1:54] #65 TOOL edit_file\n[1:55] #66 TOOL edit_file\n[2:04] #67 TOOL edit_file\n[2:05] #68 TOOL edit_file\n[2:08] #69 TOOL run_command\n[2:23] #70 AGY ORCHESTRATOR: root agent idle; waiting for 1 background task(s) to finish\n[2:32] #71 TOOL run_command\n[2:45] #72 FINAL CHECK: npx tsc --noEmit\n[2:54] #73 FINAL CHECK: npx vitest run\n[3:08] #74 AUTO-SYNC: node C:\\ECMD\\scripts\\sync-ai-mirror.mjs --push\n[3:32] #75 AUTO-SYNC COMPLETE: mlhammes2/ecmd-ai-mirror updated\n\n=== ASSISTANT SUMMARY ===\n{\"event\":\"init\",\"conversation_id\":\"1947b925-4bc9-4c35-b143-4749bcbb75e3\",\"init\":{\"cwd\":\"C:\\\\ECMD\\\\emerald-coast-detailing-hub\",\"tools\":[\"ask_custom_permission\",\"ask_permission\",\"ask_question\",\"browser_click_element\",\"browser_drag_pixel_to_pixel\",\"browser_get_dom\",\"browser_get_network_request\",\"browser_input\",\"browser_list_network_requests\",\"browser_mouse_down\",\"browser_mouse_up\",\"browser_move_mouse\",\"browser_press_key\",\"browser_refresh_page\",\"browser_resize_window\",\"browser_scroll\",\"browser_scroll_dom\",\"browser_select_option\",\"browser_subagent\",\"call_mcp_tool\",\"capture_browser_console_logs\",\"capture_browser_screenshot\",\"click_browser_pixel\",\"command_status\",\"define_subagent\",\"delete_knowledge\",\"execute_browser_javascript\",\"find_by_name\",\"finish\",\"generate_image\",\"grep_search\",\"invoke_subagent\",\"list_browser_pages\",\"list_dir\",\"list_permissions\",\"list_plugin_accounts\",\"list_resources\",\"manage_inbox\",\"manage_subagents\",\"manage_task\",\"multi_replace_file_content\",\"notebook_edit\",\"notebook_execution\",\"open_browser_url\",\"read_browser_page\",\"read_resource\",\"read_url_content\",\"replace_file_content\",\"run_command\",\"run_workflow\",\"schedule\",\"search_marketplace\",\"search_web\",\"sed_file\",\"send_command_input\",\"send_message\",\"view_file\",\"wait\",\"wait_5_seconds\",\"write_to_file\"],\"permission_mode\":\"always-proceed\"}}\n{\"event\":\"step_update\",\"step_update\":{\"conversation_id\":\"1947b925-4bc9-4c35-b143-4749bcbb75e3\",\"step_index\":0,\"state\":\"DONE\",\"step_type\":\"user_input\"}}\n{\"event\":\"step_update\",\"step_update\":{\"conversation_id\":\"1947b925-4bc9-4c35-b143-4749bcbb75e3\",\"step_index\":1,\"state\":\"DONE\",\"step_type\":\"agent_response\",\"duration_seconds\":7.4662199000000005,\"usage\":{\"input_tokens\":20180,\"output_tokens\":463,\"thinking_tok\n... [TRUNCATED FOR MIRROR: 10275 chars total]"
+    },
     {
       "status": "COMPLETE_CLEAN",
       "ref_code": "TURN-051",

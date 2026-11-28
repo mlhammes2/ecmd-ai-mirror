@@ -1,7 +1,7 @@
 ﻿{
-    "updatedAt":  "2026-11-27T18:02:58.6879572-07:00",
+    "updatedAt":  "2026-11-27T18:28:44.1249031-07:00",
     "exitCode":  0,
-    "summary":  "Fixed copyLatestPsOutput reference; tsc: 0 errors.",
-    "source":  "Fix copyLatestPsOutput Ref",
-    "output":  "tsc exit: 0"
+    "summary":  "BOOT-UP REMINDER: Switch to epen -\u003e agy (#ECMD_AI!) whenever the assistant is unsure, needs exact local JSX/file inspection, or needs direct edits on C:\\ECMD.",
+    "source":  "Boot-Up Note: Switch to epen -\u003e agy When Unsure",
+    "output":  "BOOT-UP REMINDER: Switch to epen -\u003e agy (#ECMD_AI!) whenever the assistant is unsure, needs exact local JSX/file inspection, or needs direct edits on C:\\ECMD."
 }

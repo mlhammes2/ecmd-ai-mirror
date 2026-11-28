@@ -4,7 +4,7 @@
 > Chrome Gemini Sidebar & external architects: fetch this manifest first, then fetch any exact raw GitHub URL below on demand.
 
 ## Summary
-- **Generated At:** `2026-11-28T01:10:22.926Z`
+- **Generated At:** `2026-11-28T01:29:00.701Z`
 - **Latest Turn:** `TURN-052`
 - **Manifest Raw URL:** https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md
 - **JSON Manifest Raw URL:** https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.json
@@ -43,7 +43,7 @@
 | `ecmd_members` | 0 | ON | Excluded (Auth/PII/Log) |
 | `ecmd_messages` | 6 | ON | Excluded (Auth/PII/Log) |
 | `ecmd_packages` | 4 | OFF | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_packages.json) |
-| `ecmd_pen_turns` | 50 | OFF | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_pen_turns.json) |
+| `ecmd_pen_turns` | 51 | OFF | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_pen_turns.json) |
 | `ecmd_plasmic_hydration` | 1 | OFF | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_plasmic_hydration.json) |
 | `ecmd_service_packages` | 36 | ON | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_service_packages.json) |
 | `ecmd_site_blueprints` | 106 | ON | [JSON](https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_site_blueprints.json) |
@@ -138,7 +138,7 @@
 | `hub/eslint.config.js` | 1.3 KB | Code module | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/eslint.config.js |
 | `hub/GEMINI.md` | 5.9 KB | Markdown documentation | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/GEMINI.md |
 | `hub/package.json` | 3.2 KB | Package manifest & scripts | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/package.json |
-| `hub/public/ai-telemetry.json` | 3.5 KB | ECMD PEN live turn telemetry | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json |
+| `hub/public/ai-telemetry.json` | 2.3 KB | ECMD PEN live turn telemetry | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json |
 | `hub/public/Ecmd Icon Cord Black.svg` | 39.9 KB | SVG vector asset | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/Ecmd%20Icon%20Cord%20Black.svg |
 | `hub/public/ecmd-brain.html` | 962 B | HTML template / console | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ecmd-brain.html |
 | `hub/public/ecmd-dolphin-logo.svg` | 5.5 KB | SVG vector asset | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ecmd-dolphin-logo.svg |
@@ -148,7 +148,7 @@
 | `hub/public/plasmic-diagnostics.json` | 168.3 KB | Plasmic Canvas live diagnostics store | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/plasmic-diagnostics.json |
 | `hub/public/plasmic-layout-hydration.json` | 3.5 KB | JSON data / config | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/plasmic-layout-hydration.json |
 | `hub/public/plasmic-live-dom.json` | 3.24 MB | JSON data / config | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/plasmic-live-dom.json |
-| `hub/public/powershell-results.json` | 233 B | JSON data / config | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/powershell-results.json |
+| `hub/public/powershell-results.json` | 526 B | JSON data / config | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/powershell-results.json |
 | `hub/public/robots.txt` | 174 B | Text/config file | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/robots.txt |
 | `hub/public/runtime-errors.json` | 79.4 KB | DEV browser runtime errors store | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/runtime-errors.json |
 | `hub/README.md` | 1.1 KB | Doc: Emerald Coast Detailing Hub | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/README.md |
@@ -455,7 +455,7 @@
 | `supabase-mirror/tables/ecmd_diagnostic_runs.json` | 662 B | Supabase public.ecmd_diagnostic_runs table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_diagnostic_runs.json |
 | `supabase-mirror/tables/ecmd_external_ai_cms.json` | 89.5 KB | Supabase public.ecmd_external_ai_cms table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_external_ai_cms.json |
 | `supabase-mirror/tables/ecmd_packages.json` | 3.1 KB | Supabase public.ecmd_packages table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_packages.json |
-| `supabase-mirror/tables/ecmd_pen_turns.json` | 441.4 KB | Supabase public.ecmd_pen_turns table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_pen_turns.json |
+| `supabase-mirror/tables/ecmd_pen_turns.json` | 447.4 KB | Supabase public.ecmd_pen_turns table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_pen_turns.json |
 | `supabase-mirror/tables/ecmd_plasmic_hydration.json` | 10.4 KB | Supabase public.ecmd_plasmic_hydration table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_plasmic_hydration.json |
 | `supabase-mirror/tables/ecmd_service_packages.json` | 146.5 KB | Supabase public.ecmd_service_packages table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_service_packages.json |
 | `supabase-mirror/tables/ecmd_site_blueprints.json` | 3.02 MB | Supabase public.ecmd_site_blueprints table snapshot (scrubbed) | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_site_blueprints.json |
