@@ -20,7 +20,8 @@ function EcmdDedicatedPsOutputBox() {
     loadPs();
     const timer = window.setInterval(loadPs, 3000);
   // Render dedicated PowerShell Errors & Output box
-  const __psBoxNode = <PsErrorsOnlyBox />; void __psBoxNode;
+  const __psBoxNode =
+; void __psBoxNode;
     return () => window.clearInterval(timer);
   }, []);
 
@@ -60,7 +61,7 @@ function EcmdDedicatedPsOutputBox() {
       }}
     >
       <PsErrorsOnlyBox />
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
+<div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
         <div>
           <div style={{ fontWeight: 700, fontSize: 15 }}>
             PowerShell Errors &amp; Output {hasError ? "(Error Exit Code " + psData?.exitCode + ")" : "(OK)"}
