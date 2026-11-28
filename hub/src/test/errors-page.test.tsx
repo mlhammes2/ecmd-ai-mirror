@@ -4,12 +4,14 @@ import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import Errors from "../pages/Errors";
 import { AppHeader } from "../components/layout/AppHeader";
 import {
+  applyClientDismissFilter,
   applyDismissAction,
   buildTelemetryPayloads,
   createDiagnosticsRuntimeState,
   handleComponentUnmount,
   ingestLiveDomSnapshot,
 } from "../lib/ecmdDiagnosticsStore";
+import { registerEcmdComponent } from "../lib/ecmdLiveComponentTelemetry";
 
 vi.mock("@tanstack/react-router", () => ({
   Link: ({ to, children, ...rest }: any) => (
@@ -495,5 +497,97 @@ describe("Unified /errors Page (#ecmd-unified-errors-json)", () => {
     expect(built.diagnosticsPayload.dismissedIds).toContain(
       "ecmdbrandicon::desktop-1440::broken_image::logo"
     );
+  });
+
+  it("applyClientDismissFilter preserves newer server removal timestamps over older client timestamps", () => {
+    const diag = {
+      id: "ecmdpackagesrepeater::tablet-834::horizontal_overflow::row",
+      code: "HORIZONTAL_OVERFLOW" as const,
+      severity: "warning" as const,
+      severityTier: "layout" as const,
+      breakpoint: "tablet" as const,
+      componentName: "EcmdPackagesRepeater",
+      artboardTag: "tablet-834",
+      viewportMode: "tablet" as const,
+      element: "div.row",
+      message: "Overflow",
+      fixHint: "Fix",
+      detectedAt: "2026-11-28T02:20:00.000Z",
+    };
+
+    const filtered = applyClientDismissFilter(
+      {
+        totalActive: 1,
+        totalDismissed: 0,
+        dismissedIds: [],
+        removedEntries: {
+          "EcmdPackagesRepeater::tablet-834": "2026-11-28T02:30:00.000Z",
+        },
+        removedComponents: {},
+        activeDiagnostics: [diag],
+      },
+      {
+        dismissedIds: [],
+        removedEntries: {
+          "EcmdPackagesRepeater::tablet-834": "2026-11-28T02:10:00.000Z",
+        },
+        removedComponents: {},
+        rescanResetAt: null,
+      }
+    );
+
+    expect(filtered.activeDiagnostics).toHaveLength(0);
+    expect(filtered.totalActive).toBe(0);
+  });
+
+  it("DevTelemetryObserver stamps data-ecmd-telemetry-artboard and unmounts old artboard width on resize", async () => {
+    vi.useFakeTimers();
+    const unmountCalls: Array<{ componentName: string; artboardTag?: string }> = [];
+    globalThis.fetch = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input);
+      if (url.includes("/__ecmd-live-dom/unmount")) {
+        unmountCalls.push(JSON.parse(String(init?.body || "{}")));
+      }
+      return new Response(JSON.stringify({ ok: true }), { status: 200 });
+    }) as any;
+
+    Object.defineProperty(window, "innerWidth", { writable: true, configurable: true, value: 834 });
+    Object.defineProperty(document.documentElement, "clientWidth", {
+      writable: true,
+      configurable: true,
+      value: 834,
+    });
+
+    const SampleBox: React.FC = () => <div data-testid="sample-box">Sample</div>;
+    const Tracked = registerEcmdComponent(SampleBox, {
+      name: "EcmdResizeUnmountTest",
+      displayName: "Resize Unmount Test",
+      props: {},
+    });
+
+    const { unmount } = render(<Tracked />);
+    const marker = document.querySelector('[data-ecmd-telemetry-marker="EcmdResizeUnmountTest"]');
+    expect(marker?.getAttribute("data-ecmd-telemetry-artboard")).toBe("tablet-834");
+
+    // Resize to desktop-1440: old tablet-834 artboard must trigger unmount after debounce
+    Object.defineProperty(window, "innerWidth", { writable: true, configurable: true, value: 1440 });
+    Object.defineProperty(document.documentElement, "clientWidth", {
+      writable: true,
+      configurable: true,
+      value: 1440,
+    });
+    fireEvent(window, new Event("resize"));
+    expect(marker?.getAttribute("data-ecmd-telemetry-artboard")).toBe("desktop-1440");
+
+    await vi.advanceTimersByTimeAsync(600);
+    expect(unmountCalls).toContainEqual(
+      expect.objectContaining({
+        componentName: "EcmdResizeUnmountTest",
+        artboardTag: "tablet-834",
+      })
+    );
+
+    unmount();
+    vi.useRealTimers();
   });
 });

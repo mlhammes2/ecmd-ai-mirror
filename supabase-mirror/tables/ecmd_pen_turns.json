@@ -1,9 +1,38 @@
 {
   "table": "ecmd_pen_turns",
-  "exportedAt": "2026-11-28T02:46:18.732Z",
-  "totalRowsInDb": 53,
-  "exportedRowCount": 53,
+  "exportedAt": "2026-11-28T02:51:11.720Z",
+  "totalRowsInDb": 54,
+  "exportedRowCount": 54,
   "rows": [
+    {
+      "status": "COMPLETE_CLEAN",
+      "ref_code": "TURN-055",
+      "tsc_clean": true,
+      "created_at": "2026-11-28T02:46:41.651155+00:00",
+      "date_label": "Friday, November 27, 2026",
+      "time_label": "7:46:41 PM",
+      "tsc_output": "",
+      "short_title": "Completed TURN-055 via Antigravity (agy) in 9:12",
+      "task_prompt": "task: inspect-diagnostics-persistence-and-dismiss\r\ncwd: C:\\ECMD\\emerald-coast-detailing-hub\r\ninstructions:\r\n1. Inspect src/routes/errors.tsx and wherever /plasmic-diagnostics.json is read, merged, dismissed, or re-scanned.\r\n2. Ensure dismissing or clearing stale/non-existent components (like EcmdPackagesRepeater when not on canvas, or items dismissed via UI) persists cleanly without bringing back old items on auto-poll.\r\n3. Run `npx tsc --noEmit` and confirm 0 compiler errors.",
+      "files_changed": [
+        "src/components/layout/AppHeader.tsx",
+        "src/lib/ecmdDiagnosticsStore.ts",
+        "src/lib/ecmdLiveComponentTelemetry.ts",
+        "src/pages/Errors.tsx",
+        "src/test/errors-page.test.tsx",
+        "vite.config.ts"
+      ],
+      "human_bullets": [
+        "[7:41] #78 TOOL run_command",
+        "[8:07] #79 TOOL run_command",
+        "[8:25] #80 FINAL CHECK: npx tsc --noEmit",
+        "[8:35] #81 FINAL CHECK: npx vitest run",
+        "[8:49] #82 AUTO-SYNC: node C:\\ECMD\\scripts\\sync-ai-mirror.mjs --push",
+        "[9:12] #83 AUTO-SYNC COMPLETE: mlhammes2/ecmd-ai-mirror updated"
+      ],
+      "errors_summary": "0 final compiler errors | agy 83 steps, 0 self-heals in 9:12",
+      "raw_cli_output": "=== ANTIGRAVITY (AGY) STEP & SELF-HEAL LOG ===\n[0:00] Booting Antigravity CLI (agy.exe --output-format stream-json)...\n[0:08] #1 TOOL read_file\n[0:08] #2 TOOL read_file\n[0:08] #3 TOOL run_command\n[0:10] #4 TOOL run_command\n[0:14] #5 TOOL read_file\n[0:14] #6 TOOL read_file\n[0:19] #7 TOOL read_file\n[0:19] #8 TOOL read_file\n[0:28] #9 TOOL read_file\n[0:28] #10 TOOL read_file\n[0:28] #11 TOOL read_file\n[0:28] #12 TOOL read_file\n[0:28] #13 TOOL read_file\n[0:28] #14 TOOL read_file\n[0:28] #15 TOOL read_file\n[0:28] #16 TOOL read_file\n[0:28] #17 TOOL read_file\n[0:28] #18 TOOL read_file\n[0:28] #19 TOOL run_command\n[0:30] #20 TOOL run_command\n[0:37] #21 TOOL read_file\n[0:37] #22 TOOL read_file\n[0:37] #23 TOOL read_file\n[0:37] #24 TOOL read_file\n[0:37] #25 TOOL read_file\n[0:37] #26 TOOL read_file\n[0:37] #27 TOOL read_file\n[0:37] #28 TOOL read_file\n[0:37] #29 TOOL run_command\n[0:39] #30 TOOL run_command\n[1:13] #31 TOOL run_command\n[1:14] #32 TOOL run_command\n[1:18] #33 TOOL read_file\n[1:18] #34 TOOL read_file\n[2:21] #35 TOOL run_command\n[2:23] #36 TOOL run_command\n[3:48] #37 TOOL write_file\n[3:49] #38 TOOL write_file\n[4:13] #39 TOOL edit_file\n[4:14] #40 TOOL edit_file\n[4:14] #41 TOOL edit_file\n[4:15] #42 TOOL edit_file\n[4:15] #43 TOOL edit_file\n[4:17] #44 TOOL edit_file\n[4:17] #45 TOOL edit_file\n[4:18] #46 TOOL edit_file\n[4:53] #47 TOOL edit_file\n[4:54] #48 TOOL edit_file\n[4:54] #49 TOOL edit_file\n[4:55] #50 TOOL edit_file\n[4:55] #51 TOOL edit_file\n[4:56] #52 TOOL edit_file\n[4:56] #53 TOOL edit_file\n[4:57] #54 TOOL edit_file\n[5:38] #55 TOOL edit_file\n[5:39] #56 TOOL edit_file\n[5:39] #57 TOOL edit_file\n[5:40] #58 TOOL edit_file\n[5:40] #59 TOOL edit_file\n[5:41] #60 TOOL edit_file\n[6:11] #61 TOOL edit_file\n[6:12] #62 TOOL edit_file\n[6:12] #63 TOOL edit_file\n[6:13] #64 TOOL edit_file\n[6:18] #65 TOOL run_command\n[6:20] #66 TOOL run_command\n[6:25] #67 TOOL run_command\n[6:36] #68 TOOL run_command\n[6:50] #69 TOOL edit_file\n[6:51] #70 TOOL edit_file\n[6:57] #71 TOOL run_command\n[7:12] #72 AGY ORCHESTRATOR: root agent idle; waiting for 1 background task(s) to finish\n[7:23] #73 TOOL run_command\n[7:33] #74 TOOL edit_file\n[7:34] #75 TOOL edit_file\n[7:34] #76 TOOL run_command\n[7:35] #77 TOOL run_command\n[7:41] #78 TOOL run_command\n[8:07] #79 TOOL run_command\n[8:25] #80 FINAL CHECK: npx tsc --noEmit\n[8:35] #81 FINAL CHECK: npx vitest run\n[8:49] #82 AUTO-SYNC: node C:\\ECMD\\scripts\\sync-ai-mirror.mjs --push\n[9:12] #83 AUTO-SYNC COMPLETE: mlhammes2/ecmd-ai-mirror updated\n\n=== ASSISTANT SUMMARY ===\n{\"event\":\"init\",\"conversation_id\":\"61bdeed8-f53f-40a7-a8e0-dc2cbcde6e28\",\"init\":{\"cwd\":\"C:\\\\ECMD\\\\emerald-coast-detailing-hub\",\"tools\":[\"ask_custom_permission\",\"ask_permission\",\"ask_question\",\"browser_click_element\",\"browser_drag_pixel_to_pixel\",\"browser_get_dom\",\"browser_get_network_request\",\"browser_input\",\"browser_list_network_requests\",\"browser_mouse_down\",\"browser_mouse_up\",\"browser_move_mouse\",\"browser_press_key\",\"browser_refresh_page\",\"browser_resize_window\",\"browser_scroll\",\"browser_scroll_dom\",\"browser_select_option\",\"browser_subagent\",\"call_mcp_tool\",\"capture_browser_console_logs\",\"capture_browser_screenshot\",\"click_browser_pixel\",\"command_status\",\"define_subagent\",\"delete_knowledge\",\"execute_browser_javascript\",\"find_by_name\",\"finish\",\"generate_image\",\"grep_search\",\"invoke_subagent\",\"list_browser_pages\",\"list_dir\",\"list_permissions\",\"list_plugin_accounts\",\"list_resources\",\"manage_inbox\",\"manage_subagents\",\"manage_task\",\"multi_replace_file_content\",\"notebook_edit\",\"notebook_execution\",\"open_browser_url\",\"read_browser_page\",\"read_resource\",\"read_url_content\",\"replace_file_content\",\"run_command\",\"run_workflow\",\"schedule\",\"search_marketplace\",\"search_web\",\"sed_file\",\"send_command_input\",\"send_message\",\"view_file\",\"wait\",\"wait_5_seconds\",\"write_to_file\"],\"permission_mode\":\"always-proceed\"}}\n{\"event\":\"step_update\",\"step_update\":{\"conversation_id\":\"61bdeed8-f53f-40a7-a8e0-dc2cbcde6e28\",\"step_index\":0,\"state\":\"DONE\",\"step_type\":\"user_input\"}}\n{\"event\":\"step_update\n... [TRUNCATED FOR MIRROR: 10509 chars total]"
+    },
     {
       "status": "COMPLETE_CLEAN",
       "ref_code": "TURN-054",

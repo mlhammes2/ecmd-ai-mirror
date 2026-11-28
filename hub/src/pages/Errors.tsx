@@ -157,14 +157,12 @@ export function Errors() {
     if (typeof window === "undefined") return;
     const onStorage = (evt: StorageEvent) => {
       if (evt.key === CLIENT_DISMISS_STORAGE_KEY) {
-        setDiagnosticsStore((prev) =>
-          prev ? applyClientDismissFilter(prev, readClientDismissState()) : prev
-        );
+        void fetchAllErrors();
       }
     };
     window.addEventListener("storage", onStorage);
     return () => window.removeEventListener("storage", onStorage);
-  }, []);
+  }, [fetchAllErrors]);
 
   const activeDiagnostics: CanvasDiagnostic[] = useMemo(
     () => diagnosticsStore?.activeDiagnostics || [],

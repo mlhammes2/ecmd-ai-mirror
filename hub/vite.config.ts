@@ -186,13 +186,19 @@ export default defineConfig({
             }
           };
 
+          const pruneAndPersistIfNeeded = () => {
+            const prunedUnreg = pruneUnregisteredEntries(
+              diagState,
+              getRegisteredPlasmicComponentNames()
+            );
+            const prunedStale = pruneStaleEntries(diagState, Date.now(), DEFAULT_PASSIVE_STALE_MS);
+            if (prunedUnreg || prunedStale) {
+              persistAndTrack();
+            }
+          };
+
           // Prune unregistered and stale (>60 min) entries cleanly on dev server boot
-          const registeredOnBoot = getRegisteredPlasmicComponentNames();
-          const prunedUnreg = pruneUnregisteredEntries(diagState, registeredOnBoot);
-          const prunedStale = pruneStaleEntries(diagState, Date.now(), DEFAULT_PASSIVE_STALE_MS);
-          if (prunedUnreg || prunedStale) {
-            persistAndTrack();
-          }
+          pruneAndPersistIfNeeded();
 
           const initialRuntimeErrors = readJsonSafe(RUNTIME_ERRORS_FILE, {
             updatedAt: null,
@@ -294,6 +300,20 @@ export default defineConfig({
             }
           });
 
+          server.middlewares.use("/plasmic-diagnostics.json", (req: any, res: any, next: any) => {
+            if (req.method !== "GET" || (req.url && req.url !== "/" && !req.url.startsWith("?"))) {
+              next();
+              return;
+            }
+            setCorsHeaders(res);
+            res.setHeader("Content-Type", "application/json");
+            res.setHeader("Cache-Control", "no-store");
+            syncIfExternallyModified();
+            pruneAndPersistIfNeeded();
+            const { diagnosticsPayload } = buildTelemetryPayloads(diagState);
+            res.end(JSON.stringify(diagnosticsPayload, null, 2));
+          });
+
           server.middlewares.use("/__ecmd-live-dom", async (req: any, res: any) => {
             setCorsHeaders(res);
             if (req.method === "OPTIONS") {
@@ -305,6 +325,7 @@ export default defineConfig({
 
             if (req.method === "GET") {
               syncIfExternallyModified();
+              pruneAndPersistIfNeeded();
               const { liveDomPayload, diagnosticsPayload } = buildTelemetryPayloads(diagState);
               res.end(
                 JSON.stringify({

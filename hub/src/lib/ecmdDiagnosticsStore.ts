@@ -94,6 +94,22 @@ function sanitizeTimestampRecord(raw: unknown): Record<string, string> {
   return out;
 }
 
+function mergeMaxTimestampRecords(
+  first: Record<string, string>,
+  second: Record<string, string>
+): Record<string, string> {
+  const out: Record<string, string> = { ...first };
+  for (const [key, iso] of Object.entries(second)) {
+    const incomingMs = parseIsoMs(iso);
+    if (incomingMs === null) continue;
+    const existingMs = parseIsoMs(out[key]);
+    if (existingMs === null || incomingMs > existingMs) {
+      out[key] = iso;
+    }
+  }
+  return out;
+}
+
 export function createDiagnosticsRuntimeState(
   initialLiveDom?: Partial<LiveDomStorePayload> | null,
   initialDiagnostics?: Partial<DiagnosticsStorePayload> | null
@@ -577,14 +593,14 @@ export function applyClientDismissFilter<
     ...clientState.dismissedIds,
   ]);
 
-  const mergedRemovedEntries: Record<string, string> = {
-    ...sanitizeTimestampRecord(store.removedEntries),
-    ...clientState.removedEntries,
-  };
-  const mergedRemovedComponents: Record<string, string> = {
-    ...sanitizeTimestampRecord(store.removedComponents),
-    ...clientState.removedComponents,
-  };
+  const mergedRemovedEntries: Record<string, string> = mergeMaxTimestampRecords(
+    sanitizeTimestampRecord(store.removedEntries),
+    clientState.removedEntries
+  );
+  const mergedRemovedComponents: Record<string, string> = mergeMaxTimestampRecords(
+    sanitizeTimestampRecord(store.removedComponents),
+    clientState.removedComponents
+  );
 
   const serverResetMs = parseIsoMs(store.rescanResetAt);
   const clientResetMs = parseIsoMs(clientState.rescanResetAt);

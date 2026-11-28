@@ -1039,7 +1039,7 @@ function DevTelemetryObserver({
         pendingUnmountTimers.delete(unmountKey);
         if (typeof document === "undefined" || typeof fetch !== "function") return;
         const stillMounted = document.querySelector(
-          `[data-ecmd-telemetry-marker="${componentName}"]`
+          `[data-ecmd-telemetry-marker="${componentName}"][data-ecmd-telemetry-artboard="${bp.artboardTag}"]`
         );
         if (stillMounted) return;
         try {
@@ -1078,6 +1078,7 @@ function DevTelemetryObserver({
     React.createElement("span", {
       ref: markerRef,
       "data-ecmd-telemetry-marker": componentName,
+      "data-ecmd-telemetry-artboard": bp.artboardTag,
       "aria-hidden": "true",
       hidden: true,
       style: { display: "none" },
