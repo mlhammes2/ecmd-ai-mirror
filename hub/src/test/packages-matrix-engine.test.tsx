@@ -131,13 +131,3 @@ describe("EcmdBrushedSteelButton buttonRole & autoHealPackageScopeButtons", () =
   });
 });
 
-describe("EcmdPackagesRepeater 3-level matrix engine, DataProvider($ctx.ecmdPkg) & live DOM painting", () => {
-  beforeEach(() => {
-    localStorage.clear();
-  });
-
-  afterEach(() => {
-    cleanup();
-  });
-
-  });

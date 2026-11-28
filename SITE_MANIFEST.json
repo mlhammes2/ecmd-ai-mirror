@@ -3,11 +3,11 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-28T00:07:45.619Z",
+  "generatedAt": "2026-11-28T00:17:36.113Z",
   "latestTurn": "TURN-051",
   "counts": {
-    "totalFiles": 325,
-    "hubFiles": 180,
+    "totalFiles": 326,
+    "hubFiles": 181,
     "runnerFiles": 116,
     "supabaseMirrorFiles": 29,
     "registeredPlasmicComponents": 6,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-28T00:07:33.304Z",
+    "exportedAt": "2026-11-28T00:17:20.055Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -846,7 +846,7 @@
       "section": "hub",
       "path": "hub/public/powershell-results.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/powershell-results.json",
-      "sizeBytes": 232,
+      "sizeBytes": 264,
       "purpose": "JSON data / config"
     },
     {
@@ -987,6 +987,13 @@
       "path": "hub/scripts/_remove_11_components.mjs",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_remove_11_components.mjs",
       "sizeBytes": 3194,
+      "purpose": "Code module"
+    },
+    {
+      "section": "hub",
+      "path": "hub/scripts/_remove_empty_describe.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_remove_empty_describe.mjs",
+      "sizeBytes": 1112,
       "purpose": "Code module"
     },
     {
@@ -1819,7 +1826,7 @@
       "section": "hub",
       "path": "hub/src/test/packages-matrix-engine.test.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/packages-matrix-engine.test.tsx",
-      "sizeBytes": 9238,
+      "sizeBytes": 9025,
       "purpose": "Vitest automated test suite"
     },
     {
