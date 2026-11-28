@@ -1,3 +1,4 @@
+import { PsErrorsOnlyBox } from "../components/PsErrorsOnlyBox";
 import "../lib/ecmdRuntimeBoot";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
@@ -111,6 +112,7 @@ export const ECMD_DEV_EARLY_ERROR_BRIDGE_SCRIPT = `(function(){
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
+      {typeof window !== "undefined" && (window.location.pathname.startsWith("/errors") || window.location.pathname.startsWith("/workflow")) && <PsErrorsOnlyBox />}
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-foreground">404</h1>
         <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
