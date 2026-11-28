@@ -668,6 +668,12 @@ function getTelemetryEndpoint(): string {
   return "http://localhost:8080/__ecmd-live-dom";
 }
 
+function getTelemetryUnmountEndpoint(): string {
+  return `${getTelemetryEndpoint()}/unmount`;
+}
+
+const pendingUnmountTimers = new Map<string, ReturnType<typeof setTimeout>>();
+
 function getRuntimeErrorEndpoint(): string {
   if (typeof window !== "undefined") {
     try {
@@ -990,6 +996,13 @@ function DevTelemetryObserver({
       }
     }
 
+    const unmountKey = `${componentName}::${bp.artboardTag}`;
+    const existingUnmountTimer = pendingUnmountTimers.get(unmountKey);
+    if (existingUnmountTimer) {
+      clearTimeout(existingUnmountTimer);
+      pendingUnmountTimers.delete(unmountKey);
+    }
+
     const onSnapshotNow = () => scheduleCapture(true);
     window.addEventListener("ecmd:snapshot-now", onSnapshotNow);
 
@@ -1017,6 +1030,41 @@ function DevTelemetryObserver({
       if (ro) ro.disconnect();
       window.removeEventListener("ecmd:snapshot-now", onSnapshotNow);
       if (bc) bc.close();
+
+      // Debounced unmount notification so removing a component from the Plasmic canvas
+      // clears its stale diagnostics cleanly without firing during React StrictMode remounts.
+      const prevTimer = pendingUnmountTimers.get(unmountKey);
+      if (prevTimer) clearTimeout(prevTimer);
+      const timer = setTimeout(() => {
+        pendingUnmountTimers.delete(unmountKey);
+        if (typeof document === "undefined" || typeof fetch !== "function") return;
+        const stillMounted = document.querySelector(
+          `[data-ecmd-telemetry-marker="${componentName}"]`
+        );
+        if (stillMounted) return;
+        try {
+          const fetchInit: RequestInit = {
+            method: "POST",
+            mode: "cors",
+            keepalive: true,
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              componentName,
+              artboardTag: bp.artboardTag,
+              unmountedAt: new Date().toISOString(),
+            }),
+          };
+          if (typeof AbortSignal !== "undefined" && typeof AbortSignal.timeout === "function") {
+            fetchInit.signal = AbortSignal.timeout(8000);
+          }
+          fetch(getTelemetryUnmountEndpoint(), fetchInit).catch(() => {
+            // Silent if dev server isn't reachable
+          });
+        } catch {
+          // ignore
+        }
+      }, 500);
+      pendingUnmountTimers.set(unmountKey, timer);
     };
   }, [componentName, displayName, bp.artboardTag, bp.viewportMode, bp.viewportWidthPx]);
 

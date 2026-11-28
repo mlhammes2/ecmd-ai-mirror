@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import React, { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { Link } from "@tanstack/react-router";
 import {
   getDiagnosticBreakpoint,
@@ -7,6 +7,15 @@ import {
   type RuntimeErrorEntry,
   type RuntimeErrorsStore,
 } from "../lib/ecmdLiveComponentTelemetry";
+import {
+  CLIENT_DISMISS_STORAGE_KEY,
+  applyClientDismissFilter,
+  readClientDismissState,
+  updateClientDismissStateForAction,
+  writeClientDismissState,
+  type DiagnosticsDismissAction,
+  type DiagnosticsStorePayload,
+} from "../lib/ecmdDiagnosticsStore";
 import {
   PsOnlyOutputPanel,
   copyPowerShellErrorsText,
@@ -23,14 +32,7 @@ interface AiTelemetry {
   tscOutput?: string;
 }
 
-interface DiagnosticsStore {
-  updatedAt?: string | null;
-  totalActive?: number;
-  totalDismissed?: number;
-  dismissedIds?: string[];
-  diagnostics?: CanvasDiagnostic[];
-  activeDiagnostics?: CanvasDiagnostic[];
-}
+type DiagnosticsStore = Partial<DiagnosticsStorePayload>;
 
 export interface UnifiedErrorsPayload {
   totalErrors: number;
@@ -56,10 +58,11 @@ export interface UnifiedErrorsPayload {
 }
 
 function getFetchInit(): RequestInit {
+  const init: RequestInit = { cache: "no-store" };
   if (typeof AbortSignal !== "undefined" && typeof AbortSignal.timeout === "function") {
-    return { signal: AbortSignal.timeout(8000) };
+    init.signal = AbortSignal.timeout(8000);
   }
-  return {};
+  return init;
 }
 
 export function Errors() {
@@ -75,8 +78,22 @@ export function Errors() {
   const [copiedJson, setCopiedJson] = useState<boolean>(false);
   const [copiedPs, setCopiedPs] = useState<boolean>(false);
   const [lastPolled, setLastPolled] = useState<string>("");
+  const diagMutationVersionRef = useRef<number>(0);
+
+  const broadcastDiagnosticsUpdated = useCallback((store: DiagnosticsStore) => {
+    if (typeof window === "undefined") return;
+    window.dispatchEvent(
+      new CustomEvent("ecmd:diagnostics-updated", {
+        detail: {
+          totalActive: store.totalActive ?? (store.activeDiagnostics?.length || 0),
+          activeDiagnostics: store.activeDiagnostics || [],
+        },
+      })
+    );
+  }, []);
 
   const fetchAllErrors = useCallback(async () => {
+    const versionAtStart = diagMutationVersionRef.current;
     try {
       setIsRefreshing(true);
       const ts = Date.now();
@@ -95,8 +112,9 @@ export function Errors() {
         latestTel = await resTel.json();
         setTelemetry(latestTel);
       }
-      if (resDiag && resDiag.ok) {
-        latestDiag = await resDiag.json();
+      if (resDiag && resDiag.ok && diagMutationVersionRef.current === versionAtStart) {
+        const rawDiag = await resDiag.json();
+        latestDiag = applyClientDismissFilter(rawDiag, readClientDismissState());
         setDiagnosticsStore(latestDiag);
       }
       if (resRt && resRt.ok) {
@@ -107,15 +125,8 @@ export function Errors() {
       setLastPolled(new Date().toLocaleTimeString());
 
       if (typeof window !== "undefined") {
-        if (latestDiag) {
-          window.dispatchEvent(
-            new CustomEvent("ecmd:diagnostics-updated", {
-              detail: {
-                totalActive: latestDiag.totalActive ?? (latestDiag.activeDiagnostics?.length || 0),
-                activeDiagnostics: latestDiag.activeDiagnostics || [],
-              },
-            })
-          );
+        if (latestDiag && diagMutationVersionRef.current === versionAtStart) {
+          broadcastDiagnosticsUpdated(latestDiag);
         }
         if (latestRt) {
           window.dispatchEvent(
@@ -133,7 +144,7 @@ export function Errors() {
     } finally {
       setIsRefreshing(false);
     }
-  }, []);
+  }, [broadcastDiagnosticsUpdated]);
 
   useEffect(() => {
     fetchAllErrors();
@@ -141,6 +152,19 @@ export function Errors() {
     const interval = setInterval(fetchAllErrors, 2000);
     return () => clearInterval(interval);
   }, [autoPoll, fetchAllErrors]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const onStorage = (evt: StorageEvent) => {
+      if (evt.key === CLIENT_DISMISS_STORAGE_KEY) {
+        setDiagnosticsStore((prev) =>
+          prev ? applyClientDismissFilter(prev, readClientDismissState()) : prev
+        );
+      }
+    };
+    window.addEventListener("storage", onStorage);
+    return () => window.removeEventListener("storage", onStorage);
+  }, []);
 
   const activeDiagnostics: CanvasDiagnostic[] = useMemo(
     () => diagnosticsStore?.activeDiagnostics || [],
@@ -254,7 +278,44 @@ export function Errors() {
 
   const handleRescanCanvas = async () => {
     setIsRescanning(true);
+    const mutationVersion = ++diagMutationVersionRef.current;
+    const nowIso = new Date().toISOString();
     try {
+      // 1. Reset stale/unmounted entries on server while preserving user dismissedIds
+      const nextClientState = updateClientDismissStateForAction(
+        readClientDismissState(),
+        { resetForRescan: true },
+        activeDiagnostics,
+        nowIso
+      );
+      writeClientDismissState(nextClientState);
+
+      const resetRes = await fetch("/__ecmd-live-dom/dismiss", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ resetForRescan: true }),
+        ...getFetchInit(),
+      }).catch(() => null);
+
+      if (resetRes && resetRes.ok && diagMutationVersionRef.current === mutationVersion) {
+        const resetJson = await resetRes.json();
+        if (resetJson?.diagnostics) {
+          const filtered = applyClientDismissFilter(resetJson.diagnostics, nextClientState);
+          setDiagnosticsStore(filtered);
+          broadcastDiagnosticsUpdated(filtered);
+        }
+      } else if (diagMutationVersionRef.current === mutationVersion) {
+        setDiagnosticsStore((prev) => {
+          const next = applyClientDismissFilter(
+            prev || { activeDiagnostics: [], diagnostics: [], dismissedIds: [] },
+            nextClientState
+          );
+          broadcastDiagnosticsUpdated(next);
+          return next;
+        });
+      }
+
+      // 2. Ask all currently mounted canvas components to post fresh snapshots
       if (typeof window !== "undefined") {
         window.dispatchEvent(new CustomEvent("ecmd:snapshot-now"));
       }
@@ -263,29 +324,69 @@ export function Errors() {
         bc.postMessage({ type: "snapshot-now", requestedAt: Date.now() });
         bc.close();
       }
-      const res = await fetch("/__ecmd-live-dom?t=" + Date.now(), getFetchInit()).catch(() => null);
-      if (res && res.ok) {
-        const json = await res.json();
-        if (json?.diagnostics) {
-          setDiagnosticsStore(json.diagnostics);
+
+      // 3. Give mounted components time to respond, then read the live store
+      await new Promise((resolve) => setTimeout(resolve, 450));
+      if (diagMutationVersionRef.current === mutationVersion) {
+        const res = await fetch("/__ecmd-live-dom?t=" + Date.now(), getFetchInit()).catch(
+          () => null
+        );
+        if (res && res.ok) {
+          const json = await res.json();
+          if (json?.diagnostics) {
+            const filtered = applyClientDismissFilter(json.diagnostics, readClientDismissState());
+            setDiagnosticsStore(filtered);
+            broadcastDiagnosticsUpdated(filtered);
+          }
+        } else {
+          await fetchAllErrors();
         }
       }
-      setTimeout(() => {
-        fetchAllErrors();
-      }, 300);
     } catch {
       await fetchAllErrors();
     } finally {
-      setTimeout(() => setIsRescanning(false), 450);
+      setIsRescanning(false);
     }
   };
 
-  const dismissDiagnostic = async (payload: {
-    id?: string;
-    clearResolved?: boolean;
-    clearAll?: boolean;
-    restoreAll?: boolean;
-  }) => {
+  const dismissDiagnostic = async (payload: DiagnosticsDismissAction) => {
+    const mutationVersion = ++diagMutationVersionRef.current;
+    const nowIso = new Date().toISOString();
+
+    // Persist immediately in localStorage & update UI optimistically so auto-poll never brings items back
+    const nextClientState = updateClientDismissStateForAction(
+      readClientDismissState(),
+      payload,
+      activeDiagnostics,
+      nowIso
+    );
+    writeClientDismissState(nextClientState);
+
+    if (payload.restoreAll) {
+      setDiagnosticsStore((prev) => {
+        if (!prev) return prev;
+        const restoredAll = Array.isArray(prev.diagnostics) && prev.diagnostics.length > 0
+          ? prev.diagnostics
+          : prev.activeDiagnostics || [];
+        const next: DiagnosticsStore = {
+          ...prev,
+          dismissedIds: [],
+          totalDismissed: 0,
+          activeDiagnostics: restoredAll,
+          totalActive: restoredAll.length,
+        };
+        broadcastDiagnosticsUpdated(next);
+        return next;
+      });
+    } else {
+      setDiagnosticsStore((prev) => {
+        if (!prev) return prev;
+        const next = applyClientDismissFilter(prev, nextClientState);
+        broadcastDiagnosticsUpdated(next);
+        return next;
+      });
+    }
+
     try {
       const res = await fetch("/__ecmd-live-dom/dismiss", {
         method: "POST",
@@ -293,24 +394,19 @@ export function Errors() {
         body: JSON.stringify(payload),
         ...getFetchInit(),
       });
-      if (res.ok) {
+      if (res.ok && diagMutationVersionRef.current === mutationVersion) {
         const json = await res.json();
         if (json?.diagnostics) {
-          setDiagnosticsStore(json.diagnostics);
-          if (typeof window !== "undefined") {
-            window.dispatchEvent(
-              new CustomEvent("ecmd:diagnostics-updated", {
-                detail: {
-                  totalActive: json.diagnostics?.totalActive ?? 0,
-                  activeDiagnostics: json.diagnostics?.activeDiagnostics || [],
-                },
-              })
-            );
-          }
+          const latestClientState = readClientDismissState();
+          const synced = payload.restoreAll
+            ? json.diagnostics
+            : applyClientDismissFilter(json.diagnostics, latestClientState);
+          setDiagnosticsStore(synced);
+          broadcastDiagnosticsUpdated(synced);
         }
       }
     } catch {
-      // ignore if dev middleware is unavailable
+      // LocalStorage persistence already applied above if dev middleware is unavailable
     }
   };
 
@@ -900,13 +996,28 @@ export function Errors() {
                         </span>
                         <code className="text-[11px] font-mono text-slate-300">{diag.element}</code>
                       </div>
-                      <button
-                        type="button"
-                        onClick={() => dismissDiagnostic({ id: diag.id })}
-                        className="rounded-md border border-slate-700 bg-slate-900 px-2.5 py-1 text-[11px] font-semibold text-slate-300 transition hover:border-amber-400/50 hover:text-white"
-                      >
-                        Dismiss
-                      </button>
+                      <div className="flex items-center gap-1.5">
+                        <button
+                          type="button"
+                          onClick={() =>
+                            dismissDiagnostic({
+                              removeComponent: diag.componentName,
+                              artboardTag: diag.artboardTag,
+                            })
+                          }
+                          title={`Clear all stale diagnostics for ${diag.componentName} (${diag.artboardTag})`}
+                          className="rounded-md border border-slate-700/80 bg-slate-900/90 px-2.5 py-1 text-[11px] font-semibold text-slate-400 transition hover:border-rose-400/50 hover:text-rose-200"
+                        >
+                          Clear {diag.componentName}
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => dismissDiagnostic({ id: diag.id })}
+                          className="rounded-md border border-slate-700 bg-slate-900 px-2.5 py-1 text-[11px] font-semibold text-slate-300 transition hover:border-amber-400/50 hover:text-white"
+                        >
+                          Dismiss
+                        </button>
+                      </div>
                     </div>
                     <p className="text-xs text-slate-200 leading-relaxed">{diag.message}</p>
                     <div className="rounded-lg border border-emerald-500/20 bg-[#071219] px-3 py-2 text-[11px] text-emerald-300">

@@ -2,6 +2,17 @@
 import fs from "node:fs";
 import path from "node:path";
 import { execSync } from "node:child_process";
+import {
+  DEFAULT_PASSIVE_STALE_MS,
+  applyDismissAction,
+  buildTelemetryPayloads,
+  createDiagnosticsRuntimeState,
+  handleComponentUnmount,
+  ingestLiveDomSnapshot,
+  pruneStaleEntries,
+  pruneUnregisteredEntries,
+  type DiagnosticsRuntimeState,
+} from "./src/lib/ecmdDiagnosticsStore";
 
 const M_TOK = "[REDACTED_SECRET]";
 
@@ -31,22 +42,15 @@ function getRegisteredPlasmicComponentNames(): Set<string> | null {
   }
 }
 
-/**
- * Removes stale persisted entries whose componentName is no longer registered in src/plasmic-init.ts
- * (e.g., previously removed EcmdVehicleSelector snapshots containing broken fakeimg.pl sources).
- */
-function pruneUnregisteredLiveDomEntries(entries: Record<string, any>): boolean {
-  const registered = getRegisteredPlasmicComponentNames();
-  if (!registered) return false;
-  let removedAny = false;
-  for (const [key, entry] of Object.entries(entries)) {
-    const compName = String((entry as any)?.componentName || key.split("::")[0] || "").trim();
-    if (compName && !registered.has(compName)) {
-      delete entries[key];
-      removedAny = true;
+function getFileMtimeMs(filePath: string): number {
+  try {
+    if (fs.existsSync(filePath)) {
+      return fs.statSync(filePath).mtimeMs;
     }
+  } catch {
+    // ignore
   }
-  return removedAny;
+  return 0;
 }
 
 /**
@@ -91,47 +95,8 @@ function readRequestBody(req: any): Promise<string> {
   });
 }
 
-function rebuildAndPersistTelemetry(
-  entries: Record<string, any>,
-  dismissedIds: Set<string>
-) {
-  const now = new Date().toISOString();
-  const componentNames = Array.from(
-    new Set(
-      Object.values(entries)
-        .map((e: any) => String(e?.componentName || ""))
-        .filter(Boolean)
-    )
-  ).sort();
-
-  const liveDomPayload = {
-    updatedAt: now,
-    entries,
-    componentNames,
-  };
-
-  const allDiagnostics: any[] = [];
-  const seenDiagIds = new Set<string>();
-  for (const entry of Object.values(entries)) {
-    const list = Array.isArray((entry as any)?.diagnostics) ? (entry as any).diagnostics : [];
-    for (const d of list) {
-      if (d?.id && !seenDiagIds.has(d.id)) {
-        seenDiagIds.add(d.id);
-        allDiagnostics.push(d);
-      }
-    }
-  }
-
-  const activeDiagnostics = allDiagnostics.filter((d) => !dismissedIds.has(d.id));
-  const diagnosticsPayload = {
-    updatedAt: now,
-    totalActive: activeDiagnostics.length,
-    totalDismissed: dismissedIds.size,
-    dismissedIds: Array.from(dismissedIds),
-    diagnostics: allDiagnostics,
-    activeDiagnostics,
-  };
-
+function persistTelemetryFiles(state: DiagnosticsRuntimeState, nowIso?: string) {
+  const { liveDomPayload, diagnosticsPayload } = buildTelemetryPayloads(state, nowIso);
   try {
     fs.mkdirSync(path.dirname(LIVE_DOM_FILE), { recursive: true });
     fs.writeFileSync(LIVE_DOM_FILE, JSON.stringify(liveDomPayload, null, 2), "utf8");
@@ -139,7 +104,6 @@ function rebuildAndPersistTelemetry(
   } catch {
     // ignore write failures during rapid reload
   }
-
   return { liveDomPayload, diagnosticsPayload };
 }
 
@@ -178,30 +142,58 @@ export default defineConfig({
       {
         name: "ecmd-ws-bridge",
         configureServer(server: any) {
-          const initialLiveDom = readJsonSafe(LIVE_DOM_FILE, {
-            updatedAt: null,
-            entries: {},
-            componentNames: [],
-          });
-          const initialDiagnostics = readJsonSafe(DIAGNOSTICS_FILE, {
-            updatedAt: null,
-            totalActive: 0,
-            totalDismissed: 0,
-            dismissedIds: [],
-            diagnostics: [],
-            activeDiagnostics: [],
-          });
+          const loadStateFromDisk = (): DiagnosticsRuntimeState => {
+            const diskLiveDom = readJsonSafe(LIVE_DOM_FILE, {
+              updatedAt: null,
+              entries: {},
+              componentNames: [],
+            });
+            const diskDiagnostics = readJsonSafe(DIAGNOSTICS_FILE, {
+              updatedAt: null,
+              totalActive: 0,
+              totalDismissed: 0,
+              dismissedIds: [],
+              removedEntries: {},
+              removedComponents: {},
+              rescanResetAt: null,
+              diagnostics: [],
+              activeDiagnostics: [],
+            });
+            return createDiagnosticsRuntimeState(diskLiveDom, diskDiagnostics);
+          };
 
-          const liveDomEntries: Record<string, any> =
-            initialLiveDom && typeof initialLiveDom.entries === "object"
-              ? { ...initialLiveDom.entries }
-              : {};
-          const dismissedIds = new Set<string>(
-            Array.isArray(initialDiagnostics?.dismissedIds) ? initialDiagnostics.dismissedIds : []
-          );
-          if (pruneUnregisteredLiveDomEntries(liveDomEntries)) {
-            rebuildAndPersistTelemetry(liveDomEntries, dismissedIds);
+          let diagState: DiagnosticsRuntimeState = loadStateFromDisk();
+          let lastWrittenLiveDomMtime = getFileMtimeMs(LIVE_DOM_FILE);
+          let lastWrittenDiagMtime = getFileMtimeMs(DIAGNOSTICS_FILE);
+
+          const persistAndTrack = (nowIso?: string) => {
+            const result = persistTelemetryFiles(diagState, nowIso);
+            lastWrittenLiveDomMtime = getFileMtimeMs(LIVE_DOM_FILE);
+            lastWrittenDiagMtime = getFileMtimeMs(DIAGNOSTICS_FILE);
+            return result;
+          };
+
+          const syncIfExternallyModified = () => {
+            const curLiveMtime = getFileMtimeMs(LIVE_DOM_FILE);
+            const curDiagMtime = getFileMtimeMs(DIAGNOSTICS_FILE);
+            if (
+              curLiveMtime > lastWrittenLiveDomMtime + 50 ||
+              curDiagMtime > lastWrittenDiagMtime + 50
+            ) {
+              diagState = loadStateFromDisk();
+              lastWrittenLiveDomMtime = curLiveMtime;
+              lastWrittenDiagMtime = curDiagMtime;
+            }
+          };
+
+          // Prune unregistered and stale (>60 min) entries cleanly on dev server boot
+          const registeredOnBoot = getRegisteredPlasmicComponentNames();
+          const prunedUnreg = pruneUnregisteredEntries(diagState, registeredOnBoot);
+          const prunedStale = pruneStaleEntries(diagState, Date.now(), DEFAULT_PASSIVE_STALE_MS);
+          if (prunedUnreg || prunedStale) {
+            persistAndTrack();
           }
+
           const initialRuntimeErrors = readJsonSafe(RUNTIME_ERRORS_FILE, {
             updatedAt: null,
             totalCount: 0,
@@ -237,6 +229,40 @@ export default defineConfig({
             });
           });
 
+          server.middlewares.use("/__ecmd-live-dom/unmount", async (req: any, res: any) => {
+            setCorsHeaders(res);
+            if (req.method === "OPTIONS") {
+              res.statusCode = 204;
+              res.end();
+              return;
+            }
+            res.setHeader("Content-Type", "application/json");
+            if (req.method !== "POST") {
+              res.statusCode = 405;
+              res.end(JSON.stringify({ ok: false, error: "Method not allowed" }));
+              return;
+            }
+            try {
+              syncIfExternallyModified();
+              const raw = await readRequestBody(req);
+              const body = JSON.parse(raw || "{}");
+              const componentName = String(body?.componentName || "").trim();
+              const artboardTag =
+                typeof body?.artboardTag === "string" ? body.artboardTag.trim() : undefined;
+              if (!componentName) {
+                res.statusCode = 400;
+                res.end(JSON.stringify({ ok: false, error: "componentName is required" }));
+                return;
+              }
+              handleComponentUnmount(diagState, componentName, artboardTag, Date.now());
+              const { diagnosticsPayload } = persistAndTrack();
+              res.end(JSON.stringify({ ok: true, diagnostics: diagnosticsPayload }));
+            } catch (e: any) {
+              res.statusCode = 400;
+              res.end(JSON.stringify({ ok: false, error: e?.message || String(e) }));
+            }
+          });
+
           server.middlewares.use("/__ecmd-live-dom/dismiss", async (req: any, res: any) => {
             setCorsHeaders(res);
             if (req.method === "OPTIONS") {
@@ -251,50 +277,16 @@ export default defineConfig({
               return;
             }
             try {
+              syncIfExternallyModified();
               const raw = await readRequestBody(req);
               const body = JSON.parse(raw || "{}");
-
-              if (body.id && typeof body.id === "string") {
-                dismissedIds.add(body.id);
-              }
-
-              if (body.clearAll) {
-                for (const entry of Object.values(liveDomEntries)) {
-                  const list = Array.isArray((entry as any)?.diagnostics)
-                    ? (entry as any).diagnostics
-                    : [];
-                  for (const d of list) {
-                    if (d?.id) dismissedIds.add(d.id);
-                  }
-                }
-              }
-
-              if (body.clearResolved) {
-                pruneUnregisteredLiveDomEntries(liveDomEntries);
-                const currentIds = new Set<string>();
-                for (const entry of Object.values(liveDomEntries)) {
-                  const list = Array.isArray((entry as any)?.diagnostics)
-                    ? (entry as any).diagnostics
-                    : [];
-                  for (const d of list) {
-                    if (d?.id) currentIds.add(d.id);
-                  }
-                }
-                for (const existingId of Array.from(dismissedIds)) {
-                  if (!currentIds.has(existingId)) {
-                    dismissedIds.delete(existingId);
-                  }
-                }
-              }
-
-              if (body.restoreAll) {
-                dismissedIds.clear();
-              }
-
-              const { diagnosticsPayload } = rebuildAndPersistTelemetry(
-                liveDomEntries,
-                dismissedIds
+              applyDismissAction(
+                diagState,
+                body,
+                getRegisteredPlasmicComponentNames(),
+                Date.now()
               );
+              const { diagnosticsPayload } = persistAndTrack();
               res.end(JSON.stringify({ ok: true, diagnostics: diagnosticsPayload }));
             } catch (e: any) {
               res.statusCode = 400;
@@ -312,10 +304,8 @@ export default defineConfig({
             res.setHeader("Content-Type", "application/json");
 
             if (req.method === "GET") {
-              const { liveDomPayload, diagnosticsPayload } = rebuildAndPersistTelemetry(
-                liveDomEntries,
-                dismissedIds
-              );
+              syncIfExternallyModified();
+              const { liveDomPayload, diagnosticsPayload } = buildTelemetryPayloads(diagState);
               res.end(
                 JSON.stringify({
                   ok: true,
@@ -328,50 +318,39 @@ export default defineConfig({
 
             if (req.method === "POST") {
               try {
+                syncIfExternallyModified();
                 const raw = await readRequestBody(req);
                 const payload = JSON.parse(raw || "{}");
-                const componentName = String(payload?.componentName || "").trim();
-                const artboardTag = String(payload?.artboardTag || "desktop-1440").trim();
-                if (!componentName) {
-                  res.statusCode = 400;
-                  res.end(JSON.stringify({ ok: false, error: "componentName is required" }));
+                const result = ingestLiveDomSnapshot(
+                  diagState,
+                  payload,
+                  getRegisteredPlasmicComponentNames(),
+                  Date.now()
+                );
+                if (!result.accepted) {
+                  if (result.reason === "componentName is required") {
+                    res.statusCode = 400;
+                    res.end(JSON.stringify({ ok: false, error: result.reason }));
+                    return;
+                  }
+                  // Stale/delayed snapshot predating removal or rescan reset: acknowledge without resurrecting
+                  const { diagnosticsPayload } = buildTelemetryPayloads(diagState);
+                  res.end(
+                    JSON.stringify({
+                      ok: true,
+                      ignored: true,
+                      reason: result.reason,
+                      key: result.key,
+                      totalActive: diagnosticsPayload.totalActive,
+                    })
+                  );
                   return;
                 }
-                const key = `${componentName}::${artboardTag}`;
-                const freshDiagnostics = Array.isArray(payload.diagnostics) ? payload.diagnostics : [];
-
-                // Replace diagnostics for exact componentName + artboardTag cleanly and auto-prune resolved dismissed IDs
-                const entryDiagPrefix = `${componentName}::${artboardTag}::`
-                  .toLowerCase()
-                  .replace(/[^a-z0-9:_-]+/g, "-");
-                const freshDiagIds = new Set<string>(
-                  freshDiagnostics.map((d: any) => String(d?.id || "")).filter(Boolean)
-                );
-                for (const existingDismissedId of Array.from(dismissedIds)) {
-                  if (
-                    existingDismissedId.startsWith(entryDiagPrefix) &&
-                    !freshDiagIds.has(existingDismissedId)
-                  ) {
-                    dismissedIds.delete(existingDismissedId);
-                  }
-                }
-
-                liveDomEntries[key] = {
-                  ...payload,
-                  key,
-                  componentName,
-                  artboardTag,
-                  diagnostics: freshDiagnostics,
-                  updatedAt: payload.updatedAt || new Date().toISOString(),
-                };
-                const { diagnosticsPayload } = rebuildAndPersistTelemetry(
-                  liveDomEntries,
-                  dismissedIds
-                );
+                const { diagnosticsPayload } = persistAndTrack();
                 res.end(
                   JSON.stringify({
                     ok: true,
-                    key,
+                    key: result.key,
                     totalActive: diagnosticsPayload.totalActive,
                   })
                 );

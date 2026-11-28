@@ -3,11 +3,11 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-28T02:20:39.012Z",
-  "latestTurn": "TURN-054",
+  "generatedAt": "2026-11-28T02:46:36.315Z",
+  "latestTurn": "TURN-055",
   "counts": {
-    "totalFiles": 339,
-    "hubFiles": 194,
+    "totalFiles": 342,
+    "hubFiles": 197,
     "runnerFiles": 116,
     "supabaseMirrorFiles": 29,
     "registeredPlasmicComponents": 6,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-28T02:20:22.413Z",
+    "exportedAt": "2026-11-28T02:46:18.732Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -165,7 +165,7 @@
       },
       {
         "table_name": "ecmd_pen_turns",
-        "row_count": 52,
+        "row_count": 53,
         "rls_enabled": false,
         "mirrored": true
       },
@@ -776,7 +776,7 @@
       "section": "hub",
       "path": "hub/public/ai-telemetry.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json",
-      "sizeBytes": 4154,
+      "sizeBytes": 3773,
       "purpose": "ECMD PEN live turn telemetry"
     },
     {
@@ -825,7 +825,7 @@
       "section": "hub",
       "path": "hub/public/plasmic-diagnostics.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/plasmic-diagnostics.json",
-      "sizeBytes": 151241,
+      "sizeBytes": 234,
       "purpose": "Plasmic Canvas live diagnostics store"
     },
     {
@@ -839,14 +839,14 @@
       "section": "hub",
       "path": "hub/public/plasmic-live-dom.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/plasmic-live-dom.json",
-      "sizeBytes": 3051018,
+      "sizeBytes": 449403,
       "purpose": "JSON data / config"
     },
     {
       "section": "hub",
       "path": "hub/public/powershell-results.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/powershell-results.json",
-      "sizeBytes": 225,
+      "sizeBytes": 319,
       "purpose": "JSON data / config"
     },
     {
@@ -860,7 +860,7 @@
       "section": "hub",
       "path": "hub/public/runtime-errors.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/runtime-errors.json",
-      "sizeBytes": 2020,
+      "sizeBytes": 80,
       "purpose": "DEV browser runtime errors store"
     },
     {
@@ -1082,6 +1082,20 @@
     },
     {
       "section": "hub",
+      "path": "hub/scripts/_strip_auth_diag.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_strip_auth_diag.mjs",
+      "sizeBytes": 1126,
+      "purpose": "exports: pruneArr"
+    },
+    {
+      "section": "hub",
+      "path": "hub/scripts/_strip_pkg_repeater_diag.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_strip_pkg_repeater_diag.mjs",
+      "sizeBytes": 1117,
+      "purpose": "exports: pruneArr"
+    },
+    {
+      "section": "hub",
       "path": "hub/scripts/_write_clean_boot_prompt.mjs",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_write_clean_boot_prompt.mjs",
       "sizeBytes": 2643,
@@ -1280,7 +1294,7 @@
       "section": "hub",
       "path": "hub/src/components/layout/AppHeader.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/layout/AppHeader.tsx",
-      "sizeBytes": 10693,
+      "sizeBytes": 11449,
       "purpose": "exports: AppHeader"
     },
     {
@@ -1677,9 +1691,16 @@
     },
     {
       "section": "hub",
+      "path": "hub/src/lib/ecmdDiagnosticsStore.ts",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdDiagnosticsStore.ts",
+      "sizeBytes": 20804,
+      "purpose": "exports: CLIENT_DISMISS_STORAGE_KEY, DEFAULT_PASSIVE_STALE_MS, DEFAULT_CLEAR_STALE_MS, LiveDomEntryRecord, LiveDomStorePayload, DiagnosticsStorePayload"
+    },
+    {
+      "section": "hub",
       "path": "hub/src/lib/ecmdLiveComponentTelemetry.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdLiveComponentTelemetry.ts",
-      "sizeBytes": 35842,
+      "sizeBytes": 37712,
       "purpose": "exports: ALLOWED_PLASMIC_TOKEN_TYPES, AllowedPlasmicTokenType, RuntimeErrorEntry, RuntimeErrorsStore, EcmdRegisteredComponentMeta, ECMD_REGISTERED_COMPONENTS"
     },
     {
@@ -1770,7 +1791,7 @@
       "section": "hub",
       "path": "hub/src/pages/Errors.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/Errors.tsx",
-      "sizeBytes": 44668,
+      "sizeBytes": 49557,
       "purpose": "exports: UnifiedErrorsPayload, Errors"
     },
     {
@@ -1903,7 +1924,7 @@
       "section": "hub",
       "path": "hub/src/test/errors-page.test.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/errors-page.test.tsx",
-      "sizeBytes": 7933,
+      "sizeBytes": 18445,
       "purpose": "Vitest automated test suite"
     },
     {
@@ -2050,7 +2071,7 @@
       "section": "hub",
       "path": "hub/vite.config.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/vite.config.ts",
-      "sizeBytes": 19875,
+      "sizeBytes": 19619,
       "purpose": "exports: LIVE_SNAP"
     },
     {
@@ -2946,7 +2967,7 @@
       "section": "supabase-mirror",
       "path": "supabase-mirror/tables/ecmd_pen_turns.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_pen_turns.json",
-      "sizeBytes": 463927,
+      "sizeBytes": 470086,
       "purpose": "Supabase public.ecmd_pen_turns table snapshot (scrubbed)"
     },
     {

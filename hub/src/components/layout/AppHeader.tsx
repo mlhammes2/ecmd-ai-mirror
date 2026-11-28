@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { NAV_LINKS } from "./nav-links";
 import {
@@ -6,6 +6,11 @@ import {
   getDiagnosticSeverityTier,
   type CanvasDiagnostic,
 } from "../../lib/ecmdLiveComponentTelemetry";
+import {
+  CLIENT_DISMISS_STORAGE_KEY,
+  applyClientDismissFilter,
+  readClientDismissState,
+} from "../../lib/ecmdDiagnosticsStore";
 import { copyPowerShellErrorsText } from "../PsOnlyOutputPanel";
 
 interface DiagnosticsCounts {
@@ -64,6 +69,8 @@ export function AppHeader() {
     compilerCount: 0,
   });
 
+  const diagMutationVersionRef = useRef<number>(0);
+
   useEffect(() => {
     if (!import.meta.env.DEV || typeof window === "undefined") return;
     let active = true;
@@ -79,11 +86,12 @@ export function AppHeader() {
     };
 
     const pollDiagnostics = async () => {
+      const versionAtStart = diagMutationVersionRef.current;
       try {
-        const fetchInit: RequestInit =
-          typeof AbortSignal !== "undefined" && typeof AbortSignal.timeout === "function"
-            ? { signal: AbortSignal.timeout(8000) }
-            : {};
+        const fetchInit: RequestInit = { cache: "no-store" };
+        if (typeof AbortSignal !== "undefined" && typeof AbortSignal.timeout === "function") {
+          fetchInit.signal = AbortSignal.timeout(8000);
+        }
         const ts = Date.now();
         const [diagRes, rtRes, telRes] = await Promise.all([
           fetch("/plasmic-diagnostics.json?t=" + ts, fetchInit).catch(() => null),
@@ -96,14 +104,15 @@ export function AppHeader() {
           finalDiagRes = await fetch("/__ecmd-live-dom?t=" + ts, fetchInit).catch(() => null);
         }
 
-        if (finalDiagRes && finalDiagRes.ok) {
+        if (finalDiagRes && finalDiagRes.ok && diagMutationVersionRef.current === versionAtStart) {
           const json = await finalDiagRes.json();
           const diag =
             json?.diagnostics && typeof json.diagnostics.totalActive === "number"
               ? json.diagnostics
               : json;
           if (diag && Array.isArray(diag.activeDiagnostics)) {
-            latestCanvasList = diag.activeDiagnostics;
+            const filtered = applyClientDismissFilter(diag, readClientDismissState());
+            latestCanvasList = filtered.activeDiagnostics || [];
           }
         }
 
@@ -128,11 +137,18 @@ export function AppHeader() {
     pollDiagnostics();
     const interval = setInterval(pollDiagnostics, 3000);
     const onDiagUpdated = (e: Event) => {
+      diagMutationVersionRef.current++;
       const detail = (e as CustomEvent)?.detail;
       if (Array.isArray(detail?.activeDiagnostics)) {
         latestCanvasList = detail.activeDiagnostics;
         syncCounts();
       } else {
+        pollDiagnostics();
+      }
+    };
+    const onStorage = (e: StorageEvent) => {
+      if (e.key === CLIENT_DISMISS_STORAGE_KEY) {
+        diagMutationVersionRef.current++;
         pollDiagnostics();
       }
     };
@@ -147,12 +163,14 @@ export function AppHeader() {
     };
     window.addEventListener("ecmd:diagnostics-updated", onDiagUpdated);
     window.addEventListener("ecmd:runtime-errors-updated", onRuntimeUpdated);
+    window.addEventListener("storage", onStorage);
 
     return () => {
       active = false;
       clearInterval(interval);
       window.removeEventListener("ecmd:diagnostics-updated", onDiagUpdated);
       window.removeEventListener("ecmd:runtime-errors-updated", onRuntimeUpdated);
+      window.removeEventListener("storage", onStorage);
     };
   }, []);
 
