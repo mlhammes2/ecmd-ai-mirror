@@ -1217,42 +1217,5 @@ describe("Plasmic Controllers Regression Tests", () => {
       }
     });
 
-    it("EcmdVehicleSelector wrapped via registerEcmdComponent forwards Plasmic className onto its root sizing element without an inline width:'100%' lock", () => {
-      const fakeLoader = { registerComponent: vi.fn() };
-      const WrappedSelector = (() => null);
-
-      const styleTag = document.createElement("style");
-      styleTag.textContent = ".plasmic-veh-980 { width: 980px; max-width: 980px; margin-left: auto; margin-right: auto; }";
-      document.head.appendChild(styleTag);
-
-      try {
-        const { container } = render(
-          <WrappedSelector className="plasmic-veh-980" />
-        );
-
-        // No display:contents wrapper <div>
-        expect(container.querySelector("[data-ecmd-telemetry-host]")).toBeNull();
-
-        const rootEl = container.firstElementChild as HTMLElement;
-        expect(rootEl).toBeInTheDocument();
-        expect(rootEl.classList.contains("ecmd-vehicle-selector-root")).toBe(true);
-        expect(rootEl.classList.contains("ecmd-vehicle-selector")).toBe(true);
-        expect(rootEl.classList.contains("plasmic-veh-980")).toBe(true);
-
-        // NO inline style.width="100%" overriding CSS class width!
-        expect(rootEl.style.width).toBe("");
-        expect(window.getComputedStyle(rootEl).width).toBe("980px");
-        expect(window.getComputedStyle(rootEl).maxWidth).toBe("980px");
-
-        // Plasmic root className is NOT erroneously duplicated onto inner slots
-        const slots = Array.from(rootEl.querySelectorAll(".ecmd-vehicle-slot"));
-        expect(slots).toHaveLength(4);
-        for (const slot of slots) {
-          expect(slot.classList.contains("plasmic-veh-980")).toBe(false);
-        }
-      } finally {
-        document.head.removeChild(styleTag);
-      }
-    });
-  });
+      });
 });

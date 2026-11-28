@@ -1,7 +1,7 @@
 ﻿{
-    "updatedAt":  "2026-11-27T17:04:40.4713446-07:00",
+    "updatedAt":  "2026-11-27T17:06:19.8125212-07:00",
     "exitCode":  1,
     "summary":  "tsc exit: 2 | vitest exit: 1",
-    "source":  "PowerShell Dedicated Output Box + Test Cleanup",
+    "source":  "PowerShell Obsolete Test Cleanup",
     "output":  "tsc exit: 2 | vitest exit: 1"
 }

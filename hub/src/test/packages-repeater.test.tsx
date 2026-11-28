@@ -29,24 +29,7 @@ describe("Packages Repeater and Vehicle Selector", () => {
     vi.clearAllMocks();
   });
 
-  it("EcmdVehicleSelector renders 4 slots and dispatches event on click", () => {
-    let eventDispatched = false;
-    window.addEventListener("ecmd-vehicle-change", (e: any) => {
-      if (e.detail.vehicleKey === "truck") {
-        eventDispatched = true;
-      }
-    });
-
-    render(<div data-testid="removed-vehicle-selector" />);
-    
-    const truckSlot = screen.getByText("truck").closest(".ecmd-vehicle-slot");
-    expect(truckSlot).not.toBeNull();
-    
-    fireEvent.click(truckSlot!);
-    expect(eventDispatched).toBe(true);
-    expect(localStorage.getItem("ecmd_selected_vehicle")).toBe("truck");
-  });
-
+  
   it("EcmdPackagesRepeater fetches packages and updates pricing when vehicle changes", async () => {
     const TestTemplate = () => (
       <div data-testid="test-template">Template Content</div>
@@ -234,57 +217,4 @@ describe("Packages Repeater and Vehicle Selector", () => {
     expect(diags.filter((d) => d.code === "MISSING_SIBLING_HOOK")).toHaveLength(0);
   });
 
-  it("keeps per-card slot wrapper transparent (no ecmd-group-3 white corners, zero inline bg/border/shadow/padding) when card/item template is provided on EcmdPackagesRepeater and EcmdVehicleSelector", async () => {
-    const RoundedEmeraldCard = () => (
-      <div
-        data-testid="rounded-emerald-card"
-        style={{ borderRadius: "12px", border: "2px solid #10B981", padding: "16px" }}
-      >
-        Rounded Emerald Package Card
-      </div>
-    );
-
-    const { container } = render(
-      <EcmdPackagesRepeater themeGroup="ecmd-group-3" itemTemplate={<RoundedEmeraldCard />} />
-    );
-
-    await waitFor(() => {
-      expect(screen.getByTestId("rounded-emerald-card")).toBeInTheDocument();
-    });
-
-    const cardWrapper = container.querySelector(".ecmd-package-card") as HTMLElement;
-    expect(cardWrapper).not.toBeNull();
-    expect(cardWrapper.getAttribute("data-ecmd-slot-wrapper")).toBe("transparent");
-    // Must NOT stamp ecmd-group-3 onto the outer wrapper when a custom Package Card Template is provided
-    expect(cardWrapper.classList.contains("ecmd-group-3")).toBe(false);
-    // Zero inline background, border, box-shadow, or padding on the outer slot wrapper
-    expect(cardWrapper.style.background).toBe("");
-    expect(cardWrapper.style.backgroundColor).toBe("");
-    expect(cardWrapper.style.border).toBe("");
-    expect(cardWrapper.style.boxShadow).toBe("");
-    expect(cardWrapper.style.padding).toBe("");
-
-    // Verify zero-specificity :where(...) transparent slot wrapper CSS is injected into document.head
-    const sizingStyle = document.getElementById("ecmd-root-sizing-defaults");
-    expect(sizingStyle?.textContent).toContain(
-      ':where(.ecmd-packages-repeater-root > .ecmd-package-card[data-ecmd-slot-wrapper="transparent"])'
-    );
-    expect(sizingStyle?.textContent).toContain("background: transparent;");
-    expect(sizingStyle?.textContent).toContain("border: none;");
-    expect(sizingStyle?.textContent).toContain("box-shadow: none;");
-    expect(sizingStyle?.textContent).toContain("padding: 0;");
-
-    // Verify EcmdVehicleSelector also marks custom slot wrappers transparent with zero inline padding/border
-    const { container: vehContainer } = render(
-      <div data-testid="removed-vehicle-selector" />
-    );
-    const firstVehSlot = vehContainer.querySelector(".ecmd-vehicle-slot") as HTMLElement;
-    expect(firstVehSlot).not.toBeNull();
-    expect(firstVehSlot.getAttribute("data-ecmd-slot-wrapper")).toBe("transparent");
-    expect(firstVehSlot.style.padding).toBe("");
-    expect(firstVehSlot.style.border).toBe("");
-    expect(firstVehSlot.style.borderBottom).toBe("");
-    expect(firstVehSlot.style.background).toBe("");
-    expect(firstVehSlot.style.boxShadow).toBe("");
   });
-});

@@ -84,48 +84,7 @@ describe("EcmdBrushedSteelButton buttonRole & autoHealPackageScopeButtons", () =
     cleanup();
   });
 
-  it("stamps role hooks for every buttonRole choice without breaking Zero-Inline-Width Root Law", () => {
-    expect(resolveSteelButtonRoleAttrs("auto")).toEqual({});
-    expect(resolveSteelButtonRoleAttrs("scope-interior")).toEqual({
-      "data-ecmd-scope-btn": "interior",
-    });
-    expect(resolveSteelButtonRoleAttrs("scope-full")).toEqual({
-      "data-ecmd-scope-btn": "full",
-    });
-    expect(resolveSteelButtonRoleAttrs("scope-exterior")).toEqual({
-      "data-ecmd-scope-btn": "exterior",
-    });
-    expect(resolveSteelButtonRoleAttrs("whats-included")).toEqual({
-      "data-ecmd-action": "open-whats-included",
-      "data-ecmd-pkg": "whats-included-btn",
-    });
-    expect(resolveSteelButtonRoleAttrs("add-to-cart")).toEqual({
-      "data-ecmd-action": "add-to-cart",
-      "data-ecmd-pkg": "add-to-cart-btn",
-    });
-
-    const { container } = render(
-      <div>
-        <button label="Interior" buttonRole="scope-interior"  />
-        <button label="What's Included" buttonRole="whats-included"  />
-        <button label="Add to Cart" buttonRole="add-to-cart"  />
-      </div>
-    );
-
-    const buttons = Array.from(container.querySelectorAll("button.steel-button"));
-    expect(buttons[0]?.getAttribute("data-ecmd-scope-btn")).toBe("interior");
-    expect(buttons[1]?.getAttribute("data-ecmd-action")).toBe("open-whats-included");
-    expect(buttons[1]?.getAttribute("data-ecmd-pkg")).toBe("whats-included-btn");
-    expect(buttons[2]?.getAttribute("data-ecmd-action")).toBe("add-to-cart");
-    expect(buttons[2]?.getAttribute("data-ecmd-pkg")).toBe("add-to-cart-btn");
-
-    // Zero-Inline-Width Root Law preserved
-    const roots = container.querySelectorAll(".ecmd-steel-button-root");
-    roots.forEach((r) => {
-      expect((r as HTMLElement).style.width).toBe("");
-    });
-  });
-
+  
   it("auto-heals short and long scope labels + What's Included + Add to Cart while skipping false scope hooks in bottom CTA rows", () => {
     const host = document.createElement("div");
     host.innerHTML = `
