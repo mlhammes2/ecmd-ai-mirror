@@ -1,7 +1,7 @@
 ﻿{
-    "updatedAt":  "2026-11-27T17:22:37.1848761-07:00",
+    "updatedAt":  "2026-11-27T17:28:16.4927313-07:00",
     "exitCode":  0,
-    "summary":  "Mounted PsErrorsOnlyBox on /errors \u0026 /workflow; tsc: 0 errors, vitest passed.",
-    "source":  "PowerShell PsErrorsOnlyBox Mount",
+    "summary":  "Mounted PsErrorsOnlyBox \u0026 pruned stale entries; tsc: 0 errors, vitest passed.",
+    "source":  "PowerShell Force Mount Box + Prune",
     "output":  "tsc exit: 0 | vitest exit: 0"
 }
