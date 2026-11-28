@@ -1,7 +1,7 @@
 ﻿{
-    "updatedAt":  "2026-11-27T17:06:19.8125212-07:00",
+    "updatedAt":  "2026-11-27T17:07:32.6797967-07:00",
     "exitCode":  1,
-    "summary":  "tsc exit: 2 | vitest exit: 1",
-    "source":  "PowerShell Obsolete Test Cleanup",
-    "output":  "tsc exit: 2 | vitest exit: 1"
+    "summary":  "tsc exit: 0 | vitest exit: 1",
+    "source":  "PowerShell Matrix Test Cleanup",
+    "output":  "tsc exit: 0 | vitest exit: 1"
 }

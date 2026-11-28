@@ -3,11 +3,11 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-28T00:06:32.206Z",
+  "generatedAt": "2026-11-28T00:07:45.619Z",
   "latestTurn": "TURN-051",
   "counts": {
-    "totalFiles": 324,
-    "hubFiles": 179,
+    "totalFiles": 325,
+    "hubFiles": 180,
     "runnerFiles": 116,
     "supabaseMirrorFiles": 29,
     "registeredPlasmicComponents": 6,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-28T00:06:20.425Z",
+    "exportedAt": "2026-11-28T00:07:33.304Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -846,7 +846,7 @@
       "section": "hub",
       "path": "hub/public/powershell-results.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/powershell-results.json",
-      "sizeBytes": 234,
+      "sizeBytes": 232,
       "purpose": "JSON data / config"
     },
     {
@@ -889,6 +889,13 @@
       "path": "hub/scripts/_clean_boot_prompt_tail.mjs",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_clean_boot_prompt_tail.mjs",
       "sizeBytes": 2509,
+      "purpose": "Code module"
+    },
+    {
+      "section": "hub",
+      "path": "hub/scripts/_clean_matrix_test.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_clean_matrix_test.mjs",
+      "sizeBytes": 1304,
       "purpose": "Code module"
     },
     {
@@ -1812,8 +1819,8 @@
       "section": "hub",
       "path": "hub/src/test/packages-matrix-engine.test.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/packages-matrix-engine.test.tsx",
-      "sizeBytes": 14938,
-      "purpose": "exports: StudioCardTemplate"
+      "sizeBytes": 9238,
+      "purpose": "Vitest automated test suite"
     },
     {
       "section": "hub",
