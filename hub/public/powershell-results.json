@@ -1,7 +1,7 @@
 ﻿{
-    "updatedAt":  "2026-11-27T17:39:16.2951501-07:00",
+    "updatedAt":  "2026-11-27T17:41:38.1270369-07:00",
     "exitCode":  0,
-    "summary":  "Mounted PsErrorsOnlyBox on /errors \u0026 /workflow; tsc: 0 errors, vitest passed.",
-    "source":  "PowerShell Root Mount",
+    "summary":  "Single task complete; tsc: 0 errors, vitest passed.",
+    "source":  "Single-Task Pass: Top-Tab Copy + PS Box",
     "output":  "tsc exit: 0 | vitest exit: 0"
 }
