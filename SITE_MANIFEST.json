@@ -3,11 +3,11 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-28T00:32:32.388Z",
+  "generatedAt": "2026-11-28T00:38:10.764Z",
   "latestTurn": "TURN-051",
   "counts": {
-    "totalFiles": 331,
-    "hubFiles": 186,
+    "totalFiles": 332,
+    "hubFiles": 187,
     "runnerFiles": 116,
     "supabaseMirrorFiles": 29,
     "registeredPlasmicComponents": 6,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-28T00:32:18.585Z",
+    "exportedAt": "2026-11-28T00:37:56.676Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -846,7 +846,7 @@
       "section": "hub",
       "path": "hub/public/powershell-results.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/powershell-results.json",
-      "sizeBytes": 311,
+      "sizeBytes": 255,
       "purpose": "JSON data / config"
     },
     {
@@ -860,7 +860,7 @@
       "section": "hub",
       "path": "hub/public/runtime-errors.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/runtime-errors.json",
-      "sizeBytes": 38123,
+      "sizeBytes": 40289,
       "purpose": "DEV browser runtime errors store"
     },
     {
@@ -981,6 +981,13 @@
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_mount_in_route_component.mjs",
       "sizeBytes": 1667,
       "purpose": "exports: ErrorsPage"
+    },
+    {
+      "section": "hub",
+      "path": "hub/scripts/_mount_ps_box_visible.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_mount_ps_box_visible.mjs",
+      "sizeBytes": 5266,
+      "purpose": "exports: PsErrorsOnlyRecord, PsErrorsOnlyBox"
     },
     {
       "section": "hub",
@@ -1252,8 +1259,8 @@
       "section": "hub",
       "path": "hub/src/components/PsErrorsOnlyBox.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/PsErrorsOnlyBox.tsx",
-      "sizeBytes": 4166,
-      "purpose": "exports: PsErrorsPayload, PsErrorsOnlyBox"
+      "sizeBytes": 4150,
+      "purpose": "exports: PsErrorsOnlyRecord, PsErrorsOnlyBox"
     },
     {
       "section": "hub",

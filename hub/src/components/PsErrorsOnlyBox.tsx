@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export interface PsErrorsPayload {
+export interface PsErrorsOnlyRecord {
   updatedAt?: string;
   source?: string;
   exitCode?: number;
@@ -9,27 +9,27 @@ export interface PsErrorsPayload {
 }
 
 export function PsErrorsOnlyBox() {
-  const [info, setInfo] = useState<PsErrorsPayload | null>(null);
+  const [info, setInfo] = useState<PsErrorsOnlyRecord | null>(null);
   const [copied, setCopied] = useState(false);
 
-  async function pullPs() {
+  async function pull() {
     try {
-      const resp = await fetch("/powershell-results.json?_=" + Date.now(), { cache: "no-store" });
-      if (!resp.ok) return;
-      const json = await resp.json();
+      const r = await fetch("/powershell-results.json?_=" + Date.now(), { cache: "no-store" });
+      if (!r.ok) return;
+      const json = await r.json();
       setInfo(json);
     } catch {}
   }
 
   useEffect(() => {
-    pullPs();
-    const handle = window.setInterval(pullPs, 2500);
-    return () => window.clearInterval(handle);
+    pull();
+    const timer = window.setInterval(pull, 2500);
+    return () => window.clearInterval(timer);
   }, []);
 
   const isErr = typeof info?.exitCode === "number" && info.exitCode !== 0;
 
-  const textToCopy = info
+  const copyPayload = info
     ? [
         "=== POWERSHELL ERRORS & OUTPUT ===",
         "Source: " + (info.source || "PowerShell"),
@@ -39,17 +39,17 @@ export function PsErrorsOnlyBox() {
         "---",
         info.output || ""
       ].filter(Boolean).join("\n")
-    : "No PowerShell output recorded yet.";
+    : "No PowerShell output captured yet.";
 
-  async function handleCopy() {
+  async function copyNow() {
     try {
-      await navigator.clipboard.writeText(textToCopy);
+      await navigator.clipboard.writeText(copyPayload);
       setCopied(true);
       window.setTimeout(() => setCopied(false), 1800);
     } catch {
-      const el = document.getElementById("ps-errors-only-box-txt") as HTMLTextAreaElement | null;
-      if (el) {
-        el.select();
+      const ta = document.getElementById("ps-errors-only-textarea") as HTMLTextAreaElement | null;
+      if (ta) {
+        ta.select();
         document.execCommand("copy");
         setCopied(true);
         window.setTimeout(() => setCopied(false), 1800);
@@ -62,18 +62,18 @@ export function PsErrorsOnlyBox() {
       id="ps-errors-only-box"
       aria-label="PowerShell Errors & Terminal Output"
       style={{
-        margin: "14px 0",
+        margin: "12px 0 18px",
         padding: 14,
         borderRadius: 10,
-        border: isErr ? "2px solid #ef4444" : "1px solid rgba(56, 189, 248, 0.5)",
-        background: isErr ? "rgba(69, 10, 10, 0.88)" : "rgba(15, 23, 42, 0.9)",
+        border: isErr ? "2px solid #ef4444" : "1px solid rgba(56, 189, 248, 0.55)",
+        background: isErr ? "rgba(69, 10, 10, 0.9)" : "rgba(15, 23, 42, 0.92)",
         color: "#f8fafc"
       }}
     >
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
         <div>
           <div style={{ fontWeight: 700, fontSize: 14 }}>
-            PowerShell Errors &amp; Terminal Output {isErr ? "(Exit Code " + info?.exitCode + ")" : "(Exit Code 0)"}
+            PowerShell Errors &amp; Terminal Output {isErr ? "(ERROR Exit " + info?.exitCode + ")" : "(OK)"}
           </div>
           <div style={{ fontSize: 12, opacity: 0.8 }}>
             {info?.updatedAt ? "Updated: " + info.updatedAt : "Waiting for /powershell-results.json"}
@@ -82,7 +82,7 @@ export function PsErrorsOnlyBox() {
         <div style={{ display: "flex", gap: 8 }}>
           <button
             type="button"
-            onClick={pullPs}
+            onClick={pull}
             style={{
               padding: "5px 10px",
               borderRadius: 6,
@@ -98,7 +98,7 @@ export function PsErrorsOnlyBox() {
           <button
             id="copy-ps-errors-btn"
             type="button"
-            onClick={handleCopy}
+            onClick={copyNow}
             style={{
               padding: "5px 12px",
               borderRadius: 6,
@@ -115,10 +115,10 @@ export function PsErrorsOnlyBox() {
         </div>
       </div>
       <textarea
-        id="ps-errors-only-box-txt"
+        id="ps-errors-only-textarea"
         readOnly
-        rows={8}
-        value={textToCopy}
+        rows={7}
+        value={copyPayload}
         style={{
           width: "100%",
           boxSizing: "border-box",

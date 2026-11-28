@@ -1,7 +1,7 @@
 ﻿{
-    "updatedAt":  "2026-11-27T17:32:17.7339536-07:00",
+    "updatedAt":  "2026-11-27T17:37:55.9706749-07:00",
     "exitCode":  0,
-    "summary":  "Fixed __psBoxNode syntax \u0026 mounted PsErrorsOnlyBox; tsc: 0 errors, all 19 vitest suites passed.",
-    "source":  "PowerShell PsErrorsOnlyBox Syntax Fix",
+    "summary":  "PowerShell box mounted; tsc: 0 errors, vitest passed.",
+    "source":  "PowerShell Visible Box Mount",
     "output":  "tsc exit: 0 | vitest exit: 0"
 }
