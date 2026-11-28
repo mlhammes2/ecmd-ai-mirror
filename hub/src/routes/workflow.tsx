@@ -19,10 +19,7 @@ function EcmdDedicatedPsOutputBox() {
   React.useEffect(() => {
     loadPs();
     const timer = window.setInterval(loadPs, 3000);
-  // Render dedicated PowerShell Errors & Output box
-  const __psBoxNode =
-; void __psBoxNode;
-    return () => window.clearInterval(timer);
+return () => window.clearInterval(timer);
   }, []);
 
   const bodyText = psData

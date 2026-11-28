@@ -1,7 +1,7 @@
 ﻿{
-    "updatedAt":  "2026-11-27T17:30:22.6264558-07:00",
-    "exitCode":  1,
-    "summary":  "tsc exit: 2 | vitest exit: 1",
-    "source":  "PowerShell Route Component Box Mount",
-    "output":  "tsc exit: 2 | vitest exit: 1"
+    "updatedAt":  "2026-11-27T17:32:17.7339536-07:00",
+    "exitCode":  0,
+    "summary":  "Fixed __psBoxNode syntax \u0026 mounted PsErrorsOnlyBox; tsc: 0 errors, all 19 vitest suites passed.",
+    "source":  "PowerShell PsErrorsOnlyBox Syntax Fix",
+    "output":  "tsc exit: 0 | vitest exit: 0"
 }
