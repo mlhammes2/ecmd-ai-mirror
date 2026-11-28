@@ -7,6 +7,10 @@ import {
   type RuntimeErrorEntry,
   type RuntimeErrorsStore,
 } from "../lib/ecmdLiveComponentTelemetry";
+import {
+  PsOnlyOutputPanel,
+  copyPowerShellErrorsText,
+} from "../components/PsOnlyOutputPanel";
 
 interface AiTelemetry {
   refCode?: string;
@@ -69,6 +73,7 @@ export function Errors() {
   const [isRefreshing, setIsRefreshing] = useState<boolean>(false);
   const [isRescanning, setIsRescanning] = useState<boolean>(false);
   const [copiedJson, setCopiedJson] = useState<boolean>(false);
+  const [copiedPs, setCopiedPs] = useState<boolean>(false);
   const [lastPolled, setLastPolled] = useState<string>("");
 
   const fetchAllErrors = useCallback(async () => {
@@ -345,6 +350,16 @@ export function Errors() {
     }
   };
 
+  const handleCopyPsErrors = async () => {
+    try {
+      await copyPowerShellErrorsText();
+      setCopiedPs(true);
+      setTimeout(() => setCopiedPs(false), 2000);
+    } catch {
+      // Clipboard fallback handled inside copyPowerShellErrorsText
+    }
+  };
+
   const hasUrgent = compilerErrorCount > 0 || criticalCanvasCount > 0 || runtimeErrorCount > 0;
 
   return (
@@ -412,6 +427,18 @@ export function Errors() {
             >
               <span>{copiedJson ? "✓" : "📋"}</span>
               <span>{copiedJson ? "Copied Errors JSON" : "Copy All Errors JSON"}</span>
+            </button>
+
+            <button
+              id="ecmd-errors-bar-copy-ps-btn"
+              type="button"
+              onClick={() => {
+                void handleCopyPsErrors();
+              }}
+              className="inline-flex items-center gap-1.5 rounded-lg border border-sky-400/50 bg-sky-500/15 px-3 py-1.5 text-xs font-bold text-sky-200 transition hover:bg-sky-500/25"
+            >
+              <span>{copiedPs ? "✓" : "🖥️"}</span>
+              <span>{copiedPs ? "Copied PS Errors" : "Copy PS Errors"}</span>
             </button>
 
             <button
@@ -571,6 +598,9 @@ export function Errors() {
             </div>
           </div>
         </section>
+
+        {/* Dedicated PowerShell Errors & Terminal Output Box */}
+        <PsOnlyOutputPanel />
 
         {/* Panel 1 — Compiler & PEN (agy) Build Status */}
         <section

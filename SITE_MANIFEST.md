@@ -4,11 +4,11 @@
 > Chrome Gemini Sidebar & external architects: fetch this manifest first, then fetch any exact raw GitHub URL below on demand.
 
 ## Summary
-- **Generated At:** `2026-11-28T00:45:51.007Z`
-- **Latest Turn:** `TURN-051`
+- **Generated At:** `2026-11-28T01:10:22.926Z`
+- **Latest Turn:** `TURN-052`
 - **Manifest Raw URL:** https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md
 - **JSON Manifest Raw URL:** https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.json
-- **Mirrored Files:** **335** total (`hub/`: 190, `runner/`: 116, `supabase-mirror/`: 29)
+- **Mirrored Files:** **338** total (`hub/`: 193, `runner/`: 116, `supabase-mirror/`: 29)
 - **Secrets Scrubbed:** 76 redaction(s) applied (zero `.env*`, zero auth/PII tables exported)
 
 ## Supabase Summary (`lvynkeuceiqxafgpgdvs`)
@@ -125,7 +125,7 @@
 - `supabase-mirror/tables/ecmd_wix_site_buttons.json` (89.3 KB) — Supabase public.ecmd_wix_site_buttons table snapshot (scrubbed) — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_site_buttons.json
 - `supabase-mirror/tables/ecmd_wix_vehicle_categories.json` (10.7 KB) — Supabase public.ecmd_wix_vehicle_categories table snapshot (scrubbed) — https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/supabase-mirror/tables/ecmd_wix_vehicle_categories.json
 
-## Files: `hub/` (190)
+## Files: `hub/` (193)
 | Path | Size | Exports / Purpose | Raw GitHub URL |
 |---|---:|---|---|
 | `hub/.gitignore` | 385 B | Text/config file | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/.gitignore |
@@ -138,7 +138,7 @@
 | `hub/eslint.config.js` | 1.3 KB | Code module | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/eslint.config.js |
 | `hub/GEMINI.md` | 5.9 KB | Markdown documentation | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/GEMINI.md |
 | `hub/package.json` | 3.2 KB | Package manifest & scripts | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/package.json |
-| `hub/public/ai-telemetry.json` | 2.2 KB | ECMD PEN live turn telemetry | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json |
+| `hub/public/ai-telemetry.json` | 3.5 KB | ECMD PEN live turn telemetry | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json |
 | `hub/public/Ecmd Icon Cord Black.svg` | 39.9 KB | SVG vector asset | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/Ecmd%20Icon%20Cord%20Black.svg |
 | `hub/public/ecmd-brain.html` | 962 B | HTML template / console | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ecmd-brain.html |
 | `hub/public/ecmd-dolphin-logo.svg` | 5.5 KB | SVG vector asset | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ecmd-dolphin-logo.svg |
@@ -150,7 +150,7 @@
 | `hub/public/plasmic-live-dom.json` | 3.24 MB | JSON data / config | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/plasmic-live-dom.json |
 | `hub/public/powershell-results.json` | 233 B | JSON data / config | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/powershell-results.json |
 | `hub/public/robots.txt` | 174 B | Text/config file | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/robots.txt |
-| `hub/public/runtime-errors.json` | 48.0 KB | DEV browser runtime errors store | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/runtime-errors.json |
+| `hub/public/runtime-errors.json` | 79.4 KB | DEV browser runtime errors store | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/runtime-errors.json |
 | `hub/README.md` | 1.1 KB | Doc: Emerald Coast Detailing Hub | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/README.md |
 | `hub/scripts/_add_done_rule.mjs` | 1.6 KB | exports: ECMD_SIDEBAR_BOOT_PROMPT | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_add_done_rule.mjs |
 | `hub/scripts/_apply_workflow_and_copy_ui.mjs` | 7.8 KB | exports: PowerShellResultsData, EcmdPowerShellResultsCard | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_apply_workflow_and_copy_ui.mjs |
@@ -162,6 +162,7 @@
 | `hub/scripts/_finish_routes_and_results_card.mjs` | 6.0 KB | exports: PowerShellResultsRecord, EcmdPowerShellResultsCard | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_finish_routes_and_results_card.mjs |
 | `hub/scripts/_fix_adjacent_jsx_routes.mjs` | 1.4 KB | Code module | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_fix_adjacent_jsx_routes.mjs |
 | `hub/scripts/_fix_boot_prompt.mjs` | 2.0 KB | Code module | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_fix_boot_prompt.mjs |
+| `hub/scripts/_fix_copy_ref.mjs` | 667 B | Code module | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_fix_copy_ref.mjs |
 | `hub/scripts/_fix_psbox_syntax.mjs` | 1.2 KB | Code module | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_fix_psbox_syntax.mjs |
 | `hub/scripts/_fix_routes_and_copy_card.mjs` | 5.6 KB | exports: PowerShellResultsPayload, EcmdPowerShellResultsCard | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_fix_routes_and_copy_card.mjs |
 | `hub/scripts/_fix_test_imports_clean.mjs` | 1.7 KB | Code module | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_fix_test_imports_clean.mjs |
@@ -175,6 +176,7 @@
 | `hub/scripts/_prune_deleted_component_tests.mjs` | 2.3 KB | exports: removeItBlocksMatching | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_prune_deleted_component_tests.mjs |
 | `hub/scripts/_prune_removed_component_diags.mjs` | 1.3 KB | Code module | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_prune_removed_component_diags.mjs |
 | `hub/scripts/_ps_output_box_and_tests.mjs` | 6.5 KB | exports: EcmdDedicatedPsOutputBox, loadPs, copyPs | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_ps_output_box_and_tests.mjs |
+| `hub/scripts/_read_and_mount_ps_box.mjs` | 6.1 KB | exports: copyPowerShellErrorsText, PsOnlyOutputPanel | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_read_and_mount_ps_box.mjs |
 | `hub/scripts/_remove_11_components.mjs` | 3.1 KB | Code module | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_remove_11_components.mjs |
 | `hub/scripts/_remove_empty_describe.mjs` | 1.1 KB | Code module | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_remove_empty_describe.mjs |
 | `hub/scripts/_repair_boot_prompt_clean.mjs` | 3.0 KB | Code module | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_repair_boot_prompt_clean.mjs |
@@ -207,10 +209,11 @@
 | `hub/src/components/EcmdThemeImagesTab.tsx` | 68.2 KB | exports: EcmdThemeImagesTabProps, EcmdThemeImagesTab | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdThemeImagesTab.tsx |
 | `hub/src/components/EcmdThemeTokensTab.tsx` | 46.0 KB | exports: EcmdThemeTokensTabProps, countGroupsUsingToken, EcmdThemeTokensTab | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdThemeTokensTab.tsx |
 | `hub/src/components/EcmdTokenBindingBar.tsx` | 16.6 KB | exports: EcmdTokenBindingContext, EcmdLinkedTokenPill, EcmdTokenPopoverSection | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/EcmdTokenBindingBar.tsx |
-| `hub/src/components/layout/AppHeader.tsx` | 9.2 KB | exports: AppHeader | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/layout/AppHeader.tsx |
+| `hub/src/components/layout/AppHeader.tsx` | 10.4 KB | exports: AppHeader | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/layout/AppHeader.tsx |
 | `hub/src/components/layout/nav-links.ts` | 138 B | exports: NAV_LINKS | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/layout/nav-links.ts |
 | `hub/src/components/layout/PageShell.tsx` | 895 B | exports: PageShell | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/layout/PageShell.tsx |
 | `hub/src/components/PsErrorsOnlyBox.tsx` | 4.5 KB | exports: PsResultsData, copyLatestPsOutput, PsErrorsOnlyBox | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/PsErrorsOnlyBox.tsx |
+| `hub/src/components/PsOnlyOutputPanel.tsx` | 7.2 KB | exports: PsPayload, formatPowerShellResultsText, fetchPowerShellResults, copyPowerShellErrorsText, PsOnlyOutputPanel | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/PsOnlyOutputPanel.tsx |
 | `hub/src/components/ui/accordion.tsx` | 2.0 KB | exports: Accordion, AccordionItem, AccordionTrigger, AccordionContent | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/accordion.tsx |
 | `hub/src/components/ui/alert-dialog.tsx` | 4.2 KB | exports: AlertDialog, AlertDialogPortal, AlertDialogOverlay, AlertDialogTrigger, AlertDialogContent, AlertDialogHeader | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/alert-dialog.tsx |
 | `hub/src/components/ui/alert.tsx` | 1.6 KB | exports: Alert, AlertTitle, AlertDescription | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/ui/alert.tsx |
@@ -276,14 +279,14 @@
 | `hub/src/lib/utils.ts` | 175 B | exports: cn | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/utils.ts |
 | `hub/src/pages/ecmd-brain.tsx` | 1.1 KB | exports: EcmdBrainLive | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/ecmd-brain.tsx |
 | `hub/src/pages/EcmdBrainLive.tsx` | 1.1 KB | exports: EcmdBrainLive | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/EcmdBrainLive.tsx |
-| `hub/src/pages/Errors.tsx` | 42.6 KB | exports: UnifiedErrorsPayload, Errors | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/Errors.tsx |
+| `hub/src/pages/Errors.tsx` | 43.6 KB | exports: UnifiedErrorsPayload, Errors | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/Errors.tsx |
 | `hub/src/pages/Homepage.tsx` | 3.5 KB | exports: Homepage | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/Homepage.tsx |
 | `hub/src/pages/PlasmicHost.tsx` | 446 B | exports: PlasmicHostPage | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/PlasmicHost.tsx |
 | `hub/src/pages/Workflow.tsx` | 21.5 KB | exports: Workflow | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/Workflow.tsx |
 | `hub/src/plasmic-init.ts` | 63.5 KB | exports: PLASMIC | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/plasmic-init.ts |
 | `hub/src/router.tsx` | 631 B | exports: getRouter | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/router.tsx |
-| `hub/src/routes/__root.tsx` | 11.5 KB | exports: BENIGN_RESIZE_OBSERVER_ERROR_RE, isBenignResizeObserverError, ECMD_DEV_EARLY_ERROR_BRIDGE_SCRIPT, Route | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/__root.tsx |
-| `hub/src/routes/errors.tsx` | 4.9 KB | exports: Route | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/errors.tsx |
+| `hub/src/routes/__root.tsx` | 10.3 KB | exports: BENIGN_RESIZE_OBSERVER_ERROR_RE, isBenignResizeObserverError, ECMD_DEV_EARLY_ERROR_BRIDGE_SCRIPT, Route | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/__root.tsx |
+| `hub/src/routes/errors.tsx` | 169 B | exports: Route | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/errors.tsx |
 | `hub/src/routes/index.tsx` | 178 B | exports: Route | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/index.tsx |
 | `hub/src/routes/plasmic-host.tsx` | 1.0 KB | exports: ECMD_PLASMIC_HOST_ROOT_ID, Route | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/plasmic-host.tsx |
 | `hub/src/routes/README.md` | 856 B | Doc: Routes | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/README.md |
@@ -295,7 +298,7 @@
 | `hub/src/telemetryData.ts` | 124 B | exports: LIVE_SNAP | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/telemetryData.ts |
 | `hub/src/test/app-routing.test.tsx` | 1.3 KB | Vitest automated test suite | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/app-routing.test.tsx |
 | `hub/src/test/ecmd-telemetry-breakpoint.test.tsx` | 19.5 KB | exports: setViewportWidth, BreakpointProbe | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/ecmd-telemetry-breakpoint.test.tsx |
-| `hub/src/test/errors-page.test.tsx` | 5.3 KB | Vitest automated test suite | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/errors-page.test.tsx |
+| `hub/src/test/errors-page.test.tsx` | 7.7 KB | Vitest automated test suite | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/errors-page.test.tsx |
 | `hub/src/test/media-cms.test.ts` | 1.8 KB | Vitest automated test suite | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/media-cms.test.ts |
 | `hub/src/test/packages-matrix-engine.test.tsx` | 8.8 KB | Vitest automated test suite | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/packages-matrix-engine.test.tsx |
 | `hub/src/test/packages-repeater.test.tsx` | 8.3 KB | Vitest automated test suite | https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/packages-repeater.test.tsx |

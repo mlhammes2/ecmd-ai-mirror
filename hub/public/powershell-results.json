@@ -1,7 +1,7 @@
 ﻿{
-    "updatedAt":  "2026-11-27T17:45:35.9611633-07:00",
-    "exitCode":  1,
-    "summary":  "tsc exit: 2 | vitest exit: 0",
-    "source":  "PowerShell Inspect \u0026 Mount",
-    "output":  "tsc exit: 2 | vitest exit: 0"
+    "updatedAt":  "2026-11-27T18:02:58.6879572-07:00",
+    "exitCode":  0,
+    "summary":  "Fixed copyLatestPsOutput reference; tsc: 0 errors.",
+    "source":  "Fix copyLatestPsOutput Ref",
+    "output":  "tsc exit: 0"
 }

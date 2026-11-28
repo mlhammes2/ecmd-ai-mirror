@@ -2,6 +2,7 @@ import React from "react";
 import { render, screen, waitFor, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import Errors from "../pages/Errors";
+import { AppHeader } from "../components/layout/AppHeader";
 
 vi.mock("@tanstack/react-router", () => ({
   Link: ({ to, children, ...rest }: any) => (
@@ -143,5 +144,66 @@ describe("Unified /errors Page (#ecmd-unified-errors-json)", () => {
     expect(screen.getByText("Horizontal overflow detected (+24px)")).toBeInTheDocument();
     fireEvent.click(screen.getByRole("tab", { name: /Mobile \(1\)/i }));
     expect(screen.getByText("Visible node has collapsed zero size (0x0px)")).toBeInTheDocument();
+  });
+
+  it("renders dedicated PowerShell Errors & Terminal Output box and Copy PS Errors buttons reading /powershell-results.json separately", async () => {
+    const mockPsResults = {
+      updatedAt: "2026-11-27T18:05:00.000Z",
+      source: "Deploy Check Script",
+      exitCode: 1,
+      summary: "1 script error detected",
+      output: "Write-Error: Sample PowerShell failure line",
+    };
+
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(navigator, "clipboard", {
+      value: { writeText },
+      configurable: true,
+    });
+
+    globalThis.fetch = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input);
+      if (url.includes("/powershell-results.json")) {
+        return new Response(JSON.stringify(mockPsResults), { status: 200 });
+      }
+      if (url.includes("/ai-telemetry.json")) {
+        return new Response(JSON.stringify({ tscClean: true, errorsSummary: "0 errors" }), { status: 200 });
+      }
+      if (url.includes("/plasmic-diagnostics.json")) {
+        return new Response(JSON.stringify({ activeDiagnostics: [] }), { status: 200 });
+      }
+      if (url.includes("/runtime-errors.json")) {
+        return new Response(JSON.stringify({ totalCount: 0, errors: [] }), { status: 200 });
+      }
+      return new Response("{}", { status: 404 });
+    }) as any;
+
+    render(
+      <>
+        <AppHeader />
+        <Errors />
+      </>
+    );
+
+    await waitFor(() => {
+      const box = document.getElementById("ecmd-ps-errors-output-box");
+      expect(box).not.toBeNull();
+      const textarea = document.getElementById("ps-only-output-textarea") as HTMLTextAreaElement | null;
+      expect(textarea?.value).toContain("Sample PowerShell failure line");
+      expect(textarea?.value).toContain("Exit Code: 1");
+    });
+
+    // Ensure #ecmd-unified-errors-json stays separate from PowerShell output
+    const unified = document.getElementById("ecmd-unified-errors-json")?.textContent || "";
+    expect(unified).not.toContain("Sample PowerShell failure line");
+
+    // Verify top header Copy PS Errors button exists and copies formatted PowerShell results
+    const topCopyBtn = document.getElementById("ecmd-top-bar-copy-ps-btn");
+    expect(topCopyBtn).not.toBeNull();
+    fireEvent.click(topCopyBtn!);
+
+    await waitFor(() => {
+      expect(writeText).toHaveBeenCalledWith(expect.stringContaining("Sample PowerShell failure line"));
+    });
   });
 });

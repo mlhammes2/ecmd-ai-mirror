@@ -3,11 +3,11 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-28T00:45:51.007Z",
-  "latestTurn": "TURN-051",
+  "generatedAt": "2026-11-28T01:10:22.926Z",
+  "latestTurn": "TURN-052",
   "counts": {
-    "totalFiles": 335,
-    "hubFiles": 190,
+    "totalFiles": 338,
+    "hubFiles": 193,
     "runnerFiles": 116,
     "supabaseMirrorFiles": 29,
     "registeredPlasmicComponents": 6,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-28T00:45:36.633Z",
+    "exportedAt": "2026-11-28T01:10:04.248Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -776,7 +776,7 @@
       "section": "hub",
       "path": "hub/public/ai-telemetry.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json",
-      "sizeBytes": 2265,
+      "sizeBytes": 3540,
       "purpose": "ECMD PEN live turn telemetry"
     },
     {
@@ -860,7 +860,7 @@
       "section": "hub",
       "path": "hub/public/runtime-errors.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/runtime-errors.json",
-      "sizeBytes": 49198,
+      "sizeBytes": 81320,
       "purpose": "DEV browser runtime errors store"
     },
     {
@@ -938,6 +938,13 @@
       "path": "hub/scripts/_fix_boot_prompt.mjs",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_fix_boot_prompt.mjs",
       "sizeBytes": 2019,
+      "purpose": "Code module"
+    },
+    {
+      "section": "hub",
+      "path": "hub/scripts/_fix_copy_ref.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_fix_copy_ref.mjs",
+      "sizeBytes": 667,
       "purpose": "Code module"
     },
     {
@@ -1030,6 +1037,13 @@
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_ps_output_box_and_tests.mjs",
       "sizeBytes": 6677,
       "purpose": "exports: EcmdDedicatedPsOutputBox, loadPs, copyPs"
+    },
+    {
+      "section": "hub",
+      "path": "hub/scripts/_read_and_mount_ps_box.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_read_and_mount_ps_box.mjs",
+      "sizeBytes": 6261,
+      "purpose": "exports: copyPowerShellErrorsText, PsOnlyOutputPanel"
     },
     {
       "section": "hub",
@@ -1259,7 +1273,7 @@
       "section": "hub",
       "path": "hub/src/components/layout/AppHeader.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/layout/AppHeader.tsx",
-      "sizeBytes": 9443,
+      "sizeBytes": 10693,
       "purpose": "exports: AppHeader"
     },
     {
@@ -1282,6 +1296,13 @@
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/PsErrorsOnlyBox.tsx",
       "sizeBytes": 4650,
       "purpose": "exports: PsResultsData, copyLatestPsOutput, PsErrorsOnlyBox"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/PsOnlyOutputPanel.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/PsOnlyOutputPanel.tsx",
+      "sizeBytes": 7417,
+      "purpose": "exports: PsPayload, formatPowerShellResultsText, fetchPowerShellResults, copyPowerShellErrorsText, PsOnlyOutputPanel"
     },
     {
       "section": "hub",
@@ -1742,7 +1763,7 @@
       "section": "hub",
       "path": "hub/src/pages/Errors.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/Errors.tsx",
-      "sizeBytes": 43607,
+      "sizeBytes": 44668,
       "purpose": "exports: UnifiedErrorsPayload, Errors"
     },
     {
@@ -1784,14 +1805,14 @@
       "section": "hub",
       "path": "hub/src/routes/__root.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/__root.tsx",
-      "sizeBytes": 11795,
+      "sizeBytes": 10519,
       "purpose": "exports: BENIGN_RESIZE_OBSERVER_ERROR_RE, isBenignResizeObserverError, ECMD_DEV_EARLY_ERROR_BRIDGE_SCRIPT, Route"
     },
     {
       "section": "hub",
       "path": "hub/src/routes/errors.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/errors.tsx",
-      "sizeBytes": 5068,
+      "sizeBytes": 169,
       "purpose": "exports: Route"
     },
     {
@@ -1875,7 +1896,7 @@
       "section": "hub",
       "path": "hub/src/test/errors-page.test.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/errors-page.test.tsx",
-      "sizeBytes": 5446,
+      "sizeBytes": 7933,
       "purpose": "Vitest automated test suite"
     },
     {

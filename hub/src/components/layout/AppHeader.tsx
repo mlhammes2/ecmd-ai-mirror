@@ -6,6 +6,7 @@ import {
   getDiagnosticSeverityTier,
   type CanvasDiagnostic,
 } from "../../lib/ecmdLiveComponentTelemetry";
+import { copyPowerShellErrorsText } from "../PsOnlyOutputPanel";
 
 interface DiagnosticsCounts {
   totalActive: number;
@@ -53,6 +54,7 @@ function summarizeDiagnostics(
 }
 
 export function AppHeader() {
+  const [copiedPs, setCopiedPs] = useState(false);
   const [diagCounts, setDiagCounts] = useState<DiagnosticsCounts>({
     totalActive: 0,
     criticalCount: 0,
@@ -219,6 +221,31 @@ export function AppHeader() {
           </nav>
         </div>
         <div className="flex items-center gap-2.5">
+          {import.meta.env.DEV && (
+            <button
+              id="ecmd-top-bar-copy-ps-btn"
+              data-testid="ecmd-top-bar-copy-ps-btn"
+              type="button"
+              onClick={async () => {
+                try {
+                  await copyPowerShellErrorsText();
+                  setCopiedPs(true);
+                  window.setTimeout(() => setCopiedPs(false), 1800);
+                } catch {
+                  // Ignore clipboard unavailability
+                }
+              }}
+              className={`flex items-center gap-1.5 whitespace-nowrap rounded-lg border px-2.5 py-1 text-[11px] font-bold transition-all ${
+                copiedPs
+                  ? "border-emerald-400/60 bg-emerald-500/20 text-emerald-200"
+                  : "border-sky-400/45 bg-sky-500/15 text-sky-200 hover:bg-sky-500/25"
+              }`}
+              title="Copy latest PowerShell terminal output from /powershell-results.json"
+            >
+              <span>{copiedPs ? "✓" : "📋"}</span>
+              <span>{copiedPs ? "Copied PS Errors" : "Copy PS Errors"}</span>
+            </button>
+          )}
           {import.meta.env.DEV && (
             <Link
               to="/errors"
