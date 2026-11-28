@@ -1,7 +1,7 @@
 ﻿{
-    "updatedAt":  "2026-11-27T16:58:29.0933228-07:00",
+    "updatedAt":  "2026-11-27T17:02:34.3011176-07:00",
     "exitCode":  1,
     "summary":  "tsc exit: 2 | vitest exit: 1",
-    "source":  "PowerShell Clean Removed Refs",
+    "source":  "PowerShell Test Imports Fix",
     "output":  "tsc exit: 2 | vitest exit: 1"
 }

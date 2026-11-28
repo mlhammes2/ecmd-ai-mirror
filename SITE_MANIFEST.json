@@ -3,11 +3,11 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-27T23:58:41.917Z",
+  "generatedAt": "2026-11-28T00:02:50.386Z",
   "latestTurn": "TURN-051",
   "counts": {
-    "totalFiles": 320,
-    "hubFiles": 175,
+    "totalFiles": 321,
+    "hubFiles": 176,
     "runnerFiles": 116,
     "supabaseMirrorFiles": 29,
     "registeredPlasmicComponents": 6,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-27T23:58:29.699Z",
+    "exportedAt": "2026-11-28T00:02:34.923Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -846,7 +846,7 @@
       "section": "hub",
       "path": "hub/public/powershell-results.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/powershell-results.json",
-      "sizeBytes": 231,
+      "sizeBytes": 229,
       "purpose": "JSON data / config"
     },
     {
@@ -939,6 +939,13 @@
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_fix_routes_and_copy_card.mjs",
       "sizeBytes": 5762,
       "purpose": "exports: PowerShellResultsPayload, EcmdPowerShellResultsCard"
+    },
+    {
+      "section": "hub",
+      "path": "hub/scripts/_fix_test_imports_clean.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_fix_test_imports_clean.mjs",
+      "sizeBytes": 1718,
+      "purpose": "Code module"
     },
     {
       "section": "hub",
@@ -1763,7 +1770,7 @@
       "section": "hub",
       "path": "hub/src/test/ecmd-telemetry-breakpoint.test.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/ecmd-telemetry-breakpoint.test.tsx",
-      "sizeBytes": 23754,
+      "sizeBytes": 23621,
       "purpose": "exports: setViewportWidth, BreakpointProbe"
     },
     {
@@ -1784,21 +1791,21 @@
       "section": "hub",
       "path": "hub/src/test/packages-matrix-engine.test.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/packages-matrix-engine.test.tsx",
-      "sizeBytes": 17023,
+      "sizeBytes": 16945,
       "purpose": "exports: StudioCardTemplate"
     },
     {
       "section": "hub",
       "path": "hub/src/test/packages-repeater.test.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/packages-repeater.test.tsx",
-      "sizeBytes": 12121,
+      "sizeBytes": 12020,
       "purpose": "Vitest automated test suite"
     },
     {
       "section": "hub",
       "path": "hub/src/test/plasmic-controllers.test.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/plasmic-controllers.test.tsx",
-      "sizeBytes": 54722,
+      "sizeBytes": 54610,
       "purpose": "Vitest automated test suite"
     },
     {
