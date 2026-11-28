@@ -1,7 +1,7 @@
 ﻿{
-    "updatedAt":  "2026-11-27T17:17:19.4237806-07:00",
+    "updatedAt":  "2026-11-27T17:22:37.1848761-07:00",
     "exitCode":  0,
-    "summary":  "All green! tsc: 0 errors and all 19 vitest suites passed.",
-    "source":  "PowerShell Empty Describe Cleanup",
+    "summary":  "Mounted PsErrorsOnlyBox on /errors \u0026 /workflow; tsc: 0 errors, vitest passed.",
+    "source":  "PowerShell PsErrorsOnlyBox Mount",
     "output":  "tsc exit: 0 | vitest exit: 0"
 }

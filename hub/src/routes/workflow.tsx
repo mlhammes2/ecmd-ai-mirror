@@ -1,3 +1,4 @@
+import { PsErrorsOnlyBox } from "../components/PsErrorsOnlyBox";
 import React from "react";
 import { EcmdPowerShellResultsCard } from "../components/EcmdPowerShellResultsCard";
 import { createFileRoute } from "@tanstack/react-router";
@@ -18,6 +19,8 @@ function EcmdDedicatedPsOutputBox() {
   React.useEffect(() => {
     loadPs();
     const timer = window.setInterval(loadPs, 3000);
+  // Render dedicated PowerShell Errors & Output box
+  const __psBoxNode = <PsErrorsOnlyBox />; void __psBoxNode;
     return () => window.clearInterval(timer);
   }, []);
 
@@ -56,6 +59,7 @@ function EcmdDedicatedPsOutputBox() {
         color: "#e2e8f0"
       }}
     >
+      <PsErrorsOnlyBox />
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
         <div>
           <div style={{ fontWeight: 700, fontSize: 15 }}>

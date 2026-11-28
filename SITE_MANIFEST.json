@@ -3,11 +3,11 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-28T00:17:36.113Z",
+  "generatedAt": "2026-11-28T00:22:52.688Z",
   "latestTurn": "TURN-051",
   "counts": {
-    "totalFiles": 326,
-    "hubFiles": 181,
+    "totalFiles": 328,
+    "hubFiles": 183,
     "runnerFiles": 116,
     "supabaseMirrorFiles": 29,
     "registeredPlasmicComponents": 6,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-28T00:17:20.055Z",
+    "exportedAt": "2026-11-28T00:22:37.788Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -846,7 +846,7 @@
       "section": "hub",
       "path": "hub/public/powershell-results.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/powershell-results.json",
-      "sizeBytes": 264,
+      "sizeBytes": 288,
       "purpose": "JSON data / config"
     },
     {
@@ -860,7 +860,7 @@
       "section": "hub",
       "path": "hub/public/runtime-errors.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/runtime-errors.json",
-      "sizeBytes": 31625,
+      "sizeBytes": 33791,
       "purpose": "DEV browser runtime errors store"
     },
     {
@@ -960,6 +960,13 @@
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_header_copy_and_autoclean.mjs",
       "sizeBytes": 2795,
       "purpose": "exports: handleHeaderCopyErrors"
+    },
+    {
+      "section": "hub",
+      "path": "hub/scripts/_mount_ps_errors_box.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_mount_ps_errors_box.mjs",
+      "sizeBytes": 5732,
+      "purpose": "exports: PsErrorsOnlyBox"
     },
     {
       "section": "hub",
@@ -1219,6 +1226,13 @@
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/layout/PageShell.tsx",
       "sizeBytes": 895,
       "purpose": "exports: PageShell"
+    },
+    {
+      "section": "hub",
+      "path": "hub/src/components/PsErrorsOnlyBox.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/PsErrorsOnlyBox.tsx",
+      "sizeBytes": 4250,
+      "purpose": "exports: PsErrorsOnlyBox"
     },
     {
       "section": "hub",
@@ -1728,7 +1742,7 @@
       "section": "hub",
       "path": "hub/src/routes/errors.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/errors.tsx",
-      "sizeBytes": 4662,
+      "sizeBytes": 4867,
       "purpose": "exports: Route"
     },
     {
@@ -1756,7 +1770,7 @@
       "section": "hub",
       "path": "hub/src/routes/workflow.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/workflow.tsx",
-      "sizeBytes": 4673,
+      "sizeBytes": 4878,
       "purpose": "exports: Route"
     },
     {
