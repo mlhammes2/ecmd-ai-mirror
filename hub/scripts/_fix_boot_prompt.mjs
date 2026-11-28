@@ -33,3 +33,6 @@ if (endTick >= 0 && !raw.includes("Plain-English Explanations (Smart High-School
 
 fs.writeFileSync(bootPath, raw, "utf8");
 console.log("Repaired src/lib/ecmdBootPrompt.ts cleanly.");
+
+
+

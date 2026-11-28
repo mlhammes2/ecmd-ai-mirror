@@ -1,4 +1,4 @@
-# The Page Code Folder
+﻿# The Page Code Folder
 
 This folder contains code files for each of the pages on your site as well as the [masterpage.js](https://support.wix.com/en/article/velo-working-with-the-velo-sidebar#global-site) file. The code you add to these files runs when visitors open pages on your site. These files correspond to the ones found in the [**Main Pages**](https://support.wix.com/en/article/velo-working-with-the-velo-sidebar#main-pages) section of the **Page Code** ![image](https://user-images.githubusercontent.com/89579857/184645988-6d4ee6d3-34ab-45bc-b914-5779a7de0cad.png) tab in the Velo sidebar.
 
@@ -19,3 +19,6 @@ When you delete a page in a Wix editor in your browser, the page's corresponding
 > * Do not rename code files for pages. Wix uses these file names to associate the files with the appropriate pages on your site. If you rename a file, your code is ignored and a new code file is created for the page.
 
 Learn more about [this repo's file structure](https://support.wix.com/en/article/velo-understanding-your-sites-github-repository-beta).
+
+
+

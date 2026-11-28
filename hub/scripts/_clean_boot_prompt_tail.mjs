@@ -43,3 +43,6 @@ const rebuilt = newBody + "`" + (keptTailLines.length ? "\n" + keptTailLines.joi
 
 fs.writeFileSync(bootPath, rebuilt, "utf8");
 console.log("Cleaned stray lines after closing backtick in src/lib/ecmdBootPrompt.ts");
+
+
+

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import { Link } from "@tanstack/react-router";
 import { carbonQuery } from "../integrations/supabase/client";
 import { ECMD_SIDEBAR_BOOT_PROMPT } from "../lib/ecmdBootPrompt";
@@ -97,7 +97,7 @@ export default function Workflow() {
                 Workflow &amp; Boot-Up Guide
               </h1>
               <p className="mt-2 max-w-2xl text-sm text-slate-300 leading-relaxed">
-                Eyes (Chrome Sidebar Visual Architect) + Pen (ECMD PEN v4 — Antigravity CLI <code className="text-emerald-300">agy</code> Execution Engine). Launch and orchestrate the entire full-stack system in 30 seconds.
+                Eyes (Chrome Sidebar Visual Architect) + Pen (ECMD PEN v4 â€” Antigravity CLI <code className="text-emerald-300">agy</code> Execution Engine). Launch and orchestrate the entire full-stack system in 30 seconds.
               </p>
             </div>
             <div className="flex flex-wrap gap-2.5">
@@ -107,13 +107,13 @@ export default function Workflow() {
                 rel="noreferrer"
                 className="rounded-lg bg-emerald-500 px-4 py-2 text-xs font-bold text-slate-950 shadow-lg shadow-emerald-500/20 transition hover:bg-emerald-400"
               >
-                GitHub AI Mirror ↗
+                GitHub AI Mirror â†—
               </a>
               <Link
                 to="/errors"
                 className="rounded-lg border border-sky-500/40 bg-sky-950/40 px-4 py-2 text-xs font-semibold text-sky-300 transition hover:bg-sky-900/50"
               >
-                Errors &amp; Issues ↗
+                Errors &amp; Issues â†—
               </Link>
               <a
                 href="https://studio.plasmic.app/projects/mrkoQykvpZZfVbEc1yjabw/-/Homepage"
@@ -121,7 +121,7 @@ export default function Workflow() {
                 rel="noreferrer"
                 className="rounded-lg border border-emerald-500/30 bg-slate-900/80 px-4 py-2 text-xs font-semibold text-emerald-300 transition hover:bg-slate-800"
               >
-                Plasmic Studio ↗
+                Plasmic Studio â†—
               </a>
               <Link
                 to="/"
@@ -250,7 +250,7 @@ export default function Workflow() {
               onClick={() => copyToClipboard("all-terminals", "# Terminal 1: Vite Dev Server\nstartplasmic\n\n# Terminal 2: ECMD PEN v4 Runner (Antigravity agy)\nepen")}
               className="inline-flex items-center gap-1.5 rounded-lg border border-emerald-500/40 bg-emerald-500/10 px-3 py-1.5 text-xs font-bold text-emerald-300 transition hover:bg-emerald-500/20"
             >
-              {copiedKey === "all-terminals" ? "✓ Copied Both!" : "Copy Startup Block"}
+              {copiedKey === "all-terminals" ? "âœ“ Copied Both!" : "Copy Startup Block"}
             </button>
           </div>
 
@@ -264,7 +264,7 @@ export default function Workflow() {
                   onClick={() => copyToClipboard("t1", "startplasmic")}
                   className="text-[11px] font-bold text-emerald-400 hover:text-emerald-300"
                 >
-                  {copiedKey === "t1" ? "✓ Copied" : "Copy"}
+                  {copiedKey === "t1" ? "âœ“ Copied" : "Copy"}
                 </button>
               </div>
               <pre className="mt-1 rounded-lg bg-[#070D18] p-3 font-mono text-xs text-emerald-400">startplasmic</pre>
@@ -276,13 +276,13 @@ export default function Workflow() {
             {/* Terminal 2 */}
             <div className="rounded-xl border border-slate-800 bg-[#030710] p-4">
               <div className="flex items-center justify-between pb-2">
-                <span className="text-xs font-mono font-semibold text-slate-400">Terminal 2 (ECMD PEN v4 — agy.exe)</span>
+                <span className="text-xs font-mono font-semibold text-slate-400">Terminal 2 (ECMD PEN v4 â€” agy.exe)</span>
                 <button
                   type="button"
                   onClick={() => copyToClipboard("t2", "epen")}
                   className="text-[11px] font-bold text-emerald-400 hover:text-emerald-300"
                 >
-                  {copiedKey === "t2" ? "✓ Copied" : "Copy"}
+                  {copiedKey === "t2" ? "âœ“ Copied" : "Copy"}
                 </button>
               </div>
               <pre className="mt-1 rounded-lg bg-[#070D18] p-3 font-mono text-xs text-emerald-400">epen</pre>
@@ -310,7 +310,7 @@ export default function Workflow() {
               onClick={() => copyToClipboard("sidebar-prompt", sidebarBootPrompt)}
               className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-500 px-3.5 py-1.5 text-xs font-bold text-slate-950 shadow-md shadow-emerald-500/20 transition hover:bg-emerald-400"
             >
-              {copiedKey === "sidebar-prompt" ? "✓ Prompt Copied!" : "Copy Sidebar Boot Prompt"}
+              {copiedKey === "sidebar-prompt" ? "âœ“ Prompt Copied!" : "Copy Sidebar Boot Prompt"}
             </button>
           </div>
 
@@ -325,13 +325,13 @@ export default function Workflow() {
             </div>
             <ul className="mt-1.5 space-y-1 text-slate-300">
               <li>
-                <strong className="text-white">Theme Groups Inspector</strong> (short name: <strong className="text-emerald-300">Groups Inspector</strong>, also referred to as <em>&ldquo;groups console&rdquo;</em>) = the <code className="text-emerald-300">[Site Themes] -&gt; Groups</code> per-state CSS class/selector styling panel (sticky <strong className="text-emerald-200">Search Bar + Auto A–Z Natural Sort + Pinning + Collapse/Expand All</strong>, in-card <strong className="text-emerald-200"><code>Copy Attributes From ▾</code></strong> dropdown with <code>All States / This State / All Themes</code> + 1-click <code>Undo</code>, <code>Default / Hover / Focus / Selected / Sel+Hover / Disabled</code> with automatic <strong className="text-emerald-200">Live Canvas State Preview</strong> <code>[👁️ Showing &lt;State&gt; on Canvas]</code> via transient <code>#ecmd-theme-live-state-preview</code>, Border <code>Off / 0px</code>, <code>Width (0–16px)</code>, <code>Style</code>, Gradient Color Studio, Shadows, &amp; Fluid Auto-Scale).
+                <strong className="text-white">Theme Groups Inspector</strong> (short name: <strong className="text-emerald-300">Groups Inspector</strong>, also referred to as <em>&ldquo;groups console&rdquo;</em>) = the <code className="text-emerald-300">[Site Themes] -&gt; Groups</code> per-state CSS class/selector styling panel (sticky <strong className="text-emerald-200">Search Bar + Auto Aâ€“Z Natural Sort + Pinning + Collapse/Expand All</strong>, in-card <strong className="text-emerald-200"><code>Copy Attributes From â–¾</code></strong> dropdown with <code>All States / This State / All Themes</code> + 1-click <code>Undo</code>, <code>Default / Hover / Focus / Selected / Sel+Hover / Disabled</code> with automatic <strong className="text-emerald-200">Live Canvas State Preview</strong> <code>[ðŸ‘ï¸ Showing &lt;State&gt; on Canvas]</code> via transient <code>#ecmd-theme-live-state-preview</code>, Border <code>Off / 0px</code>, <code>Width (0â€“16px)</code>, <code>Style</code>, Gradient Color Studio, Shadows, &amp; Fluid Auto-Scale).
               </li>
               <li>
-                <strong className="text-white">Image Groups Inspector</strong> = the <code className="text-sky-300">[Site Themes] -&gt; Images</code> per-theme asset swap &amp; sizing panel with sticky Search + Auto A–Z Natural Sort + Pinning + Collapse/Expand All + in-card <code>Copy Attributes From ▾</code> (<code>Sizing &amp; Fit Only</code> vs <code>Sizing + Image Asset</code> + 1-click <code>Undo</code>).
+                <strong className="text-white">Image Groups Inspector</strong> = the <code className="text-sky-300">[Site Themes] -&gt; Images</code> per-theme asset swap &amp; sizing panel with sticky Search + Auto Aâ€“Z Natural Sort + Pinning + Collapse/Expand All + in-card <code>Copy Attributes From â–¾</code> (<code>Sizing &amp; Fit Only</code> vs <code>Sizing + Image Asset</code> + 1-click <code>Undo</code>).
               </li>
               <li>
-                <strong className="text-white">Design Tokens Manager</strong> = the <code className="text-violet-300">[Site Themes] -&gt; Tokens</code> reusable attribute &amp; effect tokens registry (<code>boxShadow</code>, <code>textShadow</code>, <code>paint</code>, <code>border</code>, <code>radius</code>) with sticky Search + Auto A–Z Natural Sort + Pinning + Collapse/Expand All, per-theme <code>themeOverrides</code>, and linked token pills inside Groups.
+                <strong className="text-white">Design Tokens Manager</strong> = the <code className="text-violet-300">[Site Themes] -&gt; Tokens</code> reusable attribute &amp; effect tokens registry (<code>boxShadow</code>, <code>textShadow</code>, <code>paint</code>, <code>border</code>, <code>radius</code>) with sticky Search + Auto Aâ€“Z Natural Sort + Pinning + Collapse/Expand All, per-theme <code>themeOverrides</code>, and linked token pills inside Groups.
               </li>
             </ul>
           </div>
@@ -352,7 +352,7 @@ export default function Workflow() {
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-4">
             <div className="rounded-xl border border-slate-800/80 bg-[#050D18] p-4 text-center">
               <div className="mx-auto mb-2 grid h-10 w-10 place-items-center rounded-full bg-emerald-500/10 text-lg text-emerald-400">
-                👁️
+                ðŸ‘ï¸
               </div>
               <div className="text-xs font-bold uppercase tracking-wider text-emerald-400">Phase 1: Eyes</div>
               <div className="mt-1 text-sm font-semibold text-white">Visual Grounding</div>
@@ -363,7 +363,7 @@ export default function Workflow() {
 
             <div className="rounded-xl border border-slate-800/80 bg-[#050D18] p-4 text-center">
               <div className="mx-auto mb-2 grid h-10 w-10 place-items-center rounded-full bg-emerald-500/10 text-lg text-emerald-400">
-                ✍️
+                âœï¸
               </div>
               <div className="text-xs font-bold uppercase tracking-wider text-emerald-400">Phase 2: Pen</div>
               <div className="mt-1 text-sm font-semibold text-white">Antigravity CLI (agy)</div>
@@ -374,7 +374,7 @@ export default function Workflow() {
 
             <div className="rounded-xl border border-slate-800/80 bg-[#050D18] p-4 text-center">
               <div className="mx-auto mb-2 grid h-10 w-10 place-items-center rounded-full bg-emerald-500/10 text-lg text-emerald-400">
-                🛡️
+                ðŸ›¡ï¸
               </div>
               <div className="text-xs font-bold uppercase tracking-wider text-emerald-400">Phase 3: Self-Heal</div>
               <div className="mt-1 text-sm font-semibold text-white">TypeScript Loop</div>
@@ -385,7 +385,7 @@ export default function Workflow() {
 
             <div className="rounded-xl border border-slate-800/80 bg-[#050D18] p-4 text-center">
               <div className="mx-auto mb-2 grid h-10 w-10 place-items-center rounded-full bg-emerald-500/10 text-lg text-emerald-400">
-                ⚡
+                âš¡
               </div>
               <div className="text-xs font-bold uppercase tracking-wider text-emerald-400">Phase 4: Telemetry &amp; Mirror</div>
               <div className="mt-1 text-sm font-semibold text-white">0ms Diagnostics + Mirror</div>
@@ -399,3 +399,6 @@ export default function Workflow() {
     </div>
   );
 }
+
+
+

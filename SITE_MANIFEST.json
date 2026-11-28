@@ -3,8 +3,8 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-28T01:29:00.701Z",
-  "latestTurn": "TURN-052",
+  "generatedAt": "2026-11-28T01:42:41.659Z",
+  "latestTurn": "TURN-053",
   "counts": {
     "totalFiles": 338,
     "hubFiles": 193,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-28T01:28:44.788Z",
+    "exportedAt": "2026-11-28T01:42:24.857Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -776,7 +776,7 @@
       "section": "hub",
       "path": "hub/public/ai-telemetry.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/ai-telemetry.json",
-      "sizeBytes": 2399,
+      "sizeBytes": 2463,
       "purpose": "ECMD PEN live turn telemetry"
     },
     {
@@ -867,8 +867,8 @@
       "section": "hub",
       "path": "hub/README.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/README.md",
-      "sizeBytes": 1079,
-      "purpose": "Doc: Emerald Coast Detailing Hub"
+      "sizeBytes": 1093,
+      "purpose": "Markdown documentation"
     },
     {
       "section": "hub",
@@ -881,14 +881,14 @@
       "section": "hub",
       "path": "hub/scripts/_apply_workflow_and_copy_ui.mjs",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_apply_workflow_and_copy_ui.mjs",
-      "sizeBytes": 8004,
+      "sizeBytes": 8223,
       "purpose": "exports: PowerShellResultsData, EcmdPowerShellResultsCard"
     },
     {
       "section": "hub",
       "path": "hub/scripts/_clean_boot_prompt_tail.mjs",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_clean_boot_prompt_tail.mjs",
-      "sizeBytes": 2509,
+      "sizeBytes": 2559,
       "purpose": "Code module"
     },
     {
@@ -937,7 +937,7 @@
       "section": "hub",
       "path": "hub/scripts/_fix_boot_prompt.mjs",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_fix_boot_prompt.mjs",
-      "sizeBytes": 2019,
+      "sizeBytes": 2059,
       "purpose": "Code module"
     },
     {
@@ -1063,7 +1063,7 @@
       "section": "hub",
       "path": "hub/scripts/_repair_boot_prompt_clean.mjs",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_repair_boot_prompt_clean.mjs",
-      "sizeBytes": 3074,
+      "sizeBytes": 3144,
       "purpose": "Code module"
     },
     {
@@ -1077,7 +1077,7 @@
       "section": "hub",
       "path": "hub/scripts/_write_clean_boot_prompt.mjs",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_write_clean_boot_prompt.mjs",
-      "sizeBytes": 2607,
+      "sizeBytes": 2643,
       "purpose": "exports: ECMD_SIDEBAR_BOOT_PROMPT"
     },
     {
@@ -1665,7 +1665,7 @@
       "section": "hub",
       "path": "hub/src/lib/ecmdBootPrompt.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdBootPrompt.ts",
-      "sizeBytes": 2366,
+      "sizeBytes": 2378,
       "purpose": "exports: ECMD_SIDEBAR_BOOT_PROMPT"
     },
     {
@@ -1693,7 +1693,7 @@
       "section": "hub",
       "path": "hub/src/lib/ecmdRuntimeBoot.ts",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/lib/ecmdRuntimeBoot.ts",
-      "sizeBytes": 336,
+      "sizeBytes": 352,
       "purpose": "Code module"
     },
     {
@@ -1784,7 +1784,7 @@
       "section": "hub",
       "path": "hub/src/pages/Workflow.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/pages/Workflow.tsx",
-      "sizeBytes": 22051,
+      "sizeBytes": 22162,
       "purpose": "exports: Workflow"
     },
     {
@@ -1833,14 +1833,14 @@
       "section": "hub",
       "path": "hub/src/routes/README.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/README.md",
-      "sizeBytes": 856,
-      "purpose": "Doc: Routes"
+      "sizeBytes": 885,
+      "purpose": "Markdown documentation"
     },
     {
       "section": "hub",
       "path": "hub/src/routes/workflow.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/workflow.tsx",
-      "sizeBytes": 4754,
+      "sizeBytes": 4903,
       "purpose": "exports: Route"
     },
     {
@@ -1931,7 +1931,7 @@
       "section": "hub",
       "path": "hub/src/test/plasmic-host-boot.test.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/test/plasmic-host-boot.test.tsx",
-      "sizeBytes": 15065,
+      "sizeBytes": 15439,
       "purpose": "Vitest automated test suite"
     },
     {
@@ -2190,8 +2190,8 @@
       "section": "runner",
       "path": "runner/ecmd-console/README.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/ecmd-console/README.md",
-      "sizeBytes": 102,
-      "purpose": "Doc: ecmd-console"
+      "sizeBytes": 111,
+      "purpose": "Markdown documentation"
     },
     {
       "section": "runner",
@@ -2232,8 +2232,8 @@
       "section": "runner",
       "path": "runner/README.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/README.md",
-      "sizeBytes": 4094,
-      "purpose": "Doc: Git Integration & Wix CLI <img align=\"left\" src=\"https://user-images.github"
+      "sizeBytes": 4103,
+      "purpose": "Markdown documentation"
     },
     {
       "section": "runner",
@@ -2414,8 +2414,8 @@
       "section": "runner",
       "path": "runner/src/backend/README.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/backend/README.md",
-      "sizeBytes": 4979,
-      "purpose": "Doc: The Backend Code Folder"
+      "sizeBytes": 4988,
+      "purpose": "Markdown documentation"
     },
     {
       "section": "runner",
@@ -2540,8 +2540,8 @@
       "section": "runner",
       "path": "runner/src/pages/README.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/pages/README.md",
-      "sizeBytes": 2275,
-      "purpose": "Doc: The Page Code Folder"
+      "sizeBytes": 2284,
+      "purpose": "Markdown documentation"
     },
     {
       "section": "runner",
@@ -2813,8 +2813,8 @@
       "section": "runner",
       "path": "runner/src/public/README.md",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/runner/src/public/README.md",
-      "sizeBytes": 815,
-      "purpose": "Doc: The Public Code Folder"
+      "sizeBytes": 824,
+      "purpose": "Markdown documentation"
     },
     {
       "section": "runner",

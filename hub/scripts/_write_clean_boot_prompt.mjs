@@ -29,3 +29,6 @@ const fileContents =
 
 fs.writeFileSync(bootPath, fileContents, "utf8");
 console.log("Wrote valid src/lib/ecmdBootPrompt.ts cleanly.");
+
+
+

@@ -1,4 +1,4 @@
-# Emerald Coast Detailing Hub
+﻿# Emerald Coast Detailing Hub
 
 Create a clean, blank dark-mode React + Tailwind + TypeScript application shell for Emerald Coast Mobile Detailing (ECMD) with routes for / (Home), /booking-hq (Booking HQ), /detailer-portal (Detailer Portal), and /console (Command Console), ready for Supabase and GitHub sync.
 
@@ -14,7 +14,7 @@ Continue developing this project in the [Lovable editor](https://lovable.dev/pro
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Prefer working locally? You need Node.js and npm â€” [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
 
 ```sh
 git clone <this-repository-url>
@@ -22,3 +22,6 @@ cd <repository-name>
 npm i
 npm run dev
 ```
+
+
+

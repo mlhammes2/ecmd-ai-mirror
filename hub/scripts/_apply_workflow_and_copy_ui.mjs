@@ -212,3 +212,6 @@ for (const rel of ["src/routes/workflow.tsx", "src/routes/errors.tsx"]) {
 }
 
 console.log(JSON.stringify({ bootStatus, agentsStatus, geminiStatus, cardCreated: true }, null, 2));
+
+
+
