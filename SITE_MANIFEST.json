@@ -3,11 +3,11 @@
   "branch": "main",
   "rawBaseUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main",
   "manifestUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/SITE_MANIFEST.md",
-  "generatedAt": "2026-11-28T00:41:51.562Z",
+  "generatedAt": "2026-11-28T00:45:51.007Z",
   "latestTurn": "TURN-051",
   "counts": {
-    "totalFiles": 334,
-    "hubFiles": 189,
+    "totalFiles": 335,
+    "hubFiles": 190,
     "runnerFiles": 116,
     "supabaseMirrorFiles": 29,
     "registeredPlasmicComponents": 6,
@@ -17,7 +17,7 @@
   },
   "supabase": {
     "projectRef": "lvynkeuceiqxafgpgdvs",
-    "exportedAt": "2026-11-28T00:41:38.795Z",
+    "exportedAt": "2026-11-28T00:45:36.633Z",
     "tables": [
       {
         "table_name": "ecmd_advanced_suggestions",
@@ -825,7 +825,7 @@
       "section": "hub",
       "path": "hub/public/plasmic-diagnostics.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/plasmic-diagnostics.json",
-      "sizeBytes": 151243,
+      "sizeBytes": 172302,
       "purpose": "Plasmic Canvas live diagnostics store"
     },
     {
@@ -846,7 +846,7 @@
       "section": "hub",
       "path": "hub/public/powershell-results.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/powershell-results.json",
-      "sizeBytes": 264,
+      "sizeBytes": 233,
       "purpose": "JSON data / config"
     },
     {
@@ -860,7 +860,7 @@
       "section": "hub",
       "path": "hub/public/runtime-errors.json",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/public/runtime-errors.json",
-      "sizeBytes": 45958,
+      "sizeBytes": 49198,
       "purpose": "DEV browser runtime errors store"
     },
     {
@@ -974,6 +974,13 @@
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_header_copy_and_autoclean.mjs",
       "sizeBytes": 2795,
       "purpose": "exports: handleHeaderCopyErrors"
+    },
+    {
+      "section": "hub",
+      "path": "hub/scripts/_inspect_and_mount_ps_ui.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/scripts/_inspect_and_mount_ps_ui.mjs",
+      "sizeBytes": 7402,
+      "purpose": "exports: PsResultsData, copyLatestPsOutput, PsErrorsOnlyBox"
     },
     {
       "section": "hub",
@@ -1273,8 +1280,8 @@
       "section": "hub",
       "path": "hub/src/components/PsErrorsOnlyBox.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/components/PsErrorsOnlyBox.tsx",
-      "sizeBytes": 4049,
-      "purpose": "exports: PsErrorBoxData, PsErrorsOnlyBox"
+      "sizeBytes": 4650,
+      "purpose": "exports: PsResultsData, copyLatestPsOutput, PsErrorsOnlyBox"
     },
     {
       "section": "hub",
@@ -1777,14 +1784,14 @@
       "section": "hub",
       "path": "hub/src/routes/__root.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/__root.tsx",
-      "sizeBytes": 11470,
+      "sizeBytes": 11795,
       "purpose": "exports: BENIGN_RESIZE_OBSERVER_ERROR_RE, isBenignResizeObserverError, ECMD_DEV_EARLY_ERROR_BRIDGE_SCRIPT, Route"
     },
     {
       "section": "hub",
       "path": "hub/src/routes/errors.tsx",
       "rawUrl": "https://raw.githubusercontent.com/mlhammes2/ecmd-ai-mirror/main/hub/src/routes/errors.tsx",
-      "sizeBytes": 4743,
+      "sizeBytes": 5068,
       "purpose": "exports: Route"
     },
     {

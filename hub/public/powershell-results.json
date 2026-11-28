@@ -1,7 +1,7 @@
 ﻿{
-    "updatedAt":  "2026-11-27T17:41:38.1270369-07:00",
-    "exitCode":  0,
-    "summary":  "Single task complete; tsc: 0 errors, vitest passed.",
-    "source":  "Single-Task Pass: Top-Tab Copy + PS Box",
-    "output":  "tsc exit: 0 | vitest exit: 0"
+    "updatedAt":  "2026-11-27T17:45:35.9611633-07:00",
+    "exitCode":  1,
+    "summary":  "tsc exit: 2 | vitest exit: 0",
+    "source":  "PowerShell Inspect \u0026 Mount",
+    "output":  "tsc exit: 2 | vitest exit: 0"
 }

@@ -1,7 +1,49 @@
 {
-  "updatedAt": "2026-11-28T00:41:16.174Z",
-  "totalCount": 20,
+  "updatedAt": "2026-11-28T00:45:14.080Z",
+  "totalCount": 23,
   "errors": [
+    {
+      "id": "rt::836b14fb",
+      "kind": "unhandledrejection",
+      "message": "Cannot read properties of undefined (reading 'routesById')",
+      "source": "at handleRouteUpdate (http://localhost:8080/src/routes/errors.tsx?t=1795826713592:277:27)",
+      "line": null,
+      "column": null,
+      "stackPreview": "TypeError: Cannot read properties of undefined (reading 'routesById')\n    at handleRouteUpdate (http://localhost:8080/src/routes/errors.tsx?t=1795826713592:277:27)\n    at http://localhost:8080/src/routes/errors.tsx?t=1795826713592:338:4\n    at http://localhost:8080/@vite/client:70:95\n    at http://localhost:8080/@vite/client:222:52\n    at http://localhost:8080/@vite/client:200:55",
+      "url": "http://localhost:8080/plasmic-host#canvas=true&origin=https%3A%2F%2Fstudio.plasmic.app&staticBaseUrl=https%3A%2F%2Fstudio-static.plasmic.app%2Fstatic&componentName=Homepage&globalVariants=%7B%7D&interactive=false",
+      "artboardTag": "mobile-430",
+      "viewportMode": "mobile",
+      "timestamp": "2026-11-28T00:45:14.080Z",
+      "count": 3
+    },
+    {
+      "id": "rt::c9956143",
+      "kind": "unhandledrejection",
+      "message": "Cannot read properties of undefined (reading 'routesById')",
+      "source": "at handleRouteUpdate (http://localhost:8080/src/routes/__root.tsx?t=1795826475931:476:27)",
+      "line": null,
+      "column": null,
+      "stackPreview": "TypeError: Cannot read properties of undefined (reading 'routesById')\n    at handleRouteUpdate (http://localhost:8080/src/routes/__root.tsx?t=1795826475931:476:27)\n    at http://localhost:8080/src/routes/__root.tsx?t=1795826475931:537:4\n    at http://localhost:8080/@vite/client:70:95\n    at http://localhost:8080/@vite/client:222:52\n    at http://localhost:8080/@vite/client:200:55",
+      "url": "http://localhost:8080/plasmic-host#canvas=true&origin=https%3A%2F%2Fstudio.plasmic.app&staticBaseUrl=https%3A%2F%2Fstudio-static.plasmic.app%2Fstatic&componentName=Homepage&globalVariants=%7B%7D&interactive=false",
+      "artboardTag": "mobile-430",
+      "viewportMode": "mobile",
+      "timestamp": "2026-11-28T00:45:13.965Z",
+      "count": 3
+    },
+    {
+      "id": "rt::3586f620",
+      "kind": "unhandledrejection",
+      "message": "Cannot read properties of undefined (reading 'routesById')",
+      "source": "at handleRouteUpdate (http://localhost:8080/src/routes/errors.tsx?t=1795826475823:254:27)",
+      "line": null,
+      "column": null,
+      "stackPreview": "TypeError: Cannot read properties of undefined (reading 'routesById')\n    at handleRouteUpdate (http://localhost:8080/src/routes/errors.tsx?t=1795826475823:254:27)\n    at http://localhost:8080/src/routes/errors.tsx?t=1795826475823:315:4\n    at http://localhost:8080/@vite/client:70:95\n    at http://localhost:8080/@vite/client:222:52\n    at http://localhost:8080/@vite/client:200:55",
+      "url": "http://localhost:8080/plasmic-host#canvas=true&origin=https%3A%2F%2Fstudio.plasmic.app&staticBaseUrl=https%3A%2F%2Fstudio-static.plasmic.app%2Fstatic&componentName=Homepage&globalVariants=%7B%7D&interactive=false",
+      "artboardTag": "mobile-430",
+      "viewportMode": "mobile",
+      "timestamp": "2026-11-28T00:45:13.893Z",
+      "count": 3
+    },
     {
       "id": "rt::8562bbb3",
       "kind": "unhandledrejection",

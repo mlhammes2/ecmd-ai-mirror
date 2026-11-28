@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-28T00:24:31.197Z",
+  "updatedAt": "2026-11-28T00:42:32.164Z",
   "entries": {
     "EcmdBrandIcon::desktop-1440": {
       "componentName": "EcmdBrandIcon",
@@ -8685,11 +8685,11 @@
       "artboardTag": "desktop-1440",
       "viewportMode": "desktop",
       "viewportWidthPx": 1440,
-      "updatedAt": "2026-11-27T23:49:11.996Z",
+      "updatedAt": "2026-11-28T00:42:31.752Z",
       "snapshot": {
         "tag": "div",
         "id": "_r_1_",
-        "className": "__wab_instance uid-3006373",
+        "className": "__wab_instance uid-3006367",
         "textPreview": ".side-menu-card { box-sizing: border-box; border-radius: 12px; padding: 6px; box-shadow: 0 16px 36px rgba(0, 0, 0, 0.32)",
         "ecmdAttrs": {
           "data-ecmd-viewport": "desktop",
@@ -8822,7 +8822,7 @@
               {
                 "tag": "button",
                 "id": null,
-                "className": "__wab_defaults__all __wab_defaults__button __wab_defaults__button__canva uid-3004536 __wab_instance uid-3004562 __wab_val_root plasmic-tokens root_reset_3004458 __wab_tag",
+                "className": "__wab_defaults__all __wab_defaults__button __wab_defaults__button__canva uid-3004531 __wab_instance uid-3004557 __wab_val_root plasmic-tokens root_reset_3004453 __wab_tag",
                 "textPreview": "",
                 "ecmdAttrs": {},
                 "ariaAttrs": {},
@@ -8886,7 +8886,7 @@
                   {
                     "tag": "div",
                     "id": null,
-                    "className": "__wab_defaults__all uid-3006382 __wab_tag __wab_svg gm-icon-btn svg-icon-wrapper",
+                    "className": "__wab_defaults__all uid-3006376 __wab_tag __wab_svg gm-icon-btn svg-icon-wrapper",
                     "textPreview": "",
                     "ecmdAttrs": {},
                     "ariaAttrs": {},
@@ -8963,11 +8963,11 @@
       "artboardTag": "desktop-1440",
       "viewportMode": "desktop",
       "viewportWidthPx": 1440,
-      "updatedAt": "2026-11-27T23:49:11.998Z",
+      "updatedAt": "2026-11-28T00:42:31.758Z",
       "snapshot": {
         "tag": "div",
         "id": null,
-        "className": "__wab_instance uid-3004961 plasmic-tokens root_reset_3004458 __wab_instance uid-3004961 uid-3004970",
+        "className": "__wab_instance uid-3004956 plasmic-tokens root_reset_3004453 __wab_instance uid-3004956 uid-3004965",
         "textPreview": "@keyframes ecmdAuthShake { 0%, 100% { transform: translateX(0); } 20%, 60% { transform: translateX(-7px); } 40%, 80% { t",
         "ecmdAttrs": {
           "data-ecmd-viewport": "desktop",
@@ -9098,7 +9098,7 @@
               {
                 "tag": "div",
                 "id": "ecmd-auth-trigger-row",
-                "className": "__wab_defaults__all uid-3005004 __wab_tag",
+                "className": "__wab_defaults__all uid-3004999 __wab_tag",
                 "textPreview": "Member LoginSign Up",
                 "ecmdAttrs": {},
                 "ariaAttrs": {},
@@ -9162,7 +9162,7 @@
                   {
                     "tag": "button",
                     "id": "ecmd-auth-trigger-btn",
-                    "className": "__wab_defaults__all __wab_defaults__button __wab_defaults__button__canva uid-3005030 __wab_tag textdb",
+                    "className": "__wab_defaults__all __wab_defaults__button __wab_defaults__button__canva uid-3005025 __wab_tag textdb",
                     "textPreview": "Member Login",
                     "ecmdAttrs": {},
                     "ariaAttrs": {},
@@ -9227,7 +9227,7 @@
                   {
                     "tag": "button",
                     "id": "ecmd-auth-signup-trigger-btn",
-                    "className": "__wab_defaults__all __wab_defaults__button __wab_defaults__button__canva uid-3005032 __wab_tag textdb",
+                    "className": "__wab_defaults__all __wab_defaults__button __wab_defaults__button__canva uid-3005027 __wab_tag textdb",
                     "textPreview": "Sign Up",
                     "ecmdAttrs": {},
                     "ariaAttrs": {},
@@ -9304,11 +9304,11 @@
       "artboardTag": "desktop-1440",
       "viewportMode": "desktop",
       "viewportWidthPx": 1440,
-      "updatedAt": "2026-11-27T23:49:12.007Z",
+      "updatedAt": "2026-11-28T00:42:31.760Z",
       "snapshot": {
         "tag": "div",
         "id": "ecmd-tg-r2",
-        "className": "__wab_instance uid-3004856",
+        "className": "__wab_instance uid-3004851",
         "textPreview": ":root { --ecmd-tok-box-shadow-button-inner-light: inset 0px 1px 8px 1px rgba(255,255,255,0.90); } .ecmd-group-1, .ecmd-g",
         "ecmdAttrs": {
           "data-ecmd-viewport": "desktop",
@@ -9443,7 +9443,7 @@
               {
                 "tag": "button",
                 "id": "ecmd-theme-trigger-btn",
-                "className": "__wab_defaults__all __wab_defaults__button __wab_defaults__button__canva uid-3006403 __wab_tag",
+                "className": "__wab_defaults__all __wab_defaults__button __wab_defaults__button__canva uid-3006397 __wab_tag",
                 "textPreview": "free boxSite Themes",
                 "ecmdAttrs": {},
                 "ariaAttrs": {},
@@ -9507,7 +9507,7 @@
                   {
                     "tag": "div",
                     "id": "ecmd-theme-trigger-dot",
-                    "className": "__wab_defaults__all uid-3006410 __wab_tag",
+                    "className": "__wab_defaults__all uid-3006404 __wab_tag",
                     "textPreview": "free box",
                     "ecmdAttrs": {
                       "data-ecmd-trigger-dot": "true"
@@ -9904,7 +9904,7 @@
                   {
                     "tag": "div",
                     "id": "ecmd-theme-trigger-label",
-                    "className": "__wab_defaults__all uid-3006412 __wab_tag textdb __wab_text __wab_editor",
+                    "className": "__wab_defaults__all uid-3006406 __wab_tag textdb __wab_text __wab_editor",
                     "textPreview": "Site Themes",
                     "ecmdAttrs": {},
                     "ariaAttrs": {},
@@ -38638,11 +38638,11 @@
       "artboardTag": "mobile-430",
       "viewportMode": "mobile",
       "viewportWidthPx": 430,
-      "updatedAt": "2026-11-27T23:49:12.461Z",
+      "updatedAt": "2026-11-28T00:42:32.098Z",
       "snapshot": {
         "tag": "div",
         "id": "_r_1_",
-        "className": "__wab_instance uid-3006373",
+        "className": "__wab_instance uid-3006367",
         "textPreview": ".side-menu-card { box-sizing: border-box; border-radius: 12px; padding: 6px; box-shadow: 0 16px 36px rgba(0, 0, 0, 0.32)",
         "ecmdAttrs": {
           "data-ecmd-viewport": "mobile",
@@ -38775,7 +38775,7 @@
               {
                 "tag": "button",
                 "id": null,
-                "className": "__wab_defaults__all __wab_defaults__button __wab_defaults__button__canva uid-3004536 __wab_instance uid-3004562 __wab_val_root plasmic-tokens root_reset_3004458 __wab_tag",
+                "className": "__wab_defaults__all __wab_defaults__button __wab_defaults__button__canva uid-3004531 __wab_instance uid-3004557 __wab_val_root plasmic-tokens root_reset_3004453 __wab_tag",
                 "textPreview": "",
                 "ecmdAttrs": {},
                 "ariaAttrs": {},
@@ -38839,7 +38839,7 @@
                   {
                     "tag": "div",
                     "id": null,
-                    "className": "__wab_defaults__all uid-3006382 __wab_tag __wab_svg gm-icon-btn svg-icon-wrapper",
+                    "className": "__wab_defaults__all uid-3006376 __wab_tag __wab_svg gm-icon-btn svg-icon-wrapper",
                     "textPreview": "",
                     "ecmdAttrs": {},
                     "ariaAttrs": {},
@@ -38916,11 +38916,11 @@
       "artboardTag": "mobile-430",
       "viewportMode": "mobile",
       "viewportWidthPx": 430,
-      "updatedAt": "2026-11-27T23:49:12.517Z",
+      "updatedAt": "2026-11-28T00:42:32.164Z",
       "snapshot": {
         "tag": "div",
         "id": "ecmd-tg-r2",
-        "className": "__wab_instance uid-3004856",
+        "className": "__wab_instance uid-3004851",
         "textPreview": ":root { --ecmd-tok-box-shadow-button-inner-light: inset 0px 1px 8px 1px rgba(255,255,255,0.90); } .ecmd-group-1, .ecmd-g",
         "ecmdAttrs": {
           "data-ecmd-viewport": "mobile",
@@ -39055,7 +39055,7 @@
               {
                 "tag": "button",
                 "id": "ecmd-theme-trigger-btn",
-                "className": "__wab_defaults__all __wab_defaults__button __wab_defaults__button__canva uid-3006403 __wab_tag",
+                "className": "__wab_defaults__all __wab_defaults__button __wab_defaults__button__canva uid-3006397 __wab_tag",
                 "textPreview": "free boxSite Themes",
                 "ecmdAttrs": {},
                 "ariaAttrs": {},
@@ -39119,7 +39119,7 @@
                   {
                     "tag": "div",
                     "id": "ecmd-theme-trigger-dot",
-                    "className": "__wab_defaults__all uid-3006410 __wab_tag",
+                    "className": "__wab_defaults__all uid-3006404 __wab_tag",
                     "textPreview": "free box",
                     "ecmdAttrs": {
                       "data-ecmd-trigger-dot": "true"
@@ -39516,7 +39516,7 @@
                   {
                     "tag": "div",
                     "id": "ecmd-theme-trigger-label",
-                    "className": "__wab_defaults__all uid-3006412 __wab_tag textdb __wab_text __wab_editor",
+                    "className": "__wab_defaults__all uid-3006406 __wab_tag textdb __wab_text __wab_editor",
                     "textPreview": "Site Themes",
                     "ecmdAttrs": {},
                     "ariaAttrs": {},
@@ -39725,11 +39725,11 @@
       "artboardTag": "mobile-430",
       "viewportMode": "mobile",
       "viewportWidthPx": 430,
-      "updatedAt": "2026-11-27T23:49:12.462Z",
+      "updatedAt": "2026-11-28T00:42:32.102Z",
       "snapshot": {
         "tag": "div",
         "id": null,
-        "className": "__wab_instance uid-3004961 plasmic-tokens root_reset_3004458 __wab_instance uid-3004961 uid-3004970",
+        "className": "__wab_instance uid-3004956 plasmic-tokens root_reset_3004453 __wab_instance uid-3004956 uid-3004965",
         "textPreview": "@keyframes ecmdAuthShake { 0%, 100% { transform: translateX(0); } 20%, 60% { transform: translateX(-7px); } 40%, 80% { t",
         "ecmdAttrs": {
           "data-ecmd-viewport": "mobile",
@@ -39860,7 +39860,7 @@
               {
                 "tag": "div",
                 "id": "ecmd-auth-trigger-row",
-                "className": "__wab_defaults__all uid-3005004 __wab_tag",
+                "className": "__wab_defaults__all uid-3004999 __wab_tag",
                 "textPreview": "Member LoginSign Up",
                 "ecmdAttrs": {},
                 "ariaAttrs": {},
@@ -39924,7 +39924,7 @@
                   {
                     "tag": "button",
                     "id": "ecmd-auth-trigger-btn",
-                    "className": "__wab_defaults__all __wab_defaults__button __wab_defaults__button__canva uid-3005030 __wab_tag textdb",
+                    "className": "__wab_defaults__all __wab_defaults__button __wab_defaults__button__canva uid-3005025 __wab_tag textdb",
                     "textPreview": "Member Login",
                     "ecmdAttrs": {},
                     "ariaAttrs": {},
@@ -39989,7 +39989,7 @@
                   {
                     "tag": "button",
                     "id": "ecmd-auth-signup-trigger-btn",
-                    "className": "__wab_defaults__all __wab_defaults__button __wab_defaults__button__canva uid-3005032 __wab_tag textdb",
+                    "className": "__wab_defaults__all __wab_defaults__button __wab_defaults__button__canva uid-3005027 __wab_tag textdb",
                     "textPreview": "Sign Up",
                     "ecmdAttrs": {},
                     "ariaAttrs": {},

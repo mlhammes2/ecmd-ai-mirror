@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export interface PsErrorBoxData {
+export interface PsResultsData {
   updatedAt?: string;
   source?: string;
   exitCode?: number;
@@ -8,52 +8,70 @@ export interface PsErrorBoxData {
   output?: string;
 }
 
+export async function copyLatestPsOutput(): Promise<boolean> {
+  try {
+    const r = await fetch("/powershell-results.json?_=" + Date.now(), { cache: "no-store" });
+    if (!r.ok) return false;
+    const j: PsResultsData = await r.json();
+    const text = [
+      "=== POWERSHELL ERRORS & OUTPUT ===",
+      "Source: " + (j.source || "PowerShell"),
+      "Updated: " + (j.updatedAt || ""),
+      "Exit Code: " + (typeof j.exitCode === "number" ? j.exitCode : 0),
+      j.summary ? "Summary: " + j.summary : "",
+      "---",
+      j.output || ""
+    ].filter(Boolean).join("\n");
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 export function PsErrorsOnlyBox() {
-  const [ps, setPs] = useState<PsErrorBoxData | null>(null);
+  const [info, setInfo] = useState<PsResultsData | null>(null);
   const [copied, setCopied] = useState(false);
 
-  async function refresh() {
+  async function pull() {
     try {
       const r = await fetch("/powershell-results.json?_=" + Date.now(), { cache: "no-store" });
       if (!r.ok) return;
-      setPs(await r.json());
+      setInfo(await r.json());
     } catch {}
   }
 
   useEffect(() => {
-    refresh();
-    const t = window.setInterval(refresh, 2500);
+    pull();
+    const t = window.setInterval(pull, 2500);
     return () => window.clearInterval(t);
   }, []);
 
-  const isErr = typeof ps?.exitCode === "number" && ps.exitCode !== 0;
+  const isErr = typeof info?.exitCode === "number" && info.exitCode !== 0;
 
-  const formatted = ps
+  const displayText = info
     ? [
         "=== POWERSHELL ERRORS & OUTPUT ===",
-        "Source: " + (ps.source || "PowerShell"),
-        "Updated: " + (ps.updatedAt || ""),
-        "Exit Code: " + (typeof ps.exitCode === "number" ? ps.exitCode : 0),
-        ps.summary ? "Summary: " + ps.summary : "",
+        "Source: " + (info.source || "PowerShell"),
+        "Updated: " + (info.updatedAt || ""),
+        "Exit Code: " + (typeof info.exitCode === "number" ? info.exitCode : 0),
+        info.summary ? "Summary: " + info.summary : "",
         "---",
-        ps.output || ""
+        info.output || ""
       ].filter(Boolean).join("\n")
     : "No PowerShell output recorded yet.";
 
-  async function copyOutput() {
-    try {
-      await navigator.clipboard.writeText(formatted);
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 1800);
-    } catch {
-      const el = document.getElementById("ps-errors-only-output") as HTMLTextAreaElement | null;
-      if (el) {
-        el.select();
+  async function onCopy() {
+    const ok = await copyLatestPsOutput();
+    if (!ok) {
+      const ta = document.getElementById("ps-errors-only-box-textarea") as HTMLTextAreaElement | null;
+      if (ta) {
+        ta.select();
         document.execCommand("copy");
-        setCopied(true);
-        window.setTimeout(() => setCopied(false), 1800);
       }
     }
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 1800);
   }
 
   return (
@@ -65,23 +83,23 @@ export function PsErrorsOnlyBox() {
         padding: 14,
         borderRadius: 10,
         border: isErr ? "2px solid #ef4444" : "1px solid rgba(56, 189, 248, 0.55)",
-        background: isErr ? "rgba(69, 10, 10, 0.9)" : "rgba(15, 23, 42, 0.92)",
+        background: isErr ? "rgba(69, 10, 10, 0.92)" : "rgba(15, 23, 42, 0.92)",
         color: "#f8fafc"
       }}
     >
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
         <div>
           <div style={{ fontWeight: 700, fontSize: 14 }}>
-            PowerShell Errors &amp; Terminal Output {isErr ? "(ERROR Exit " + ps?.exitCode + ")" : "(OK)"}
+            PowerShell Errors &amp; Terminal Output {isErr ? "(ERROR Exit " + info?.exitCode + ")" : "(OK)"}
           </div>
           <div style={{ fontSize: 12, opacity: 0.8 }}>
-            {ps?.updatedAt ? "Updated: " + ps.updatedAt : "Waiting for /powershell-results.json"}
+            {info?.updatedAt ? "Updated: " + info.updatedAt : "Waiting for /powershell-results.json"}
           </div>
         </div>
         <div style={{ display: "flex", gap: 8 }}>
           <button
             type="button"
-            onClick={refresh}
+            onClick={pull}
             style={{
               padding: "5px 10px",
               borderRadius: 6,
@@ -96,7 +114,7 @@ export function PsErrorsOnlyBox() {
           </button>
           <button
             type="button"
-            onClick={copyOutput}
+            onClick={onCopy}
             style={{
               padding: "5px 12px",
               borderRadius: 6,
@@ -113,10 +131,10 @@ export function PsErrorsOnlyBox() {
         </div>
       </div>
       <textarea
-        id="ps-errors-only-output"
+        id="ps-errors-only-box-textarea"
         readOnly
         rows={7}
-        value={formatted}
+        value={displayText}
         style={{
           width: "100%",
           boxSizing: "border-box",

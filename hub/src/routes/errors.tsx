@@ -57,6 +57,7 @@ return () => window.clearInterval(timer);
         color: "#e2e8f0"
       }}
     >
+      <button id="ecmd-top-bar-copy-ps-btn" type="button" onClick={() => { void copyLatestPsOutput(); }} style={{ padding: "4px 10px", borderRadius: 6, border: "1px solid rgba(56,189,248,0.5)", background: "rgba(56,189,248,0.18)", color: "#e0f2fe", fontSize: 12, fontWeight: 600, cursor: "pointer" }}>Copy PS Errors</button>
       <PsErrorsOnlyBox />
 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
         <div>
